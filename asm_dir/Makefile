@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/15 18:52:00 by mhaziza          ###   ########.fr        #
+#    Updated: 2017/03/15 19:15:54 by mhaziza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ RM		=   rm -f
 LIBFT	=	 -L../libft -lft
 SRCS	=	asm.c \
 			get_asm_utils.c \
+			op.c \
+			file_check.c  \
 
 OBJS	=   $(SRCS:.c=.o)
 
