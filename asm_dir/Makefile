@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/15 17:55:27 by mhaziza          ###   ########.fr        #
+#    Updated: 2017/03/15 18:33:15 by mhaziza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CFLAGS	= 	-Wall -Wextra -Werror -I. -fsanitize=address
 RM		=   rm -f
 LIBFT	=	 -L../libft -lft
 SRCS	=	asm.c \
+			get_asm_utils.c \
 
 OBJS	=   $(SRCS:.c=.o)
 
