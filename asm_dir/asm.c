@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/15 18:41:28 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/15 18:44:50 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int			main(int ac, char **av)
 			return (free_and_return(file, asm_tab, 0, 0));
 		asm_tab = NULL;
 		if (!(asm_tab = ft_memalloc(sizeof(char*) * (tread.nb_line + 1))))
-			return (-1);
+			return (0);
 		if (split_asm(asm_tab, file, tread.nb_line) <= 0)
 			return (free_and_return(file, asm_tab, 1, 0));
 	}

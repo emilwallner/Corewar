@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:45 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/15 18:33:49 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/15 18:51:19 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ASM_H
 
 # include "../libft/libft.h"
+# include "op.h"
 # include <stdio.h>
 
 typedef struct	s_read
