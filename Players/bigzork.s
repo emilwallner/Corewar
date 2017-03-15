@@ -1,89 +1,12 @@
 .name "bigzork"
 .comment "I know i cant win"
 
-ld %0, r2
-st r1, 211
-st r2, 211
-st r3, 211
-st r4, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
-st r1, 211
+ld %1, r1
+
 loop:
+add r1, r1, r1
+ld %0, r2
+zjmp %:r1
 live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
-live %1
+ld %0, r2
 zjmp %:loop
