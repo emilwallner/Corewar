@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/16 17:41:31 by tlenglin         ###   ########.fr        #
+#    Updated: 2017/03/16 19:09:03 by mhaziza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ SRCS	=	asm.c \
 			get_asm_utils.c \
 			file_check.c  \
 			check_line.c \
+			check_line_utils.c \
 			check_params.c \
+			check_params_utils.c \
 
 OBJS	=   $(SRCS:.c=.o)
 

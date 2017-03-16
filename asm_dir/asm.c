@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/16 16:33:16 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/16 19:07:02 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static int	free_and_return(char *file, char **asm_tab, int free_tab, int ret)
 		free(asm_tab[i]);
 	if (free_tab)
 		free(asm_tab);
+	if (!ret)
+		ft_putstr("Error\n");
 	return (ret);
 }
 
@@ -53,10 +55,8 @@ int			main(int ac, char **av)
 		count_label(&tasm);
 		if (!(tasm.labels = ft_memalloc(sizeof(t_label) * (tasm.nb_labels))))
 			return (free_and_return(file, tasm.asm_tab, 1, 0));
-		ft_putnbr(tasm.nb_labels);
 		if (check_instructions(&tasm) == 0)
-			return (0);
+			return (free_and_return(file, tasm.asm_tab, 1, 0));
 	}
-	ft_puttab_str(tasm.asm_tab);
 	return (free_and_return(file, tasm.asm_tab, 1, 1));
 }

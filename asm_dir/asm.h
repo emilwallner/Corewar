@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:45 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/16 17:41:23 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/16 19:21:12 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,16 @@ int				get_asm(char *file_name, char *file, t_read *tread);
 int				split_asm(char **asm_tab, char *file, int nb);
 
 int				check_file(char **asm_tab, t_header *header);
-int	check_instructions(t_asm *tasm);
-int		check_params(char *params, t_op top, t_asm *tasm);
-int	count_label(t_asm *tasm);
-// int	check_file_instructions(char **asm_tab);
+int				check_instructions(t_asm *tasm);
+int				set_variables(t_instruction *line, t_asm *tasm, char *str,
+				int iline);
+int				check_params(char *params, t_op top, t_asm *tasm);
+int				check_label(char *str);
+int				count_label(t_asm *tasm);
+
+
+int				check_register(char *params, t_op top, int p);
+int				check_direct(char *params, t_op top, int p, t_asm *tasm);
+int				check_indirect(char *params, t_op top, int p, t_asm *tasm);
 
 #endif
