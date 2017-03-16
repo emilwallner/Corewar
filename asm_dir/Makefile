@@ -6,19 +6,20 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/15 19:15:54 by mhaziza          ###   ########.fr        #
+#    Updated: 2017/03/16 17:41:31 by tlenglin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	asm
 CC		=   gcc
-CFLAGS	= 	-Wall -Wextra -Werror -I. -fsanitize=address
+CFLAGS	= 	-Wall -Wextra -Werror -I. -g
 RM		=   rm -f
 LIBFT	=	 -L../libft -lft
 SRCS	=	asm.c \
 			get_asm_utils.c \
-			op.c \
 			file_check.c  \
+			check_line.c \
+			check_params.c \
 
 OBJS	=   $(SRCS:.c=.o)
 

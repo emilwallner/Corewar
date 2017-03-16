@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:21:54 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/15 19:16:43 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/16 11:36:46 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,6 @@ int	check_file_comment(char *str, t_header *header)
 	}
 	return (1);
 }
-
-// int	check_file_instructions(char **asm_tab)
-// {
-// 	int i;
-//
-// 	i = 2;
-// 	while (asm_tab[i] != NULL)
-// 	{
-// 		if ()
-// 	}
-// }
 
 int	check_file(char **asm_tab, t_header *header)
 {

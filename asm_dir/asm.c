@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/15 18:44:50 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/16 16:33:16 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int			main(int ac, char **av)
 {
 	int		i;
 	char	*file;
-	char	**asm_tab;
+	t_asm	tasm;
 	t_read	tread;
 
 	if (ac == 1)
@@ -43,13 +43,20 @@ int			main(int ac, char **av)
 		if (!(file = ft_strnew(tread.nb_char + 1)))
 			return (0);
 		if (!(get_asm(av[i], file, &tread)))
-			return (free_and_return(file, asm_tab, 0, 0));
-		asm_tab = NULL;
-		if (!(asm_tab = ft_memalloc(sizeof(char*) * (tread.nb_line + 1))))
+			return (free_and_return(file, NULL, 0, 0));
+		tasm.asm_tab = NULL;
+		if (!(tasm.asm_tab = ft_memalloc(sizeof(char*) * (tread.nb_line + 1))))
 			return (0);
-		if (split_asm(asm_tab, file, tread.nb_line) <= 0)
-			return (free_and_return(file, asm_tab, 1, 0));
+		if (split_asm(tasm.asm_tab, file, tread.nb_line) <= 0)
+			return (free_and_return(file, tasm.asm_tab, 1, 0));
+		tasm.labels = NULL;
+		count_label(&tasm);
+		if (!(tasm.labels = ft_memalloc(sizeof(t_label) * (tasm.nb_labels))))
+			return (free_and_return(file, tasm.asm_tab, 1, 0));
+		ft_putnbr(tasm.nb_labels);
+		if (check_instructions(&tasm) == 0)
+			return (0);
 	}
-	ft_puttab_str(asm_tab);
-	return (free_and_return(file, asm_tab, 1, 1));
+	ft_puttab_str(tasm.asm_tab);
+	return (free_and_return(file, tasm.asm_tab, 1, 1));
 }

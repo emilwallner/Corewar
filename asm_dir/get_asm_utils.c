@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:31:37 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/15 18:40:32 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/16 13:35:53 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int			get_counts(char *file_name, t_read *tread)
 
 	tread->nb_char = 0;
 	tread->nb_line = 0;
+	buff[0] = 0;
 	if ((fd = open(file_name, O_RDONLY)) == -1)
 		return (0);
 	while ((ret = read(fd, buff, BUFF_SIZE)) > 0)
