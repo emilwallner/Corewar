@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asm.h                                              :+:      :+:    :+:   */
+/*   vm.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ewallner <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/15 14:27:45 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/16 19:21:12 by mhaziza          ###   ########.fr       */
+/*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
+/*   Updated: 2017/03/17 14:20:23 by ewallner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,32 @@
 # include "op.h"
 # include <stdio.h>
 # include <limits.h>
+
+typedef struct	s_read
+{
+	int	nb_char;
+	int	nb_line;
+}				t_read;
+
+typedef struct	s_label
+{
+	char	*label;
+	int		index;
+}				t_label;
+
+typedef struct	s_asm
+{
+	char	**asm_tab;
+	t_label	*labels;
+	int		nb_labels;
+}				t_asm;
+
+typedef struct	s_instruction
+{
+	char	*name;
+	char	*params;
+	char	*label;
+}				t_instruction;
 
 
 #endif
