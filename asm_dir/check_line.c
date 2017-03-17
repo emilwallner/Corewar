@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 11:36:16 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/16 19:02:08 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/17 14:27:30 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static t_op	g_op_tab[17] =
 	{{0}, 0, {0}, 0, 0, {0}, 0, 0}
 };
 
-int	check_label(char *str)
+int	check_valid_label(char *str)
 {
 	int	i;
 
@@ -62,7 +62,7 @@ int	count_label(t_asm *tasm)
 	i = 2;
 	while (tasm->asm_tab[i] != NULL)
 	{
-		if (check_label(tasm->asm_tab[i]) == 1)
+		if (check_valid_label(tasm->asm_tab[i]) == 1)
 			tasm->nb_labels++;
 		i++;
 	}
@@ -90,12 +90,13 @@ int	check_instructions(t_asm *tasm)
 	i = 2;
 	while (tasm->asm_tab[i] != NULL)
 	{
+		// ft_putstr("YYY\n");
 		if (!tasm->asm_tab[i][0] || tasm->asm_tab[i][0] == COMMENT_CHAR)
 			i++;
 		else if (tasm->asm_tab[i][0])
 		{
-			// printf("tasm->asm_tab[i] %s\n", tasm->asm_tab[i]);
-			if (set_variables(&line, tasm, tasm->asm_tab[i], i) == 0)
+			// printf("tasm->asm_tab[i] %s, i = %d\n", tasm->asm_tab[i], i);
+			if (set_variables(&line, tasm, tasm->asm_tab[i]) == 0)
 			{
 				// ft_putstr("ZZZZZZZ\n");
 				return (0);
@@ -104,6 +105,7 @@ int	check_instructions(t_asm *tasm)
 			if ((id = get_id_by_name(line.name) - 1) == -1)
 				return (0);
 			// printf("id funtion %i\n", id);
+			// ft_putstr("aaaa\n");
 			if (check_params(line.params, g_op_tab[id], tasm) == 0)
 				return (0);
 			i++;

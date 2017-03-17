@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:31:37 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/16 13:35:53 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/17 14:28:30 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ int			split_asm(char **asm_tab, char *file, int nb)
 			i++;
 		}
 		asm_tab[line][cursor] = '\0';
+		// ft_putstr(asm_tab[line]);
+		// ft_putchar('\n');
 	}
 	asm_tab[line] = NULL;
 	return (1);

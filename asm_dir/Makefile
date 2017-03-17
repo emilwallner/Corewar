@@ -6,13 +6,13 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/16 19:09:03 by mhaziza          ###   ########.fr        #
+#    Updated: 2017/03/17 10:09:07 by tlenglin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	asm
 CC		=   gcc
-CFLAGS	= 	-Wall -Wextra -Werror -I. -g
+CFLAGS	= 	-Wall -Wextra -Werror -I. -fsanitize=address
 RM		=   rm -f
 LIBFT	=	 -L../libft -lft
 SRCS	=	asm.c \
