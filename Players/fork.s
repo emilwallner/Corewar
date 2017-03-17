@@ -1,4 +1,4 @@
-.name "zork"
+.name "tim"
 .comment "just a basic living prog"
 
 l2:	add r2,r3,r4

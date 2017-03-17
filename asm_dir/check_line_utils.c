@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 18:19:51 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/17 15:19:39 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/17 16:22:31 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,17 +118,19 @@ int	set_params(t_instruction *line, char *str, int i)
 	return (1);
 }
 
-int	set_variables(t_instruction *line, t_asm *tasm, char *str)
+int	set_variables(t_instruction *line, char *str)
 {
 	int	i;
 	int	end;
 
 	end = 0;
 	line->label = 0;
+	i = 0;
 	if (check_valid_label(str) == 1)
-		if ((end = check_label(line, tasm, str)) == -1)
-			return (0);
-	i = end;
+		i = ft_strchr(str, LABEL_CHAR) - str + 1;
+	// 	if ((end = check_label(line, tasm, str)) == -1)
+	// 		return (0);
+
 	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
 		i++;
 	if (str[i] == '\n' && str[i] == '#')
@@ -138,7 +140,7 @@ int	set_variables(t_instruction *line, t_asm *tasm, char *str)
 	i += end;
 	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
 		i++;
-	if ((end = set_params(line, str, i)) == -1)
+	if ((set_params(line, str, i)) == -1)
 		return (0);
 	return (1);
 }

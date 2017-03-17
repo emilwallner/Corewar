@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/17 15:24:10 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/17 17:02:05 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,12 @@ int			main(int ac, char **av)
 		count_label(&tasm);
 		if (!(tasm.labels = ft_memalloc(sizeof(t_label) * (tasm.nb_labels))))
 			return (free_and_return(file, tasm.asm_tab, 1, 0));
-		fill_label_tab(&tasm);
+		if (fill_label_tab(&tasm) == 0)
+			return (0);
 		if (check_instructions(&tasm) == 0)
 			return (free_and_return(file, tasm.asm_tab, 1, 0));
 	}
 	ft_putstr("OK\n");
+	set_hexa(tasm, av[1]);
 	return (free_and_return(file, tasm.asm_tab, 1, 1));
 }
