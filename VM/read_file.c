@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ewallner <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/17 14:16:16 by ewallner         ###   ########.fr       */
+/*   Updated: 2017/03/17 17:00:54 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int			get_asm(char *file_name, char *file, t_read *tread)
 	if (read(fd, file, tread->nb_char) == -1)
 		return (0);
 	file[tread->nb_char] = '\0';
+	write(1, file, 1000000);
+	printf("%ld\n",sizeof(file));
 	if (close(fd) == -1)
 		return (0);
 	return (1);

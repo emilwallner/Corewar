@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_vm.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ewallner <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/17 14:16:16 by ewallner         ###   ########.fr       */
+/*   Updated: 2017/03/17 17:00:57 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,25 @@ static int	free_and_return(char *file, char **asm_tab, int free_tab, int ret)
 int			main(int ac, char **av)
 {
 	int		i;
+	(void)ac;
 	char	*file;
 	t_asm	tasm;
 	t_read	tread;
 
-	if (ac == 1 || ac > MAX_PLAYERS)
-		return (0);
+	printf("YO\n");
+	// if (ac == 1 || ac > MAX_PLAYERS)
+	// 	return (0);
 	i = 0;
 	file = NULL;
-	while (++i < ac)
+	while (++i < 10)
 	{
-		if (!(get_counts(av[i], &tread)) || !tread.nb_char || !tread.nb_line)
-			return (0);
+		// if (!(get_counts(av[i], &tread)) || !tread.nb_char || !tread.nb_line)
+		// 	return (0);
+		tread.nb_char = 1000000;
+		printf("YO\n");
 		if (!(file = ft_strnew(tread.nb_char + 1)))
 			return (0);
+		printf("YO\n");
 		if (!(get_asm(av[i], file, &tread)))
 			return (free_and_return(file, NULL, 0, 0));
 		tasm.asm_tab = NULL;
