@@ -12,20 +12,6 @@
 
 #include "vm.h"
 
-static int	free_and_return(char *file, char **asm_tab, int free_tab, int ret)
-{
-	int	i;
-
-	free(file);
-	i = -1;
-	while (free_tab && asm_tab[++i])
-		free(asm_tab[i]);
-	if (free_tab)
-		free(asm_tab);
-	if (!ret)
-		ft_putstr("Error\n");
-	return (ret);
-}
 
 static void	counts_char_line(char *buff, t_read *tread)
 {
