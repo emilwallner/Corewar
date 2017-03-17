@@ -1,13 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_game_data.c                                     :+:      :+:    :+:   */
+/*   asm.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ewallner <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/15 18:49:18 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/15 18:49:23 by ewallner         ###   ########.fr       */
+/*   Created: 2017/03/15 14:27:45 by mhaziza           #+#    #+#             */
+/*   Updated: 2017/03/16 19:21:12 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef VM_H
+# define VM_H
 
+# include "../libft/libft.h"
+# include "op.h"
+# include <stdio.h>
+# include <limits.h>
+
+
+#endif
