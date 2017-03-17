@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	asm
+NAME	=	corewar
 CC		=   gcc
 CFLAGS	= 	-Wall -Wextra -Werror -I. -g
 RM		=   rm -f

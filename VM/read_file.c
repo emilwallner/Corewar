@@ -1,31 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ewallner <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/17 14:16:16 by ewallner         ###   ########.fr       */
+/*   Updated: 2017/03/17 17:00:54 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-static int	free_and_return(char *file, char **asm_tab, int free_tab, int ret)
-{
-	int	i;
-
-	free(file);
-	i = -1;
-	while (free_tab && asm_tab[++i])
-		free(asm_tab[i]);
-	if (free_tab)
-		free(asm_tab);
-	if (!ret)
-		ft_putstr("Error\n");
-	return (ret);
-}
 
 static void	counts_char_line(char *buff, t_read *tread)
 {
@@ -72,6 +58,8 @@ int			get_asm(char *file_name, char *file, t_read *tread)
 	if (read(fd, file, tread->nb_char) == -1)
 		return (0);
 	file[tread->nb_char] = '\0';
+	write(1, file, 1000000);
+	printf("%ld\n",sizeof(file));
 	if (close(fd) == -1)
 		return (0);
 	return (1);
