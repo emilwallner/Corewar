@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   files_to_strings.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/17 17:00:54 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/18 17:51:14 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
-
-void	count_file_len(t_player *player, char *buff)
-{
-	int	i;
-
-	i = -1;
-	while (buff[++i])
-		player->len += 1;
-}
 
 int ft_string_len(t_env *e, int i)
 {
@@ -30,10 +21,11 @@ int ft_string_len(t_env *e, int i)
 	buff[0] = 0;
 	if ((fd = open(e->files[i], O_RDONLY)) == -1)
 		ft_exit(e);
+	e->player[i].len = 0;
 	while ((ret = read(fd, buff, BUFF_SIZE)) > 0)
 	{
-		buff[ret] = '\0';
-		count_file_len(&e->player[i], buff);
+		if(ret != 0)
+			e->player[i].len += ret;
 	}
 	if (close(fd) == -1)
 		ft_exit(e);
@@ -52,7 +44,7 @@ void  ft_files_to_string(t_env *e)
 	while(++i < e->player_amount)
 	{
 		len = ft_string_len(e, i);
-		e->player[i].string = malloc(sizeof(char*) * (len + 1));
+		// e->player[i].string = malloc(sizeof(char*) * (len + 1));
 		if ((fd = open(e->files[i], O_RDONLY)) == -1)
 			ft_exit(e);
 		if (read(fd, e->player[i].string, e->player[i].len) == -1)
