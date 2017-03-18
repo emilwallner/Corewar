@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/18 13:59:59 by mhaziza          ###   ########.fr        #
+#    Updated: 2017/03/18 15:32:27 by mhaziza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,14 @@ RM		=   rm -f
 LIBFT	=	 -L../libft -lft
 SRCS	=	asm.c \
 			get_asm.c \
-			file_check.c  \
+			check_file.c  \
 			check_line.c \
 			check_line_utils.c \
+			check_label.c \
 			check_params.c \
 			check_params_utils.c \
 			set_hexa.c \
+			set_hexa_instruction.c \
 
 OBJS	=   $(SRCS:.c=.o)
 

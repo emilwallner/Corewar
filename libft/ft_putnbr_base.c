@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 18:21:03 by mhaziza           #+#    #+#             */
-/*   Updated: 2016/11/24 13:33:30 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/18 17:54:39 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_putnbr_base(int nb, int base)
 			ft_putnbr_base(nb / base, base);
 			ft_putnbr_base(nb % base, base);
 		}
-		if (nb >= 0 && nb < 10)
+		if (nb >= 0 && nb < base)
 			ft_putchar(nb + '0');
 		if (nb >= 0 && nb >= 10 && nb < base)
 			ft_putchar(nb + 'a' - 10);

@@ -6,11 +6,12 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 11:36:16 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/17 16:28:08 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/18 16:05:06 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
+
 
 static t_op	g_op_tab[17] =
 {
@@ -38,6 +39,15 @@ static t_op	g_op_tab[17] =
 	{"aff", 1, {T_REG}, 16, 2, "aff", 1, 0},
 	{{0}, 0, {0}, 0, 0, {0}, 0, 0}
 };
+
+void	set_op_tab(t_asm *tasm)
+{
+	int	i;
+
+	i = -1;
+	while (++i < 17)
+		tasm->op_tab[i] = g_op_tab[i];
+}
 
 int	check_valid_label(char *str)
 {

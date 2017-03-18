@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/17 17:02:05 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/18 16:06:00 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,6 @@ static int	free_and_return(char *file, char **asm_tab, int free_tab, int ret)
 	if (!ret)
 		ft_putstr("Error\n");
 	return (ret);
-}
-
-int	set_label(t_asm *tasm, char *str, int iline)
-{
-	int	label_end;
-
-	// ft_putstr("WWW\n");
-	label_end = ft_strchr(str, LABEL_CHAR) - str + 1;
-	if (!check_fill_label(ft_strsub(str, 0, label_end - 1), tasm->labels, tasm->nb_labels, iline))
-		return (-1);
-	return (label_end);
-}
-
-int	fill_label_tab(t_asm *tasm)
-{
-	int i;
-
-	i = 2;
-	while (tasm->asm_tab[i] != NULL)
-	{
-		if (check_valid_label(tasm->asm_tab[i]) == 1)
-			if (set_label(tasm, tasm->asm_tab[i], i) == -1)
-				return (0);
-		i++;
-	}
-	return (1);
 }
 
 int			main(int ac, char **av)
@@ -86,7 +60,8 @@ int			main(int ac, char **av)
 		if (check_instructions(&tasm) == 0)
 			return (free_and_return(file, tasm.asm_tab, 1, 0));
 	}
+	set_op_tab(&tasm);
+	set_hexa(tasm, av[1], tread.nb_line);
 	ft_putstr("OK\n");
-	set_hexa(tasm, av[1]);
 	return (free_and_return(file, tasm.asm_tab, 1, 1));
 }
