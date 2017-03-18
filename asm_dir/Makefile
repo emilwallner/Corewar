@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/17 17:02:04 by tlenglin         ###   ########.fr        #
+#    Updated: 2017/03/18 13:59:59 by mhaziza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS	= 	-Wall -Wextra -Werror -I. -fsanitize=address
 RM		=   rm -f
 LIBFT	=	 -L../libft -lft
 SRCS	=	asm.c \
-			get_asm_utils.c \
+			get_asm.c \
 			file_check.c  \
 			check_line.c \
 			check_line_utils.c \
