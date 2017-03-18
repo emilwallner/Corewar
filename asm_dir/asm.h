@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:45 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/18 16:13:19 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/18 22:36:45 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,9 @@ int	fill_label_tab(t_asm *tasm);
 int	set_hexa(t_asm tasm, char *str, int nb_line);
 void	set_op_tab(t_asm *tasm);
 int	set_instruction(t_asm tasm, int fd, int nb_line);
+
+void	set_register(char *params, int fd, int *cursor);
+void	set_direct(t_op top, char *params, int fd, int *cursor);
+void	set_indirect(char *params, int fd, int *cursor);
+
 #endif

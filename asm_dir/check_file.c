@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_check.c                                       :+:      :+:    :+:   */
+/*   check_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:21:54 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/18 15:02:22 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/18 21:56:52 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	check_file_comment(char *str, t_header *header)
 		return (0);
 	if (str[8] != ' ' || str[9] != '"' || str[len] != '"')
 		return (0);
-	if (len - 11 > PROG_NAME_LENGTH)
+	if (len - 11 > COMMENT_LENGTH)
 		return (0);
 	i = 10;
 	while (i < len - 1)

@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 11:36:16 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/18 16:05:06 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/18 21:50:52 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 static t_op	g_op_tab[17] =
 {
+	{{0}, 0, {0}, 0, 0, {0}, 0, 0},
 	{"live", 1, {T_DIR}, 1, 10, "alive", 0, 0},
 	{"ld", 2, {T_DIR | T_IND, T_REG}, 2, 5, "load", 1, 0},
 	{"st", 2, {T_REG, T_IND | T_REG}, 3, 5, "store", 1, 0},
@@ -36,8 +37,7 @@ static t_op	g_op_tab[17] =
 	{"lldi", 3, {T_REG | T_DIR | T_IND, T_DIR | T_REG, T_REG}, 14, 50,
 		"long load index", 1, 1},
 	{"lfork", 1, {T_DIR}, 15, 1000, "long fork", 0, 1},
-	{"aff", 1, {T_REG}, 16, 2, "aff", 1, 0},
-	{{0}, 0, {0}, 0, 0, {0}, 0, 0}
+	{"aff", 1, {T_REG}, 16, 2, "aff", 1, 0}
 };
 
 void	set_op_tab(t_asm *tasm)
@@ -86,7 +86,7 @@ int	get_id_by_name(char *name)
 	while (++i < 17)
 	{
 		if (!ft_strcmp(name, g_op_tab[i].name))
-		return (g_op_tab[i].id);
+			return (g_op_tab[i].id);
 	}
 	return (0);
 }
@@ -124,10 +124,12 @@ int	check_instructions(t_asm *tasm)
 				return (0);
 			}
 			// printf("\n>>>> LINE label %s name %s params %s\n", line.label, line.name, line.params);
-			if ((id = get_id_by_name(line.name) - 1) == -1)
+			if ((id = get_id_by_name(line.name)) < 1)
 				return (0);
 			// printf("id funtion %i\n", id);
 			// ft_putstr("aaaa\n");
+			// printf("name %s\n", g_op_tab[id].name);
+
 			if (check_params(line.params, g_op_tab[id], tasm) == 0)
 				return (0);
 			i++;

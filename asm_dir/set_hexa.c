@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 16:45:01 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/18 15:00:49 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/18 22:08:59 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	set_filename(t_asm tasm, int fd)
 		ft_putchar_fd(tasm.asm_tab[0][i], fd);
 		// ft_putchar(tasm.asm_tab[0][i]);
 	}
-	while (++i < PROG_NAME_LENGTH + 4)
+	while (++i < PROG_NAME_LENGTH + 8)
 		ft_putchar_fd(0x0, fd);
 
 	return (1);
@@ -63,7 +63,7 @@ int	set_comment(t_asm tasm, int fd)
 	int	i;
 	// char buff[10];
 	i = -1;
-	while (++i < 11)
+	while (++i < 7)
 		ft_putchar_fd(0x00, fd);
 	ft_putchar_fd(0x3f, fd);
 	// ft_putnbr(read(fd, buff, 5));
@@ -88,8 +88,10 @@ int	set_hexa(t_asm tasm, char *str, int nb_line)
 		return (0);
 	if (set_filename(tasm, fd) == 0)
 		return (0);
+	ft_putstr("set_filename OK\n");
 	if (set_comment(tasm, fd) == 0)
 		return (0);
+	ft_putstr("set_comment OK\n");
 	if (set_instruction(tasm, fd, nb_line) == 0)
 		return (0);
 	if (close(fd) == -1)

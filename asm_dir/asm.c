@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/18 16:06:00 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/18 21:49:58 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int			main(int ac, char **av)
 			return (0);
 		if (check_instructions(&tasm) == 0)
 			return (free_and_return(file, tasm.asm_tab, 1, 0));
+
 	}
 	set_op_tab(&tasm);
 	set_hexa(tasm, av[1], tread.nb_line);
