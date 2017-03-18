@@ -12,15 +12,6 @@
 
 #include "vm.h"
 
-void	count_file_len(t_player *player, char *buff)
-{
-	int	i;
-
-	i = -1;
-	while (buff[++i])
-		player->len += 1;
-}
-
 int ft_string_len(t_env *e, int i)
 {
 	char	buff[BUFF_SIZE + 1];
@@ -31,10 +22,7 @@ int ft_string_len(t_env *e, int i)
 	if ((fd = open(e->files[i], O_RDONLY)) == -1)
 		ft_exit(e);
 	while ((ret = read(fd, buff, BUFF_SIZE)) > 0)
-	{
-		buff[ret] = '\0';
-		count_file_len(&e->player[i], buff);
-	}
+	 e->player[i].len += ret;
 	if (close(fd) == -1)
 		ft_exit(e);
 	if (ret == -1)
