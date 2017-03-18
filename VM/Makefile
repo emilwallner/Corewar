@@ -16,7 +16,10 @@ CFLAGS	= 	-Wall -Wextra -Werror -I. -g
 RM		=   rm -f
 LIBFT	=	 -L../libft -lft
 SRCS	=	main_vm.c 	\
-				read_file.c \
+				files_to_strings.c \
+				init_e.c \
+				ft_print_strings.c \
+				error.c \
 
 OBJS	=   $(SRCS:.c=.o)
 

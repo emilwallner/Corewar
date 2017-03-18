@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_vm.c                                          :+:      :+:    :+:   */
+/*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/17 17:00:57 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/17 17:00:54 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-int			main(int ac, char **av)
+void ft_print_strings(t_env *e, int ac)
 {
-	t_env e;
+  int i;
+  int k;
+  char *str;
 
-	init_e(&e, ac, av);
-	ft_print_strings(&e, ac);
+  i = 0;
+  while(++i < ac)
+  {
+    ft_printf("File: %i, Len: %i ----->\n", i, e->player[i].len);
+    str = e->player[i].string;
+    k = -1;
+    while(++k < e->player[i].len)
+      ft_printf("%x", *str++);
+  }
 }

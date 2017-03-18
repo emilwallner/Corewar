@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_vm.c                                          :+:      :+:    :+:   */
+/*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/17 17:00:57 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/17 17:00:54 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-int			main(int ac, char **av)
+void init_e(t_env *e, int ac, char **av)
 {
-	t_env e;
-
-	init_e(&e, ac, av);
-	ft_print_strings(&e, ac);
+  e->player_amount = ac;
+	e->files = av;
+  e->player = malloc(sizeof(t_player) * ac);
+	ft_files_to_string(e);
 }

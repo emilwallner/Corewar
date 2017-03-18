@@ -18,36 +18,25 @@
 # include <stdio.h>
 # include <limits.h>
 
-typedef struct	s_read
+typedef struct	s_player
 {
-	int	nb_char;
-	int	nb_line;
-}				t_read;
+	char *name;
+	char *comment;
+	int	len;
+	char *string;
+}				t_player;
 
-typedef struct	s_label
+typedef struct	s_env
 {
-	char	*label;
-	int		index;
-}				t_label;
+	t_player *player;
+	char **strings;
+	int		player_amount;
+	char **files;
+}				t_env;
 
-typedef struct	s_asm
-{
-	char	**asm_tab;
-	t_label	*labels;
-	int		nb_labels;
-}				t_asm;
-
-typedef struct	s_instruction
-{
-	char	*name;
-	char	*params;
-	char	*label;
-}				t_instruction;
-
-// static void	counts_char_line(char *buff, t_read *tread);
-int			get_counts(char *file_name, t_read *tread);
-int			get_asm(char *file_name, char *file, t_read *tread);
-int			split_asm(char **asm_tab, char *file, int nb);
-
+void 		init_e(t_env *e, int ac, char **av);
+void  	ft_files_to_string(t_env *e);
+void 		ft_exit(t_env *e);
+void ft_print_strings(t_env *e, int ac);
 
 #endif
