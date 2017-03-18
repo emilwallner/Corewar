@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vm.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ewallner <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/17 14:20:23 by ewallner         ###   ########.fr       */
+/*   Updated: 2017/03/18 15:20:47 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 
 typedef struct	s_player
 {
-	char *name;
-	char *comment;
-	char *program;
+	char name[PROG_NAME_LENGTH + 1];
+	char comment[COMMENT_LENGTH + 1];
+	char instructions[CHAMP_MAX_SIZE - PROG_NAME_LENGTH - COMMENT_LENGTH];
 	int	len;
-	char *string;
+	char string[CHAMP_MAX_SIZE + 1];
 }				t_player;
 
 typedef struct	s_env

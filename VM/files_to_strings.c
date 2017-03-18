@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   files_to_strings.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/17 17:00:54 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/18 15:21:53 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void  ft_files_to_string(t_env *e)
 	i = 0;
 	while(++i < e->player_amount)
 	{
-		len = ft_string_len(e, i);
-		e->player[i].string = malloc(sizeof(char*) * (len + 1));
+		// len = ft_string_len(e, i);
+		// e->player[i].string = malloc(sizeof(char*) * (len + 1));
 		if ((fd = open(e->files[i], O_RDONLY)) == -1)
 			ft_exit(e);
 		if (read(fd, e->player[i].string, e->player[i].len) == -1)
