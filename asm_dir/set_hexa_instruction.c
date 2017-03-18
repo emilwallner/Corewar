@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 14:45:44 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/18 18:19:17 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/18 19:38:35 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,16 @@ void	set_acb(t_op top, char *line, int fd)
 	while (++i < top.nb_params)
 	{
 		if (line[0] == 'r')
-			acb = acb + (T_REG << ((top.nb_params - i) * 2 + 1));
+			acb = acb + (T_REG << ((3 - i) * 2));
 		else if (line[0] == '%')
-			acb = acb + (T_DIR << ((top.nb_params - i) * 2 + 1));
+			acb = acb + (T_DIR << ((3 - i) * 2));
 		else
-			acb = acb + (T_IND << ((top.nb_params - i) * 2 + 1));
+			acb = acb + (3 << ((3 - i) * 2));
+		line = ft_strchr(line, SEPARATOR_CHAR) ? ft_strchr(line, SEPARATOR_CHAR) + 1 : line;
 		// printf("racb %i\n", acb);
 	}
 	ft_putchar_fd(acb, fd);
-// ft_putnbr_base(acb, 2);
+	// ft_putnbr_base(acb, 2);
 	// printf("acb %i\n", acb);
 }
 
