@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 15:56:53 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/18 17:53:30 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/18 18:08:08 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,14 @@ void ft_parsing(t_env *e, int ac)
 
 void ft_build_vm(t_env *e, int ac)
 {
-(void)e;
-(void)ac;
+	int i;
+
+	i = 1;
+	while (i < ac)
+	{
+		ft_memcpy(e->arena + MEM_SIZE / (ac - 1) * (i - 1), e->player[i].inst, e->player[i].inst_len);
+		i++;
+	}
+	ft_print_hexa(e->arena, MEM_SIZE);
+
 }
