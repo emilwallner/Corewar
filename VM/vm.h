@@ -24,8 +24,16 @@ typedef struct	s_player
 	char comment[COMMENT_LENGTH + 1];
 	char instructions[CHAMP_MAX_SIZE - PROG_NAME_LENGTH - COMMENT_LENGTH];
 	int	len;
+	int	index_start;
 	char string[CHAMP_MAX_SIZE + 1];
 }				t_player;
+
+typedef struct		s_cursor{
+	struct s_cursor	*next;
+	int				player_id;
+	int				carry;
+	int				cycle;
+}					t_cursor;
 
 typedef struct	s_env
 {
