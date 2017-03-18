@@ -22,6 +22,7 @@ typedef struct	s_player
 {
 	char *name;
 	char *comment;
+	char *program;
 	int	len;
 	char *string;
 }				t_player;

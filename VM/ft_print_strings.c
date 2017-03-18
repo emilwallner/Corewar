@@ -25,7 +25,8 @@ void ft_print_strings(t_env *e, int ac)
     ft_printf("\n\nFile: %i, Len: %i ----->\n", i, e->player[i].len);
     str = e->player[i].string;
     k = -1;
+
     while(++k < e->player[i].len)
-      ft_printf("%x ", *str++);
+      ft_printf("%x ", (*str++));
   }
 }

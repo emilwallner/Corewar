@@ -21,8 +21,12 @@ int ft_string_len(t_env *e, int i)
 	buff[0] = 0;
 	if ((fd = open(e->files[i], O_RDONLY)) == -1)
 		ft_exit(e);
+	e->player[i].len = 0;
 	while ((ret = read(fd, buff, BUFF_SIZE)) > 0)
-	 e->player[i].len += ret;
+	{
+		if(ret != 0)
+			e->player[i].len += ret;
+	}
 	if (close(fd) == -1)
 		ft_exit(e);
 	if (ret == -1)
