@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/17 10:09:07 by tlenglin         ###   ########.fr        #
+#    Updated: 2017/03/17 17:02:04 by tlenglin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS	=	asm.c \
 			check_line_utils.c \
 			check_params.c \
 			check_params_utils.c \
+			set_hexa.c \
 
 OBJS	=   $(SRCS:.c=.o)
 

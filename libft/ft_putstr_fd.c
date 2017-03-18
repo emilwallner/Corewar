@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/21 18:44:59 by mhaziza           #+#    #+#             */
-/*   Updated: 2016/11/21 19:12:42 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/17 17:59:40 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void	ft_putstr_fd(char const *s, int fd)
 {
-	if (s[0])
+	int	i;
+
+	i = 0;
+	while (s[i])
 	{
-		ft_putchar_fd(s[0], fd);
-		ft_putstr_fd(s + 1, fd);
+		ft_putchar_fd(s[i], fd);
+		i++;
 	}
 }

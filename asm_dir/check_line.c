@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 11:36:16 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/17 14:27:30 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/17 16:28:08 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,17 +86,29 @@ int	check_instructions(t_asm *tasm)
 	int				i;
 	int				id;
 	t_instruction	line;
+	int				j;
 
 	i = 2;
 	while (tasm->asm_tab[i] != NULL)
 	{
 		// ft_putstr("YYY\n");
-		if (!tasm->asm_tab[i][0] || tasm->asm_tab[i][0] == COMMENT_CHAR)
+		if (!tasm->asm_tab[i][0])
 			i++;
+		else if (tasm->asm_tab[i][0] == COMMENT_CHAR)
+		{
+			j = 1;
+			while (tasm->asm_tab[i][j])
+			{
+				if (ft_strchr(LABEL_CHARS, tasm->asm_tab[i][j]) == NULL)
+					return (0);
+				j++;
+			}
+			i++;
+		}
 		else if (tasm->asm_tab[i][0])
 		{
 			// printf("tasm->asm_tab[i] %s, i = %d\n", tasm->asm_tab[i], i);
-			if (set_variables(&line, tasm, tasm->asm_tab[i]) == 0)
+			if (set_variables(&line, tasm->asm_tab[i]) == 0)
 			{
 				// ft_putstr("ZZZZZZZ\n");
 				return (0);
