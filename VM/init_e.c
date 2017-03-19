@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/18 18:01:27 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/19 18:37:40 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ void init_e(t_env *e, int ac, char **av)
 	e->player = malloc(sizeof(t_player) * ac);
 	ft_bzero(e->arena, (MEM_SIZE));
 	ft_files_to_string(e);
-
+	set_op_tab(e);
 }
