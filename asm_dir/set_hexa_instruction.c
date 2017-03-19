@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 14:45:44 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/18 22:44:17 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/19 16:12:48 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // static char	g_opcode_hex[17] = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f};
 
-int	set_opcode(char *line, int fd, int *cursor)
+int	set_opcode(t_asm tasm,char *line, int fd, int *cursor)
 {
 	int		i;
 	int		id;
@@ -25,7 +25,7 @@ int	set_opcode(char *line, int fd, int *cursor)
 		i++;
 	if (!(name = ft_strsub(line, 0, i)))
 		return (0);
-	if (!(id = get_id_by_name(name)))
+	if (!(id = get_id_by_name(&tasm, name)))
 	{
 		free(name);
 		return (0);
@@ -84,7 +84,7 @@ int	set_instruction(t_asm tasm, int fd, int nb_line)
 			j += 1;
 			while (tasm.asm_tab[i][j] == ' ' || tasm.asm_tab[i][j] == '\t')
 				j++;
-			if (!(id_instruction = set_opcode(tasm.asm_tab[i] + j, fd, &cursor)))
+			if (!(id_instruction = set_opcode(tasm, tasm.asm_tab[i] + j, fd, &cursor)))
 				return (0);
 			while (!(tasm.asm_tab[i][j] == ' ' || tasm.asm_tab[i][j] == '\t'))
 				j++;

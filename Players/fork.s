@@ -2,8 +2,10 @@
 .comment "just a basic living prog"
 
 l2:	add r2,r3,r4
-	ld 0,r3
-	fork %10
+	ld :live2,r3
+	ld :live,r3
+	fork %:live2
+	ld :live,r3
 
 live:	live	%3
 	zjmp %:live
