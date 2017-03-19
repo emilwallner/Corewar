@@ -11,3 +11,20 @@
 /* ************************************************************************** */
 
 #include "vm.h"
+
+
+void 	ft_move_cursors(t_env *e)
+{
+	int i;
+	t_cursor *temp;
+
+	temp = e->head;
+	i = 0;
+	while (i < MEM_SIZE)
+	{
+		ft_print_cursor(e);
+		temp->index += 1;
+		temp = temp->next;
+		i++;
+	}
+}

@@ -14,15 +14,18 @@
 
 void	ft_print_cursor(t_env *e)
 {
-	t_cursor *temp;
-	int 	hex;
+	int			i;
+	t_cursor	*temp;
+	int			hex;
 
+	i = 1;
 	temp = e->head;
-	while(temp)
+	while(i < e->player_amount)
 	{
-		ft_printf("Cursor for Player %d, ID: %d, Map location: %d", temp->player, temp->id, temp->index);
+		ft_printf("Cursor for Player %d, ID: %d, Map location: %d\n", temp->player, temp->id, temp->index);
 		hex = 0xFF & (e->arena[temp->index]);
-		(hex <= 0xF) ? ft_printf("0%x", hex) : ft_printf("%x", hex);
+		(hex <= 0xF) ? ft_printf("0%x\n", hex) : ft_printf("%x\n", hex);
 		temp = temp->next;
+		i++;
 	}
 }

@@ -41,6 +41,7 @@ typedef struct		s_cursor{
 	int				id;
 	int				index;
 	int				cycle;
+	int 			pause;
 }					t_cursor;
 
 typedef struct	s_env
@@ -54,6 +55,7 @@ typedef struct	s_env
 	t_op		op_tab[17];
 }				t_env;
 
+void 		ft_move_cursors(t_env *e);
 void		ft_print_cursor(t_env *e);
 t_cursor	*ft_create_cursor(int i, t_env *e);
 t_cursor	*ft_add_cursor_to_stack(t_cursor *stack, int i, t_env *e);

@@ -30,9 +30,17 @@ t_cursor		*ft_create_cursor(int i, t_env *e)
 
 t_cursor		*ft_add_cursor_to_stack(t_cursor *stack, int i, t_env *e)
 {
-	while (stack && stack->next)
-		stack = stack->next;
-	stack->next = ft_create_cursor(i, e);
+	if(!stack)
+	{
+		stack = ft_create_cursor(i, e);
+		e->head = stack;
+	}
+	else
+	{
+		while (stack && stack->next)
+			stack = stack->next;
+		stack->next = ft_create_cursor(i, e);
+	}
 	return (stack);
 }
 
@@ -41,9 +49,11 @@ void		ft_init_cursor(t_env *e)
 	int 		i;
 	t_cursor	*stack;
 
-	i = -1;
+	i = 0;
 	stack = NULL;
-	e->head = stack;
 	while(++i < e->player_amount)
 		stack = ft_add_cursor_to_stack(stack, i, e);
+	while (stack && stack->next)
+		stack = stack->next;
+	stack->next = e->head;
 }
