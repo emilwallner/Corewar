@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 16:58:11 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/17 14:27:49 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/19 15:54:51 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,21 @@ int			check_params(char *params, t_op top, t_asm *tasm)
 		return (0);
 	i = 0;
 	p = 0;
-	// ft_putstr("\nparametres = ");
-	// ft_putstr(params);
+	printf("\nparametres = %i\n", top.nb_params);
+	ft_putstr(params);
 	while (params[i] && p < top.nb_params)
 	{
+		ft_putstr("bbbb\n");
 		if (params[i] == 'r' && !check_register(params + i, top, p))
 		{
-			// ft_putstr("cccc\n");
+			ft_putstr("cccc\n");
 
 			return (0);
 		}
 		else if (params[i] == DIRECT_CHAR &&
 			!check_direct(params + i, top, p, tasm))
 			{
-				// ft_putstr("ddd\n");
+				ft_putstr("ddd\n");
 
 			return (0);
 		}
@@ -65,13 +66,14 @@ int			check_params(char *params, t_op top, t_asm *tasm)
 			// ft_putstr("eee\n");
 			return (0);
 		}
+		ft_putstr("fff\n");
 		if (ft_strchr(params + i, SEPARATOR_CHAR))
 			i += ft_strchr(params + i, SEPARATOR_CHAR) - (params + i) + 1;
 		else
 			i = ft_strlen(params);
-			// ft_putstr("\nfin check 1 params\n");
+			ft_putstr("\nfin check 1 params\n");
 		p++;
 	}
-	// ft_putstr("fin check params\n");
+	ft_putstr("fin check params\n");
 	return (1);
 }

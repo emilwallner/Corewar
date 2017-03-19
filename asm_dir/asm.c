@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/18 21:49:58 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/19 16:38:26 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,29 +40,41 @@ int			main(int ac, char **av)
 	file = NULL;
 	while (++i < ac)
 	{
+		ft_putstr("OK 0\n");
 		if (!(get_counts(av[i], &tread)) || !tread.nb_char || !tread.nb_line)
 			return (0);
+		ft_putstr("OK 1\n");
 		if (!(file = ft_strnew(tread.nb_char + 1)))
 			return (0);
 		if (!(get_asm(av[i], file, &tread)))
 			return (free_and_return(file, NULL, 0, 0));
+		ft_putstr("OK 2\n");
 		tasm.asm_tab = NULL;
 		if (!(tasm.asm_tab = ft_memalloc(sizeof(char*) * (tread.nb_line + 1))))
 			return (0);
+		ft_putstr("OK 3\n");
 		if (split_asm(tasm.asm_tab, file, tread.nb_line) <= 0)
 			return (free_and_return(file, tasm.asm_tab, 1, 0));
 		tasm.labels = NULL;
+		ft_putstr("OK 4\n");
+		
 		count_label(&tasm);
+		ft_putstr("OK 5\n");
 		if (!(tasm.labels = ft_memalloc(sizeof(t_label) * (tasm.nb_labels))))
 			return (free_and_return(file, tasm.asm_tab, 1, 0));
+		ft_putstr("OK 6\n");
 		if (fill_label_tab(&tasm) == 0)
 			return (0);
+		ft_putstr("OK 7 \n");
+		// to change in check file
 		if (check_instructions(&tasm) == 0)
 			return (free_and_return(file, tasm.asm_tab, 1, 0));
-
+		ft_putstr("OK 8\n");
 	}
+	ft_putstr("OK 9\n");
 	set_op_tab(&tasm);
+	ft_putstr("OK 10\n");
 	set_hexa(tasm, av[1], tread.nb_line);
-	ft_putstr("OK\n");
+	ft_putstr("OK END\n");
 	return (free_and_return(file, tasm.asm_tab, 1, 1));
 }

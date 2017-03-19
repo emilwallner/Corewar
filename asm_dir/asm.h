@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:45 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/18 22:36:45 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/19 16:35:26 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,17 @@ typedef struct	s_instruction
 	char	*label;
 }				t_instruction;
 
+void	set_op_tab(t_asm *tasm);
+
 int				get_counts(char *file_name, t_read *tread);
 int				get_asm(char *file_name, char *file, t_read *tread);
 int				split_asm(char **asm_tab, char *file, int nb);
 
 int				check_file(char **asm_tab, t_header *header);
-int	get_id_by_name(char *name);
+int				get_id_by_name(t_asm *tasm, char *name);
 
 int				check_instructions(t_asm *tasm);
-int				set_variables(t_instruction *line, char *str);
+int				set_t_instruction(t_instruction *line, char *str);
 int				check_params(char *params, t_op top, t_asm *tasm);
 int				check_valid_label(char *str);
 int				count_label(t_asm *tasm);
