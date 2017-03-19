@@ -27,6 +27,7 @@ SRCS	=	main_vm.c 	\
 				cursors.c \
 				print_cursors.c \
 				move_cursors.c \
+				functions.c \
 
 OBJS	=   $(SRCS:.c=.o)
 

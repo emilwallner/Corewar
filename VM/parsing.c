@@ -77,7 +77,6 @@ void ft_build_vm(t_env *e, int ac)
 		ft_memcpy(e->arena + MEM_SIZE / (ac - 1) * (i - 1),
 						e->player[i].inst, e->player[i].inst_len);
 		e->player[i].index_start = MEM_SIZE / (ac - 1) * (i - 1);
-		ft_printf("This is a index start: %d\n\n", e->player[i].index_start);
 		i++;
 	}
 	ft_print_hexa(e->arena, MEM_SIZE);
