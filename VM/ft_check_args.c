@@ -6,13 +6,13 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 18:26:25 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/19 18:42:51 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/19 18:55:17 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-ft_check_args(int opcode, int acb)
+void	ft_check_args(t_env e, int opcode, int acb)
 {
 	int	nb_of_args;
 	int	i;
@@ -26,8 +26,8 @@ ft_check_args(int opcode, int acb)
 	while (++i < 3)
 		if (acb >> (6 - i * 2) & 0x3)
 			nb_of_args++;
-	if (nb_of_args != g_op_tab[opcode][1])
-		printf("ERROR")
+	if (nb_of_args != e.op_tab[opcode].nb_params)
+		printf("ERROR NB OF ARGS");
 /*
 ** Check if each args are valid
 */
@@ -35,17 +35,17 @@ ft_check_args(int opcode, int acb)
 	while (i < nb_of_args)
 	{
 		if (acb >> (6 - i * 2) == REG_CODE &&
-				g_op_tab[opcode][2][i] & T_REG == T_REG)
+				(e.op_tab[opcode].params_type[i] & T_REG) == T_REG)
 			printf("REG ");
 		else if (acb >> (6 - i * 2) == DIR_CODE &&
-				g_op_tab[opcode][2][i] & T_DIR == T_DIR)
+				(e.op_tab[opcode].params_type[i] & T_DIR) == T_DIR)
 			printf("DIR ");
 
 		else if (acb >> (6 - i * 2) == IND_CODE &&
-				g_op_tab[opcode][2][i] & T_IND == T_IND)
+				(e.op_tab[opcode].params_type[i] & T_IND) == T_IND)
 			printf("IND ");
 		else
-			printf("ERROR\n");
+			printf("ERROR ARG - acb >> (6 - i * 2) is %i\n", acb >> (6 - i * 2));
 		i++;
 	}
 }

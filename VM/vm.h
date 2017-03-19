@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/19 18:38:35 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/19 18:46:47 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,7 @@ void		ft_parsing(t_env *e, int ac);
 void		ft_build_vm(t_env *e, int ac);
 void		ft_print_hexa(char *str, int len);
 void		set_op_tab(t_env *e);
+void		ft_check_args(t_env e, int opcode, int acb);
+
 
 #endif

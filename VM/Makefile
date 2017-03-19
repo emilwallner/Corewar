@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/19 18:35:06 by nsabbah          ###   ########.fr        #
+#    Updated: 2017/03/19 18:44:48 by nsabbah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS	=	main_vm.c 	\
 				parsing.c \
 				ft_print_hexa.c \
 				op.c \
+				ft_check_args.c \
 
 OBJS	=   $(SRCS:.c=.o)
 
