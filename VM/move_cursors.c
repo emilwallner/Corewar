@@ -22,8 +22,11 @@ void 	ft_move_cursors(t_env *e)
 	i = 0;
 	while (i < MEM_SIZE)
 	{
-		ft_print_cursor(e);
+		//ft_print_cursor(e);
 		temp->index += 1;
+		if(temp->index == MEM_SIZE + 1)
+			temp->index = 0;
+		ft_print_function(temp->index, e);
 		temp = temp->next;
 		i++;
 	}
