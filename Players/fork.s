@@ -3,9 +3,7 @@
 
 l2:	add r2,r3,r4
 	ld :live2,r3
-	ld :live,r3
 	fork %:live2
-	ld :live,r3
 
 live:	live	%3
 	zjmp %:live

@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 19:07:38 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/19 16:05:27 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/19 17:26:50 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int	check_indirect(char *params, t_op top, int p, t_asm *tasm)
 	int		is_found;
 	char	*label;
 
-	ft_putstr(params);
+	// ft_putstr(params);
 	if ((T_IND & top.params_type[p]) != T_IND)
 	{
 		// ft_putstr("fff\n");

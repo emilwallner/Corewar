@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 15:01:23 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/19 16:37:15 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/19 17:37:50 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,22 @@ int	fill_label_tab(t_asm *tasm)
 		if (check_valid_label(tasm->asm_tab[i]) == 1)
 			if (set_label(tasm, tasm->asm_tab[i], i) == -1)
 				return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	check_valid_label(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (ft_strchr(LABEL_CHARS, str[0]) == NULL || ft_strchr(str, ':') == NULL)
+		return (0);
+	while (str[i] != ':')
+	{
+		if (ft_strchr(LABEL_CHARS, str[i]) == NULL)
+			return (0);
 		i++;
 	}
 	return (1);

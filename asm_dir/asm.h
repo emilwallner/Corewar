@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:45 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/19 16:35:26 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/19 20:39:10 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ typedef struct	s_label
 {
 	char	*label;
 	int		index;
+	int		first_byte;
+	int		last_byte;
+	int		byte_size;
 }				t_label;
 
 typedef struct	s_asm
@@ -67,7 +70,6 @@ int				check_register(char *params, t_op top, int p);
 int				check_direct(char *params, t_op top, int p, t_asm *tasm);
 int				check_indirect(char *params, t_op top, int p, t_asm *tasm);
 
-
 int	set_label(t_asm *tasm, char *str, int iline);
 int	existing_label(char *label, t_label *labels, int nb);
 int	check_fill_label(char *label, t_label *labels, int nb, int index);
@@ -77,7 +79,10 @@ void	set_op_tab(t_asm *tasm);
 int	set_instruction(t_asm tasm, int fd, int nb_line);
 
 void	set_register(char *params, int fd, int *cursor);
-void	set_direct(t_op top, char *params, int fd, int *cursor);
-void	set_indirect(char *params, int fd, int *cursor);
-
+void	set_direct(t_asm tasm,t_op top, char *params, int fd, int *cursor, int instruction_cursor);
+void	set_indirect(t_asm tasm,char *params, int fd, int *cursor, int instruction_cursor);
+int		begin_by_label(char *line);
+int set_label_adresse(t_asm *tasm);
+int	get_tlabel_by_index(t_asm *tasm, int index);
+int	get_tlabel_by_name(t_asm *tasm, char *name);
 #endif
