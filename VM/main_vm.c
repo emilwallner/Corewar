@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/19 18:53:53 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/19 19:06:28 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int			main(int ac, char **av)
 	// ft_parsing(&e, ac);
 	// printf("\n\n*** FT_BUILD_VM ***\n\n");
 	// ft_build_vm(&e, ac);
-	ft_check_args(e, 4, 0b01010100);
+	ft_check_args(e, 4, 84);
 	return(0);
 }
