@@ -35,15 +35,14 @@ t_list		*ft_add_cursor_to_stack(t_list *stack, int i, t_env *e)
 	return (stack);
 }
 
-t_list		*ft_init_cursor(t_env *e)
+void		ft_init_cursor(t_env *e)
 {
 	int 		i;
 	t_cursor	*stack;
-	t_cursor	*head;
 
 	i = -1;
 	stack = NULL;
+	e->head = stack;
 	while(++i e->player_amount)
 		stack = ft_add_cursor_to_stack(stack, i, e);
-	return (stack);
 }

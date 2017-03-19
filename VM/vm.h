@@ -13,7 +13,6 @@
 #ifndef VM_H
 # define VM_H
 
-
 #define RED     "\x1b[31m"
 #define RESET   "\x1b[0m"
 
@@ -44,6 +43,7 @@ typedef struct		s_cursor{
 typedef struct	s_env
 {
 	t_player	*player;
+	t_cursor	*head;
 	char		**strings;
 	char		arena[MEM_SIZE];
 	int			player_amount;
