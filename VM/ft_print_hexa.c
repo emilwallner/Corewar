@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 18:04:53 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/18 18:16:24 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/19 16:35:15 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,15 @@ void	ft_print_hexa(char *str, int len)
 	while(i < len)
 	{
 		hex = 0xFF & (*str);
-		(hex <= 0xF) ? ft_printf("0%x", hex) : ft_printf("%x", hex);
-		ft_putchar(' ');
-		if ((i + 1) % (MEM_SIZE / 100) == 0)
-			ft_printf("\n");
+		if (hex == 0)
+			printf("00");
+		else if (hex <= 0xF)
+			printf(RED "0%x" RESET, hex);
+		else
+			printf("%x", hex);
+		printf(" ");
+		if ((i + 1) % (128 / 2) == 0)
+			printf("\n");
 		str++;
 		i++;
 	}
