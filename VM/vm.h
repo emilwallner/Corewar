@@ -27,6 +27,7 @@ typedef struct	s_player
 	char comment[COMMENT_LENGTH + 1];
 	char inst[CHAMP_MAX_SIZE + 1];
 	int	len;
+	int	cursor_amount;
 	int	index_start;
 	char string[CHAMP_MAX_SIZE + 1];
 	int	inst_len;

@@ -12,7 +12,7 @@
 
 #include "vm.h"
 
-t_list		*ft_create_cursor(int i, t_env *e)
+t_cursor		*ft_create_cursor(int i, t_env *e)
 {
 	t_cursor	*newcursor;
 
@@ -20,6 +20,7 @@ t_list		*ft_create_cursor(int i, t_env *e)
 	if (newcursor == NULL)
 		return (NULL);
 	newcursor->id = i;
+	newcursor->id_nbr 0;
 	newcursor->carry = 0;
 	newcursor->cycle = 0;
 	newcursor->index = e->player[i].index_start;
@@ -27,7 +28,7 @@ t_list		*ft_create_cursor(int i, t_env *e)
 	return (newcursor);
 }
 
-t_list		*ft_add_cursor_to_stack(t_list *stack, int i, t_env *e)
+t_cursor		*ft_add_cursor_to_stack(t_list *stack, int i, t_env *e)
 {
 	while (stack && stack->next)
 		stack = stack->next;
