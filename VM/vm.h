@@ -6,12 +6,16 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/18 18:16:12 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/19 16:35:34 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VM_H
 # define VM_H
+
+
+#define RED     "\x1b[31m"
+#define RESET   "\x1b[0m"
 
 # include "../libft/libft.h"
 # include "op.h"
