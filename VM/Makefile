@@ -24,6 +24,9 @@ SRCS	=	main_vm.c 	\
 				ft_print_hexa.c \
 				op.c \
 				ft_check_args.c \
+				cursors.c \
+				print_cursors.c \
+				move_cursors.c \
 
 OBJS	=   $(SRCS:.c=.o)
 

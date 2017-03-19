@@ -19,8 +19,8 @@ t_cursor		*ft_create_cursor(int i, t_env *e)
 	newcursor = malloc(sizeof(t_cursor));
 	if (newcursor == NULL)
 		return (NULL);
-	newcursor->id = i;
-	newcursor->id_nbr 0;
+	newcursor->player = i;
+	newcursor->id = 0;
 	newcursor->carry = 0;
 	newcursor->cycle = 0;
 	newcursor->index = e->player[i].index_start;
@@ -28,7 +28,7 @@ t_cursor		*ft_create_cursor(int i, t_env *e)
 	return (newcursor);
 }
 
-t_cursor		*ft_add_cursor_to_stack(t_list *stack, int i, t_env *e)
+t_cursor		*ft_add_cursor_to_stack(t_cursor *stack, int i, t_env *e)
 {
 	while (stack && stack->next)
 		stack = stack->next;
@@ -44,6 +44,6 @@ void		ft_init_cursor(t_env *e)
 	i = -1;
 	stack = NULL;
 	e->head = stack;
-	while(++i e->player_amount)
+	while(++i < e->player_amount)
 		stack = ft_add_cursor_to_stack(stack, i, e);
 }

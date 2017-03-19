@@ -11,3 +11,18 @@
 /* ************************************************************************** */
 
 #include "vm.h"
+
+void	ft_print_cursor(t_env *e)
+{
+	t_cursor *temp;
+	int 	hex;
+
+	temp = e->head;
+	while(temp)
+	{
+		ft_printf("Cursor for Player %d, ID: %d, Map location: %d", temp->player, temp->id, temp->index);
+		hex = 0xFF & (e->arena[temp->index]);
+		(hex <= 0xF) ? ft_printf("0%x", hex) : ft_printf("%x", hex);
+		temp = temp->next;
+	}
+}
