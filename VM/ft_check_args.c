@@ -6,13 +6,15 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 18:26:25 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/19 19:23:35 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/19 19:27:42 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
 /*
+** Clearly, this function check if the args of the acb are correct
+**
 ** If the last to digit are not blank => error
 ** Get the number of args and check if it's the one we were waiting for.
 ** Check if each args are valid
