@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/18 18:08:21 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/19 18:41:11 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int			main(int ac, char **av)
 	init_e(&e, ac, av);
 	// printf("\n*** FT_PRINT_STRING ***\n");
 	// ft_print_strings(&e, ac);
-	printf("\n*** FT_PARSING ***\n");
+	printf("\n\n*** FT_PARSING ***\n\n");
 	ft_parsing(&e, ac);
-	printf("\n*** FT_BUILD_VM ***\n");
+	printf("\n\n*** FT_BUILD_VM ***\n\n");
 	ft_build_vm(&e, ac);
 }
