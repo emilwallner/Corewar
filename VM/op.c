@@ -6,14 +6,15 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:50:34 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/16 13:30:09 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/19 18:39:10 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "op.h"
+#include "vm.h"
 
-t_op	g_op_tab[17] =
+static t_op	g_op_tab[17] =
 {
+	{{0}, 0, {0}, 0, 0, {0}, 0, 0},
 	{"live", 1, {T_DIR}, 1, 10, "alive", 0, 0},
 	{"ld", 2, {T_DIR | T_IND, T_REG}, 2, 5, "load", 1, 0},
 	{"st", 2, {T_REG, T_IND | T_REG}, 3, 5, "store", 1, 0},
@@ -35,6 +36,14 @@ t_op	g_op_tab[17] =
 	{"lldi", 3, {T_REG | T_DIR | T_IND, T_DIR | T_REG, T_REG}, 14, 50,
 		"long load index", 1, 1},
 	{"lfork", 1, {T_DIR}, 15, 1000, "long fork", 0, 1},
-	{"aff", 1, {T_REG}, 16, 2, "aff", 1, 0},
-	{{0}, 0, {0}, 0, 0, {0}, 0, 0}
+	{"aff", 1, {T_REG}, 16, 2, "aff", 1, 0}
 };
+
+void	set_op_tab(t_env *e)
+{
+	int	i;
+
+	i = -1;
+	while (++i < 17)
+		e->op_tab[i] = g_op_tab[i];
+}
