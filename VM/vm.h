@@ -31,6 +31,7 @@ typedef struct	s_player
 	int	index_start;
 	char string[CHAMP_MAX_SIZE + 1];
 	int	inst_len;
+	int reg[REG_NUMBER];
 }				t_player;
 
 typedef struct		s_cursor{
