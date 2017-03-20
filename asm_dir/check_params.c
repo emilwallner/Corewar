@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 16:58:11 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/19 17:29:35 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/20 17:32:13 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ int			check_params(char *params, t_op top, t_asm *tasm)
 	// ft_putstr("bbb\n");
 	// ft_putstr(params);
 	if (!count_params(params, top))
+	{
+		// ft_putstr("DDD\n");
 		return (0);
+	}
 	i = 0;
 	p = 0;
 	// printf("\nparametres = %i\n", top.nb_params);
@@ -62,6 +65,7 @@ int			check_params(char *params, t_op top, t_asm *tasm)
 		else if (params[i] != DIRECT_CHAR && params[i] != 'r' &&
 			!check_indirect(params + i, top, p, tasm))
 		{
+			// ft_putstr(params);
 			// ft_putnbr(i);
 			// ft_putstr("eee\n");
 			return (0);

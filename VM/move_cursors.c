@@ -14,6 +14,8 @@
 
 void ft_new_cycle(t_env *e)
 {
+	if(e->lives = 0)
+		end = 0;
 	if(e->lives < NBR_LIVE)
 		e->check += 1;
 	if(e->check == MAX_CHECKS)
@@ -31,11 +33,12 @@ void ft_new_cycle(t_env *e)
 void 	ft_move_cursors(t_env *e)
 {
 	int i;
+	int end;
 	t_cursor *temp;
 
 	temp = e->head;
 	i = 0;
-	while (i < MEM_SIZE)
+	while (end)
 	{
 		if(temp->counter)
 		{
