@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/19 18:46:47 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/20 17:29:20 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct	s_player
 	int	index_start;
 	char string[CHAMP_MAX_SIZE + 1];
 	int	inst_len;
-	int	reg[REG_NUMBER];
 }				t_player;
 
 typedef struct		s_cursor{
@@ -46,6 +45,7 @@ typedef struct		s_cursor{
 	int				cycle;
 	int 			pause;
 	int				comnd_len;
+	int				reg[REG_NUMBER];
 }					t_cursor;
 
 typedef struct	s_env
