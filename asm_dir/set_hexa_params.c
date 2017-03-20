@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 22:26:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 17:18:25 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/20 17:54:01 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	set_direct(t_asm tasm, t_op top, char *params, int fd, int *cursor, int ins
 	}
 	else
 		code = ft_atoi(params);
-	code = code > 0 ? code : 65536 + code;
+	code = code >= 0 ? code : 65536 + code;
 	i = 1;
 	nb = code;
 	while (nb / 16)
