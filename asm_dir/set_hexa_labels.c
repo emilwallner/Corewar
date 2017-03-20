@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 18:48:14 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 15:33:29 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/20 17:20:05 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int set_label_adresse(t_asm *tasm)
 			// printf(">>> NEW LINE count = %i\n", count);
 
 			// printf("NOT EMPTY LINE tasm->asm_tab[i] + j %i %s\n", j, tasm->asm_tab[i] + j);
+			count++;
 			if (!(id_instruction = get_id_by_name(tasm, tasm->asm_master[i][is_label])))
 			{
 				// printf("#### instruction %s\n", instruction);
@@ -90,11 +91,11 @@ int set_label_adresse(t_asm *tasm)
 
 	tasm->labels[current_label].last_byte = count;
 	tasm->labels[current_label].byte_size = count - tasm->labels[current_label].first_byte;
-	i = 0;
-	while (i < tasm->nb_labels)
-	{
-		// printf("label %i  :  nom %s, ligne %i, first byte %i, last byte %i, byte size %i\n", i, tasm->labels[i].label, tasm->labels[i].index, tasm->labels[i].first_byte, tasm->labels[i].last_byte, tasm->labels[i].byte_size);
-		i++;
-	}
+	// i = 0;
+	// while (i < tasm->nb_labels)
+	// {
+	// 	printf("label %i  :  nom %s, ligne %i, first byte %i, last byte %i, byte size %i\n", i, tasm->labels[i].label, tasm->labels[i].index, tasm->labels[i].first_byte, tasm->labels[i].last_byte, tasm->labels[i].byte_size);
+	// 	i++;
+	// }
 	return (1);
 }
