@@ -19,7 +19,7 @@ void	ft_print_function(int index, t_env *e)
 
 	void (*func_ptr[17])(t_env *e) = {ft_live, ft_live, ft_ld, ft_st, ft_add, ft_sub, ft_and, ft_or, ft_xor, ft_zjmp, ft_ldi, ft_sti, ft_fork, ft_lld, ft_lldi, ft_lfork, ft_aff};
 	hex = 0xFF & (e->arena[index]);
-	if(hex < 17)
+	if(hex < 17 && hex > 0)
 		(*func_ptr[hex]) (e);
 }
 
