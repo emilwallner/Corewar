@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 19:07:38 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 17:33:32 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/20 19:05:08 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,27 @@ int	check_num_params(char *params, int is_direct, t_op top)
 	int	i;
 
 	i = 0;
-	while (params[++i] && params[i] != SEPARATOR_CHAR)
+	// ft_putstr("TTT\n");
+	if (params[0] == '-')
+		i++;
+	while (params[i] && params[i] != SEPARATOR_CHAR)
+	{
 		if (!ft_isdigit(params[i]) || i > 11)
 		{
+			// ft_putchar(params[i]);
 			// ft_putstr("iii\n");
 
 			return (0);
 		}
-	if (is_direct && top.label_size && ft_atoli(params + 1) > INT_MAX)
+		i++;
+	}
+	if (is_direct && top.label_size && ft_atoli(params) > INT_MAX)
 		{
 			// ft_putstr("jjj\n");
 
 			return (0);
 		}
-	else if ((!is_direct || !top.label_size) && ft_atoli(params + 1) > 65535)
+	else if ((!is_direct || !top.label_size) && ft_atoli(params) > 65535)
 		{
 			// ft_putstr("kkk\n");
 
@@ -93,8 +100,14 @@ int	check_direct(char *params, t_op top, int p, t_asm *tasm)
 	}
 	else
 	{
-		if (!check_num_params(params, 1, top))
+		// ft_putstr(params);
+		// ft_putstr("\n");
+		if (!check_num_params(params + 1, 1, top))
+		{
+			// ft_putstr("rrr\n");
+
 			return (0);
+		}
 	}
 	return (1);
 }
@@ -131,6 +144,8 @@ int	check_indirect(char *params, t_op top, int p, t_asm *tasm)
 	}
 	else
 	{
+		// ft_putstr(params);
+		// ft_putstr("\n");
 		if (!check_num_params(params, 0, top))
 		{
 			// ft_putstr("hhh\n");
