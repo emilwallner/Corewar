@@ -1,11 +1,8 @@
 .name "zork"
-.comment "just a basic living prog"
+.comment "justabasiclivingprog"
 
 l2:	add r2,r2,r2
-	sti r3,%:live,%8	#coucou
+	sti r3,%:live,%8
 
-#coucou
-
-#coucou
 live:	live	%1
-	zjmp	%:live #kljhlh
+	zjmp	%:live

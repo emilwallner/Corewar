@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 18:48:14 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 17:20:05 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/20 18:30:43 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,15 @@ int set_label_adresse(t_asm *tasm)
 	{
 		is_label = 0;
 		j = 0;
-		if (tasm->asm_master[i][0] && !tasm->asm_master[i][0][0])
+		// printf(">>s LINE %i %s\n", i, tasm->asm_master[i][0]);
+		if (tasm->asm_master[i][0] &&tasm->asm_master[i][0][0] && tasm->asm_master[i][0][0] == COMMENT_CHAR)
+			;
+		else if (!tasm->asm_master[i][0])
 		{
-			// printf("EMPTY_LINE current_label %i %s count %i\n", current_label, tasm->labels[current_label].label, count);
+			//  printf("EMPTY_LINE current_label %i %s count %i\n", current_label, tasm->labels[current_label].label, count);
 			if (current_label >= 0 && in_label)
 			{
-				// printf(">>set last_byte\n");
+				//  printf(">>set last_byte\n");
 				tasm->labels[current_label].last_byte = count;
 				tasm->labels[current_label].byte_size = count - tasm->labels[current_label].first_byte;
 			}
@@ -53,9 +56,9 @@ int set_label_adresse(t_asm *tasm)
 			if ((current_label = get_tlabel_by_index(tasm, i)) > -1)
 				tasm->labels[current_label].first_byte = count;
 			// j += ft_strlen(tasm->labels[current_label].label) + 1;
-			// printf("\nBEGIN BY LABEL j = %i label = %s\n", j, tasm->labels[current_label].label);
+			//  printf("\nBEGIN BY LABEL j = %i label = %s\n", j, tasm->labels[current_label].label);
 		}
-		if (tasm->asm_master[i][0] && tasm->asm_master[i][0][0])
+		if (tasm->asm_master[i][0] && tasm->asm_master[i][0][0] && tasm->asm_master[i][0][0] != COMMENT_CHAR)
 		{
 			// printf(">>> NEW LINE count = %i\n", count);
 
@@ -73,7 +76,7 @@ int set_label_adresse(t_asm *tasm)
 			param = -1;
 			while (++param < tasm->op_tab[id_instruction].nb_params)
 			{
-				// printf("LOOP params %s count AV %i ", tasm->asm_tab[i] + j, count);
+				//  printf("LOOP params %s count AV %i ", tasm->asm_master[i][1 + is_label] + j, count);
 				if (tasm->asm_master[i][1 + is_label][j] == 'r')
 					count += 1;
 				else if (tasm->asm_master[i][1 + is_label][j] == '%')
@@ -83,19 +86,19 @@ int set_label_adresse(t_asm *tasm)
 				while (tasm->asm_master[i][1 + is_label][j] && tasm->asm_master[i][1 + is_label][j] != SEPARATOR_CHAR)
 					j++;
 				j++;
-				// printf("count AP %i\n", count);
+			//  printf("count AP %i\n", count);
 			}
 		}
 	}
-	// printf("set_label_adresse END\n");
+// printf("count END  %i\n", count);
 
 	tasm->labels[current_label].last_byte = count;
 	tasm->labels[current_label].byte_size = count - tasm->labels[current_label].first_byte;
-	// i = 0;
-	// while (i < tasm->nb_labels)
-	// {
-	// 	printf("label %i  :  nom %s, ligne %i, first byte %i, last byte %i, byte size %i\n", i, tasm->labels[i].label, tasm->labels[i].index, tasm->labels[i].first_byte, tasm->labels[i].last_byte, tasm->labels[i].byte_size);
-	// 	i++;
-	// }
+	i = 0;
+	while (i < tasm->nb_labels)
+	{
+		printf("label %i  :  nom %s, ligne %i, first byte %i, last byte %i, byte size %i\n", i, tasm->labels[i].label, tasm->labels[i].index, tasm->labels[i].first_byte, tasm->labels[i].last_byte, tasm->labels[i].byte_size);
+		i++;
+	}
 	return (1);
 }
