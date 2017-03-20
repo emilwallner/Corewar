@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 22:26:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 17:54:01 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/20 18:18:59 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ void	set_direct(t_asm tasm, t_op top, char *params, int fd, int *cursor, int ins
 		j = 0;
 		while (params[j] != SEPARATOR_CHAR)
 			j++;
-		if (!(name = ft_strsub(params, 1, j)))
+		if (!(name = ft_strsub(params, 1, j - 1)))
 			return ;
-		//  printf("instruction_cursor %i name %s\n", instruction_cursor, name);
+		 printf("instruction_cursor %i name %s\n", instruction_cursor, name);
 		code = tasm.labels[get_tlabel_by_name(&tasm, name)].first_byte - instruction_cursor;
-		// printf("   first_byte %i code label %i\n", tasm.labels[get_tlabel_by_name(&tasm, name)].first_byte, code);
+		printf("   first_byte %i code label %i\n", tasm.labels[get_tlabel_by_name(&tasm, name)].first_byte, code);
 	}
 	else
 		code = ft_atoi(params);
@@ -63,7 +63,7 @@ void	set_direct(t_asm tasm, t_op top, char *params, int fd, int *cursor, int ins
 		i++;
 	}
 	nb = i;
-	// printf("nb = %i CODE = %x  top.label_size = %i\n", nb, code, top.label_size);
+	printf("nb = %i CODE = %x  top.label_size = %i\n", nb, code, top.label_size);
 	i = -1;
 	while (++i < 2 + 2 * (1 - top.label_size) - nb)
 		ft_putchar_fd(0,fd);

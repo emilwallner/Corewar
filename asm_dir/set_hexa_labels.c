@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 18:48:14 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 17:54:06 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/20 18:12:41 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int set_label_adresse(t_asm *tasm)
 	i = 0;
 	while (i < tasm->nb_labels)
 	{
-		// printf("label %i  :  nom %s, ligne %i, first byte %i, last byte %i, byte size %i\n", i, tasm->labels[i].label, tasm->labels[i].index, tasm->labels[i].first_byte, tasm->labels[i].last_byte, tasm->labels[i].byte_size);
+		printf("label %i  :  nom %s, ligne %i, first byte %i, last byte %i, byte size %i\n", i, tasm->labels[i].label, tasm->labels[i].index, tasm->labels[i].first_byte, tasm->labels[i].last_byte, tasm->labels[i].byte_size);
 		i++;
 	}
 	return (1);
