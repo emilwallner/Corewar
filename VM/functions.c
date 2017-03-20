@@ -15,11 +15,27 @@
 
 void	ft_live(t_env *e, t_cursor *cursor)
 {
-	ft_printf("live\n");
-	(void)e;
-	(void)cursor;
-
+	if(cursor->running)
+	{
+		if(cursor->cycle != 0)
+			cursor->cycle -= 1;
+		else
+		{
+			cursor->index += cursor->comnd_len;
+			cursor->running = 0;
+		}
+	}
+	else
+	{
+		ft_printf("live\n");
+		e->player[cursor->player].live += 1;
+		e->lives += 1;
+		cursor->comnd_len += 4;
+		cursor->cycle = 10;
+		cursor->running = 1;
+	}
 }
+
 void	ft_ld(t_env *e, t_cursor *cursor)
 {
 	ft_printf("ld\n");

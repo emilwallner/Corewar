@@ -12,6 +12,26 @@
 
 #include "vm.h"
 
+t_cursor		*ft_create_counter(int i, t_env *e)
+{
+	t_cursor	*newcursor;
+
+	newcursor = malloc(sizeof(t_cursor));
+	if (newcursor == NULL)
+		return (NULL);
+	newcursor->counter = 1;
+	newcursor->player = i;
+	newcursor->id = 0;
+	newcursor->carry = 0;
+	newcursor->cycle = 0;
+	newcursor->running = 0;
+	newcursor->comnd_len = 1;
+	newcursor->index = e->player[i].index_start;
+	newcursor->next = NULL;
+	return (newcursor);
+}
+
+
 t_cursor		*ft_create_cursor(int i, t_env *e)
 {
 	t_cursor	*newcursor;
@@ -19,10 +39,13 @@ t_cursor		*ft_create_cursor(int i, t_env *e)
 	newcursor = malloc(sizeof(t_cursor));
 	if (newcursor == NULL)
 		return (NULL);
+	newcursor->counter = 0;
 	newcursor->player = i;
 	newcursor->id = 0;
 	newcursor->carry = 0;
 	newcursor->cycle = 0;
+	newcursor->running = 0;
+	newcursor->comnd_len = 1;
 	newcursor->index = e->player[i].index_start;
 	newcursor->next = NULL;
 	return (newcursor);
@@ -49,7 +72,7 @@ void		ft_init_cursor(t_env *e)
 	int 		i;
 	t_cursor	*stack;
 
-	i = 0;
+	i = -1;
 	stack = NULL;
 	while(++i < e->player_amount)
 		stack = ft_add_cursor_to_stack(stack, i, e);

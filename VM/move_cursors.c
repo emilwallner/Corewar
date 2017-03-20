@@ -12,6 +12,21 @@
 
 #include "vm.h"
 
+void ft_new_cycle(t_env *e)
+{
+	if(e->lives < NBR_LIVE)
+		e->check += 1;
+	if(e->check == MAX_CHECKS)
+	{
+		e->cycles_to_die -= CYCLE_DELTA;
+		e->lives = 0;
+	}
+	else
+	{
+		e->check = 0;
+		e->lives = 0;
+	}
+}
 
 void 	ft_move_cursors(t_env *e)
 {
@@ -22,12 +37,21 @@ void 	ft_move_cursors(t_env *e)
 	i = 0;
 	while (i < MEM_SIZE)
 	{
-		//ft_print_cursor(e);
-		temp->index += 1;
-		if(temp->index == MEM_SIZE + 1)
-			temp->index = 0;
-		ft_print_function(temp->index, temp, e);
-		temp = temp->next;
-		i++;
+		if(temp->counter)
+		{
+			if(e->cycle == e->cycles_to_die)
+				ft_new_cycle(e);
+			else
+				e->cycle += 1;
+		}
+		else
+		{
+			temp->index += 1;
+			if(temp->index == MEM_SIZE + 1)
+				temp->index = 0;
+			ft_print_function(temp->index, temp, e);
+			temp = temp->next;
+			i++;
+		}
 	}
 }

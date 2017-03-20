@@ -23,9 +23,6 @@ void	ft_print_function(int index, t_cursor *cursor, t_env *e)
 		(*func_ptr[hex]) (e, cursor);
 }
 
-
-
-
 void	ft_print_cursor(t_env *e)
 {
 	int			i;
