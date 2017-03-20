@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 19:07:38 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/19 17:26:50 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/20 17:11:25 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	check_indirect(char *params, t_op top, int p, t_asm *tasm)
 	// ft_putstr(params);
 	if ((T_IND & top.params_type[p]) != T_IND)
 	{
-		// ft_putstr("fff\n");
+		ft_putstr("fff\n");
 		return (0);
 	}
 	if (params[0] == LABEL_CHAR)
@@ -124,7 +124,8 @@ int	check_indirect(char *params, t_op top, int p, t_asm *tasm)
 				is_found = 1;
 		if (!is_found)
 		{
-			// ft_putstr("ggg\n");
+			ft_putstr(label);
+			ft_putstr("ggg\n");
 			return (0);
 		}
 	}
@@ -132,7 +133,7 @@ int	check_indirect(char *params, t_op top, int p, t_asm *tasm)
 	{
 		if (!check_num_params(params, 0, top))
 		{
-			// ft_putstr("hhh\n");
+			ft_putstr("hhh\n");
 
 			return (0);
 		}
