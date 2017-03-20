@@ -43,8 +43,9 @@ typedef struct		s_cursor{
 	int				id;
 	int				index;
 	int				cycle;
-	int 			pause;
+	int 			cycle_end;
 	int				comnd_len;
+	int				operation[10];
 	int				reg[REG_NUMBER];
 }					t_cursor;
 
@@ -55,6 +56,7 @@ typedef struct	s_env
 	int 		cycle;
 	int			lives;
 	int			check;
+	int 		last_alive;
 	int			cycles_to_die;
 	char		**strings;
 	char		arena[MEM_SIZE];
