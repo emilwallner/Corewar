@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/19 17:24:07 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/20 14:45:21 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int			main(int ac, char **av)
 	char	*file;
 	t_asm	tasm;
 	t_read	tread;
+	t_header	header;
 
 	if (ac == 1)
 		return (0);
@@ -55,6 +56,10 @@ int			main(int ac, char **av)
 		ft_putstr("OK 3\n");
 		if (split_asm(tasm.asm_tab, file, tread.nb_line) <= 0)
 			return (free_and_return(file, tasm.asm_tab, 1, 0));
+		if (!(tasm.asm_master = ft_memalloc(sizeof(char**) * (tread.nb_line + 1))))
+			return (0);
+		if (split_line(tasm.asm_master, &tasm) <= 0)
+			return (free_and_return(file, tasm.asm_tab, 1, 0));
 		tasm.labels = NULL;
 		ft_putstr("OK 4\n");
 
@@ -68,7 +73,7 @@ int			main(int ac, char **av)
 			return (0);
 		ft_putstr("OK 7 \n");
 		// to change in check file
-		if (check_instructions(&tasm) == 0)
+		if (check_file(&tasm, &header) == 0)
 			return (free_and_return(file, tasm.asm_tab, 1, 0));
 		ft_putstr("OK 8\n");
 	}

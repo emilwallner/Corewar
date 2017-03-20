@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/19 18:48:35 by mhaziza          ###   ########.fr        #
+#    Updated: 2017/03/20 14:42:05 by tlenglin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ LIBFT	=	 -L../libft -lft
 SRCS	=	asm.c \
 			op.c \
 			get_asm.c \
+			get_asm_master.c \
 			check_file.c  \
 			labels_utils.c \
 			check_instruction.c \

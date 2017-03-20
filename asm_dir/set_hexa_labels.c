@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 18:48:14 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/19 22:20:58 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/20 11:48:50 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,10 @@ int set_label_adresse(t_asm *tasm)
 			while (tasm->asm_tab[i][j + k] && tasm->asm_tab[i][j + k] != ' ' && tasm->asm_tab[i][j + k] != '\t')
 				k++;
 			if (!(instruction = ft_strsub(tasm->asm_tab[i] + j, 0, k)))
-				{
-					// printf("****\n");
-					return (0);}
+			{
+				// printf("****\n");
+				return (0);
+			}
 			if (!(id_instruction = get_id_by_name(tasm, instruction)))
 			{
 				// printf("#### instruction %s\n", instruction);

@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 14:45:44 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/19 22:20:42 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/20 12:37:12 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	set_instruction(t_asm tasm, int fd, int nb_line)
 		// printf("set_label_adresse OK\n");
 	while (++i < nb_line)
 	{
-		if (tasm.asm_tab[i] && tasm.asm_tab[i][0])
+		// if (tasm.asm_tab[i] && tasm.asm_tab[i][0])
 			// printf(">  line in set_instruction %s\n", tasm.asm_tab[i]);
 		if (tasm.asm_tab[i] && tasm.asm_tab[i][0])
 		{

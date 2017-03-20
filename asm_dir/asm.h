@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:45 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/19 20:39:10 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/20 14:46:09 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct	s_label
 typedef struct	s_asm
 {
 	char	**asm_tab;
+	char	***asm_master;
 	t_label	*labels;
 	int		nb_labels;
 	t_op	op_tab[17];
@@ -56,7 +57,7 @@ int				get_counts(char *file_name, t_read *tread);
 int				get_asm(char *file_name, char *file, t_read *tread);
 int				split_asm(char **asm_tab, char *file, int nb);
 
-int				check_file(char **asm_tab, t_header *header);
+int				check_file(t_asm *tasm, t_header *header);
 int				get_id_by_name(t_asm *tasm, char *name);
 
 int				check_instructions(t_asm *tasm);
@@ -85,4 +86,6 @@ int		begin_by_label(char *line);
 int set_label_adresse(t_asm *tasm);
 int	get_tlabel_by_index(t_asm *tasm, int index);
 int	get_tlabel_by_name(t_asm *tasm, char *name);
+int	split_line(char ***asm_master, t_asm *tasm);
+
 #endif
