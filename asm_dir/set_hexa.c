@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 16:45:01 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/20 15:14:22 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/20 16:09:13 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,13 @@ int	set_hexa(t_asm tasm, char *str, int nb_line)
 		return (0);
 	if (set_filename(tasm, fd) == 0)
 		return (0);
-	ft_putstr("set_filename OK\n");
+	// ft_putstr("set_filename OK\n");
 	if (set_comment(tasm, fd) == 0)
 		return (0);
-	ft_putstr("set_comment OK\n");
+	// ft_putstr("set_comment OK\n");
 	if (set_instruction(tasm, fd, nb_line) == 0)
 		return (0);
-	ft_putstr("set_instruction OK\n");
+	// ft_putstr("set_instruction OK\n");
 	if (close(fd) == -1)
 		return (0);
 	return (1);

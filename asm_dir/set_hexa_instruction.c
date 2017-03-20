@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 14:45:44 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 15:42:29 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/20 16:58:32 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	set_opcode(t_asm tasm,char *line, int fd, int *cursor)
 	{
 		return (0);
 	}
+	// printf("line = %s id = %i\n", line, id);
 	ft_putchar_fd(id, fd);
 	*cursor += 1;
 	return (id);
@@ -106,15 +107,15 @@ int	set_instruction(t_asm tasm, int fd, int nb_line)
 			j = 0;
 			while (++count < tasm.op_tab[id_instruction].nb_params)
 			{
-				// printf("WHILE instruction_cursor %i\n", instruction_cursor);
+				//  printf("WHILE instruction_cursor %i %s \n", instruction_cursor, tasm.asm_master[i][1 + is_label] + j );
 				if (tasm.asm_master[i][1 + is_label][j] == 'r')
 					set_register(tasm.asm_master[i][1 + is_label] + j + 1, fd, &cursor);
 				else if (tasm.asm_master[i][1 + is_label][j] == '%')
-					set_direct(tasm, tasm.op_tab[id_instruction], tasm.asm_tab[i] + j + 1, fd, &cursor, instruction_cursor);
+					set_direct(tasm, tasm.op_tab[id_instruction], tasm.asm_master[i][1  + is_label] + j + 1, fd, &cursor, instruction_cursor);
 				else
 					set_indirect(tasm, tasm.asm_master[i][1 + is_label] + j, fd, &cursor, instruction_cursor);
 				// printf("WHILE end\n");
-				// ft_putstr(tasm.asm_tab[i] + j);
+				// ft_putstr(tasm.asm_master[i][1 + is_label] + j);
 				// ft_putstr("\n");
 				while (tasm.asm_master[i][1 + is_label][j] && tasm.asm_master[i][1 + is_label][j] != SEPARATOR_CHAR)
 					j++;
