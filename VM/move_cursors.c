@@ -12,9 +12,9 @@
 
 #include "vm.h"
 
-void ft_new_cycle(t_env *e)
+void ft_new_cycle(t_env *e, int *end)
 {
-	if(e->lives = 0)
+	if(e->lives == 0)
 		end = 0;
 	if(e->lives < NBR_LIVE)
 		e->check += 1;
@@ -30,10 +30,10 @@ void ft_new_cycle(t_env *e)
 	}
 }
 
-void 	execute_command(cursor);
-{
-
-}
+// void 	execute_command(cursor);
+// {
+//
+// }
 
 void 	ft_move_cursors(t_env *e)
 {
@@ -41,6 +41,7 @@ void 	ft_move_cursors(t_env *e)
 	int end;
 	t_cursor *cursor;
 
+	end = 1;
 	cursor = e->head;
 	i = 0;
 	while (end)
@@ -48,7 +49,7 @@ void 	ft_move_cursors(t_env *e)
 		if(cursor->counter)
 		{
 			if(e->cycle == e->cycles_to_die)
-				ft_new_cycle(e);
+				ft_new_cycle(e, &end);
 			else
 				e->cycle += 1;
 			cursor = cursor->next;
@@ -57,30 +58,35 @@ void 	ft_move_cursors(t_env *e)
 		{
 			if(!cursor->running)
 				{
-					if(check_if_valid(cursor))
-					{
-						ft_copy_command(e);
-						cursor->cycle = g_op_tab[cursor->index].cycles;
-						cursor->running = 1;
-						cursor->comnd_len = calc_len_of_op(cursor);
-					}
-					else
+					// if(check_if_valid(cursor))
+					// {
+					// 	ft_copy_command(e);
+					// 	cursor->cycle = g_op_tab[cursor->index].cycles;
+					// 	cursor->running = 1;
+					// 	//cursor->comnd_len = calc_len_of_op(cursor);
+					// 	cursor->comnd_len = 4;
+					// }
+					// else
+						cursor->comnd_len = 4;
 						cursor->index += 1;
+						e->lives += 1;
 				}
 			else
 			{
 				if(cursor->cycle == 0)
 				{
-					func_ptr[cursor->index](copied code, cursor);
+					//func_ptr[cursor->index](copied code, cursor);
 					cursor->running = 0;
-					cursor->index += comnd_len;
+					cursor->index += cursor->comnd_len;
 				}
 				else
 					cursor->cycle -= 1;
 			}
-			ft_check_index_max(cursor); //mod 
+			cursor->index = cursor->index % MEM_SIZE;
 			cursor = cursor->next;
 			i++;
+			// usleep(50000);
+			// system("clear");
 		}
 	}
 }
