@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 18:19:51 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 16:43:34 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/20 17:32:42 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ int	check_instructions(t_asm *tasm)
 			{
 				if (ft_strchr(LABEL_CHARS, tasm->asm_master[i][0][j]) == NULL || tasm->asm_master[i][1])
 				{
-					ft_putstr("TTT\n");
+					// ft_putstr("TTT\n");
 					return (0);
 				}
 				j++;
@@ -154,13 +154,13 @@ int	check_instructions(t_asm *tasm)
 			// printf("\ntasm->asm_tab[i] %s i = %d\n", tasm->asm_tab[i], i);
 			if (set_t_instruction(&line, tasm->asm_master[i]) == 0)
 			{
-				ft_putstr("CCC\n");
+				// ft_putstr("CCC\n");
 				return (0);
 			}
 			// printf(">>>> LINE -label %s -name %s -params %s\n", line.label, line.name, line.params);
 			if ((id = get_id_by_name(tasm, line.name)) < 1)
 			{
-				ft_putstr("AAA\n");
+				// ft_putstr("AAA\n");
 				return (0);
 			}
 			// printf("id funtion %i\n", id);
@@ -169,7 +169,7 @@ int	check_instructions(t_asm *tasm)
 
 			if (check_params(line.params, tasm->op_tab[id], tasm) == 0)
 			{
-				ft_putstr("BBB\n");
+				// ft_putstr("BBB\n");
 				return (0);
 			}
 			i++;

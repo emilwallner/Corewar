@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 16:58:11 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/20 16:45:00 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/20 17:32:13 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			check_params(char *params, t_op top, t_asm *tasm)
 	// ft_putstr(params);
 	if (!count_params(params, top))
 	{
-		ft_putstr("DDD\n");
+		// ft_putstr("DDD\n");
 		return (0);
 	}
 	i = 0;
@@ -51,23 +51,23 @@ int			check_params(char *params, t_op top, t_asm *tasm)
 		// ft_putstr("bbbb\n");
 		if (params[i] == 'r' && !check_register(params + i, top, p))
 		{
-			ft_putstr("cccc\n");
+			// ft_putstr("cccc\n");
 
 			return (0);
 		}
 		else if (params[i] == DIRECT_CHAR &&
 			!check_direct(params + i, top, p, tasm))
 			{
-				ft_putstr("ddd\n");
+				// ft_putstr("ddd\n");
 
 			return (0);
 		}
 		else if (params[i] != DIRECT_CHAR && params[i] != 'r' &&
 			!check_indirect(params + i, top, p, tasm))
 		{
-			ft_putstr(params);
-			ft_putnbr(i);
-			ft_putstr("eee\n");
+			// ft_putstr(params);
+			// ft_putnbr(i);
+			// ft_putstr("eee\n");
 			return (0);
 		}
 		// ft_putstr("fff\n");

@@ -6,9 +6,10 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:45 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 16:23:04 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/20 17:29:23 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef ASM_H
 # define ASM_H
@@ -86,5 +87,6 @@ int set_label_adresse(t_asm *tasm);
 int	get_tlabel_by_index(t_asm *tasm, int index);
 int	get_tlabel_by_name(t_asm *tasm, char *name);
 int	split_line(char ***asm_master, t_asm *tasm);
+
 
 #endif

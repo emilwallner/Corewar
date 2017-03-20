@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 15:01:23 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 17:25:10 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/20 17:32:23 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ int	fill_label_tab(t_asm *tasm)
 		i++;
 	}
 	i = 0;
-	ft_putstr("RRRRRRRRRRRRR\n");
-	while (i < tasm->nb_labels)
-	{
-		ft_putstr(tasm->labels[i].label);
-		ft_putstr("\n");
-		i++;
-	}
+	// ft_putstr("RRRRRRRRRRRRR\n");
+	// while (i < tasm->nb_labels)
+	// {
+	// 	ft_putstr(tasm->labels[i].label);
+	// 	ft_putstr("\n");
+	// 	i++;
+	// }
 	return (1);
 }
 
@@ -83,8 +83,8 @@ int	check_valid_label(char *str)
 	int	i;
 
 	i = 0;
-	ft_putstr(str);
-	ft_putstr("\n");
+	// ft_putstr(str);
+	// ft_putstr("\n");
 	if (ft_strchr(LABEL_CHARS, str[0]) == NULL || ft_strchr(str, ':') == NULL)
 		return (0);
 	while (str[i] != ':')

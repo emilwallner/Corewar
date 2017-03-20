@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   functions.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/17 17:00:54 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/20 17:07:59 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,31 @@
 
 void	ft_live(t_env *e, t_cursor *cursor)
 {
-	ft_printf("live\n");
-	(void)e;
-	(void)cursor;
+	if (cursor->cycle < 10)
+	 	cycle++
+	else
 
+	if(cursor->running)
+	{
+		if(cursor->cycle != 0)
+			cursor->cycle -= 1;
+		else
+		{
+			e->player[cursor->player].live += 1;
+			e->lives += 1;
+			cursor->index += 4;
+			cursor->running = 0;
+		}
+	}
+	else
+	{
+		ft_printf("live\n");
+		cursor->comnd_len += 4;
+		cursor->cycle = 10;
+		cursor->running = 1;
+	}
 }
+
 void	ft_ld(t_env *e, t_cursor *cursor)
 {
 	ft_printf("ld\n");

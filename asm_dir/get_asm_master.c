@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 14:16:40 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/20 15:01:55 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/20 16:08:55 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ int	split_line(char ***asm_master, t_asm *tasm)
 	{
 		j = 0;
 		nb_word = count_word(tasm->asm_tab[i]);
-		ft_putnbr(nb_word);
-		ft_putchar('\n');
+		// ft_putnbr(nb_word);
+		// ft_putchar('\n');
 		if (!(asm_master[i] = ft_memalloc(sizeof(char*) * (nb_word + 1))))
 			return (0);
 		if (set_master_line(asm_master[i], tasm->asm_tab[i]) == 0)
@@ -92,17 +92,17 @@ int	split_line(char ***asm_master, t_asm *tasm)
 		i++;
 	}
 	asm_master[i] = NULL;
-	i = 0;
-	while (asm_master[i])
-	{
-		j = 0;
-		while (asm_master[i][j])
-		{
-			ft_putstr(asm_master[i][j]);
-			ft_putchar('\n');
-			j++;
-		}
-		i++;
-	}
+	// i = 0;
+	// while (asm_master[i])
+	// {
+	// 	j = 0;
+	// 	while (asm_master[i][j])
+	// 	{
+	// 		ft_putstr(asm_master[i][j]);
+	// 		ft_putchar('\n');
+	// 		j++;
+	// 	}
+	// 	i++;
+	// }
 	return (1);
 }

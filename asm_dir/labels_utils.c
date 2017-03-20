@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 11:36:16 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/20 16:26:44 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/20 17:33:45 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ int	count_label(t_asm *tasm)
 	i = 2;
 	while (tasm->asm_master[i] != NULL)
 	{
-		ft_putstr("XXX\n");
+		// ft_putstr("XXX\n");
 		if (tasm->asm_master[i][0] && check_valid_label(tasm->asm_master[i][0]) == 1)
 			tasm->nb_labels++;
 		i++;
-		ft_putstr("OOO\n");
+		// ft_putstr("OOO\n");
 	}
 	return (1);
 }
