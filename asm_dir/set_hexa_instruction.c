@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 14:45:44 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 16:58:32 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/20 18:32:45 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,9 @@ int	set_instruction(t_asm tasm, int fd, int nb_line)
 		// if (tasm.asm_tab[i] && tasm.asm_tab[i][0])
 			// printf(">  line in set_instruction %s\n", tasm.asm_tab[i]);
 		is_label = 0;
-		if (tasm.asm_master[i] && tasm.asm_master[i][0] && tasm.asm_master[i][0][0])
+		if (tasm.asm_master[i][0] && tasm.asm_master[i][0][0] && tasm.asm_master[i][0][0] == COMMENT_CHAR)
+			;
+		else if (tasm.asm_master[i] && tasm.asm_master[i][0] && tasm.asm_master[i][0][0])
 		{
 			if (ft_strchr(tasm.asm_master[i][0], LABEL_CHAR))
 				is_label = 1;

@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 18:48:14 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 18:12:41 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/20 18:30:43 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ int set_label_adresse(t_asm *tasm)
 		is_label = 0;
 		j = 0;
 		// printf(">>s LINE %i %s\n", i, tasm->asm_master[i][0]);
-
-		if (!tasm->asm_master[i][0])
+		if (tasm->asm_master[i][0] &&tasm->asm_master[i][0][0] && tasm->asm_master[i][0][0] == COMMENT_CHAR)
+			;
+		else if (!tasm->asm_master[i][0])
 		{
 			//  printf("EMPTY_LINE current_label %i %s count %i\n", current_label, tasm->labels[current_label].label, count);
 			if (current_label >= 0 && in_label)
@@ -57,7 +58,7 @@ int set_label_adresse(t_asm *tasm)
 			// j += ft_strlen(tasm->labels[current_label].label) + 1;
 			//  printf("\nBEGIN BY LABEL j = %i label = %s\n", j, tasm->labels[current_label].label);
 		}
-		if (tasm->asm_master[i][0] && tasm->asm_master[i][0][0])
+		if (tasm->asm_master[i][0] && tasm->asm_master[i][0][0] && tasm->asm_master[i][0][0] != COMMENT_CHAR)
 		{
 			// printf(">>> NEW LINE count = %i\n", count);
 
