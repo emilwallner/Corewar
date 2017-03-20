@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 16:45:01 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/19 20:42:44 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/20 15:14:22 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ int	set_filename(t_asm tasm, int fd)
 	ft_putchar_fd(0xf3, fd);
 	// ft_putnbr(read(fd, buff, 5));
 	i = 6;
-	while (tasm.asm_tab[0][++i] != '"')
+	while (tasm.asm_master[0][0][++i] != '"')
 	{
-		ft_putchar_fd(tasm.asm_tab[0][i], fd);
+		ft_putchar_fd(tasm.asm_master[0][0][i], fd);
 		// ft_putchar(tasm.asm_tab[0][i]);
 	}
 	while (++i < PROG_NAME_LENGTH + 8)
@@ -68,9 +68,9 @@ int	set_comment(t_asm tasm, int fd)
 	ft_putchar_fd(0x3f, fd);
 	// ft_putnbr(read(fd, buff, 5));
 	i = 9;
-	while (tasm.asm_tab[1][++i] != '"')
+	while (tasm.asm_master[1][0][++i] != '"')
 	{
-		ft_putchar_fd(tasm.asm_tab[1][i], fd);
+		ft_putchar_fd(tasm.asm_master[1][0][i], fd);
 		// ft_putchar(tasm.asm_tab[1][i]);
 	}
 	while (++i < COMMENT_LENGTH + 15)

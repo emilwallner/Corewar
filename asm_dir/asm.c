@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 14:45:21 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/20 15:21:30 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int			main(int ac, char **av)
 	char	*file;
 	t_asm	tasm;
 	t_read	tread;
-	t_header	header;
+	// t_header	header;
 
 	if (ac == 1)
 		return (0);
@@ -73,7 +73,7 @@ int			main(int ac, char **av)
 			return (0);
 		ft_putstr("OK 7 \n");
 		// to change in check file
-		if (check_file(&tasm, &header) == 0)
+		if (check_instructions(&tasm) == 0)
 			return (free_and_return(file, tasm.asm_tab, 1, 0));
 		ft_putstr("OK 8\n");
 	}
