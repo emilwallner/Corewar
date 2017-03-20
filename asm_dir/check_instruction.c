@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 18:19:51 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 17:32:42 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/20 18:14:56 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,33 +90,58 @@ int	set_t_instruction(t_instruction *line, char **str)
 	if (str[i] && str[i][0] == COMMENT_CHAR)
 	{
 		if (str[i + 1] != NULL)
+		{
+			// ft_putstr("zzz\n");
 			return (0);
+		}
 		while (str[1][j])
 		{
 			if (ft_strchr(LABEL_CHARS, str[1][j]) == NULL)
+			{
+				// ft_putstr("xxx\n");
 				return (0);
+			}
 			j++;
 		}
 		return (1);
 	}
 	if (!str[i])
+	{
+		// ft_putstr("ccc\n");
 		return (0);
+	}
 	if (!(line->name = ft_strdup(str[i])))
+	{
+		// ft_putstr("vvv\n");
 		return (0);
+	}
 	i++;
 	if (!str[i])
+	{
+		// ft_putstr("bbb\n");
 		return (0);
+	}
 	if (!(line->params = ft_strdup(str[i])))
+	{
+		// ft_putstr("nnn\n");
 		return (0);
+	}
 	i++;
 	if (!str[i])
 		return (1);
 	if (str[i][0] != COMMENT_CHAR || str[i + 1])
+	{
+		// ft_putstr("mmm\n");
 		return (0);
+	}
 	while (str[i][j])
 	{
-		if (ft_strchr(LABEL_CHARS, str[1][j]) == NULL)
+		if (ft_strchr(LABEL_CHARS, str[i][j]) == NULL)
+		{
+			// ft_putstr(str[i]);
+			// ft_putstr("lll\n");
 			return (0);
+		}
 		j++;
 	}
 	return (1);
