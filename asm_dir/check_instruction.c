@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 18:19:51 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/19 16:37:11 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/19 18:45:14 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,22 +70,6 @@ int	set_params(t_instruction *line, char *str, int i)
 	return (1);
 }
 
-int	check_valid_label(char *str)
-{
-	int	i;
-
-	i = 0;
-	if (ft_strchr(LABEL_CHARS, str[0]) == NULL || ft_strchr(str, ':') == NULL)
-		return (0);
-	while (str[i] != ':')
-	{
-		if (ft_strchr(LABEL_CHARS, str[i]) == NULL)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 int	set_t_instruction(t_instruction *line, char *str)
 {
 	int	i;
@@ -110,5 +94,65 @@ int	set_t_instruction(t_instruction *line, char *str)
 		i++;
 	if ((set_params(line, str, i)) == -1)
 		return (0);
+	return (1);
+}
+
+int	check_instructions(t_asm *tasm)
+{
+	int				i;
+	int				id;
+	t_instruction	line;
+	int				j;
+
+	i = 2;
+	while (tasm->asm_tab[i] != NULL)
+	{
+		// ft_putstr("YYY\n");
+		if (!tasm->asm_tab[i][0])
+			i++;
+		else if (tasm->asm_tab[i][0] == COMMENT_CHAR)
+		{
+			j = 1;
+			while (tasm->asm_tab[i][j])
+			{
+				if (ft_strchr(LABEL_CHARS, tasm->asm_tab[i][j]) == NULL)
+					return (0);
+				j++;
+			}
+			i++;
+		}
+		else if (tasm->asm_tab[i][0])
+		{
+			// printf("\ntasm->asm_tab[i] %s i = %d\n", tasm->asm_tab[i], i);
+			if (set_t_instruction(&line, tasm->asm_tab[i]) == 0)
+			{
+				// ft_putstr("ZZZZZZZ\n");
+				return (0);
+			}
+			// printf(">>>> LINE -label %s -name %s -params %s\n", line.label, line.name, line.params);
+			if ((id = get_id_by_name(tasm, line.name)) < 1)
+				return (0);
+			// printf("id funtion %i\n", id);
+			// ft_putstr("aaaa\n");
+			// printf("name %s\n", g_op_tab[id].name);
+
+			if (check_params(line.params, tasm->op_tab[id], tasm) == 0)
+				return (0);
+			i++;
+			// printf("check params OK\n");
+		}
+		else
+			i++;
+	}
+	// i = 0;
+	// while (i < tasm->nb_labels)
+	// {
+	// 	ft_putstr("XXXXXXXX\n");
+	// 	ft_putstr(tasm->labels[i].label);
+	// 	ft_putchar('\n');
+	// 	ft_putnbr(tasm->labels[i].index);
+	// 	ft_putchar('\n');
+	// 	i++;
+	// }
 	return (1);
 }

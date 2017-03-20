@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 11:36:16 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/19 16:27:46 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/19 22:21:18 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,31 @@ int	count_label(t_asm *tasm)
 		i++;
 	}
 	return (1);
+}
+
+int	get_tlabel_by_index(t_asm *tasm, int index)
+{
+	int	i;
+
+	i = -1;
+	while (++i < tasm->nb_labels)
+	{
+		if (tasm->labels[i].index == index)
+			return (i);
+	}
+	return (-1);
+}
+
+int	get_tlabel_by_name(t_asm *tasm, char *name)
+{
+	int	i;
+
+	i = -1;
+	while (++i < tasm->nb_labels)
+	{
+		// printf("tasm->labels[i].label %s name %s\n", tasm->labels[i].label, name);
+		if (!ft_strcmp(tasm->labels[i].label, name))
+			return (i);
+	}
+	return (-1);
 }

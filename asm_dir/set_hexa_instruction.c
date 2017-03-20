@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 14:45:44 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/19 16:12:48 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/19 22:20:42 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,21 @@ void	set_acb(t_op top, char *line, int fd, int *cursor)
 	// printf("acb %i\n", acb);
 }
 
+int		begin_by_label(char *line)
+{
+	int	i1;
+	int	i2;
+	int	i3;
+
+	i1 = ft_strchr(line, LABEL_CHAR) ? ft_strchr(line, LABEL_CHAR) - line : -1;
+	i2 = ft_strchr(line, ' ') ? ft_strchr(line, ' ') - line : -1;
+	i3 = ft_strchr(line, '\t') ? ft_strchr(line, '\t') - line : -1;
+
+	if (i1 > -1 && (i2 > -1 || i3 > -1) && (i1 < i2 || i1 < i3))
+		return (1);
+	return (0);
+}
+
 int	set_instruction(t_asm tasm, int fd, int nb_line)
 {
 	int		i;
@@ -70,17 +85,24 @@ int	set_instruction(t_asm tasm, int fd, int nb_line)
 	int		id_instruction;
 	int		count;
 	int		cursor;
+	int		instruction_cursor;
 
 	i = 2;
-	cursor = 0;
+	cursor = -1;
+	// printf("set_label_adresse\n");
+	if (!set_label_adresse(&tasm))
+		return (0);
+		// printf("set_label_adresse OK\n");
 	while (++i < nb_line)
 	{
-		// printf(">  line in set_instruction %s\n", tasm.asm_tab[i]);
+		if (tasm.asm_tab[i] && tasm.asm_tab[i][0])
+			// printf(">  line in set_instruction %s\n", tasm.asm_tab[i]);
 		if (tasm.asm_tab[i] && tasm.asm_tab[i][0])
 		{
 			j = 0;
-			while (ft_strchr(LABEL_CHARS, tasm.asm_tab[i][j]))
-				j++;
+			if (ft_strchr(LABEL_CHARS, tasm.asm_tab[i][j]) && begin_by_label(tasm.asm_tab[i]))
+				while (ft_strchr(LABEL_CHARS, tasm.asm_tab[i][j]))
+					j++;
 			j += 1;
 			while (tasm.asm_tab[i][j] == ' ' || tasm.asm_tab[i][j] == '\t')
 				j++;
@@ -90,21 +112,25 @@ int	set_instruction(t_asm tasm, int fd, int nb_line)
 				j++;
 			while (tasm.asm_tab[i][j] == ' ' || tasm.asm_tab[i][j] == '\t')
 				j++;
+			instruction_cursor = cursor;
 			// printf("acb for instruction ? %s %i\n",tasm.op_tab[id_instruction - 1].name, tasm.op_tab[id_instruction - 1].acb);
 			if (tasm.op_tab[id_instruction].acb)
 				set_acb(tasm.op_tab[id_instruction], tasm.asm_tab[i] + j, fd, &cursor);
-			printf("cursor write %i\n", cursor);
+			// printf("cursor write %i\n", cursor);
+			// printf(">>>>>>>>>>> CURSOR %i\n", cursor);
 			count = -1;
 			while (++count < tasm.op_tab[id_instruction].nb_params)
 			{
+				// printf("WHILE instruction_cursor %i\n", instruction_cursor);
 				if (tasm.asm_tab[i][j] == 'r')
 					set_register(tasm.asm_tab[i] + j + 1, fd, &cursor);
 				else if (tasm.asm_tab[i][j] == '%')
-					set_direct(tasm.op_tab[id_instruction], tasm.asm_tab[i] + j + 1, fd, &cursor);
+					set_direct(tasm, tasm.op_tab[id_instruction], tasm.asm_tab[i] + j + 1, fd, &cursor, instruction_cursor);
 				else
-					set_indirect(tasm.asm_tab[i] + j, fd, &cursor);
-				ft_putstr(tasm.asm_tab[i] + j);
-				ft_putstr("\n");
+					set_indirect(tasm, tasm.asm_tab[i] + j, fd, &cursor, instruction_cursor);
+				// printf("WHILE end\n");
+				// ft_putstr(tasm.asm_tab[i] + j);
+				// ft_putstr("\n");
 				while (tasm.asm_tab[i][j] && tasm.asm_tab[i][j] != SEPARATOR_CHAR)
 					j++;
 				j++;

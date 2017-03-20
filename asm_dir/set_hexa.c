@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 16:45:01 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/19 15:38:51 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/19 20:42:44 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int	set_hexa(t_asm tasm, char *str, int nb_line)
 	ft_putstr("set_comment OK\n");
 	if (set_instruction(tasm, fd, nb_line) == 0)
 		return (0);
+	ft_putstr("set_instruction OK\n");
 	if (close(fd) == -1)
 		return (0);
 	return (1);
