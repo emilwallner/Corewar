@@ -1,4 +1,4 @@
-.name "tim"
+.name   tim"
 .comment "just_a_basic_living_prog"
 
 l2:
