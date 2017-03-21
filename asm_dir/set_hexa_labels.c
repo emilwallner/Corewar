@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 18:48:14 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 18:30:43 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/21 11:01:53 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int set_label_adresse(t_asm *tasm)
 		// printf(">>s LINE %i %s\n", i, tasm->asm_master[i][0]);
 		if (tasm->asm_master[i][0] &&tasm->asm_master[i][0][0] && tasm->asm_master[i][0][0] == COMMENT_CHAR)
 			;
-		else if (!tasm->asm_master[i][0])
+		else if (!tasm->asm_master[i][0] || !tasm->asm_master[i][0][0])
 		{
 			//  printf("EMPTY_LINE current_label %i %s count %i\n", current_label, tasm->labels[current_label].label, count);
 			if (current_label >= 0 && in_label)
@@ -51,6 +51,7 @@ int set_label_adresse(t_asm *tasm)
 		}
 		else if (tasm->asm_master[i][0] && ft_strchr(tasm->asm_master[i][0], LABEL_CHAR))
 		{
+			// printf("else if\n");
 			in_label = 1;
 			is_label = 1;
 			if ((current_label = get_tlabel_by_index(tasm, i)) > -1)
@@ -58,7 +59,7 @@ int set_label_adresse(t_asm *tasm)
 			// j += ft_strlen(tasm->labels[current_label].label) + 1;
 			//  printf("\nBEGIN BY LABEL j = %i label = %s\n", j, tasm->labels[current_label].label);
 		}
-		if (tasm->asm_master[i][0] && tasm->asm_master[i][0][0] && tasm->asm_master[i][0][0] != COMMENT_CHAR)
+		if (tasm->asm_master[i][is_label] && tasm->asm_master[i][is_label][0] && tasm->asm_master[i][is_label][0] != COMMENT_CHAR)
 		{
 			// printf(">>> NEW LINE count = %i\n", count);
 
@@ -71,7 +72,7 @@ int set_label_adresse(t_asm *tasm)
 			}
 			if (tasm->op_tab[id_instruction].acb)
 				count++;
-			// printf("INSTRUCTION %s OPCODE %i\n", instruction, id_instruction);
+			// printf("OPCODE %i\n",  id_instruction);
 			j = 0;
 			param = -1;
 			while (++param < tasm->op_tab[id_instruction].nb_params)
@@ -97,7 +98,7 @@ int set_label_adresse(t_asm *tasm)
 	i = 0;
 	while (i < tasm->nb_labels)
 	{
-		printf("label %i  :  nom %s, ligne %i, first byte %i, last byte %i, byte size %i\n", i, tasm->labels[i].label, tasm->labels[i].index, tasm->labels[i].first_byte, tasm->labels[i].last_byte, tasm->labels[i].byte_size);
+		// printf("label %i  :  nom %s, ligne %i, first byte %i, last byte %i, byte size %i\n", i, tasm->labels[i].label, tasm->labels[i].index, tasm->labels[i].first_byte, tasm->labels[i].last_byte, tasm->labels[i].byte_size);
 		i++;
 	}
 	return (1);
