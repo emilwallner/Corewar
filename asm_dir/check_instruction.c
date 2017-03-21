@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 18:19:51 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 18:58:29 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/21 11:27:02 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,15 @@ int	set_t_instruction(t_instruction *line, char **str)
 	j = 1;
 	if (!str[0])
 		return (1);
-	if (check_valid_label(str[0]) == 1)
+	if (str[0] && ft_strchr(str[0], LABEL_CHAR) && check_valid_label(str[0]) == 1)
 	{
+		// ft_putstr("IS LABEL\n");
 		i++;
 		if (str[1] == NULL)
 			return (1);
 	}
+	// ft_putstr("OUT L\n");
+
 	if (str[i] && str[i][0] == COMMENT_CHAR)
 	{
 		if (str[i + 1] != NULL)
@@ -158,6 +161,7 @@ int	check_instructions(t_asm *tasm)
 	while (tasm->asm_master[i] != NULL)
 	{
 		// ft_putstr("YYY\n");
+		ft_bzero(&line, sizeof(t_instruction));
 		if (!tasm->asm_master[i][0])
 			i++;
 		else if (tasm->asm_master[i][0][0] == COMMENT_CHAR)
@@ -182,8 +186,9 @@ int	check_instructions(t_asm *tasm)
 				// ft_putstr("CCC\n");
 				return (0);
 			}
-			// printf(">>>> LINE -label %s -name %s -params %s\n", line.label, line.name, line.params);
-			if ((id = get_id_by_name(tasm, line.name)) < 1)
+			// ft_putstr("SSSS\n");
+			//printf(">>>> LINE -name %s -params %s\n", line.name, line.params);
+			if (line.name && (id = get_id_by_name(tasm, line.name)) < 1)
 			{
 				// ft_putstr("AAA\n");
 				return (0);
@@ -192,7 +197,7 @@ int	check_instructions(t_asm *tasm)
 			// ft_putstr("aaaa\n");
 			// printf("name %s\n", g_op_tab[id].name);
 
-			if (check_params(line.params, tasm->op_tab[id], tasm) == 0)
+			if (line.params && check_params(line.params, tasm->op_tab[id], tasm) == 0)
 			{
 				// ft_putstr("BBB\n");
 				return (0);
