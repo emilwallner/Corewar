@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 17:28:15 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/21 12:01:04 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,25 @@ static int	free_and_return(char *file, char **asm_tab, int free_tab, int ret)
 	return (ret);
 }
 
+int			check_asm_header(void)
+{
+	if (ft_strchr(LABEL_CHARS, '\n') || ft_strchr(CMD_CHARS, '\n') ||
+		ft_strchr(NAME_CMD_STRING, '\n') || ft_strchr(COMMENT_CMD_STRING, '\n'))
+		return (0);
+	if (COMMENT_CHAR == '\n' || LABEL_CHAR == '\n' || DIRECT_CHAR == '\n' ||
+		SEPARATOR_CHAR == '\n' || COMMENT_CHAR == ' ' || LABEL_CHAR == ' ' ||
+		DIRECT_CHAR == ' ' || SEPARATOR_CHAR == ' ')
+		return (0);
+	if (ft_strchr(LABEL_CHARS, LABEL_CHAR) ||
+		ft_strchr(LABEL_CHARS, SEPARATOR_CHAR) ||
+		ft_strchr(LABEL_CHARS, COMMENT_CHAR) ||
+		ft_strchr(LABEL_CHARS, DIRECT_CHAR))
+		return (0);
+	if (ft_strchr(CMD_CHARS, '"'))
+		return (0);
+	return (1);
+}
+
 int			main(int ac, char **av)
 {
 	int		i;
@@ -35,12 +54,16 @@ int			main(int ac, char **av)
 	t_read	tread;
 	t_header	header;
 
-	if (ac == 1)
+	ft_putstr("OK -2\n");
+	if (ac == 1 || !check_asm_header())
 		return (0);
 	i = 0;
 	file = NULL;
 	while (++i < ac)
 	{
+		ft_putstr("OK -1\n");
+		if (ft_strlen(av[i]) < 3 || av[i][ft_strlen(av[i]) - 1] != 's' || av[i][ft_strlen(av[i]) - 2] != '.')
+			return (0);
 		ft_putstr("OK 0\n");
 		if (!(get_counts(av[i], &tread)) || !tread.nb_char || !tread.nb_line)
 			return (0);
