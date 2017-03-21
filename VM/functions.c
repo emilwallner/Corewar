@@ -15,11 +15,10 @@
 
 void	ft_live(t_env *e, t_cursor *cursor)
 {
-	// ft_copy_command(e);
-	(void)e;
-	cursor->cycle = 10;
-	cursor->running = 1;
-	cursor->comnd_len = 4;
+	(void)cursor;
+	e->lives += 1;
+	e->player[1].live += 1;
+	e->winner = 1;
 }
 
 // void	ft_live_execute(t_env *e, t_cursor *cursor)

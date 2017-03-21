@@ -41,14 +41,20 @@ void ft_adjust_cycle(t_env *e, t_cursor *cursor, int *end)
 	ft_build_vm(e, e->player_amount);
 }
 
-void ft_cycle_break(t_cursor *cursor)
+void ft_cycle_break(t_env *e, t_cursor *cursor)
 {
-if(cursor->cycle == 0)
-{
-	func_ptr[cursor->index](copied code, cursor);
-	cursor->running = 0;
-	ft_update_cursor(cursor, cursor->comnd_len);
-}
-else
-	cursor->cycle -= 1;
+	void (*func_ptr[17])(t_env *e, t_cursor *cursor) =
+	{ft_live, ft_live, ft_ld, ft_st, ft_add, ft_sub, ft_and, ft_or,
+	ft_xor, ft_zjmp, ft_ldi, ft_sti, ft_fork, ft_lld, ft_lldi,
+	ft_lfork, ft_aff};
+
+	if(cursor->cycle == 0)
+	{
+		if(e->a[cursor->index].hex == 1)
+			(*func_ptr[1]) (e, cursor);
+		cursor->running = 0;
+		ft_update_cursor(e, cursor, cursor->comnd_len);
+	}
+	else
+		cursor->cycle -= 1;
 }

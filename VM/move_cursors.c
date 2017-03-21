@@ -12,16 +12,16 @@
 
 #include "vm.h"
 
-void	ft_update_cursor(t_cursor *cursor, int i)
+void	ft_update_cursor(t_env *e, t_cursor *cursor, int i)
 {
-	e->a[cursor->index].color = e->a[cursor->index].prevcolor
+	e->a[cursor->index].color = e->a[cursor->index].prevcolor;
 		cursor->index += i;
 	e->a[cursor->index].color = cursor->color;
 }
 
-int		check_if_valid(t_cursor *cursor)
+int		check_if_valid(t_env *e, t_cursor *cursor)
 {
-	if(cursor->index > 0 && cursor->index < 17)
+	if(e->a[cursor->index].hex > 0 && e->a[cursor->index].hex < 17)
 		return (1);
 	else
 		return (0);
@@ -29,16 +29,16 @@ int		check_if_valid(t_cursor *cursor)
 
 void ft_store_and_check_operation(t_env *e, t_cursor *cursor)
 {
-	if(check_if_valid(cursor))
+	if(check_if_valid(e, cursor))
 	{
-		ft_copy_command(e);
-		cursor->cycle = g_op_tab[cursor->index].cycles;
+		//ft_copy_command(e);
+		cursor->cycle = e->op_tab[cursor->index].cycles;
 		cursor->running = 1;
 		//cursor->comnd_len = calc_len_of_op(cursor);
 		cursor->comnd_len = 5;
 	}
 	else
-		ft_update_cursor(cursor, 1);
+		ft_update_cursor(e, cursor, 1);
 }
 
 void 	ft_move_cursors(t_env *e)
@@ -47,6 +47,7 @@ void 	ft_move_cursors(t_env *e)
 	int end;
 	t_cursor *cursor;
 
+	end = 1;
 	cursor = e->head;
 	i = 0;
 	while (end)
@@ -59,7 +60,7 @@ void 	ft_move_cursors(t_env *e)
 			if(!cursor->running)
 				ft_store_and_check_operation(e, cursor);
 			else
-				ft_cycle_break(cursor);
+				ft_cycle_break(e, cursor);
 			cursor->index = cursor->index % MEM_SIZE;
 			cursor = cursor->next;
 			i++;

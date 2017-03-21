@@ -18,7 +18,6 @@ LIBFT	=	 -L../libft -lft -lcurses
 SRCS	=	main_vm.c 	\
 				files_to_strings.c \
 				init_e.c \
-				ft_print_strings.c \
 				error.c \
 				parsing.c \
 				ft_print_hexa.c \
@@ -30,7 +29,7 @@ SRCS	=	main_vm.c 	\
 				functions.c \
 				adjust_cycles.c \
 				ncurses.c \
-				delare_winner.c \
+				declare_winner.c \
 
 OBJS	=   $(SRCS:.c=.o)
 

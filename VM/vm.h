@@ -24,7 +24,7 @@ typedef struct s_arena
 {
 	int		hex;
 	int		color;
-	int 	past_color;
+	int 	prevcolor;
 }				t_arena;
 
 typedef struct	s_player
@@ -52,7 +52,7 @@ typedef struct		s_cursor{
 	int				cycle;
 	int 			cycle_end;
 	int				comnd_len;
-	char			operation[30];
+	int				command[6];
 	int				reg[REG_NUMBER];
 }					t_cursor;
 
@@ -74,8 +74,9 @@ typedef struct	s_env
 	t_op		op_tab[17];
 }				t_env;
 
-void		ft_init_ncurses(void)
-void		ft_cycle_break(t_cursor *cursor);
+void	ft_update_cursor(t_env *e, t_cursor *cursor, int i);
+void		ft_init_ncurses(void);
+void		ft_cycle_break(t_env *e, t_cursor *cursor);
 void		ft_adjust_cycle(t_env *e, t_cursor *cursor, int *end);
 void		ft_declare_winner(t_env *e);
 void		ft_new_cycle(t_env *e, int *end);
