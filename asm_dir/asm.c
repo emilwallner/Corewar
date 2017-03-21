@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 17:28:15 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/21 11:38:46 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ int			main(int ac, char **av)
 	file = NULL;
 	while (++i < ac)
 	{
+		ft_putstr("OK -1\n");
+		if (ft_strlen(av[i]) < 3 || av[i][ft_strlen(av[i]) - 1] != 's' || av[i][ft_strlen(av[i]) - 2] != '.')
+			return (0);
 		ft_putstr("OK 0\n");
 		if (!(get_counts(av[i], &tread)) || !tread.nb_char || !tread.nb_line)
 			return (0);
