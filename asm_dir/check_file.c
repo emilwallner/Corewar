@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:21:54 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/20 17:33:11 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/21 11:26:11 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,12 @@ int	check_file_comment(char *str, t_header *header)
 		return (0);
 	}
 	i = 10;
-	while (i < len - 1)
+	while (str[i] && i < len - 1)
 	{
 		if (ft_strchr(LABEL_CHARS, str[i]) == NULL)
 		{
-			// ft_putchar(str[i]);
+				// ft_putstr("JJJ");
+			 ft_putchar(str[i]);
 			// ft_putstr("JJJ\n");
 			return (0);
 		}

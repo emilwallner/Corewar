@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 14:45:44 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 18:32:45 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/21 11:01:25 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,17 +97,17 @@ int	set_instruction(t_asm tasm, int fd, int nb_line)
 		{
 			if (ft_strchr(tasm.asm_master[i][0], LABEL_CHAR))
 				is_label = 1;
-			if (!(id_instruction = set_opcode(tasm, tasm.asm_master[i][is_label], fd, &cursor)))
+			if (tasm.asm_master[i][is_label] && !(id_instruction = set_opcode(tasm, tasm.asm_master[i][is_label], fd, &cursor)))
 				return (0);
 			instruction_cursor = cursor;
 			// printf("acb for instruction ? %s %i\n",tasm.op_tab[id_instruction - 1].name, tasm.op_tab[id_instruction - 1].acb);
-			if (tasm.op_tab[id_instruction].acb)
+			if (tasm.asm_master[i][is_label] && tasm.op_tab[id_instruction].acb)
 				set_acb(tasm.op_tab[id_instruction], tasm.asm_master[i][1 + is_label], fd, &cursor);
 			// printf("cursor write %i\n", cursor);
 			// printf(">>>>>>>>>>> CURSOR %i\n", cursor);
 			count = -1;
 			j = 0;
-			while (++count < tasm.op_tab[id_instruction].nb_params)
+			while (tasm.asm_master[i][is_label] && ++count < tasm.op_tab[id_instruction].nb_params)
 			{
 				//  printf("WHILE instruction_cursor %i %s \n", instruction_cursor, tasm.asm_master[i][1 + is_label] + j );
 				if (tasm.asm_master[i][1 + is_label][j] == 'r')
