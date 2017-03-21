@@ -13,13 +13,17 @@
 #ifndef VM_H
 # define VM_H
 
-#define RED     "\x1b[31m"
-#define RESET   "\x1b[0m"
-
 # include "../libft/libft.h"
 # include "op.h"
+# include "color.h"
 # include <stdio.h>
 # include <limits.h>
+
+typedef struct s_arena
+{
+	int		hex;
+	char	color[10];
+}				t_arena;
 
 typedef struct	s_player
 {
@@ -53,6 +57,7 @@ typedef struct	s_env
 {
 	t_player	*player;
 	t_cursor	*head;
+	t_arena		a[MEM_SIZE];
 	int 		cycle;
 	int			lives;
 	int			check;

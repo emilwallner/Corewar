@@ -15,7 +15,7 @@
 void ft_new_cycle(t_env *e, int *end)
 {
 	if(e->lives == 0)
-		end = 0;
+		end -= 1;
 	if(e->lives < NBR_LIVE)
 		e->check += 1;
 	if(e->check == MAX_CHECKS)
@@ -41,7 +41,7 @@ void 	ft_move_cursors(t_env *e)
 	int end;
 	t_cursor *cursor;
 
-	end = 1;
+	end = 20;
 	cursor = e->head;
 	i = 0;
 	while (end)
@@ -53,6 +53,9 @@ void 	ft_move_cursors(t_env *e)
 			else
 				e->cycle += 1;
 			cursor = cursor->next;
+			usleep(50000);
+			system("clear");
+			ft_build_vm(e, e->player_amount);
 		}
 		else
 		{
@@ -85,8 +88,6 @@ void 	ft_move_cursors(t_env *e)
 			cursor->index = cursor->index % MEM_SIZE;
 			cursor = cursor->next;
 			i++;
-			// usleep(50000);
-			// system("clear");
 		}
 	}
 }

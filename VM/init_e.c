@@ -12,6 +12,19 @@
 
 #include "vm.h"
 
+void ft_szero(t_arena *a)
+{
+	int i;
+
+	i = 0;
+	while(i < MEM_SIZE)
+	{
+		a->letter = 0;
+		ft_memcpy(a->color, WHITE, 10);
+		i++;
+	}
+}
+
 void init_e(t_env *e, int ac, char **av)
 {
 	e->player_amount = ac;
@@ -22,6 +35,8 @@ void init_e(t_env *e, int ac, char **av)
 	e->cycles_to_die = CYCLE_TO_DIE;
 	e->player = malloc(sizeof(t_player) * ac);
 	ft_bzero(e->arena, (MEM_SIZE));
+	ft_szero(e->a);
 	ft_files_to_string(e);
 	set_op_tab(e);
+	ft_printf("I'm alive!\n");
 }

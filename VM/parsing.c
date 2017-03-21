@@ -62,22 +62,52 @@ void ft_parsing(t_env *e, int ac)
 	}
 	e->player[i].inst_len = k - e->player[i].inst_len;
 	ft_printf("\n\n");
-	// printf("\n\ne->player[i].inst_len is %i\n\n", e->player[i].inst_len);
+	//printf("\n\ne->player[i].inst_len is %i\n\n", e->player[i].inst_len);
 	i++;
+	}
+}
+
+void ft_player_to_arena(t_env *e, int i, int *k)
+{
+	int count;
+
+	count = 0;
+	while(count < e->player[i].inst_len)
+	{
+		e->a[*k] = 0xFF & e->player[i].inst[count];
+		*k += 1;
+		count++;
 	}
 }
 
 void ft_build_vm(t_env *e, int ac)
 {
 	int i;
+	int k;
 
 	i = 1;
+	k = 0;
 	while (i < ac)
 	{
-		ft_memcpy(e->arena + MEM_SIZE / (ac - 1) * (i - 1),
-						e->player[i].inst, e->player[i].inst_len);
+		ft_player_to_arena(e, i, &k);
+		// ft_memcpy(e->arena + MEM_SIZE / (ac - 1) * (i - 1),
+		// 				e->player[i].inst, e->player[i].inst_len);
 		e->player[i].index_start = MEM_SIZE / (ac - 1) * (i - 1);
 		i++;
 	}
-	ft_print_hexa(e->arena, MEM_SIZE);
 }
+
+// void ft_build_vm(t_env *e, int ac)
+// {
+// 	int i;
+//
+// 	i = 1;
+// 	while (i < ac)
+// 	{
+// 		ft_memcpy(e->arena + MEM_SIZE / (ac - 1) * (i - 1),
+// 						e->player[i].inst, e->player[i].inst_len);
+// 		e->player[i].index_start = MEM_SIZE / (ac - 1) * (i - 1);
+// 		i++;
+// 	}
+// 	ft_print_hexa(e->arena, MEM_SIZE);
+// }
