@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:45 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/21 11:09:19 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/21 15:36:07 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ typedef struct	s_label
 	char	*label;
 	int		index;
 	int		first_byte;
-	// int		last_byte;
-	// int		byte_size;
+	int		last_byte;
+	int		byte_size;
 }				t_label;
 
 typedef struct	s_asm

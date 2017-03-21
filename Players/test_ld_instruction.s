@@ -4,4 +4,5 @@
 ld %6,r3
 ld %:label,r3
 ld :label,r3
+label:
 ld 10,r3

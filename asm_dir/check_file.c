@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:21:54 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/21 12:25:46 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/21 12:42:39 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ int	check_file_name(char *str, t_header *header)
 		return (0);
 	}
 	i = ft_strlen(NAME_CMD_STRING);
-	while (str[i] == ' ' || str[i] == '\n')
+	while (str[i] && (str[i] == ' ' || str[i] == '\n'))
 		i++;
+	if (!str[i])
+		return (0);
 	if (len - i - (int)ft_strlen(NAME_CMD_STRING - 2) > PROG_NAME_LENGTH)
 		return (0);
 	if (i == (int)ft_strlen(NAME_CMD_STRING) || str[i] != '"' || str[len - 1] != '"')
@@ -70,8 +72,10 @@ int	check_file_comment(char *str, t_header *header)
 		return (0);
 	}
 	i = ft_strlen(COMMENT_CMD_STRING);
-	while (str[i] == ' ' || str[i] == '\n')
+	while (str[i] && (str[i] == ' ' || str[i] == '\n'))
 		i++;
+	if (!str[i])
+		return (0);
 	if (len - i - (int)ft_strlen(COMMENT_CMD_STRING - 2) > COMMENT_LENGTH)
 		return (0);
 	if (i == (int)ft_strlen(COMMENT_CMD_STRING) || str[i] != '"' || str[len - 1] != '"')
