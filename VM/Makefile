@@ -14,7 +14,7 @@ NAME	=	corewar
 CC		=   gcc
 CFLAGS	= 	-Wall -Wextra -Werror -I. -g
 RM		=   rm -f
-LIBFT	=	 -L../libft -lft
+LIBFT	=	 -L../libft -lft -lcurses
 SRCS	=	main_vm.c 	\
 				files_to_strings.c \
 				init_e.c \
@@ -24,10 +24,13 @@ SRCS	=	main_vm.c 	\
 				ft_print_hexa.c \
 				op.c \
 				ft_check_args.c \
-				cursors.c \
+				init_cursors.c \
 				print_cursors.c \
 				move_cursors.c \
 				functions.c \
+				adjust_cycles.c \
+				ncurses.c \
+				delare_winner.c \
 
 OBJS	=   $(SRCS:.c=.o)
 

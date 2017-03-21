@@ -12,15 +12,16 @@
 
 #include "vm.h"
 
-void ft_szero(t_arena *a)
+void ft_szero(t_env *e)
 {
 	int i;
 
 	i = 0;
 	while(i < MEM_SIZE)
 	{
-		a->letter = 0;
-		ft_memcpy(a->color, WHITE, 10);
+		e->a[i].hex = 0;
+		e->a[i].color = 7;
+		e->a[i].prevcolor = 7;
 		i++;
 	}
 }
@@ -31,12 +32,11 @@ void init_e(t_env *e, int ac, char **av)
 	e->files = av;
 	e->cycle = 0;
 	e->lives = 0;
+	e->winner = 1;
 	e->check = 0;
 	e->cycles_to_die = CYCLE_TO_DIE;
 	e->player = malloc(sizeof(t_player) * ac);
-	ft_bzero(e->arena, (MEM_SIZE));
-	ft_szero(e->a);
+	ft_szero(e);
 	ft_files_to_string(e);
 	set_op_tab(e);
-	ft_printf("I'm alive!\n");
 }

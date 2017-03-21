@@ -12,28 +12,34 @@
 
 #include "vm.h"
 
-void ft_new_cycle(t_env *e, int *end)
+void	ft_update_cursor(t_cursor *cursor, int i)
 {
-	if(e->lives == 0)
-		end -= 1;
-	if(e->lives < NBR_LIVE)
-		e->check += 1;
-	if(e->check == MAX_CHECKS)
-	{
-		e->cycles_to_die -= CYCLE_DELTA;
-		e->lives = 0;
-	}
-	else
-	{
-		e->check = 0;
-		e->lives = 0;
-	}
+	e->a[cursor->index].color = e->a[cursor->index].prevcolor
+		cursor->index += i;
+	e->a[cursor->index].color = cursor->color;
 }
 
-// void 	execute_command(cursor);
-// {
-//
-// }
+int		check_if_valid(t_cursor *cursor)
+{
+	if(cursor->index > 0 && cursor->index < 17)
+		return (1);
+	else
+		return (0);
+}
+
+void ft_store_and_check_operation(t_env *e, t_cursor *cursor)
+{
+	if(check_if_valid(cursor))
+	{
+		ft_copy_command(e);
+		cursor->cycle = g_op_tab[cursor->index].cycles;
+		cursor->running = 1;
+		//cursor->comnd_len = calc_len_of_op(cursor);
+		cursor->comnd_len = 5;
+	}
+	else
+		ft_update_cursor(cursor, 1);
+}
 
 void 	ft_move_cursors(t_env *e)
 {
@@ -41,58 +47,22 @@ void 	ft_move_cursors(t_env *e)
 	int end;
 	t_cursor *cursor;
 
-	end = 20;
 	cursor = e->head;
 	i = 0;
 	while (end)
 	{
+		ft_init_ncurses();
 		if(cursor->counter)
-		{
-			if(e->cycle == e->cycles_to_die)
-				ft_new_cycle(e, &end);
-			else
-				e->cycle += 1;
-			cursor = cursor->next;
-			usleep(50000);
-			system("clear");
-			ft_build_vm(e, e->player_amount);
-		}
+			ft_adjust_cycle(e, cursor, &end);
 		else
 		{
 			if(!cursor->running)
-				{
-					// if(check_if_valid(cursor))
-					// {
-					// 	ft_copy_command(e);
-					// 	cursor->cycle = g_op_tab[cursor->index].cycles;
-					// 	cursor->running = 1;
-					// 	//cursor->comnd_len = calc_len_of_op(cursor);
-					// 	cursor->comnd_len = 4;
-					// }
-					// else
-						cursor->comnd_len = 4;
-						cursor->index += 1;
-						e->lives += 1;
-				}
+				ft_store_and_check_operation(e, cursor);
 			else
-			{
-				if(cursor->cycle == 0)
-				{
-					//func_ptr[cursor->index](copied code, cursor);
-					cursor->running = 0;
-					cursor->index += cursor->comnd_len;
-				}
-				else
-					cursor->cycle -= 1;
-			}
+				ft_cycle_break(cursor);
 			cursor->index = cursor->index % MEM_SIZE;
 			cursor = cursor->next;
 			i++;
 		}
 	}
 }
-
-
-// cursor->index += 1;
-// if(cursor->index == MEM_SIZE + 1)
-// 	cursor->index = 0;

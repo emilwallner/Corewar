@@ -16,13 +16,15 @@
 # include "../libft/libft.h"
 # include "op.h"
 # include "color.h"
+# include "curses.h"
 # include <stdio.h>
 # include <limits.h>
 
 typedef struct s_arena
 {
 	int		hex;
-	char	color[10];
+	int		color;
+	int 	past_color;
 }				t_arena;
 
 typedef struct	s_player
@@ -46,6 +48,7 @@ typedef struct		s_cursor{
 	int				player;
 	int				id;
 	int				index;
+	int				color;
 	int				cycle;
 	int 			cycle_end;
 	int				comnd_len;
@@ -61,6 +64,7 @@ typedef struct	s_env
 	int 		cycle;
 	int			lives;
 	int			check;
+	int			winner;
 	int 		last_alive;
 	int			cycles_to_die;
 	char		**strings;
@@ -70,6 +74,12 @@ typedef struct	s_env
 	t_op		op_tab[17];
 }				t_env;
 
+void		ft_init_ncurses(void)
+void		ft_cycle_break(t_cursor *cursor);
+void		ft_adjust_cycle(t_env *e, t_cursor *cursor, int *end);
+void		ft_declare_winner(t_env *e);
+void		ft_new_cycle(t_env *e, int *end);
+void		ft_print_hexa(t_env *e);
 void		ft_print_function(int index, t_cursor *cursor, t_env *e);
 void		ft_live(t_env *e, t_cursor *cursor);
 void		ft_ld(t_env *e, t_cursor *cursor);
@@ -98,7 +108,6 @@ void		ft_exit(t_env *e);
 void		ft_print_strings(t_env *e, int ac);
 void		ft_parsing(t_env *e, int ac);
 void		ft_build_vm(t_env *e, int ac);
-void		ft_print_hexa(char *str, int len);
 void		set_op_tab(t_env *e);
 void		ft_check_args(t_env e, int opcode, int acb);
 

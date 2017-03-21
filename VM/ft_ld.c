@@ -19,7 +19,7 @@
 **
 */
 
-void	ft_ld(char[30] copied_code, t_env *e, t_cursor *cursor)
+void	ft_ld(char copied_code[30], t_env *e, t_cursor *cursor)
 {
 	char	acb;
 
