@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:21:54 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/21 12:42:39 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/21 19:45:11 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,6 @@ int	check_file(t_asm *tasm, t_header *header)
 	if (!tasm->asm_master[2] || check_instructions(tasm) == 0)
 	{
 		// ft_putstr("QQQ\n");
-
 		return (0);
 	}
 	return (1);

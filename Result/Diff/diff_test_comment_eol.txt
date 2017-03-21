@@ -1,0 +1,1 @@
+Files Result/ZaZ/test_comment_eol and Result/User/test_comment_eol are identical

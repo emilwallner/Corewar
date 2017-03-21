@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 18:19:51 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/21 15:16:36 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/21 19:45:34 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,8 @@ int	set_t_instruction(t_instruction *line, char **str)
 	{
 		if (ft_strchr(LABEL_CHARS, str[i][j]) == NULL)
 		{
-			// ft_putstr(str[i]);
+			ft_putstr(str[i]);
+			ft_putchar(str[i][j]);
 			// ft_putstr("lll\n");
 			return (0);
 		}
@@ -171,6 +172,8 @@ int	check_instructions(t_asm *tasm)
 			{
 				if (ft_strchr(LABEL_CHARS, tasm->asm_master[i][0][j]) == NULL || tasm->asm_master[i][1])
 				{
+					ft_putstr(tasm->asm_master[i][0]);
+					ft_putchar(tasm->asm_master[i][0][j]);
 					// ft_putstr("TTT\n");
 					return (0);
 				}
@@ -200,6 +203,11 @@ int	check_instructions(t_asm *tasm)
 			if (line.params && check_params(line.params, tasm->op_tab[id], tasm) == 0)
 			{
 				// ft_putstr("BBB\n");
+				if (line.name)
+					free(line.name);
+				// printf("params %s\n", line.params);
+				if (line.params)
+					free(line.params);
 				return (0);
 			}
 			i++;

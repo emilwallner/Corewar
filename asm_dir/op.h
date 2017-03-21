@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:48:38 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/21 12:32:39 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/21 19:05:50 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 # define DIRECT_CHAR			'%'
 # define SEPARATOR_CHAR			','
 
-# define LABEL_CHARS			"abcdefghijklmnopqrstuvwxyz_0123456789"
+# define LABEL_CHARS			"abcdefghijklmnopqrstuvwxyz_0123456789()QWERTYUIOPASDFGHJKLZXCVBNM{}[]="
 # define CMD_CHARS				" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789+-*/=.?!<>"
 
 # define NAME_CMD_STRING			".name"
