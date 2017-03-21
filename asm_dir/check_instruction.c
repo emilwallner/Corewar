@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 18:19:51 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/21 11:27:02 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/21 15:16:36 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,10 +203,16 @@ int	check_instructions(t_asm *tasm)
 				return (0);
 			}
 			i++;
+			if (line.name)
+				free(line.name);
+			// printf("params %s\n", line.params);
+			if (line.params)
+				free(line.params);
 			// printf("check params OK\n");
 		}
 		else
 			i++;
+
 	}
 	// i = 0;
 	// while (i < tasm->nb_labels)

@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 19:07:38 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 19:05:08 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/21 14:41:27 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ int	check_direct(char *params, t_op top, int p, t_asm *tasm)
 				// ft_putstr("uuu\n");
 			}
 		// ft_putstr("ooo\n");
+		free(label);
 		if (!is_found)
 			return (0);
 			// ft_putstr("ppp\n");
@@ -141,6 +142,7 @@ int	check_indirect(char *params, t_op top, int p, t_asm *tasm)
 			// ft_putstr("ggg\n");
 			return (0);
 		}
+		free(label);
 	}
 	else
 	{

@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 22:26:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 18:42:49 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/21 15:14:26 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,16 @@ void	set_direct(t_asm tasm, t_op top, char *params, int fd, int *cursor, int ins
 	i = 0;
 	if (params[0] == LABEL_CHAR)
 	{
+		// printf("in if %s\n", params);
 		j = 0;
-		while (params[j] != SEPARATOR_CHAR)
+		while (params[j]  && params[j] != SEPARATOR_CHAR)
 			j++;
+		// printf("debug j = %i\n", j);
 		if (!(name = ft_strsub(params, 1, j - 1)))
 			return ;
-		//  printf("instruction_cursor %i name %s\n", instruction_cursor, name);
+		//  ft_putstr(name);
 		code = tasm.labels[get_tlabel_by_name(&tasm, name)].first_byte - instruction_cursor;
+		free (name);
 		// printf("   first_byte %i code label %i\n", tasm.labels[get_tlabel_by_name(&tasm, name)].first_byte, code);
 	}
 	else
@@ -89,6 +92,7 @@ void	set_indirect(t_asm tasm, char *params, int fd, int *cursor, int instruction
 		if (!(name = ft_strsub(params, 1, j - 1)))
 			return ;
 		code = tasm.labels[get_tlabel_by_name(&tasm, name)].first_byte;
+		free (name);
 		// printf(" get_tlabel_by_name %i NAME %s   first_byte %i code label %i instruction_cursor %i\n", get_tlabel_by_name(&tasm, name), name, tasm.labels[get_tlabel_by_name(&tasm, name)].first_byte, code, instruction_cursor);
 	}
 	else

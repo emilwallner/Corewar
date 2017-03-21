@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 16:45:01 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/21 11:01:33 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/21 15:14:34 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	create_hexa(char *str)
 	if ((fd = open(name, O_RDWR | O_CREAT, 0666)) == -1)
 		return (-1);
 	// ft_putnbr(fd);
+	free(name);
 	return (fd);
 }
 

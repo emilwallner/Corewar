@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 14:16:40 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/20 16:08:55 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/21 12:42:55 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,13 @@ int	set_master_line(char **asm_master_line, char *str)
 
 	i = 0;
 	count = 0;
+
 	while (str[i])
 	{
+		if (!str || str[0] == '\0')
+		{
+			asm_master_line[count] = NULL;
+		}
 		while (str[i] && (str[i] == ' ' || str[i] == '\t'))
 			i++;
 		j = 0;
