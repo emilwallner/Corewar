@@ -33,8 +33,8 @@ void ft_parsing(t_env *e, int ac)
 	char	*str;
 	char	*inst;
 
-	i = 1;
-	while (i < ac)
+	i = 0;
+	while (i < e->player_amount)
 	{
 
 	k = PROG_NAME_LENGTH + COMMENT_LENGTH;

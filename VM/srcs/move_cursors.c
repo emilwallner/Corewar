@@ -19,28 +19,6 @@ void	ft_update_cursor(t_env *e, t_cursor *cursor, int i)
 	e->a[cursor->index].color = cursor->color;
 }
 
-int		check_if_valid(t_env *e, t_cursor *cursor)
-{
-	if(e->a[cursor->index].hex > 0 && e->a[cursor->index].hex < 17)
-		return (1);
-	else
-		return (0);
-}
-
-void ft_store_and_check_operation(t_env *e, t_cursor *cursor)
-{
-	if(check_if_valid(e, cursor))
-	{
-		//ft_copy_command(e);
-		cursor->cycle = e->op_tab[cursor->index].cycles;
-		cursor->running = 1;
-		//cursor->comnd_len = calc_len_of_op(cursor);
-		cursor->comnd_len = 5;
-	}
-	else
-		ft_update_cursor(e, cursor, 1);
-}
-
 void 	ft_move_cursors(t_env *e)
 {
 	int i;
@@ -55,9 +33,9 @@ void 	ft_move_cursors(t_env *e)
 		cursor = cursor->next;
 	}
 	cursor = cursor->next;
+	ft_init_ncurses();
 	while (end)
 	{
-		ft_init_ncurses();
 		if(cursor->counter)
 			ft_adjust_cycle(e, cursor, &end);
 		else

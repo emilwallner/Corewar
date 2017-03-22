@@ -12,26 +12,24 @@
 
 #include "vm.h"
 
-void ft_init_ncurses(void)
+int		check_if_valid(t_env *e, t_cursor *cursor)
 {
-	initscr();
-	noecho();
-	start_color();
-	init_color(COLOR_WHITE, 220, 220, 220);
-	init_pair(0, COLOR_CYAN, COLOR_BLACK);
-	init_pair(1, COLOR_BLUE, COLOR_BLACK);
-	init_pair(2, COLOR_MAGENTA, COLOR_BLACK);
-	init_pair(3, COLOR_YELLOW, COLOR_BLACK);
-	init_pair(4, COLOR_RED, COLOR_BLACK);
-	init_pair(5, COLOR_YELLOW, COLOR_BLACK);
-	init_pair(6, COLOR_BLACK, COLOR_CYAN);
-	init_pair(7, COLOR_BLACK, COLOR_BLUE);
-	init_pair(8, COLOR_BLACK, COLOR_MAGENTA);
-	init_pair(9, COLOR_BLACK, COLOR_YELLOW);
-	init_pair(10, COLOR_BLACK, COLOR_RED);
-	init_pair(11, COLOR_BLACK, COLOR_YELLOW);
-	init_pair(12, COLOR_WHITE, COLOR_BLACK);
-	init_pair(13, COLOR_BLACK, COLOR_GREEN);
-	init_pair(14, COLOR_GREEN, COLOR_BLACK);
-	curs_set(FALSE);
+	if(e->a[cursor->index].hex > 0 && e->a[cursor->index].hex < 17)
+		return (1);
+	else
+		return (0);
+}
+
+void ft_store_and_check_operation(t_env *e, t_cursor *cursor)
+{
+	if(check_if_valid(e, cursor))
+	{
+		//ft_copy_command(e);
+		cursor->cycle = e->op_tab[cursor->index].cycles;
+		cursor->running = 1;
+		//cursor->comnd_len = calc_len_of_op(cursor);
+		cursor->comnd_len = 5;
+	}
+	else
+		ft_update_cursor(e, cursor, 1);
 }

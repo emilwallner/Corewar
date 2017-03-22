@@ -20,8 +20,8 @@ void ft_player_to_arena(t_env *e, int i, int *k)
 	while(count < e->player[i].inst_len)
 	{
 		e->a[*k].hex = 0xFF & e->player[i].inst[count];
-		e->a[*k].color = i - 1 % 6;
-		e->a[i].prevcolor = i - 1 % 6;
+		e->a[*k].color = i % 6;
+		e->a[i].prevcolor = i % 6;
 		*k += 1;
 		count++;
 	}
@@ -32,12 +32,12 @@ void ft_build_arena(t_env *e, int ac)
 	int i;
 	static int k;
 
-	i = 1;
+	i = 0;
 	k = 0;
-	while (i < ac)
+	while (i < e->player_amount)
 	{
-		e->player[i].index_start = MEM_SIZE / (ac - 1) * (i - 1);
-		k = MEM_SIZE / (ac - 1) * (i - 1);
+		e->player[i].index_start = (MEM_SIZE / e->player_amount) * i;
+		k = (MEM_SIZE / e->player_amount) * i;
 		ft_player_to_arena(e, i, &k);
 		i++;
 	}

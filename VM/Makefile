@@ -30,6 +30,7 @@ SRCS	=		main_vm.c 	\
 				ft_check_args.c \
 				init_cursors.c \
 				move_cursors.c \
+				check_if_valid.c \
 				adjust_cycles.c \
 				init_ncurses.c \
 				declare_winner.c \
@@ -54,7 +55,6 @@ $(COREWAR): $(OBJS)
 # Object files
 $(OBJS): $(SRCS)
 	@$(CC) -c $^ $(CFALGS) -I $(INC_COREWAR)
-	@echo ""
 
 # Cleaning rules
 clean:
