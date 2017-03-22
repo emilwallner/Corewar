@@ -20,8 +20,8 @@ void ft_player_to_arena(t_env *e, int i, int *k)
 	while(count < e->player[i].inst_len)
 	{
 		e->a[*k].hex = 0xFF & e->player[i].inst[count];
-		e->a[*k].color = i % 6;
-		e->a[i].prevcolor = i % 6;
+		e->a[*k].color = i + 1 % 6;
+		e->a[i].prevcolor = i + 1 % 6;
 		*k += 1;
 		count++;
 	}

@@ -73,6 +73,9 @@ typedef struct	s_env
 	t_op		op_tab[17];
 }				t_env;
 
+
+
+void		ft_update_cursor(t_env *e, t_cursor *cursor, int i);
 void 		ft_store_and_check_operation(t_env *e, t_cursor *cursor);
 void 		ft_init_ncurses(void);
 void		ft_update_cursor(t_env *e, t_cursor *cursor, int i);
