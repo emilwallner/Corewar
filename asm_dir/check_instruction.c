@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 18:19:51 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/22 11:01:52 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/22 14:57:43 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	set_t_instruction(t_instruction *line, char **str)
 	}
 	while (str[i][j])
 	{
-		if (ft_strchr(LABEL_CHARS, str[i][j]) == NULL)
+		if (ft_strchr(COMMENT_CHARS, str[i][j]) == NULL)
 		{
 			// ft_putstr(str[i]);
 			// ft_putchar(str[i][j]);
@@ -114,7 +114,7 @@ int	check_instructions(t_asm *tasm)
 			j = 1;
 			while (tasm->asm_master[i][0][j])
 			{
-				if (ft_strchr(LABEL_CHARS, tasm->asm_master[i][0][j]) == NULL || tasm->asm_master[i][1])
+				if (ft_strchr(COMMENT_CHARS, tasm->asm_master[i][0][j]) == NULL)
 				{
 					// ft_putstr(tasm->asm_master[i][0]);
 					// ft_putchar(tasm->asm_master[i][0][j]);

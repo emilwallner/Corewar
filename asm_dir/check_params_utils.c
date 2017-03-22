@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 19:07:38 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/21 19:44:57 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/22 14:33:52 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ int	check_register(char *params, t_op top, int p)
 	i = 0;
 	while (params[++i] && params[i] != SEPARATOR_CHAR)
 		if (!ft_isdigit(params[i]) || i > 3)
+		{
+			ft_putstr("aaa\n");
 			return (0);
+		}
 	if (ft_atoi(params + 1) <= 0 || ft_atoi(params + 1) > REG_NUMBER)
 		return (0);
 	return (1);

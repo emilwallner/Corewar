@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:21:54 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/22 11:12:59 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/22 14:56:04 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,31 @@ int	check_file_name(char *str, t_header *header)
 	int	j;
 
 	len = ft_strlen(str);
-	ft_putstr(str);
-	ft_putchar('\n');
+	// ft_putstr(str);
+	// ft_putchar('\n');
 	if (ft_strnstr(str, NAME_CMD_STRING, ft_strlen(NAME_CMD_STRING)) == NULL)
 	{
 		ft_putstr("NNN\n");
 		return (0);
 	}
-	if (len - 8 > PROG_NAME_LENGTH)
-	{
-		ft_putstr("VVV\n");
-
-		return (0);
-	}
+	// if (len - 8 > PROG_NAME_LENGTH)
+	// {
+	// 	ft_putstr("VVV\n");
+	//
+	// 	return (0);
+	// }
 	i = ft_strlen(NAME_CMD_STRING);
 	while (str[i] && (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'))
 		i++;
 	if (!str[i])
 	{
-		ft_putstr("CCC\n");
+		ft_putstr("CCB\n");
 
 		return (0);
 	}
-	if (len - i - (int)ft_strlen(NAME_CMD_STRING - 2) > PROG_NAME_LENGTH)
+	if (len - i - (int)ft_strlen(NAME_CMD_STRING - 2 - 1) > PROG_NAME_LENGTH)
 	{
+		ft_putnbr(len - i - (int)ft_strlen(NAME_CMD_STRING - 2));
 		ft_putstr("AAA\n");
 
 		return (0);
@@ -50,7 +51,7 @@ int	check_file_name(char *str, t_header *header)
 	if (i == (int)ft_strlen(NAME_CMD_STRING) || str[i] != '"' || str[len - 1] != '"')
 	{
 		ft_putchar(str[i]);
-		ft_putstr("FFF\n");
+		ft_putstr("FFE\n");
 
 		return (0);
 	}
@@ -69,8 +70,8 @@ int	check_file_name(char *str, t_header *header)
 		j++;
 	}
 	header->prog_name[j] = '\0';
-	ft_putstr(header->prog_name);
-	ft_putchar('\n');
+	// ft_putstr(header->prog_name);
+	// ft_putchar('\n');
 	return (1);
 }
 
@@ -86,18 +87,18 @@ int	check_file_comment(char *str, t_header *header)
 		ft_putstr("NNN\n");
 		return (0);
 	}
-	if (len - 8 > COMMENT_LENGTH)
-	{
-		ft_putstr("VVV\n");
-
-		return (0);
-	}
+	// if (len - 8 > COMMENT_LENGTH)
+	// {
+	// 	ft_putstr("VVV\n");
+	//
+	// 	return (0);
+	// }
 	i = ft_strlen(COMMENT_CMD_STRING);
 	while (str[i] && (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'))
 		i++;
 	if (!str[i])
 		return (0);
-	if (len - i - (int)ft_strlen(COMMENT_CMD_STRING - 2) > COMMENT_LENGTH)
+	if (len - i - (int)ft_strlen(COMMENT_CMD_STRING - 2 - 1) > COMMENT_LENGTH)
 		return (0);
 	if (i == (int)ft_strlen(COMMENT_CMD_STRING) || str[i] != '"' || str[len - 1] != '"')
 		return (0);

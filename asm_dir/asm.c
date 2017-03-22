@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/22 10:44:13 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/22 14:54:56 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,15 @@ static int	free_and_return(char *file, t_asm tasm, int free_tab, int ret)
 	if (!ret)
 		ft_putstr("Error\n");
 		// while (1);
-		// sleep(1);
+		// sleep(2);
 	return (ret);
 }
 
 int			check_asm_header(void)
 {
 	if (ft_strchr(LABEL_CHARS, '\n') || ft_strchr(CMD_CHARS, '\n') ||
-		ft_strchr(NAME_CMD_STRING, '\n') || ft_strchr(COMMENT_CMD_STRING, '\n'))
+		ft_strchr(NAME_CMD_STRING, '\n') || ft_strchr(COMMENT_CMD_STRING, '\n')
+		|| ft_strchr(COMMENT_CHARS, '\n'))
 		return (0);
 	if (COMMENT_CHAR == '\n' || LABEL_CHAR == '\n' || DIRECT_CHAR == '\n' ||
 		SEPARATOR_CHAR == '\n' || COMMENT_CHAR == ' ' || LABEL_CHAR == ' ' ||
@@ -67,7 +68,14 @@ int			check_asm_header(void)
 		ft_strchr(LABEL_CHARS, COMMENT_CHAR) ||
 		ft_strchr(LABEL_CHARS, DIRECT_CHAR))
 		return (0);
+	if (ft_strchr(COMMENT_CHARS, LABEL_CHAR) ||
+		ft_strchr(COMMENT_CHARS, SEPARATOR_CHAR) ||
+		ft_strchr(COMMENT_CHARS, COMMENT_CHAR) ||
+		ft_strchr(COMMENT_CHARS, DIRECT_CHAR))
+		return (0);
 	if (ft_strchr(CMD_CHARS, '"'))
+		return (0);
+	if (COREWAR_EXEC_MAGIC > 0xffffffff)
 		return (0);
 	return (1);
 }
@@ -80,9 +88,10 @@ int			main(int ac, char **av)
 	t_read	tread;
 	t_header	header;
 
-	// ft_putstr("OK -2\n");
+	ft_putstr("OK -2\n");
 	if (ac == 1 || !check_asm_header())
 		return (0);
+	ft_putstr("HEADER OK");
 	i = 0;
 	file = NULL;
 	tasm.asm_tab = NULL;
@@ -122,15 +131,15 @@ int			main(int ac, char **av)
 		// ft_putstr("OK 6\n");
 		if (fill_label_tab(&tasm) == 0)
 			return (0);
-		// ft_putstr("OK 7 \n");
+		ft_putstr("OK 7 \n");
 		// to change in check file
 		if (check_file(&tasm, &header) == 0)
 			return (free_and_return(file, tasm, 1, 0));
-		// ft_putstr("OK 8\n");
+		ft_putstr("OK 8\n");
 	}
 	// ft_putstr("OK 9\n");
 	// ft_putstr("OK 10\n");
-	set_hexa(tasm, av[1], tread.nb_line);
-	// ft_putstr("OK END\n");
+	set_hexa(tasm, av[1], tread.nb_line, header);
+	ft_putstr("OK END\n");
 	return (free_and_return(file, tasm, 1, 1));
 }
