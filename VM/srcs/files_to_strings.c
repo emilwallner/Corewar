@@ -44,7 +44,7 @@ void  ft_files_to_string(t_env *e)
 	while(++i < e->player_amount)
 	{
 		len = ft_string_len(e, i);
-		// e->player[i].string = malloc(sizeof(char*) * (len + 1));
+		 	//e->player[i].string = malloc(sizeof(char*) * (len + 1));
 		if ((fd = open(e->files[i], O_RDONLY)) == -1)
 			ft_exit(e);
 		if (read(fd, e->player[i].string, e->player[i].len) == -1)

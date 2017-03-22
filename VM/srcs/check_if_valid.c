@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_strings.c                                 :+:      :+:    :+:   */
+/*   move_cursors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/18 15:04:21 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/20 17:07:41 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void ft_print_strings(t_env *e, int ac)
+int		check_if_valid(t_env *e, t_cursor *cursor)
 {
-  int i;
-  int k;
-  char *str;
-  int hex;
+	if(e->a[cursor->index].hex > 0 && e->a[cursor->index].hex < 17)
+		return (1);
+	else
+		return (0);
+}
 
-  ft_printf("\n %d \n", BUFF_SIZE);
-  i = 0;
-  while(++i < ac)
-  {
-    ft_printf("\n\nFile: %i, Len: %i ----->\n", i, e->player[i].len);
-    str = e->player[i].string;
-    k = -1;
-
-    while(++k < e->player[i].len)
+void ft_store_and_check_operation(t_env *e, t_cursor *cursor)
+{
+	if(check_if_valid(e, cursor))
 	{
-		hex = 0xFF & (*str);
-		(hex <= 0xF) ? ft_printf("0%x", hex) : ft_printf("%x", hex);
-		ft_putchar(' ');
-		if ((k + 1) % 16 == 0)
-			ft_printf("\n");
-		str++;
+		//ft_copy_command(e);
+		cursor->cycle = e->op_tab[cursor->index].cycles;
+		cursor->running = 1;
+		//cursor->comnd_len = calc_len_of_op(cursor);
+		cursor->comnd_len = 5;
 	}
-  }
+	else
+		ft_update_cursor(e, cursor, 1);
 }
