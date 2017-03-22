@@ -12,24 +12,44 @@
 
 #include "vm.h"
 
-void ft_init_ncurses(void)
+void ft_new_cycle(t_env *e, int *end)
 {
-	initscr();
-	noecho();
-	init_pair(1, COLOR_CYAN, COLOR_BLACK);
-	init_pair(2, COLOR_BLUE, COLOR_BLACK);
-	init_pair(3, COLOR_MAGENTA, COLOR_BLACK);
-	init_pair(4, COLOR_YELLOW, COLOR_BLACK);
-	init_pair(5, COLOR_RED, COLOR_BLACK);
-	init_pair(6, COLOR_YELLOW, COLOR_BLACK);
-	init_pair(-1, COLOR_BLACK, COLOR_CYAN);
-	init_pair(-2, COLOR_BLACK, COLOR_BLUE);
-	init_pair(-3, COLOR_BLACK, COLOR_MAGENTA);
-	init_pair(-4, COLOR_BLACK, COLOR_YELLOW);
-	init_pair(-5, COLOR_BLACK, COLOR_RED);
-	init_pair(-6, COLOR_BLACK, COLOR_YELLOW);
-	init_pair(7, COLOR_WHITE, COLOR_BLACK);
-	init_pair(8, COLOR_BLACK, COLOR_GREEN);
-	start_color();
-	curs_set(FALSE);
+	if(e->lives == 0)
+		end = 0;
+	if(e->lives < NBR_LIVE)
+		e->check += 1;
+	if(e->check == MAX_CHECKS || e->lives >= NBR_LIVE)
+	{
+		e->cycles_to_die -= CYCLE_DELTA;
+		e->lives = 0;
+		e->check = 0;
+	}
+}
+
+void ft_adjust_cycle(t_env *e, t_cursor *cursor, int *end)
+{
+	if(e->cycle == e->cycles_to_die)
+		ft_new_cycle(e, end);
+	else
+		e->cycle += 1;
+	cursor = cursor->next;
+	ft_print_arena(e);
+}
+
+void ft_cycle_break(t_env *e, t_cursor *cursor)
+{
+	void (*func_ptr[17])(t_env *e, t_cursor *cursor) =
+	{ft_live, ft_live, ft_ld, ft_st, ft_add, ft_sub, ft_and, ft_or,
+	ft_xor, ft_zjmp, ft_ldi, ft_sti, ft_fork, ft_lld, ft_lldi,
+	ft_lfork, ft_aff};
+
+	if(cursor->cycle == 0)
+	{
+		if(e->a[cursor->index].hex == 1)
+			(*func_ptr[1]) (e, cursor);
+		cursor->running = 0;
+		ft_update_cursor(e, cursor, cursor->comnd_len);
+	}
+	else
+		cursor->cycle -= 1;
 }

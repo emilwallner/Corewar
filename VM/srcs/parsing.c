@@ -54,35 +54,3 @@ void ft_parsing(t_env *e, int ac)
 	i++;
 	}
 }
-
-void ft_player_to_arena(t_env *e, int i, int *k)
-{
-	int count;
-
-	count = 0;
-	while(count < e->player[i].inst_len)
-	{
-		e->a[*k].hex = 0xFF & e->player[i].inst[count];
-		e->a[*k].color = i % 6;
-		e->a[i].prevcolor = i % 6;
-		*k += 1;
-		count++;
-	}
-}
-
-void ft_build_vm(t_env *e, int ac)
-{
-	int i;
-	static int k;
-
-	i = 1;
-	k = 0;
-	while (i < ac)
-	{
-		e->player[i].index_start = MEM_SIZE / (ac - 1) * (i - 1);
-		k = MEM_SIZE / (ac - 1) * (i - 1);
-		ft_player_to_arena(e, i, &k);
-		i++;
-	}
-	ft_print_hexa(e);
-}

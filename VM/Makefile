@@ -3,52 +3,71 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
+#    By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/19 18:44:48 by nsabbah          ###   ########.fr        #
+#    Created: 2017/02/09 15:57:51 by ewallner          #+#    #+#              #
+#    Updated: 2017/02/20 18:06:54 by ewallner         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	corewar
+COREWAR = 	corewar
 CC		=   gcc
-CFLAGS	= 	-Wall -Wextra -Werror -I. -g
+CFLAGS	= 	-Wall -Wextra -Werror -g
 RM		=   rm -f
+MKDIR	= 	mkdir -p
 LIBFT	=	 -L../libft -lft -lcurses
-SRCS	=	main_vm.c 	\
+LIBFT_PATH	= ../libft
+INC_COREWAR = ./srcs/vm.h
+SRCS	=		main_vm.c 	\
 				files_to_strings.c \
 				init_e.c \
 				error.c \
 				parsing.c \
-				ft_print_hexa.c \
+				ft_print_arena.c \
+				ft_build_arena.c \
 				op.c \
+				functions.c \
 				ft_check_args.c \
 				init_cursors.c \
-				print_cursors.c \
 				move_cursors.c \
-				functions.c \
 				adjust_cycles.c \
-				ncurses.c \
+				init_ncurses.c \
 				declare_winner.c \
 
-OBJS	=   $(SRCS:.c=.o)
+GREEN		= \033[32m
+RED			= \033[31m
+DEFAULT		= \033[37m
+CYAN    	= \x1b[36m
 
-LIBFT_PATH	= ../libft
+OBJS	=	$(SRCS:.c=.o)
+VPATH	=	srcs/:funcs/:
 
-all:	$(NAME)
-
-$(NAME):$(OBJS)
+all: libft $(COREWAR)
+libft:
 	@make -C $(LIBFT_PATH)
-	@$(CC) $(CFLAG) $(SRCS) $(LIBFT) -o $(NAME)
 
+# Executables
+$(COREWAR): $(OBJS)
+	@$(CC) -o $@ $(CFLAGS) $^ -I $(INC_COREWAR) $(LIBFT)
+	@echo "$(GREEN)Success"
+
+# Object files
+$(OBJS): $(SRCS)
+	@$(CC) -c $^ $(CFALGS) -I $(INC_COREWAR)
+	@echo ""
+
+# Cleaning rules
 clean:
 	@rm -f $(OBJS)
-	@make -C $(LIBFT_PATH) clean
+	@make clean -C $(LIBFT_PATH)
+	@echo "$(GREEN)Clean$(DEFAULT)"
 
-fclean:	clean
-	@rm -f $(NAME)
-	@make -C $(LIBFT_PATH) fclean
+fclean:
+	@rm -f $(OBJS)
+	@make clean -C $(LIBFT_PATH)
+	@rm -rf $(COREWAR)
+	@make fclean -C $(LIBFT_PATH)
+	@echo "$(GREEN)Program removed$(DEFAULT)"
 
-re:		fclean all
-
-.PHONY:		all clean fclean re
+re: fclean all
+.PHONY: clean fclean re libft

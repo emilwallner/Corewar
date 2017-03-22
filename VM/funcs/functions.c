@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vm.h"
+#include "../srcs/vm.h"
 
 
 void	ft_live(t_env *e, t_cursor *cursor)
