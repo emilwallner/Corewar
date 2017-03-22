@@ -38,7 +38,7 @@ FILE12="test_add_instruction";
 FILE13="test_aff_instruction";
 FILE14="test_and_instruction";
 FILE15="test_comment_line";
-FILE16="test_comment_eol";
+FILE16="test_comments_eol";
 FILE17="test_fork_instruction";
 FILE18="test_ld_instruction";
 FILE19="test_ldi_instruction";
@@ -205,7 +205,7 @@ hexdump -vC players/$FILE12.cor > $USER$FILE12
 rm players/$FILE12.cor
 ./asm players/$FILE12.s
 hexdump -vC players/$FILE12.cor > $USER2$FILE12
-diff -rsa $USER2$FILE12 $USER$FILE12 > $DIFF/diff_$FILE.t12xt
+diff -rsa $USER2$FILE12 $USER$FILE12 > $DIFF/diff_$FILE12.txt
 echo "ZaZ ↓"
 cat $DIFF/diff_$FILE12.txt
 echo "User ↑"
@@ -337,7 +337,7 @@ hexdump -vC players/$FILE22.cor > $USER$FILE22
 rm players/$FILE22.cor
 ./asm players/$FILE22.s
 hexdump -vC players/$FILE22.cor > $USER2$FILE22
-diff -rsa $USER2$FILE22 $USER$FILE22 > $DIFF/diff_$FILE.t12xt
+diff -rsa $USER2$FILE22 $USER$FILE22 > $DIFF/diff_$FILE22.txt
 echo "ZaZ ↓"
 cat $DIFF/diff_$FILE22.txt
 echo "User ↑"
@@ -457,7 +457,7 @@ hexdump -vC players/$FILE32.cor > $USER$FILE32
 rm players/$FILE32.cor
 ./asm players/$FILE32.s
 hexdump -vC players/$FILE32.cor > $USER2$FILE32
-diff -rsa $USER2$FILE32 $USER$FILE32 > $DIFF/diff_$FILE.t12xt
+diff -rsa $USER2$FILE32 $USER$FILE32 > $DIFF/diff_$FILE32.txt
 echo "ZaZ ↓"
 cat $DIFF/diff_$FILE32.txt
 echo "User ↑"
