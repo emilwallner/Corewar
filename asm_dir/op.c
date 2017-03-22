@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:50:34 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/19 17:24:24 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/22 19:39:23 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,11 @@ void	set_op_tab(t_asm *tasm)
 		tasm->op_tab[i] = g_op_tab[i];
 }
 
-int	get_id_by_name(t_asm *tasm, char *name)
+int		get_id_by_name(t_asm *tasm, char *name)
 {
 	int		i;
 
 	i = -1;
-
 	while (++i < 17)
 	{
 		if (!ft_strcmp(name, tasm->op_tab[i].name))

@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 16:45:01 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/22 17:27:55 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/22 19:38:56 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static int	set_comment(int fd, t_header header, int nb_bytes)
 	return (1);
 }
 
-int	set_hexa(t_asm tasm, char *str, int nb_line, t_header header)
+int			set_hexa(t_asm tasm, char *str, int nb_line, t_header header)
 {
 	int fd;
 	int count;
