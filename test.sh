@@ -78,18 +78,6 @@ echo "ZaZ ↓"
 cat $DIFF/diff_$FILE.txt
 echo "User ↑"
 
-echo "\n\n\033[32m$FILE1\n\033[37m"
-rm players/$FILE1.cor
-asm_dir/asm players/$FILE1.s #| leaks asm
-hexdump -vC players/$FILE1.cor > $USER$FILE1
-rm players/$FILE1.cor
-./asm players/$FILE1.s
-hexdump -vC players/$FILE1.cor > $USER2$FILE1
-diff -rsa $USER2$FILE1 $USER$FILE1 > $DIFF/diff_$FILE1.txt
-echo "ZaZ ↓"
-cat $DIFF/diff_$FILE1.txt
-echo "User ↑"
-
 echo "\n\n\033[32m$FILE2\n\033[37m"
 rm players/$FILE2.cor
 asm_dir/asm players/$FILE2.s #| leaks asm
