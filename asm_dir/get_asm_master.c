@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 14:16:40 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/20 16:08:55 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/22 15:11:40 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,19 @@ int	set_master_line(char **asm_master_line, char *str)
 
 	i = 0;
 	count = 0;
+
 	while (str[i])
 	{
-		while (str[i] && (str[i] == ' ' || str[i] == '\t'))
+		if (!str || str[0] == '\0')
+		{
+			asm_master_line[count] = NULL;
+		}
+		while (str[i] && str[i] != COMMENT_CHAR && (str[i] == ' ' || str[i] == '\t'))
 			i++;
 		j = 0;
-		while (str[i + j] && str[i + j] != ' ' && str[i + j] != '\t')
+		while (str[i + j] && str[i + j] != COMMENT_CHAR && str[i + j] != ' ' && str[i + j] != '\t')
+			j++;
+		while (str[i] == COMMENT_CHAR && str[i + j])
 			j++;
 		if (j)
 		{
@@ -51,6 +58,12 @@ int	count_word(char *str)
 	{
 		if (str[i] == ' ' || str[i] == '\t')
 			i++;
+		else if (str[i] == COMMENT_CHAR)
+		{
+			// ft_putstr("yo");
+			count++;
+			break ;
+		}
 		else if (i == 0 || str[i - 1] == ' ' || str[i - 1] == '\t')
 		{
 			count++;
@@ -59,6 +72,8 @@ int	count_word(char *str)
 		else
 			i++;
 	}
+	// ft_putnbr(count);
+	// ft_putchar(' ');
 	return (count);
 }
 

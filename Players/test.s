@@ -1,20 +1,6 @@
-.name "viko"
-.comment "i_am_alive"
+.name	"12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678"
+.comment	"test registeries"
 
-#coucou
-st r1,-12456
-ld %0,r2
-st r1,211
-st r1,211 #coucou
-st r1,211
-st r1,211
-st r1,211
-st r1,211
-st r1,211
-st r1,211
-st r1,211
-st r1,211
-st r1,211
-#coucou
-st r1,211
-#coucou
+ld %0,r1 #NHFG 589 GF GD GES GS  SRDH
+st r1,65540
+zjmp %-10

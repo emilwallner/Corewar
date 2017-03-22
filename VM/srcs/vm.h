@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/20 17:29:20 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/21 18:15:13 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ void		ft_declare_winner(t_env *e);
 void		ft_new_cycle(t_env *e, int *end);
 void		ft_print_function(int index, t_cursor *cursor, t_env *e);
 void		ft_live(t_env *e, t_cursor *cursor);
-void		ft_ld(t_env *e, t_cursor *cursor);
+void		ft_ld(char copied_code[30], t_env *e, t_cursor *cursor);
+// void		ft_ld(t_env *e, t_cursor *cursor);
 void		ft_st(t_env *e, t_cursor *cursor);
 void		ft_add(t_env *e, t_cursor *cursor);
 void		ft_sub(t_env *e, t_cursor *cursor);
@@ -112,6 +113,7 @@ void		ft_print_arena(t_env *e);
 void 		ft_build_arena(t_env *e, int ac);
 void		set_op_tab(t_env *e);
 void		ft_check_args(t_env e, int opcode, int acb);
+void		ft_debug(t_env e);
 
 
 #endif

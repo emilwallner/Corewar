@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/02/09 15:57:51 by ewallner          #+#    #+#              #
-#    Updated: 2017/02/20 18:06:54 by ewallner         ###   ########.fr        #
+#    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
+#    Updated: 2017/03/21 18:19:31 by nsabbah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,9 @@ SRCS	=		main_vm.c 	\
 				adjust_cycles.c \
 				init_ncurses.c \
 				declare_winner.c \
+				functions.c \
+				ft_debug.c  \
+				ft_ld.c \
 
 GREEN		= \033[32m
 RED			= \033[31m
