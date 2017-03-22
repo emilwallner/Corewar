@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/22 15:57:01 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/22 16:18:25 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int			main(int ac, char **av)
 		// ft_putstr("OK 1\n");
 		if (!(file = ft_strnew(tread.nb_char + 1)))
 			return (0);
-		if (!(get_asm(fd, file, &tread)))
+		if ((get_asm(fd, file, &tread)) == -1)
 			return (free_and_return(file, tasm, 0, 0));
 		// ft_putstr("OK 2\n");
 		tasm.asm_tab = NULL;

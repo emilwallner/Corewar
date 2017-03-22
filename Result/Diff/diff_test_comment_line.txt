@@ -1,4 +1,1 @@
-9c9
-< 00000080  00 00 00 00 00 00 00 00  00 00 00 16 63 6f 6d 6d  |............comm|
----
-> 00000080  00 00 00 00 00 00 00 00  00 00 00 3f 63 6f 6d 6d  |...........?comm|
+Files Result/ZaZ/test_comment_line and Result/User/test_comment_line are identical
