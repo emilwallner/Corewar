@@ -1,4 +1,1 @@
-9c9
-< 00000080  00 00 00 00 00 00 00 00  00 00 00 14 6a 75 73 74  |............just|
----
-> 00000080  00 00 00 00 00 00 00 00  00 00 00 3f 6a 75 73 74  |...........?just|
+Files Result/ZaZ/jmp_after_add and Result/User/jmp_after_add are identical

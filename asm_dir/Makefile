@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/20 14:42:05 by tlenglin         ###   ########.fr        #
+#    Updated: 2017/03/22 16:48:25 by mhaziza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ SRCS	=	asm.c \
 			check_file.c  \
 			labels_utils.c \
 			check_instruction.c \
-			check_label.c \
 			check_params.c \
 			check_params_utils.c \
 			set_hexa.c \
