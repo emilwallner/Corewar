@@ -22,7 +22,6 @@ int			main(int ac, char **av)
 	ft_build_arena(&e, ac);
 	ft_move_cursors(&e);
 	ft_declare_winner(&e);
-	ft_build_vm(&e, ac);
 	ft_debug(e);
 	return(0);
 }

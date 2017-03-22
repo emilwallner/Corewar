@@ -51,7 +51,7 @@ typedef struct		s_cursor{
 	int				cycle;
 	int 			cycle_end;
 	int				comnd_len;
-	int				command[6];
+	char			operation[30];
 	int				reg[REG_NUMBER];
 }					t_cursor;
 
