@@ -39,7 +39,7 @@ void ft_adjust_cycle(t_env *e, t_cursor *cursor, int *end)
 void ft_cycle_break(t_env *e, t_cursor *cursor)
 {
 	void (*func_ptr[17])(t_env *e, t_cursor *cursor) =
-	{ft_live, ft_live, ft_ld, ft_st, ft_add, ft_sub, ft_and, ft_or,
+	{ft_live, ft_live, ft_live, ft_st, ft_add, ft_sub, ft_and, ft_or,
 	ft_xor, ft_zjmp, ft_ldi, ft_sti, ft_fork, ft_lld, ft_lldi,
 	ft_lfork, ft_aff};
 

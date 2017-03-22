@@ -34,7 +34,6 @@ SRCS	=		main_vm.c 	\
 				adjust_cycles.c \
 				init_ncurses.c \
 				declare_winner.c \
-				functions.c \
 				ft_debug.c  \
 				ft_ld.c \
 
