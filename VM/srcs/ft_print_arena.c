@@ -33,8 +33,7 @@ void	ft_print_arena(t_env *e)
 	(void)e;
 	i = 0;
 
-	clear();
-	refresh();
+	erase();
 	while(i < MEM_SIZE)
 	{
 		attron(COLOR_PAIR(e->a[i].color));
@@ -54,5 +53,5 @@ void	ft_print_arena(t_env *e)
 	printw("\nNumber of max checks: %d \n", MAX_CHECKS);
 	attroff(COLOR_PAIR(14));
 	refresh();
-	usleep(500000);
+	usleep(50000);
 }
