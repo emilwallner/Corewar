@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:45 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/21 15:36:07 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/22 15:57:08 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct	s_instruction
 void	set_op_tab(t_asm *tasm);
 
 int				get_counts(char *file_name, t_read *tread);
-int				get_asm(char *file_name, char *file, t_read *tread);
+int				get_asm(int fd, char *file, t_read *tread);
 int				split_asm(char **asm_tab, char *file, int nb);
 
 int				check_file(t_asm *tasm, t_header *header);
@@ -75,7 +75,7 @@ int	set_label(t_asm *tasm, char *str, int iline);
 int	existing_label(char *label, t_label *labels, int nb);
 int	check_fill_label(char *label, t_label *labels, int nb, int index);
 int	fill_label_tab(t_asm *tasm);
-int	set_hexa(t_asm tasm, char *str, int nb_line);
+int	set_hexa(t_asm tasm, char *str, int nb_line, t_header header);
 void	set_op_tab(t_asm *tasm);
 int	set_instruction(t_asm tasm, int fd, int nb_line);
 
@@ -88,5 +88,5 @@ int	get_tlabel_by_index(t_asm *tasm, int index);
 int	get_tlabel_by_name(t_asm *tasm, char *name);
 int	split_line(char ***asm_master, t_asm *tasm);
 
-
+void puthexa_fd(long code, int fd);
 #endif

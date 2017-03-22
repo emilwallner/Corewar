@@ -1,0 +1,1 @@
+Files Result/ZaZ/test_sti_instruction and Result/User/test_sti_instruction are identical

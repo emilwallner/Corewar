@@ -1,0 +1,6 @@
+Files Result/ZaZ/test_add_instruction and Result/User/test_add_instruction are identical
+Files Result/ZaZ/test_aff_instruction and Result/User/test_aff_instruction are identical
+Files Result/ZaZ/test_and_instruction and Result/User/test_and_instruction are identical
+Files Result/ZaZ/test_fork_instruction and Result/User/test_fork_instruction are identical
+Files Result/ZaZ/test_ld_instruction and Result/User/test_ld_instruction are identical
+Files Result/ZaZ/test_ldi_instruction and Result/User/test_ldi_instruction are identical

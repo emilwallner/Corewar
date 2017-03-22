@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 14:45:44 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/21 16:00:03 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/21 16:00:34 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int	set_instruction(t_asm tasm, int fd, int nb_line)
 			if (ft_strchr(tasm.asm_master[i][0], LABEL_CHAR))
 				is_label = 1;
 				// printf("is label %i tasm.asm_master[i][0] %s\n", is_label, tasm.asm_master[i][1]);
-			if (tasm.asm_master[i][is_label] != NULL && !(id_instruction = set_opcode(tasm, tasm.asm_master[i][is_label], fd, &cursor)))
+			if (tasm.asm_master[i][is_label] && !(id_instruction = set_opcode(tasm, tasm.asm_master[i][is_label], fd, &cursor)))
 				return (0);
 			instruction_cursor = cursor;
 			// ft_putstr("AAA");
