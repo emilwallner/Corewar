@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 22:26:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/21 19:31:38 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/22 15:32:23 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,15 @@ void	set_direct(t_asm tasm, t_op top, char *params, int fd, int *cursor, int ins
 		// printf("   first_byte %i code label %i\n", tasm.labels[get_tlabel_by_name(&tasm, name)].first_byte, code);
 	}
 	else
-		code = ft_atoi(params);
+		code = top.label_size ? ft_atoi(params) % 65536 : ft_atoi(params) % 4294967296;
 	// code = code >= 0 ? code : 65536 + code;
 	if (code < 0)
-	{	if (top.label_size)
+	{
+		if (top.label_size)
 			code += 65536;
 		else
-			code += 4294967296;}
+			code += 4294967296;
+	}
 	i = 1;
 	nb = code;
 	while (nb / 256)
@@ -105,7 +107,7 @@ void	set_indirect(t_asm tasm, char *params, int fd, int *cursor, int instruction
 		// printf(" get_tlabel_by_name %i NAME %s   first_byte %i code label %i instruction_cursor %i\n", get_tlabel_by_name(&tasm, name), name, tasm.labels[get_tlabel_by_name(&tasm, name)].first_byte, code, instruction_cursor);
 	}
 	else
-		code = ft_atoi(params);
+		code = ft_atoi(params) % 65536;
 	code = code > 0 ? code : 65536 + code;
 	// printf("CODE = %x\n", code);
 	ft_putchar_fd(code / 256,fd);

@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 18:19:51 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/22 14:57:43 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/22 15:21:39 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ int	set_t_instruction(t_instruction *line, char **str)
 	{
 		if (ft_strchr(COMMENT_CHARS, str[i][j]) == NULL)
 		{
-			// ft_putstr(str[i]);
-			// ft_putchar(str[i][j]);
+			ft_putstr(str[i]);
+			ft_putchar(str[i][j]);
 			ft_putstr("lll\n");
 			return (0);
 		}

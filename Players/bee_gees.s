@@ -8,7 +8,7 @@ ld	%33,r6
 #while_(r2_inf_a_10)
 forks:
 add	r2,r3,r2		#increment_r2
-xor	r2,%15,r4		#if_(r4)_{carry_=_0}
+xor	r2,%15,r4
 live2:
 	live 	%4
 zjmp	%:endwhile		#if_(carry)

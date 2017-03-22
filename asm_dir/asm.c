@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/22 14:54:56 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/22 15:10:44 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,10 @@ int			main(int ac, char **av)
 	t_read	tread;
 	t_header	header;
 
-	ft_putstr("OK -2\n");
+	// ft_putstr("OK -2\n");
 	if (ac == 1 || !check_asm_header())
 		return (0);
-	ft_putstr("HEADER OK");
+	// ft_putstr("HEADER OK");
 	i = 0;
 	file = NULL;
 	tasm.asm_tab = NULL;
@@ -131,15 +131,15 @@ int			main(int ac, char **av)
 		// ft_putstr("OK 6\n");
 		if (fill_label_tab(&tasm) == 0)
 			return (0);
-		ft_putstr("OK 7 \n");
+		// ft_putstr("OK 7 \n");
 		// to change in check file
 		if (check_file(&tasm, &header) == 0)
 			return (free_and_return(file, tasm, 1, 0));
-		ft_putstr("OK 8\n");
+		// ft_putstr("OK 8\n");
 	}
 	// ft_putstr("OK 9\n");
 	// ft_putstr("OK 10\n");
 	set_hexa(tasm, av[1], tread.nb_line, header);
-	ft_putstr("OK END\n");
+	// ft_putstr("OK END\n");
 	return (free_and_return(file, tasm, 1, 1));
 }

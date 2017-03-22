@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 14:16:40 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/22 15:06:11 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/22 15:11:40 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	count_word(char *str)
 			i++;
 		else if (str[i] == COMMENT_CHAR)
 		{
-			ft_putstr("yo");
+			// ft_putstr("yo");
 			count++;
 			break ;
 		}
@@ -72,8 +72,8 @@ int	count_word(char *str)
 		else
 			i++;
 	}
-	ft_putnbr(count);
-	ft_putchar(' ');
+	// ft_putnbr(count);
+	// ft_putchar(' ');
 	return (count);
 }
 
@@ -107,17 +107,17 @@ int	split_line(char ***asm_master, t_asm *tasm)
 		i++;
 	}
 	asm_master[i] = NULL;
-	i = 0;
-	while (asm_master[i])
-	{
-		j = 0;
-		while (asm_master[i][j])
-		{
-			ft_putstr(asm_master[i][j]);
-			ft_putchar('\n');
-			j++;
-		}
-		i++;
-	}
+	// i = 0;
+	// while (asm_master[i])
+	// {
+	// 	j = 0;
+	// 	while (asm_master[i][j])
+	// 	{
+	// 		ft_putstr(asm_master[i][j]);
+	// 		ft_putchar('\n');
+	// 		j++;
+	// 	}
+	// 	i++;
+	// }
 	return (1);
 }
