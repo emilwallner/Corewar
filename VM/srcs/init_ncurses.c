@@ -18,10 +18,10 @@ void ft_init_ncurses(void)
 	noecho();
 	start_color();
 	init_color(COLOR_WHITE, 220, 220, 220);
-	init_pair(0, COLOR_CYAN, COLOR_BLACK);
+	init_pair(0, COLOR_YELLOW, COLOR_BLACK);
 	init_pair(1, COLOR_BLUE, COLOR_BLACK);
 	init_pair(2, COLOR_MAGENTA, COLOR_BLACK);
-	init_pair(3, COLOR_YELLOW, COLOR_BLACK);
+	init_pair(3, COLOR_CYAN, COLOR_BLACK);
 	init_pair(4, COLOR_RED, COLOR_BLACK);
 	init_pair(5, COLOR_YELLOW, COLOR_BLACK);
 	init_pair(6, COLOR_BLACK, COLOR_CYAN);

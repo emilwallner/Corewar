@@ -27,12 +27,6 @@ void 	ft_move_cursors(t_env *e)
 	end = 1;
 	cursor = e->head;
 	i = 0;
-	while(!cursor->counter)
-	{
-		ft_update_cursor(e, cursor, 0);
-		cursor = cursor->next;
-	}
-	cursor = cursor->next;
 	ft_init_ncurses();
 	while (end)
 	{

@@ -51,6 +51,9 @@ void	ft_print_arena(t_env *e)
 	printw("\nNumber of lives: %d \n", e->lives);
 	printw("\nNumber of lives limit: %d \n", NBR_LIVE);
 	printw("\nNumber of max checks: %d \n", MAX_CHECKS);
+	printw("\nNumber of player 0: %d \n", e->player[0].index_start);
+	printw("\nNumber of player 1: %d \n", e->player[1].index_start);
+	printw("\nNumber of player 2: %d \n", e->player[2].index_start);
 	attroff(COLOR_PAIR(14));
 	refresh();
 	usleep(50000);

@@ -48,6 +48,18 @@ t_cursor		*ft_add_cursor_to_stack(t_cursor *stack, int i, t_env *e)
 	return (stack);
 }
 
+void init_color_cursor(t_env *e)
+{
+	t_cursor *cursor;
+
+	cursor = e->head;
+	while(!cursor->counter)
+	{
+		ft_update_cursor(e, cursor, 0);
+		cursor = cursor->next;
+	}
+}
+
 void		ft_init_cursor(t_env *e)
 {
 	int 		i;
@@ -63,4 +75,5 @@ void		ft_init_cursor(t_env *e)
 	stack = stack->next;
 	stack->counter = 1;
 	stack->next = e->head;
+	init_color_cursor(e);
 }
