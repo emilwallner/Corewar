@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/22 15:10:44 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/22 15:57:01 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ int			main(int ac, char **av)
 	t_asm	tasm;
 	t_read	tread;
 	t_header	header;
+	int		fd;
 
 	// ft_putstr("OK -2\n");
 	if (ac == 1 || !check_asm_header())
@@ -102,12 +103,12 @@ int			main(int ac, char **av)
 		if (ft_strlen(av[i]) < 3 || av[i][ft_strlen(av[i]) - 1] != 's' || av[i][ft_strlen(av[i]) - 2] != '.')
 			return (0);
 		// ft_putstr("OK 0\n");
-		if (!(get_counts(av[i], &tread)) || !tread.nb_char || !tread.nb_line)
+		if (!(fd = get_counts(av[i], &tread)) || !tread.nb_char || !tread.nb_line)
 			return (0);
 		// ft_putstr("OK 1\n");
 		if (!(file = ft_strnew(tread.nb_char + 1)))
 			return (0);
-		if (!(get_asm(av[i], file, &tread)))
+		if (!(get_asm(fd, file, &tread)))
 			return (free_and_return(file, tasm, 0, 0));
 		// ft_putstr("OK 2\n");
 		tasm.asm_tab = NULL;

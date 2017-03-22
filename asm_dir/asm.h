@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:45 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/22 13:48:01 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/22 15:57:08 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct	s_instruction
 void	set_op_tab(t_asm *tasm);
 
 int				get_counts(char *file_name, t_read *tread);
-int				get_asm(char *file_name, char *file, t_read *tread);
+int				get_asm(int fd, char *file, t_read *tread);
 int				split_asm(char **asm_tab, char *file, int nb);
 
 int				check_file(t_asm *tasm, t_header *header);
