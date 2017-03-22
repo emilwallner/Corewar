@@ -385,7 +385,7 @@ hexdump -vC players/$FILE26.cor > $USER$FILE26
 rm players/$FILE26.cor
 ./asm players/$FILE26.s
 hexdump -vC players/$FILE26.cor > $USER2$FILE26
-diff -rsa $USER2$FILE26 $USER$FILE26 > $DIFF/diff_$FILE26.txt
+# diff -rsa $USER2$FILE26 $USER$FILE26 > $DIFF/diff_$FILE26.txt
 echo "ZaZ ↓"
 cat $DIFF/diff_$FILE26.txt
 echo "User ↑"
@@ -421,7 +421,7 @@ hexdump -vC players/$FILE29.cor > $USER$FILE29
 rm players/$FILE29.cor
 ./asm players/$FILE29.s
 hexdump -vC players/$FILE29.cor > $USER2$FILE29
-diff -rsa $USER2$FILE29 $USER$FILE29 > $DIFF/diff_$FILE29.txt
+# diff -rsa $USER2$FILE29 $USER$FILE29 > $DIFF/diff_$FILE29.txt
 echo "ZaZ ↓"
 cat $DIFF/diff_$FILE29.txt
 echo "User ↑"

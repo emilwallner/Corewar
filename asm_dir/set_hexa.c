@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 16:45:01 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/22 17:15:32 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/22 17:27:55 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,26 @@ static int	set_filename(int fd, t_header header)
 	return (1);
 }
 
-static int	set_comment(int fd, t_header header, int count)
+static int	set_comment(int fd, t_header header, int nb_bytes)
 {
-	int	i;
+	int		i;
+	int		count;
+	long	nb;
 
 	i = -1;
-	while (++i < 7)
-		ft_putchar_fd(0x00, fd);
-	ft_putchar_fd(count, fd);
+	nb = nb_bytes;
+	count = 0;
+	while (nb != 0)
+	{
+		nb = nb / 256;
+		count++;
+	}
+	while (8 - count)
+	{
+		ft_putchar_fd(0x0, fd);
+		count++;
+	}
+	puthexa_fd(nb_bytes, fd);
 	i = -1;
 	while (header.comment[++i])
 		ft_putchar_fd(header.comment[i], fd);
@@ -86,7 +98,7 @@ int	set_hexa(t_asm tasm, char *str, int nb_line, t_header header)
 
 	if ((fd = create_hexa(str)) == -1)
 		return (0);
-	if (!(count = set_label_adresse(&tasm)))
+	if (!(count = set_label_adresse(&tasm)) || count > CHAMP_MAX_SIZE)
 		return (0);
 	if (set_filename(fd, header) == 0)
 		return (0);
