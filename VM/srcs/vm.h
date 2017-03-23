@@ -18,10 +18,16 @@
 # include "curses.h"
 # include <stdio.h>
 # include <limits.h>
-
+#define RED     "\x1b[31m"
+#define GREEN   "\x1b[32m"
+#define YELLOW  "\x1b[33m"
+#define BLUE    "\x1b[34m"
+#define MAGENTA "\x1b[35m"
+#define CYAN    "\x1b[36m"
+#define RESET   "\x1b[0m"
 typedef struct s_arena
 {
-	int		hex;
+	char 	hex;
 	int		color;
 	int 	prevcolor;
 }				t_arena;
@@ -52,7 +58,7 @@ typedef struct		s_cursor{
 	int 			cycle_end;
 	int				comnd_len;
 	char			operation[30];
-	int				reg[REG_NUMBER];
+	char			reg[REG_NUMBER];
 }					t_cursor;
 
 typedef struct	s_env
@@ -86,7 +92,8 @@ void		ft_declare_winner(t_env *e);
 void		ft_new_cycle(t_env *e, int *end);
 void		ft_print_function(int index, t_cursor *cursor, t_env *e);
 void		ft_live(t_env *e, t_cursor *cursor);
-void		ft_ld(char copied_code[30], t_env *e, t_cursor *cursor);
+// void		ft_ld(char copied_code[30], t_env *e, t_cursor *cursor);
+void		ft_ld(t_env *e, t_cursor *cursor);
 // void		ft_ld(t_env *e, t_cursor *cursor);
 void		ft_st(t_env *e, t_cursor *cursor);
 void		ft_add(t_env *e, t_cursor *cursor);
@@ -114,8 +121,8 @@ void		ft_parsing(t_env *e, int ac);
 void		ft_print_arena(t_env *e);
 void 		ft_build_arena(t_env *e, int ac);
 void		set_op_tab(t_env *e);
-void		ft_check_args(t_env e, int opcode, int acb);
-void		ft_debug(t_env e);
+int			ft_check_args(t_env e, t_cursor cursor);
+// void		ft_debug(t_env e);
 
 
 #endif

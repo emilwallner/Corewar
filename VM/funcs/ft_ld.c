@@ -20,7 +20,7 @@
 ** Should the IND part should be % MEM_SIZE or similar?
 */
 
-int		ft_cp_int(char *int_start)
+int		ft_cp_int(int int_start, t_env e)
 {
 	int i;
 	int value;
@@ -28,33 +28,41 @@ int		ft_cp_int(char *int_start)
 	i = 4;
 	value = 0;
 	while (--i >= 0)
-		value += *((int_start + (3 - i))) << (i * 8);
+		value += e.a[int_start + (3 - i)].hex << (i * 8);
 	return (value);
 }
-void	ft_ld(char copied_code[30], t_env *e, t_cursor *cursor)
+
+void	ft_ld(t_env *e, t_cursor *cursor)
 {
-	int		acb;
+	char		acb;
 	int		i;
 	int		value;
-	char	*value_position;
+	int		ocp_ind;
 
-	(void)e;
+	printf("HELLO\n");
 	i = 4;
-	value_position = copied_code;
-	acb =  0xFF & copied_code[1];
+	ocp_ind = cursor->index;
+	// ocp_ind = copied_code;
+	acb = e->a[ocp_ind + 1].hex;
+	// acb =  0xFF & copied_code[1];
 	if ((acb >> 6) == DIR_CODE)
 	{
-		value_position += 2;
-		value = ft_cp_int(value_position);
-		cursor->reg[copied_code[2 + 4]] = value;
-		cursor->index += 7;
+		printf("DIR\n");
+		// ocp_ind += 2;
+		// value = ft_cp_int(ocp_ind, *e);
+		// cursor->reg[e->a[ocp_ind + 2 + 4].hex] = value;
+		// cursor->reg[copied_code[2 + 4]] = value;
+		// cursor->index += 7;
 	}
 	else
 	{
-		value_position += (*(copied_code + 3) % IDX_MOD);
-		value = ft_cp_int(value_position);
-		cursor->reg[copied_code[2 + 2]] = value;
-		cursor->index += 5;
+		printf("IND\n");
+		// ocp_ind += e->a[ocp_ind + e->a[ocp_ind + 3].hex].hex;
+		// value = ft_cp_int(ocp_ind, *e);
+		// cursor->reg[e->a[ocp_ind + 2 + 2].hex] = value;
+		// cursor->reg[copied_code[2 + 2]] = value;
+		// cursor->index += 5;
+		// ocp_ind += (*(copied_code + 3) % IDX_MOD);
 	}
 	cursor->carry = 1;
 }
