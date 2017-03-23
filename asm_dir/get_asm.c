@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:31:37 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/20 14:16:57 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/22 17:06:54 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,20 @@ int			get_counts(char *file_name, t_read *tread)
 	tread->nb_line = 0;
 	buff[0] = 0;
 	if ((fd = open(file_name, O_RDONLY)) == -1)
-		return (0);
+		return (-1);
 	while ((ret = read(fd, buff, BUFF_SIZE)) > 0)
 	{
 		buff[ret] = '\0';
 		counts_char_line(buff, tread);
 	}
-	if (close(fd) == -1)
-		return (0);
-	if (ret == -1)
-		return (0);
+	lseek(fd, 0, SEEK_SET);
 	if (!tread->nb_char || tread->nb_line < 4)
-		return (0);
-	return (1);
+		return (-1);
+	return (fd);
 }
 
-int			get_asm(char *file_name, char *file, t_read *tread)
+int			get_asm(int fd, char *file, t_read *tread)
 {
-	int	fd;
-
-	if ((fd = open(file_name, O_RDONLY)) == -1)
-		return (0);
 	if (read(fd, file, tread->nb_char) == -1)
 		return (0);
 	file[tread->nb_char] = '\0';
@@ -86,8 +79,6 @@ int			split_asm(char **asm_tab, char *file, int nb)
 			i++;
 		}
 		asm_tab[line][cursor] = '\0';
-		// ft_putstr(asm_tab[line]);
-		// ft_putchar('\n');
 	}
 	asm_tab[line] = NULL;
 	return (1);

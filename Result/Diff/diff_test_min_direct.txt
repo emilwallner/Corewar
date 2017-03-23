@@ -1,4 +1,1 @@
-9c9
-< 00000080  00 00 00 00 00 00 00 00  00 00 00 07 6f 76 65 72  |............over|
----
-> 00000080  00 00 00 00 00 00 00 00  00 00 00 3f 6f 76 65 72  |...........?over|
+Files Result/ZaZ/test_min_direct and Result/User/test_min_direct are identical

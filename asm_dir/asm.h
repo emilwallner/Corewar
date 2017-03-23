@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:45 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/22 13:48:01 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/22 19:30:54 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,22 @@
 # include <limits.h>
 
 # define MIN(a,b) (a < b ? a : b)
+# define BY2	65536
+# define BY4	4294967296
 
 typedef struct	s_read
 {
 	int	nb_char;
 	int	nb_line;
 }				t_read;
+
+typedef struct	s_write
+{
+	int		id_instruction;
+	int		cursor;
+	int		instruction_cursor;
+	int		is_label;
+}				t_write;
 
 typedef struct	s_label
 {
@@ -54,7 +64,7 @@ typedef struct	s_instruction
 void	set_op_tab(t_asm *tasm);
 
 int				get_counts(char *file_name, t_read *tread);
-int				get_asm(char *file_name, char *file, t_read *tread);
+int				get_asm(int fd, char *file, t_read *tread);
 int				split_asm(char **asm_tab, char *file, int nb);
 
 int				check_file(t_asm *tasm, t_header *header);

@@ -12,25 +12,33 @@
 
 #include "vm.h"
 
-void	ft_print_hexa(char *str, int len)
+void ft_player_to_arena(t_env *e, int i, int *k)
+{
+	int count;
+
+	count = 0;
+	while(count < e->player[i].inst_len)
+	{
+		e->a[*k].hex = 0xFF & e->player[i].inst[count];
+		e->a[*k].color = i + 1 % 6;
+		e->a[*k].prevcolor = i + 1 % 6;
+		*k += 1;
+		count++;
+	}
+}
+
+void ft_build_arena(t_env *e, int ac)
 {
 	int i;
-	int hex;
+	static int k;
 
 	i = 0;
-	while(i < len)
+	k = 0;
+	while (i < e->player_amount)
 	{
-		hex = 0xFF & (*str);
-		if (hex == 0)
-			printf("00");
-		else if (hex <= 0xF)
-			printf(RED "0%x" RESET, hex);
-		else
-			printf("%x", hex);
-		printf(" ");
-		if ((i + 1) % (128 / 2) == 0)
-			printf("\n");
-		str++;
+		e->player[i].index_start = (MEM_SIZE / e->player_amount) * i;
+		k = (MEM_SIZE / e->player_amount) * i;
+		ft_player_to_arena(e, i, &k);
 		i++;
 	}
 }
