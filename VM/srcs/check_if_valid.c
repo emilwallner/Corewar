@@ -25,7 +25,7 @@ void ft_store_and_check_operation(t_env *e, t_cursor *cursor)
 	if(check_if_valid(e, cursor))
 	{
 		//ft_copy_command(e);
-		cursor->cycle = e->op_tab[cursor->index].cycles;
+		cursor->cycle = e->op_tab[e->a[cursor->index].hex].cycles;
 		cursor->running = 1;
 		//cursor->comnd_len = calc_len_of_op(cursor);
 		cursor->comnd_len = 5;

@@ -56,5 +56,5 @@ void	ft_print_arena(t_env *e)
 	printw("\nNumber of player 2: %d \n", e->player[2].index_start);
 	attroff(COLOR_PAIR(14));
 	refresh();
-	usleep(50000);
+	usleep(30000);
 }

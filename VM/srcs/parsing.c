@@ -37,20 +37,20 @@ void ft_parsing(t_env *e, int ac)
 	while (i < e->player_amount)
 	{
 
-	k = PROG_NAME_LENGTH + COMMENT_LENGTH;
-	str = e->player[i].string;
-	inst = e->player[i].inst;
-	while (!(str[k]))
-		k++;
-	e->player[i].inst_len = k;
-    while(k < e->player[i].len)
-	{
-		hex = 0xFF & (str[k]);
-		*inst = str[k];
-		k++;
-		inst++;
-	}
-	e->player[i].inst_len = k - e->player[i].inst_len;
-	i++;
+		k = PROG_NAME_LENGTH + COMMENT_LENGTH;
+		str = e->player[i].string;
+		inst = e->player[i].inst;
+		while (!(str[k]))
+			k++;
+		e->player[i].inst_len = k;
+	    while(k < e->player[i].len)
+		{
+			hex = 0xFF & (str[k]);
+			*inst = str[k];
+			k++;
+			inst++;
+		}
+		e->player[i].inst_len = k - e->player[i].inst_len;
+		i++;
 	}
 }

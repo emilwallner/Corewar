@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/21 17:23:13 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/22 15:59:50 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/23 11:10:59 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,21 @@ void	ft_debug(t_env e)
 	int i = 0;
 
 	cursor = (t_cursor*)malloc(sizeof(*cursor));
-	// (void)e;
-	// (void)cursor;
-	// printf(" HELLO\n");
 	cursor->index = 0;
-	// strncpy(cursor->operation, e.arena, 30);
-	while (i < 11)
-	{
-		cursor->operation[i] = e.arena[i];
-		i++;
-	}
 
-	i = 0;
-	// printf(" HELLO\n");
-	printf("\nExpected output: \n");
-	while (i < 11)
-	{
-		ft_printf("%02.x ", (e.arena[i] & 0xFF));
-		i++;
-	}
+// Building the fake copied code:
 
+	cursor->operation[0] = 0x02;
+	cursor->operation[1] = 0xd0;
+	cursor->operation[2] = 0x00;
+	cursor->operation[3] = 0x0a;
+	cursor->operation[4] = 0x02;
+	cursor->operation[5] = 0x02;
+	cursor->operation[6] = 0xd0;
+	cursor->operation[7] = 0x00;
+	cursor->operation[8] = 0x0a;
+	cursor->operation[9] = 0x02;
+	cursor->operation[10] = 0x02;
 	i = 0;
 	printf("\n");
 	printf("\nOutput: \n");

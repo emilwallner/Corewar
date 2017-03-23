@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ld.c                                            :+:      :+:    :+:   */
+/*   ft_lld.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/23 10:43:40 by nsabbah          ###   ########.fr       */
+/*   Created: 2017/03/22 17:07:21 by nsabbah           #+#    #+#             */
+/*   Updated: 2017/03/23 11:13:21 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../srcs/vm.h"
 
 /*
-** Instructions:
-** Take a random argument and a registry. Load the value of the first argument
-** in the registry. Its opcode is 10 in binary and it will change the carry.
 **
-** Should the IND part should be % MEM_SIZE or similar?
+** Instructions:
+** Means long-load. It the same as ld, but without % IDX_MOD.
+** No % IDX_MOD
+** Modify the carry
+** OPC = 13
+**
 */
 
-void	ft_ld(char copied_code[30], t_env *e, t_cursor *cursor)
+void	ft_lld(char copied_code[30], t_env *e, t_cursor *cursor)
 {
 	int		acb;
 	int		i = 0;
@@ -34,7 +36,7 @@ void	ft_ld(char copied_code[30], t_env *e, t_cursor *cursor)
 	}
 	else
 	{
-		cursor->reg[copied_code[2 + 2]] = *(copied_code + *(copied_code + 3) % IDX_MOD);
+		cursor->reg[copied_code[2 + 2]] = *(copied_code + *(copied_code + 3));
 		cursor->index += 4;
 	}
 	cursor->carry = 1;

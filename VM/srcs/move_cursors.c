@@ -21,12 +21,10 @@ void	ft_update_cursor(t_env *e, t_cursor *cursor, int i)
 
 void 	ft_move_cursors(t_env *e)
 {
-	int i;
 	int end;
 	t_cursor *cursor;
 	end = 1;
 	cursor = e->head;
-	i = 0;
 	ft_init_ncurses();
 	while (end)
 	{
@@ -38,9 +36,9 @@ void 	ft_move_cursors(t_env *e)
 				ft_store_and_check_operation(e, cursor);
 			else
 				ft_cycle_break(e, cursor);
-			cursor->index = cursor->index % MEM_SIZE;
-			cursor = cursor->next;
-			i++;
 		}
+		cursor = cursor->next;
+		cursor->index = cursor->index % MEM_SIZE;
+		ft_update_cursor(e, cursor, 5);
 	}
 }

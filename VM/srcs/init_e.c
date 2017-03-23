@@ -34,8 +34,9 @@ void init_e(t_env *e, int ac, char **av)
 	e->lives = 0;
 	e->winner = 1;
 	e->check = 0;
+	e->head = NULL;
 	e->cycles_to_die = CYCLE_TO_DIE;
-	e->player = malloc(sizeof(t_player) * ac - 1);
+	e->player = malloc(sizeof(t_player) * e->player_amount);
 	ft_szero(e);
 	ft_files_to_string(e);
 	set_op_tab(e);
