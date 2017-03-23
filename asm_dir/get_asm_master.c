@@ -6,13 +6,24 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 14:16:40 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/22 19:38:08 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/23 15:58:56 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-int	set_master_line(char **asm_master_line, char *str)
+static int	str_cross(char *str, int *i, int j)
+{
+	while (str[*i] && str[*i] != COMMENT_CHAR && (str[*i] == ' ' ||
+	str[*i] == '\t'))
+		(*i)++;
+	while (str[*i + j] && str[*i + j] != COMMENT_CHAR && str[*i + j] != ' ' &&
+	str[*i + j] != '\t')
+		j++;
+	return (j);
+}
+
+int			set_master_line(char **asm_master_line, char *str)
 {
 	int	i;
 	int	j;
@@ -20,18 +31,11 @@ int	set_master_line(char **asm_master_line, char *str)
 
 	i = 0;
 	count = 0;
-
 	while (str[i])
 	{
 		if (!str || str[0] == '\0')
-		{
 			asm_master_line[count] = NULL;
-		}
-		while (str[i] && str[i] != COMMENT_CHAR && (str[i] == ' ' || str[i] == '\t'))
-			i++;
-		j = 0;
-		while (str[i + j] && str[i + j] != COMMENT_CHAR && str[i + j] != ' ' && str[i + j] != '\t')
-			j++;
+		j = str_cross(str, &i, 0);
 		while (str[i] == COMMENT_CHAR && str[i + j])
 			j++;
 		if (j)
@@ -46,7 +50,7 @@ int	set_master_line(char **asm_master_line, char *str)
 	return (1);
 }
 
-int	count_word(char *str)
+int			count_word(char *str)
 {
 	int	i;
 	int	count;
@@ -73,10 +77,9 @@ int	count_word(char *str)
 	return (count);
 }
 
-int	split_line(char ***asm_master, t_asm *tasm)
+int			split_line(char ***asm_master, t_asm *tasm)
 {
 	int	i;
-	int	j;
 	int	nb_word;
 
 	if (!(asm_master[0] = ft_memalloc(sizeof(char*) * (1 + 1))))
@@ -92,7 +95,6 @@ int	split_line(char ***asm_master, t_asm *tasm)
 	i = 2;
 	while (tasm->asm_tab[i])
 	{
-		j = 0;
 		nb_word = count_word(tasm->asm_tab[i]);
 		if (!(asm_master[i] = ft_memalloc(sizeof(char*) * (nb_word + 1))))
 			return (0);

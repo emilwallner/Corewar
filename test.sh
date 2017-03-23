@@ -68,7 +68,7 @@ mkdir Result/Diff
 
 echo "\n\n\033[32m$FILE\n\033[37m"
 rm players/$FILE.cor
-asm_dir/asm players/$FILE.s #| leaks asm
+asm_dir/asm players/$FILE.s | leaks asm
 hexdump -vC players/$FILE.cor > $USER$FILE
 rm players/$FILE.cor
 ./asm players/$FILE.s
@@ -80,7 +80,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE2\n\033[37m"
 rm players/$FILE2.cor
-asm_dir/asm players/$FILE2.s #| leaks asm
+asm_dir/asm players/$FILE2.s | leaks asm
 hexdump -vC players/$FILE2.cor > $USER$FILE2
 rm players/$FILE2.cor
 ./asm players/$FILE2.s
@@ -92,7 +92,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE3\n\033[37m"
 rm players/$FILE3.cor
-asm_dir/asm players/$FILE3.s #| leaks asm
+asm_dir/asm players/$FILE3.s | leaks asm
 hexdump -vC players/$FILE3.cor > $USER$FILE3
 rm players/$FILE3.cor
 ./asm players/$FILE3.s
@@ -104,7 +104,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE4\n\033[37m"
 rm players/$FILE4.cor
-asm_dir/asm players/$FILE4.s #| leaks asm
+asm_dir/asm players/$FILE4.s | leaks asm
 hexdump -vC players/$FILE4.cor > $USER$FILE4
 rm players/$FILE4.cor
 ./asm players/$FILE4.s
@@ -116,7 +116,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE5\n\033[37m"
 rm players/$FILE5.cor
-asm_dir/asm players/$FILE5.s #| leaks asm
+asm_dir/asm players/$FILE5.s | leaks asm
 hexdump -vC players/$FILE5.cor > $USER$FILE5
 rm players/$FILE5.cor
 ./asm players/$FILE5.s
@@ -128,7 +128,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE6\n\033[37m"
 rm players/$FILE6.cor
-asm_dir/asm players/$FILE6.s #| leaks asm
+asm_dir/asm players/$FILE6.s | leaks asm
 hexdump -vC players/$FILE6.cor > $USER$FILE6
 rm players/$FILE6.cor
 ./asm players/$FILE6.s
@@ -140,7 +140,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE7\n\033[37m"
 rm players/$FILE7.cor
-asm_dir/asm players/$FILE7.s #| leaks asm
+asm_dir/asm players/$FILE7.s | leaks asm
 hexdump -vC players/$FILE7.cor > $USER$FILE7
 rm players/$FILE7.cor
 ./asm players/$FILE7.s
@@ -152,7 +152,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE8\n\033[37m"
 rm players/$FILE8.cor
-asm_dir/asm players/$FILE8.s #| leaks asm
+asm_dir/asm players/$FILE8.s | leaks asm
 hexdump -vC players/$FILE8.cor > $USER$FILE8
 rm players/$FILE8.cor
 ./asm players/$FILE8.s
@@ -164,7 +164,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE9\n\033[37m"
 rm players/$FILE9.cor
-asm_dir/asm players/$FILE9.s #| leaks asm
+asm_dir/asm players/$FILE9.s | leaks asm
 hexdump -vC players/$FILE9.cor > $USER$FILE9
 rm players/$FILE9.cor
 ./asm players/$FILE9.s
@@ -176,7 +176,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE10\n\033[37m"
 rm players/$FILE10.cor
-asm_dir/asm players/$FILE10.s #| leaks asm
+asm_dir/asm players/$FILE10.s | leaks asm
 hexdump -vC players/$FILE10.cor > $USER$FILE10
 rm players/$FILE10.cor
 ./asm players/$FILE10.s
@@ -188,7 +188,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE11\n\033[37m"
 rm players/$FILE11.cor
-asm_dir/asm players/$FILE11.s #| leaks asm
+asm_dir/asm players/$FILE11.s | leaks asm
 hexdump -vC players/$FILE11.cor > $USER$FILE11
 rm players/$FILE11.cor
 ./asm players/$FILE11.s
@@ -200,7 +200,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE12\n\033[37m"
 rm players/$FILE12.cor
-asm_dir/asm players/$FILE12.s #| leaks asm
+asm_dir/asm players/$FILE12.s | leaks asm
 hexdump -vC players/$FILE12.cor > $USER$FILE12
 rm players/$FILE12.cor
 ./asm players/$FILE12.s
@@ -212,7 +212,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE13\n\033[37m"
 rm players/$FILE13.cor
-asm_dir/asm players/$FILE13.s #| leaks asm
+asm_dir/asm players/$FILE13.s | leaks asm
 hexdump -vC players/$FILE13.cor > $USER$FILE13
 rm players/$FILE13.cor
 ./asm players/$FILE13.s
@@ -224,7 +224,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE14\n\033[37m"
 rm players/$FILE14.cor
-asm_dir/asm players/$FILE14.s #| leaks asm
+asm_dir/asm players/$FILE14.s | leaks asm
 hexdump -vC players/$FILE14.cor > $USER$FILE14
 rm players/$FILE14.cor
 ./asm players/$FILE14.s
@@ -236,7 +236,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE15\n\033[37m"
 rm players/$FILE15.cor
-asm_dir/asm players/$FILE15.s #| leaks asm
+asm_dir/asm players/$FILE15.s | leaks asm
 hexdump -vC players/$FILE15.cor > $USER$FILE15
 rm players/$FILE15.cor
 ./asm players/$FILE15.s
@@ -248,7 +248,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE16\n\033[37m"
 rm players/$FILE16.cor
-asm_dir/asm players/$FILE16.s #| leaks asm
+asm_dir/asm players/$FILE16.s | leaks asm
 hexdump -vC players/$FILE16.cor > $USER$FILE16
 rm players/$FILE16.cor
 ./asm players/$FILE16.s
@@ -260,7 +260,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE17\n\033[37m"
 rm players/$FILE17.cor
-asm_dir/asm players/$FILE17.s #| leaks asm
+asm_dir/asm players/$FILE17.s | leaks asm
 hexdump -vC players/$FILE17.cor > $USER$FILE17
 rm players/$FILE17.cor
 ./asm players/$FILE17.s
@@ -272,7 +272,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE18\n\033[37m"
 rm players/$FILE18.cor
-asm_dir/asm players/$FILE18.s #| leaks asm
+asm_dir/asm players/$FILE18.s | leaks asm
 hexdump -vC players/$FILE18.cor > $USER$FILE18
 rm players/$FILE18.cor
 ./asm players/$FILE18.s
@@ -284,7 +284,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE19\n\033[37m"
 rm players/$FILE19.cor
-asm_dir/asm players/$FILE19.s #| leaks asm
+asm_dir/asm players/$FILE19.s | leaks asm
 hexdump -vC players/$FILE19.cor > $USER$FILE19
 rm players/$FILE19.cor
 ./asm players/$FILE19.s
@@ -296,7 +296,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE20\n\033[37m"
 rm players/$FILE20.cor
-asm_dir/asm players/$FILE20.s #| leaks asm
+asm_dir/asm players/$FILE20.s | leaks asm
 hexdump -vC players/$FILE20.cor > $USER$FILE20
 rm players/$FILE20.cor
 ./asm players/$FILE20.s
@@ -308,7 +308,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE20\n\033[37m"
 rm players/$FILE20.cor
-asm_dir/asm players/$FILE20.s #| leaks asm
+asm_dir/asm players/$FILE20.s | leaks asm
 hexdump -vC players/$FILE20.cor > $USER$FILE20
 rm players/$FILE20.cor
 ./asm players/$FILE20.s
@@ -320,7 +320,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE21\n\033[37m"
 rm players/$FILE21.cor
-asm_dir/asm players/$FILE21.s #| leaks asm
+asm_dir/asm players/$FILE21.s | leaks asm
 hexdump -vC players/$FILE21.cor > $USER$FILE21
 rm players/$FILE21.cor
 ./asm players/$FILE21.s
@@ -332,7 +332,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE22\n\033[37m"
 rm players/$FILE22.cor
-asm_dir/asm players/$FILE22.s #| leaks asm
+asm_dir/asm players/$FILE22.s | leaks asm
 hexdump -vC players/$FILE22.cor > $USER$FILE22
 rm players/$FILE22.cor
 ./asm players/$FILE22.s
@@ -344,7 +344,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE23\n\033[37m"
 rm players/$FILE23.cor
-asm_dir/asm players/$FILE23.s #| leaks asm
+asm_dir/asm players/$FILE23.s | leaks asm
 hexdump -vC players/$FILE23.cor > $USER$FILE23
 rm players/$FILE23.cor
 ./asm players/$FILE23.s
@@ -356,7 +356,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE24\n\033[37m"
 rm players/$FILE24.cor
-asm_dir/asm players/$FILE24.s #| leaks asm
+asm_dir/asm players/$FILE24.s | leaks asm
 hexdump -vC players/$FILE24.cor > $USER$FILE24
 rm players/$FILE24.cor
 ./asm players/$FILE24.s
@@ -368,7 +368,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE25\n\033[37m"
 rm players/$FILE25.cor
-asm_dir/asm players/$FILE25.s #| leaks asm
+asm_dir/asm players/$FILE25.s | leaks asm
 hexdump -vC players/$FILE25.cor > $USER$FILE25
 rm players/$FILE25.cor
 ./asm players/$FILE25.s
@@ -380,7 +380,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE26\n\033[37m"
 rm players/$FILE26.cor
-asm_dir/asm players/$FILE26.s #| leaks asm
+asm_dir/asm players/$FILE26.s | leaks asm
 hexdump -vC players/$FILE26.cor > $USER$FILE26
 rm players/$FILE26.cor
 ./asm players/$FILE26.s
@@ -392,7 +392,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE27\n\033[37m"
 rm players/$FILE27.cor
-asm_dir/asm players/$FILE27.s #| leaks asm
+asm_dir/asm players/$FILE27.s | leaks asm
 hexdump -vC players/$FILE27.cor > $USER$FILE27
 rm players/$FILE27.cor
 ./asm players/$FILE27.s
@@ -404,7 +404,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE28\n\033[37m"
 rm players/$FILE28.cor
-asm_dir/asm players/$FILE28.s #| leaks asm
+asm_dir/asm players/$FILE28.s | leaks asm
 hexdump -vC players/$FILE28.cor > $USER$FILE28
 rm players/$FILE28.cor
 ./asm players/$FILE28.s
@@ -416,7 +416,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE29\n\033[37m"
 rm players/$FILE29.cor
-asm_dir/asm players/$FILE29.s #| leaks asm
+asm_dir/asm players/$FILE29.s | leaks asm
 hexdump -vC players/$FILE29.cor > $USER$FILE29
 rm players/$FILE29.cor
 ./asm players/$FILE29.s
@@ -428,7 +428,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE30\n\033[37m"
 rm players/$FILE30.cor
-asm_dir/asm players/$FILE30.s #| leaks asm
+asm_dir/asm players/$FILE30.s | leaks asm
 hexdump -vC players/$FILE30.cor > $USER$FILE30
 rm players/$FILE30.cor
 ./asm players/$FILE30.s
@@ -440,7 +440,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE31\n\033[37m"
 rm players/$FILE31.cor
-asm_dir/asm players/$FILE31.s #| leaks asm
+asm_dir/asm players/$FILE31.s | leaks asm
 hexdump -vC players/$FILE31.cor > $USER$FILE31
 rm players/$FILE31.cor
 ./asm players/$FILE31.s
@@ -452,7 +452,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE32\n\033[37m"
 rm players/$FILE32.cor
-asm_dir/asm players/$FILE32.s #| leaks asm
+asm_dir/asm players/$FILE32.s | leaks asm
 hexdump -vC players/$FILE32.cor > $USER$FILE32
 rm players/$FILE32.cor
 ./asm players/$FILE32.s
@@ -464,7 +464,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE33\n\033[37m"
 rm players/$FILE33.cor
-asm_dir/asm players/$FILE33.s #| leaks asm
+asm_dir/asm players/$FILE33.s | leaks asm
 hexdump -vC players/$FILE33.cor > $USER$FILE33
 rm players/$FILE33.cor
 ./asm players/$FILE33.s
@@ -476,7 +476,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE34\n\033[37m"
 rm players/$FILE34.cor
-asm_dir/asm players/$FILE34.s #| leaks asm
+asm_dir/asm players/$FILE34.s | leaks asm
 hexdump -vC players/$FILE34.cor > $USER$FILE34
 rm players/$FILE34.cor
 ./asm players/$FILE34.s
@@ -488,7 +488,7 @@ echo "User ↑"
 
 echo "\n\n\033[32m$FILE35\n\033[37m"
 rm players/$FILE35.cor
-asm_dir/asm players/$FILE35.s #| leaks asm
+asm_dir/asm players/$FILE35.s | leaks asm
 hexdump -vC players/$FILE35.cor > $USER$FILE35
 rm players/$FILE35.cor
 ./asm players/$FILE35.s

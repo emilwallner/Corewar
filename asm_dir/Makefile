@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/22 16:48:25 by mhaziza          ###   ########.fr        #
+#    Updated: 2017/03/23 16:11:26 by mhaziza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,8 @@ SRCS	=	asm.c \
 			set_hexa_instruction.c \
 			set_hexa_params.c \
 			set_hexa_labels.c \
+			set_hexa_struct.c \
+			free_datas.c \
 
 OBJS	=   $(SRCS:.c=.o)
 

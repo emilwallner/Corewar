@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 22:26:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/22 19:34:04 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/23 15:03:35 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,48 +47,48 @@ int		get_code(t_asm tasm, char *params, int instruction_cursor, long *code)
 	return (1);
 }
 
-void	set_direct(t_asm tasm, t_op top, char *params, int fd, int *cursor, int instruction_cursor)
+void	set_direct(t_write_params *twp)
 {
 	int		i;
 	long	nb;
 	long	code;
 
 	i = 0;
-	if (params[0] != LABEL_CHAR)
-		code = top.label_size ? ft_atoi(params) % BY2 :
-		ft_atoi(params) % BY4;
+	if (twp->cell[1] != LABEL_CHAR)
+		code = twp->top.label_size ? ft_atoi(twp->cell + 1) % BY2 :
+		ft_atoi(twp->cell + 1) % BY4;
 	else
 	{
-		if (!get_code(tasm, params, instruction_cursor, &code))
+		if (!get_code(twp->tasm, twp->cell + 1, twp->ins_cursor, &code))
 			return ;
 	}
 	if (code < 0)
-		code = top.label_size ? code + BY2 : code + BY4;
+		code = twp->top.label_size ? code + BY2 : code + BY4;
 	i = 1;
 	nb = code;
 	while (nb / 256 && i++)
 		nb /= 256;
 	nb = i;
 	i = -1;
-	while (++i < 2 + 2 * (1 - top.label_size) - nb)
-		ft_putchar_fd(0, fd);
-	puthexa_fd(code, fd);
-	*cursor = top.label_size ? *cursor + 2 : *cursor + 4;
+	while (++i < 2 + 2 * (1 - twp->top.label_size) - nb)
+		ft_putchar_fd(0, twp->fd);
+	puthexa_fd(code, twp->fd);
+	*twp->cur_cur = twp->top.label_size ? *twp->cur_cur + 2 : *twp->cur_cur + 4;
 }
 
-void	set_indirect(t_asm tasm, char *params, int fd, int *cursor, int instruction_cursor)
+void	set_indirect(t_write_params *twp)
 {
 	long code;
 
-	if (params[0] == LABEL_CHAR)
+	if (twp->cell[0] == LABEL_CHAR)
 	{
-		if (!get_code(tasm, params, instruction_cursor, &code))
+		if (!get_code(twp->tasm, twp->cell, twp->ins_cursor, &code))
 			return ;
 	}
 	else
-		code = ft_atoi(params) % BY2;
+		code = ft_atoi(twp->cell) % BY2;
 	code = code > 0 ? code : BY2 + code;
-	ft_putchar_fd(code / 256, fd);
-	ft_putchar_fd(code % 256, fd);
-	*cursor += 2;
+	ft_putchar_fd(code / 256, twp->fd);
+	ft_putchar_fd(code % 256, twp->fd);
+	*twp->cur_cur += 2;
 }
