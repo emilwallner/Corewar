@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:31:37 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/22 15:57:22 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/22 17:06:54 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,6 @@ int			get_counts(char *file_name, t_read *tread)
 		counts_char_line(buff, tread);
 	}
 	lseek(fd, 0, SEEK_SET);
-	// read(fd, buff, BUFF_SIZE);
-	// ft_putstr(buff);
-	// if (close(fd) == -1)
-	// 	return (0);
-	// if (ret == -1)
-	// 	return (0);
 	if (!tread->nb_char || tread->nb_line < 4)
 		return (-1);
 	return (fd);
@@ -53,10 +47,6 @@ int			get_counts(char *file_name, t_read *tread)
 
 int			get_asm(int fd, char *file, t_read *tread)
 {
-	// int	fd;
-
-	// if ((fd = open(file_name, O_RDONLY)) == -1)
-	// 	return (0);
 	if (read(fd, file, tread->nb_char) == -1)
 		return (0);
 	file[tread->nb_char] = '\0';
@@ -89,8 +79,6 @@ int			split_asm(char **asm_tab, char *file, int nb)
 			i++;
 		}
 		asm_tab[line][cursor] = '\0';
-		// ft_putstr(asm_tab[line]);
-		// ft_putchar('\n');
 	}
 	asm_tab[line] = NULL;
 	return (1);

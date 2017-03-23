@@ -6,42 +6,11 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 11:36:16 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/20 17:33:45 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/22 16:48:06 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
-
-// int	existing_label(char *label, t_label *labels, int nb)
-// {
-// 	int	i;
-//
-// 	i = 0;
-// 	while (i < nb && (labels[i]).index > 0)
-// 	{
-// 		if (ft_strcmp((labels[i]).label, label) == 0)
-// 			return (1);
-// 		i++;
-// 	}
-// 	// ft_putstr("XXXX\n");
-// 	return (0);
-// }
-//
-// int	check_label(t_instruction *line, t_asm *tasm, char *str)
-// {
-// 	int	label_end;
-//
-// 	// ft_putstr("RRR\n");
-// 	label_end = ft_strchr(str, LABEL_CHAR) - str + 1;
-// 	line->label = ft_strsub(str, 0, label_end - 1);
-// 	if (!existing_label(line->label, tasm->labels, tasm->nb_labels))
-// 	{
-// 		// ft_putstr("ZZZ\n");
-// 		// printf("label = %s, nb = %d\n", line->label, tasm->nb_labels);
-// 		return (-1);
-// 	}
-// 	return (label_end);
-// }
 
 int	count_label(t_asm *tasm)
 {
@@ -50,11 +19,10 @@ int	count_label(t_asm *tasm)
 	i = 2;
 	while (tasm->asm_master[i] != NULL)
 	{
-		// ft_putstr("XXX\n");
-		if (tasm->asm_master[i][0] && check_valid_label(tasm->asm_master[i][0]) == 1)
+		if (tasm->asm_master[i][0] &&
+			check_valid_label(tasm->asm_master[i][0]) == 1)
 			tasm->nb_labels++;
 		i++;
-		// ft_putstr("OOO\n");
 	}
 	return (1);
 }
@@ -79,9 +47,52 @@ int	get_tlabel_by_name(t_asm *tasm, char *name)
 	i = -1;
 	while (++i < tasm->nb_labels)
 	{
-		// printf("tasm->labels[i].label %s name %s\n", tasm->labels[i].label, name);
 		if (!ft_strcmp(tasm->labels[i].label, name))
 			return (i);
 	}
 	return (-1);
+}
+
+int	fill_label_tab(t_asm *tasm)
+{
+	int i;
+	int j;
+
+	i = 2;
+	while (tasm->asm_master[i] != NULL)
+	{
+		if (tasm->asm_master[i][0] &&
+			check_valid_label(tasm->asm_master[i][0]) == 1)
+		{
+			j = 0;
+			while (j < tasm->nb_labels && (tasm->labels[j]).index > 0)
+			{
+				if (!ft_strcmp((tasm->labels[j]).label, tasm->asm_master[i][0]))
+					return (0);
+				j++;
+			}
+			tasm->labels[j].index = i;
+			if (!(tasm->labels[j].label = ft_strsub(tasm->asm_master[i][0], 0,
+				ft_strlen(tasm->asm_master[i][0]) - 1)))
+				return (0);
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	check_valid_label(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (ft_strchr(LABEL_CHARS, str[0]) == NULL || ft_strchr(str, ':') == NULL)
+		return (0);
+	while (str[i] != ':')
+	{
+		if (ft_strchr(LABEL_CHARS, str[i]) == NULL)
+			return (0);
+		i++;
+	}
+	return (1);
 }

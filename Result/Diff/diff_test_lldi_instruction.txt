@@ -1,4 +1,1 @@
-9c9
-< 00000080  00 00 00 00 00 00 00 00  00 00 00 61 74 65 73 74  |...........atest|
----
-> 00000080  00 00 00 00 00 00 00 00  00 00 00 3f 74 65 73 74  |...........?test|
+Files Result/ZaZ/test_lldi_instruction and Result/User/test_lldi_instruction are identical

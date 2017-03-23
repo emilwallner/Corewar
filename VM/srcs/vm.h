@@ -73,6 +73,9 @@ typedef struct	s_env
 	t_op		op_tab[17];
 }				t_env;
 
+
+
+void		ft_update_cursor(t_env *e, t_cursor *cursor, int i);
 void 		ft_store_and_check_operation(t_env *e, t_cursor *cursor);
 void 		ft_init_ncurses(void);
 void		ft_update_cursor(t_env *e, t_cursor *cursor, int i);
@@ -102,7 +105,6 @@ void		ft_aff(t_env *e, t_cursor *cursor);
 void 		ft_move_cursors(t_env *e);
 void		ft_print_cursor(t_env *e);
 t_cursor	*ft_create_cursor(int i, t_env *e);
-t_cursor	*ft_add_cursor_to_stack(t_cursor *stack, int i, t_env *e);
 void		ft_init_cursor(t_env *e);
 void		init_e(t_env *e, int ac, char **av);
 void		ft_files_to_string(t_env *e);

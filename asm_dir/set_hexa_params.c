@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 22:26:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/22 15:48:16 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/22 19:34:04 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 void	set_register(char *params, int fd, int *cursor)
 {
-	// printf("REGISTER\n");
-	ft_putchar_fd(ft_atoi(params),fd);
-	*cursor +=1;
+	ft_putchar_fd(ft_atoi(params), fd);
+	(*cursor) += 1;
 }
 
-void puthexa_fd(long code, int fd)
+void	puthexa_fd(long code, int fd)
 {
-	// printf("puthexa code = %x\n", code);
-	if (code >= 16*16)
+	if (code >= 16 * 16)
 	{
 		puthexa_fd(code / (16 * 16), fd);
 		puthexa_fd(code % (16 * 16), fd);
@@ -31,86 +29,66 @@ void puthexa_fd(long code, int fd)
 		ft_putchar_fd(code, fd);
 }
 
-void	set_direct(t_asm tasm, t_op top, char *params, int fd, int *cursor, int instruction_cursor)
+int		get_code(t_asm tasm, char *params, int instruction_cursor, long *code)
 {
-	int	i;
-	long	nb;
-	int	j;
-	long code;
+	int		j;
+	int		id;
 	char	*name;
 
-	// printf(">>SET DIRECT PARAM \n   params %s\n instruction_cursor %i\n", params, instruction_cursor);
+	j = 0;
+	while (params[j] && params[j] != SEPARATOR_CHAR)
+		j++;
+	if (!(name = ft_strsub(params, 1, j - 1)))
+		return (0);
+	if ((id = get_tlabel_by_name(&tasm, name)) == -1)
+		return (0);
+	*code = tasm.labels[id].first_byte - instruction_cursor;
+	free(name);
+	return (1);
+}
+
+void	set_direct(t_asm tasm, t_op top, char *params, int fd, int *cursor, int instruction_cursor)
+{
+	int		i;
+	long	nb;
+	long	code;
+
 	i = 0;
-	if (params[0] == LABEL_CHAR)
-	{
-		// printf("in if %s\n", params);
-		j = 0;
-		while (params[j]  && params[j] != SEPARATOR_CHAR)
-			j++;
-		// printf("debug j = %i\n", j);
-		if (!(name = ft_strsub(params, 1, j - 1)))
-			return ;
-		//  ft_putstr(name);
-		code = tasm.labels[get_tlabel_by_name(&tasm, name)].first_byte - instruction_cursor;
-		free (name);
-		// printf("   first_byte %i code label %i\n", tasm.labels[get_tlabel_by_name(&tasm, name)].first_byte, code);
-	}
+	if (params[0] != LABEL_CHAR)
+		code = top.label_size ? ft_atoi(params) % BY2 :
+		ft_atoi(params) % BY4;
 	else
-		code = top.label_size ? ft_atoi(params) % 65536 : ft_atoi(params) % 4294967296;
-	// code = code >= 0 ? code : 65536 + code;
-	if (code < 0)
 	{
-		if (top.label_size)
-			code += 65536;
-		else
-			code += 4294967296;
+		if (!get_code(tasm, params, instruction_cursor, &code))
+			return ;
 	}
+	if (code < 0)
+		code = top.label_size ? code + BY2 : code + BY4;
 	i = 1;
 	nb = code;
-	while (nb / 256)
-	{
-		// ft_putnbr(nb);
-		// ft_putchar(' ');
-		// ft_putnbr(i);
-		// ft_putchar('\n');
+	while (nb / 256 && i++)
 		nb /= 256;
-		i++;
-	}
 	nb = i;
-	// printf("nb = %i CODE = %x  top.label_size = %i\n", nb, code, top.label_size);
 	i = -1;
 	while (++i < 2 + 2 * (1 - top.label_size) - nb)
-		ft_putchar_fd(0,fd);
+		ft_putchar_fd(0, fd);
 	puthexa_fd(code, fd);
 	*cursor = top.label_size ? *cursor + 2 : *cursor + 4;
 }
 
 void	set_indirect(t_asm tasm, char *params, int fd, int *cursor, int instruction_cursor)
 {
-	int	i;
-	int	j;
-	int code;
-	char	*name;
+	long code;
 
-	// printf("   SET INDIRECT PARAM \n   instruction_cursor %i\n", instruction_cursor);
-	i = instruction_cursor;
-	i = 0;
 	if (params[0] == LABEL_CHAR)
 	{
-		j = 0;
-		while (params[j] != SEPARATOR_CHAR)
-			j++;
-		if (!(name = ft_strsub(params, 1, j - 1)))
+		if (!get_code(tasm, params, instruction_cursor, &code))
 			return ;
-		code = tasm.labels[get_tlabel_by_name(&tasm, name)].first_byte - instruction_cursor;
-		free (name);
-		// printf(" get_tlabel_by_name %i NAME %s   first_byte %i code label %i instruction_cursor %i\n", get_tlabel_by_name(&tasm, name), name, tasm.labels[get_tlabel_by_name(&tasm, name)].first_byte, code, instruction_cursor);
 	}
 	else
-		code = ft_atoi(params) % 65536;
-	code = code > 0 ? code : 65536 + code;
-	// printf("CODE = %x\n", code);
-	ft_putchar_fd(code / 256,fd);
-	ft_putchar_fd(code % 256,fd);
+		code = ft_atoi(params) % BY2;
+	code = code > 0 ? code : BY2 + code;
+	ft_putchar_fd(code / 256, fd);
+	ft_putchar_fd(code % 256, fd);
 	*cursor += 2;
 }
