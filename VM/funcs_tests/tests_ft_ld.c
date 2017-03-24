@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 15:31:16 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/24 15:35:38 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 16:06:30 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	ft_debug_ld(t_env e, t_cursor *cursor)
 	e.a[7].hex = 0x00;
 	e.a[8].hex = 0x0a;
 	e.a[9].hex = 0x02;
-	e.a[10].hex = 0xff;
-	e.a[11].hex = 0xff;
-	e.a[12].hex = 0xff;
+	e.a[10].hex = 0x0c;
+	e.a[11].hex = 0x0b;
+	e.a[12].hex = 0x0a;
 	e.a[13].hex = 0x01;
 
 	printf(CYAN "INFO : Test with IND, write value of index + 10 in R2\n\n" RESET);
@@ -51,9 +51,9 @@ void	ft_debug_ld(t_env e, t_cursor *cursor)
 	ft_ld(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	printf("reg[2] %i (expected: ?)\n", cursor->reg[2]);
+	printf("reg[2] %i (expected: 202050049)\n", cursor->reg[2]);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
-	printf("index is %i\n", cursor->index);
+	printf("index is %i (expected: 5)\n", cursor->index);
 }
 
 void	ft_debug_ld2(t_env e, t_cursor *cursor)
@@ -81,14 +81,14 @@ void	ft_debug_ld2(t_env e, t_cursor *cursor)
 
 	printf("\nBEFORE FUNCTION CALL\n\n");
 
-	printf("reg[2] %i\n", cursor->reg[2]);
+	printf("reg[2] is %i\n", cursor->reg[2]);
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
 	ft_ld(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	printf("reg[2] %i (expected: 1012323)\n", cursor->reg[2]);
+	printf("reg[2] is %i (expected: 1012323)\n", cursor->reg[2]);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
-	printf("index is %i\n", cursor->index);
+	printf("index is %i (expected: 7)\n", cursor->index);
 }

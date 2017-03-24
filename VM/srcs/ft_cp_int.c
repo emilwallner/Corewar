@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_test.c                                        :+:      :+:    :+:   */
+/*   ft_cp_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/21 17:23:13 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/24 16:11:13 by nsabbah          ###   ########.fr       */
+/*   Created: 2017/03/24 16:07:53 by nsabbah           #+#    #+#             */
+/*   Updated: 2017/03/24 16:09:01 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../srcs/vm.h"
+#include "vm.h"
 
-/*
-** This part is to test each function while the core algo is being built
-*/
-
-void	ft_debug(t_env e)
+int		ft_cp_int(int int_start, t_env e)
 {
-	t_cursor *cursor;
+	int i;
+	int value;
 
-	cursor = (t_cursor*)malloc(sizeof(*cursor) * 10);
-
-	printf(RED "\n###### FUNCTION TEST : ft_ld.c ######\n\n" RESET);
-
-	ft_debug_ld(e, &cursor[0]);
-	ft_debug_ld2(e, &cursor[1]);
+	i = 4;
+	value = 0;
+	while (--i >= 0)
+		value += e.a[int_start + (3 - i)].hex << (i * 8);
+	return (value);
 }
