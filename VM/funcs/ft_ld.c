@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/24 16:18:06 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 16:45:01 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_ld(t_env *e, t_cursor *cursor)
 
 	opc_ind = cursor->index;
 	acb = e->a[opc_ind + 1].hex;
-	if (((acb) >> 6) == DIR_CODE)
+	if (((acb & 0xFF) >> 6) == DIR_CODE)
 	{
 		value = ft_cp_int(opc_ind + 2, *e);
 		cursor->reg[e->a[opc_ind + 2 + 4].hex] = value;
@@ -39,6 +39,8 @@ void	ft_ld(t_env *e, t_cursor *cursor)
 	{
 		ind_value = ((e->a[opc_ind + 2].hex & 0xFF) << 8)
 									+ (e->a[opc_ind + 3].hex & 0xFF);
+		// Not sure of the IDX_MOD
+		ind_value = (ind_value % IDX_MOD) & 0xFFFF;
 		value = ft_cp_int(opc_ind + ind_value, *e);
 		cursor->reg[e->a[opc_ind + 2 + 2].hex] = value;
 		cursor->index += 5;
