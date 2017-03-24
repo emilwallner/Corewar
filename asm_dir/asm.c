@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/23 16:41:59 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/24 13:15:19 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,26 @@ int			check_asm_header(void)
 {
 	if (ft_strchr(LABEL_CHARS, '\n') || ft_strchr(CMD_CHARS, '\n') ||
 		ft_strchr(NAME_CMD_STRING, '\n') || ft_strchr(COMMENT_CMD_STRING, '\n')
-		|| ft_strchr(COMMENT_CHARS, '\n'))
-		return (0);
+		|| ft_strchr(COMMENT_CHARS, '\n') || ft_strchr(LABEL_CHARS, ' '))
+		return (error_header(0));
 	if (COMMENT_CHAR == '\n' || LABEL_CHAR == '\n' || DIRECT_CHAR == '\n' ||
 		SEPARATOR_CHAR == '\n' || COMMENT_CHAR == ' ' || LABEL_CHAR == ' ' ||
 		DIRECT_CHAR == ' ' || SEPARATOR_CHAR == ' ')
-		return (0);
+		return (error_header(0));
 	if (ft_strchr(LABEL_CHARS, LABEL_CHAR) ||
 		ft_strchr(LABEL_CHARS, SEPARATOR_CHAR) ||
 		ft_strchr(LABEL_CHARS, COMMENT_CHAR) ||
 		ft_strchr(LABEL_CHARS, DIRECT_CHAR))
-		return (0);
+		return (error_header(0));
 	if (ft_strchr(COMMENT_CHARS, LABEL_CHAR) ||
 		ft_strchr(COMMENT_CHARS, SEPARATOR_CHAR) ||
 		ft_strchr(COMMENT_CHARS, COMMENT_CHAR) ||
 		ft_strchr(COMMENT_CHARS, DIRECT_CHAR))
-		return (0);
+		return (error_header(0));
 	if (ft_strchr(CMD_CHARS, '"'))
-		return (0);
+		return (error_header(0));
 	if (COREWAR_EXEC_MAGIC > 0xffffffff)
-		return (0);
+		return (error_header(1));
 	return (1);
 }
 
@@ -100,7 +100,7 @@ int			main(int ac, char **av)
 	{
 		if (ft_strlen(av[i]) < 3 || av[i][ft_strlen(av[i]) - 1] != 's' ||
 		av[i][ft_strlen(av[i]) - 2] != '.')
-			return (0);
+			return (error_header(2));
 		call_assembly(av[i]);
 	}
 	return (1);

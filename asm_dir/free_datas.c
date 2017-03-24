@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/23 15:59:57 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/23 16:42:30 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/24 15:35:06 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int			free_and_return(t_asm *tasm, int ret)
 		free(tasm->labels);
 	}
 	if (!ret)
-		ft_putstr("Error\n");
+		ft_putstr_fd("Error\n", 2);
 	sleep(1);
 	return (ret);
 }
