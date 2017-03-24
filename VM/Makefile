@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/24 16:08:19 by nsabbah          ###   ########.fr        #
+#    Updated: 2017/03/24 17:08:41 by nsabbah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,10 @@ SRCS	=		main_vm.c 	\
 				init_ncurses.c \
 				declare_winner.c \
 				ft_ld.c \
+				ft_lld.c \
 				main_test.c \
 				tests_ft_ld.c \
+				tests_ft_lld.c \
 				ft_cp_int.c \
 
 

@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/24 16:51:31 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 17:08:20 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,8 @@ int			ft_cp_int(int int_start, t_env e);
 // Testing section
 void	ft_debug_ld(t_env e, t_cursor *cursor);
 void	ft_debug_ld2(t_env e, t_cursor *cursor);
+void	ft_debug_lld(t_env e, t_cursor *cursor);
+void	ft_debug_lld2(t_env e, t_cursor *cursor);
 
 
 #endif
