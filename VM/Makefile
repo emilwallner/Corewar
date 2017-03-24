@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+         #
+#    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/21 18:19:31 by nsabbah          ###   ########.fr        #
+#    Updated: 2017/03/24 15:34:56 by nsabbah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,9 @@ SRCS	=		main_vm.c 	\
 				init_ncurses.c \
 				declare_winner.c \
 				ft_ld.c \
+				main_test.c \
+				tests_ft_ld.c \
+
 
 GREEN		= \033[32m
 RED			= \033[31m
@@ -42,7 +45,7 @@ DEFAULT		= \033[37m
 CYAN    	= \x1b[36m
 
 OBJS	=	$(SRCS:.c=.o)
-VPATH	=	srcs/:funcs/:
+VPATH	=	srcs/:funcs/:funcs_tests/:
 
 all: libft $(COREWAR)
 libft:

@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/21 18:15:13 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 15:33:40 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ typedef struct		s_cursor{
 	int 			cycle_end;
 	int				comnd_len;
 	char			operation[30];
-	char			reg[REG_NUMBER];
+	int				reg[REG_NUMBER];
 }					t_cursor;
 
 typedef struct	s_env
@@ -122,7 +122,11 @@ void		ft_print_arena(t_env *e);
 void 		ft_build_arena(t_env *e, int ac);
 void		set_op_tab(t_env *e);
 int			ft_check_args(t_env e, t_cursor cursor);
-// void		ft_debug(t_env e);
+void		ft_debug(t_env e);
+
+// Testing section
+void	ft_debug_ld(t_env e, t_cursor *cursor);
+void	ft_debug_ld2(t_env e, t_cursor *cursor);
 
 
 #endif
