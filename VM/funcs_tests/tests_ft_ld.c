@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_debug.c                                         :+:      :+:    :+:   */
+/*   tests_ft_ld.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/21 17:23:13 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/24 12:35:59 by nsabbah          ###   ########.fr       */
+/*   Created: 2017/03/24 15:31:16 by nsabbah           #+#    #+#             */
+/*   Updated: 2017/03/24 15:35:38 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vm.h"
-
-/*
-** This part is to test each function while the core algo is being built
-*/
+#include "../srcs/vm.h"
 
 void	ft_debug_ld(t_env e, t_cursor *cursor)
 {
@@ -95,15 +91,4 @@ void	ft_debug_ld2(t_env e, t_cursor *cursor)
 	printf("reg[2] %i (expected: 1012323)\n", cursor->reg[2]);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
-}
-
-void	ft_debug(t_env e)
-{
-	t_cursor *cursor;
-
-	cursor = (t_cursor*)malloc(sizeof(*cursor) * 10);
-	printf(RED "\n###### FUNCTION TEST : ft_ld.c ######\n\n" RESET);
-
-	ft_debug_ld(e, &cursor[0]);
-	ft_debug_ld2(e, &cursor[1]);
 }

@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/24 15:05:08 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 15:33:35 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,11 @@ int		ft_cp_int(int int_start, t_env e)
 
 void	ft_ld(t_env *e, t_cursor *cursor)
 {
-	char		acb;
+	char	acb;
 	int		i;
 	int		value;
 	int		ocp_ind;
+
 
 	i = 4;
 	ocp_ind = cursor->index;
