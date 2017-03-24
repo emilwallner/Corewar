@@ -30,7 +30,7 @@ SRCS	=		main_vm.c 	\
 				ft_check_args.c \
 				init_cursors.c \
 				move_cursors.c \
-				store_and_check_if_valid.c \
+				add_cycle.c \
 				adjust_cycles.c \
 				init_ncurses.c \
 				declare_winner.c \

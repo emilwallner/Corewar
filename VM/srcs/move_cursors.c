@@ -30,13 +30,13 @@ void 	ft_move_cursors(t_env *e)
 	while (end)
 	{
 		if(cursor->counter)
-			ft_adjust_cycle(e, cursor, &end);
+			ft_adjust_cycle_macro(e, cursor, &end);
 		else
 		{
 			if(!cursor->running)
-				ft_store_and_check_operation(e, cursor);
+				ft_add_cycle(e, cursor);
 			else
-				ft_cycle_break(e, cursor);
+				ft_cycle_end_and_execute(e, cursor);
 		}
 		cursor = cursor->next;
 		cursor->index = cursor->index % MEM_SIZE;
