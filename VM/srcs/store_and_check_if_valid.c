@@ -16,7 +16,6 @@ void ft_store_and_check_operation(t_env *e, t_cursor *cursor)
 {
 	if(ft_check_args(*e, *cursor))
 	{
-		printf("HELLO\n");
 		//ft_copy_command(e);
 		ft_ld(e, cursor);
 		cursor->cycle = e->op_tab[e->a[cursor->index].hex].cycles;

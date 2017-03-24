@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:45 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/23 16:44:16 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/24 12:56:36 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,7 @@ int				get_tlabel_by_name(t_asm *tasm, char *name);
 int				split_line(char ***asm_master, t_asm *tasm);
 
 void			puthexa_fd(long code, int fd);
+
+int				error_header(int id);
 
 #endif

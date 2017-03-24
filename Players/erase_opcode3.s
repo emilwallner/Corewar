@@ -1,5 +1,5 @@
-.name "erase_opcode"
-.comment "fork by live opcode"
+.name "erase_opcode3"
+.comment "crush a ld by a aff -> don't know if it is exec or wait end of ld, then jump 5 bytes"
 
 fork %20
 ld %1,r2
