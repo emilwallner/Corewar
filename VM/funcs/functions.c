@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/24 17:19:00 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 17:25:29 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,6 @@ void	ft_zjmp(t_env *e, t_cursor *cursor)
 	(void)cursor;
 }
 
-// void	ft_ldi(t_env *e, t_cursor *cursor)
-// {
-// 	ft_printf("live\n");
-// 	(void)e;
-// 	(void)cursor;
-// }
-
 void	ft_sti(t_env *e, t_cursor *cursor)
 {
 	ft_printf("live\n");
@@ -102,13 +95,6 @@ void	ft_fork(t_env *e, t_cursor *cursor)
 	(void)e;
 	(void)cursor;
 }
-
-// void	ft_lld(t_env *e, t_cursor *cursor)
-// {
-// 	ft_printf("lld\n");
-// 	(void)e;
-// 	(void)cursor;
-// }
 
 void	ft_lldi(t_env *e, t_cursor *cursor)
 {

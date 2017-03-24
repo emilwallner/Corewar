@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/21 17:23:13 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/24 17:09:17 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 17:20:57 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,8 @@ void	ft_debug(t_env e)
 
 	ft_debug_lld(e, &cursor[0]);
 	ft_debug_lld2(e, &cursor[1]);
-}
+
+	printf(RED "\n###### FUNCTION TEST : ft_lld.c ######\n\n" RESET);
+
+	ft_debug_ldi(e, &cursor[0]);
+	ft_debug_ldi2(e, &cursor[1]);}
