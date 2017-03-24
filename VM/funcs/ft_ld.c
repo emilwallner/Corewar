@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/23 17:31:51 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 15:05:08 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,29 +39,30 @@ void	ft_ld(t_env *e, t_cursor *cursor)
 	int		value;
 	int		ocp_ind;
 
-	printf("HELLO\n");
 	i = 4;
 	ocp_ind = cursor->index;
-	// ocp_ind = copied_code;
 	acb = e->a[ocp_ind + 1].hex;
-	// acb =  0xFF & copied_code[1];
-	if ((acb >> 6) == DIR_CODE)
+	printf("acb in hex %x\n", acb & 0xFF);
+	if (((acb & 0xFF) >> 6) == DIR_CODE)
 	{
-		printf("DIR\n");
-		// ocp_ind += 2;
-		// value = ft_cp_int(ocp_ind, *e);
-		// cursor->reg[e->a[ocp_ind + 2 + 4].hex] = value;
-		// cursor->reg[copied_code[2 + 4]] = value;
-		// cursor->index += 7;
+		printf("\nDIR\n");
+		value = ft_cp_int(ocp_ind + 2, *e);
+		// printf("value is %i\n", value);
+		// printf("ocp_ind + 2 + 4 is %i\n", ocp_ind + 2 + 4);
+		cursor->reg[e->a[ocp_ind + 2 + 4].hex] = value;
+		// printf("cursor->reg[2] value is %i\n", cursor->reg[2]);
+		cursor->index += 7;
 	}
 	else
 	{
-		printf("IND\n");
-		// ocp_ind += e->a[ocp_ind + e->a[ocp_ind + 3].hex].hex;
-		// value = ft_cp_int(ocp_ind, *e);
-		// cursor->reg[e->a[ocp_ind + 2 + 2].hex] = value;
+		printf("\nIND\n");
+		value = ft_cp_int(ocp_ind + e->a[ocp_ind + e->a[ocp_ind + 3].hex].hex, *e);
+		printf("value is %i\n", value);
+		printf("ocp_ind + 2 + 4 is %i\n", ocp_ind + 2 + 4);
+		cursor->reg[e->a[ocp_ind + 2 + 2].hex] = value;
+		printf("cursor->reg[2] value is %i\n", cursor->reg[2]);
 		// cursor->reg[copied_code[2 + 2]] = value;
-		// cursor->index += 5;
+		cursor->index += 5;
 		// ocp_ind += (*(copied_code + 3) % IDX_MOD);
 	}
 	cursor->carry = 1;
