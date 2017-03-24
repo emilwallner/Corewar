@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_ft_ld.c                                      :+:      :+:    :+:   */
+/*   tests_ft_lld.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 15:31:16 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/24 16:06:30 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 17:07:54 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../srcs/vm.h"
 
-void	ft_debug_ld(t_env e, t_cursor *cursor)
+void	ft_debug_lld(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	// Building the fake copied code:
@@ -48,7 +48,7 @@ void	ft_debug_ld(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_ld(&e, cursor);
+	ft_lld(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
 	printf("reg[2] %i (expected: 202050049)\n", cursor->reg[2]);
@@ -56,7 +56,7 @@ void	ft_debug_ld(t_env e, t_cursor *cursor)
 	printf("index is %i (expected: 5)\n", cursor->index);
 }
 
-void	ft_debug_ld2(t_env e, t_cursor *cursor)
+void	ft_debug_lld2(t_env e, t_cursor *cursor)
 {
 	// From the asm : 02 90 00 00 00 0a 02
 	int i = 0;
@@ -85,7 +85,7 @@ void	ft_debug_ld2(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_ld(&e, cursor);
+	ft_lld(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
 	printf("reg[2] is %i (expected: 1012323)\n", cursor->reg[2]);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_cursors.c                                     :+:      :+:    :+:   */
+/*   adjust_cycles.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/20 17:07:41 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 17:24:26 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void ft_new_cycle(t_env *e, int *end)
 	}
 }
 
-void ft_adjust_cycle(t_env *e, t_cursor *cursor, int *end)
+void ft_adjust_cycle_macro(t_env *e, t_cursor *cursor, int *end)
 {
 	if(e->cycle == e->cycles_to_die)
 		ft_new_cycle(e, end);
@@ -36,7 +36,7 @@ void ft_adjust_cycle(t_env *e, t_cursor *cursor, int *end)
 	ft_print_arena(e);
 }
 
-void ft_cycle_break(t_env *e, t_cursor *cursor)
+void ft_cycle_end_and_execute(t_env *e, t_cursor *cursor)
 {
 	void (*func_ptr[17])(t_env *e, t_cursor *cursor) =
 	{ft_live, ft_live, ft_live, ft_st, ft_add, ft_sub, ft_and, ft_or,
@@ -45,10 +45,14 @@ void ft_cycle_break(t_env *e, t_cursor *cursor)
 
 	if(cursor->cycle == 0)
 	{
-		if(e->a[cursor->index].hex == 1)
-			(*func_ptr[1]) (e, cursor);
+		if(ft_check_args(*e, *cursor))
+		{
+			(*func_ptr[e->a[cursor->index].hex])(e, cursor);
+			ft_update_cursor(e, cursor, cursor->comnd_len);
+		}
+		else
+			ft_update_cursor(e, cursor, 1);
 		cursor->running = 0;
-		ft_update_cursor(e, cursor, cursor->comnd_len);
 	}
 	else
 		cursor->cycle -= 1;

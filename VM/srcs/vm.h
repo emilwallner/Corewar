@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/24 15:33:40 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 17:34:43 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,16 @@
 # include "curses.h"
 # include <stdio.h>
 # include <limits.h>
-#define RED     "\x1b[31m"
-#define GREEN   "\x1b[32m"
-#define YELLOW  "\x1b[33m"
-#define BLUE    "\x1b[34m"
-#define MAGENTA "\x1b[35m"
-#define CYAN    "\x1b[36m"
-#define RESET   "\x1b[0m"
+# define RED     "\x1b[31m"
+# define GREEN   "\x1b[32m"
+# define YELLOW  "\x1b[33m"
+# define BLUE    "\x1b[34m"
+# define MAGENTA "\x1b[35m"
+# define CYAN    "\x1b[36m"
+# define RESET   "\x1b[0m"
+# define MODA(x)	(x % MEM_SIZE)
+# define MODX(x)	(x % IDX_MOD)
+
 typedef struct s_arena
 {
 	char 	hex;
@@ -82,12 +85,12 @@ typedef struct	s_env
 
 
 void		ft_update_cursor(t_env *e, t_cursor *cursor, int i);
-void 		ft_store_and_check_operation(t_env *e, t_cursor *cursor);
+void		ft_add_cycle(t_env *e, t_cursor *cursor);
 void 		ft_init_ncurses(void);
 void		ft_update_cursor(t_env *e, t_cursor *cursor, int i);
 void		ft_init_ncurses(void);
-void		ft_cycle_break(t_env *e, t_cursor *cursor);
-void		ft_adjust_cycle(t_env *e, t_cursor *cursor, int *end);
+void 		ft_cycle_end_and_execute(t_env *e, t_cursor *cursor);
+void 		ft_adjust_cycle_macro(t_env *e, t_cursor *cursor, int *end);
 void		ft_declare_winner(t_env *e);
 void		ft_new_cycle(t_env *e, int *end);
 void		ft_print_function(int index, t_cursor *cursor, t_env *e);
@@ -123,10 +126,16 @@ void 		ft_build_arena(t_env *e, int ac);
 void		set_op_tab(t_env *e);
 int			ft_check_args(t_env e, t_cursor cursor);
 void		ft_debug(t_env e);
+int			ft_cp_int(int int_start, t_env e);
 
 // Testing section
 void	ft_debug_ld(t_env e, t_cursor *cursor);
 void	ft_debug_ld2(t_env e, t_cursor *cursor);
-
+void	ft_debug_lld(t_env e, t_cursor *cursor);
+void	ft_debug_lld2(t_env e, t_cursor *cursor);
+void	ft_debug_ldi(t_env e, t_cursor *cursor);
+void	ft_debug_ldi2(t_env e, t_cursor *cursor);
+void	ft_debug_add(t_env e, t_cursor *cursor);
+void	ft_debug_add2(t_env e, t_cursor *cursor);
 
 #endif

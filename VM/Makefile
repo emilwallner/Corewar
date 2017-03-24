@@ -6,7 +6,11 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
+<<<<<<< HEAD
 #    Updated: 2017/03/24 16:58:00 by mhaziza          ###   ########.fr        #
+=======
+#    Updated: 2017/03/24 17:35:02 by nsabbah          ###   ########.fr        #
+>>>>>>> 9436b9612eddcf461698b0ed5b327d00ff584982
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,15 +34,28 @@ SRCS	=		main_vm.c 	\
 				ft_check_args.c \
 				init_cursors.c \
 				move_cursors.c \
-				store_and_check_if_valid.c \
+				add_cycle.c \
 				adjust_cycles.c \
 				init_ncurses.c \
 				declare_winner.c \
 				ft_ld.c \
+<<<<<<< HEAD
 				ft_st.c \
 				main_test.c \
 				tests_ft_ld.c \
 				tests_ft_st.c \
+=======
+				ft_ldi.c \
+				ft_lld.c \
+				ft_add.c \
+				main_test.c \
+				tests_ft_ld.c \
+				tests_ft_lld.c \
+				tests_ft_add.c \
+				tests_ft_ldi.c \
+				ft_cp_int.c \
+				ft_fork.c \
+>>>>>>> 9436b9612eddcf461698b0ed5b327d00ff584982
 
 
 GREEN		= \033[32m

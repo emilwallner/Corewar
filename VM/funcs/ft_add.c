@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lld.c                                           :+:      :+:    :+:   */
+/*   ft_add.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/22 17:07:21 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/24 17:07:17 by nsabbah          ###   ########.fr       */
+/*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
+/*   Updated: 2017/03/24 17:34:00 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../srcs/vm.h"
 
 /*
-**
 ** Instructions:
-** Means long-load. Same as ld, but without % IDX_MOD.
-** No % IDX_MOD
-** Modify the carry
-**
+
 */
 
-void	ft_lld(t_env *e, t_cursor *cursor)
+void	ft_add(t_env *e, t_cursor *cursor)
 {
 	char		acb;
 	int			value;
@@ -40,7 +36,7 @@ void	ft_lld(t_env *e, t_cursor *cursor)
 	{
 		ind_value = ((e->a[MODA(opc_ind + 2)].hex & 0xFF) << 8)
 									+ (e->a[MODA(opc_ind + 3)].hex & 0xFF);
-		ind_value = ind_value & 0xFFFF;
+		ind_value = MODX(ind_value) & 0xFFFF;
 		value = ft_cp_int(MODA(opc_ind + ind_value), *e);
 		cursor->reg[e->a[MODA(opc_ind + 2 + 2)].hex] = value;
 		cursor->index += 5;
