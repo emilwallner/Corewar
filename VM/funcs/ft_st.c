@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:02:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/24 18:36:48 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/24 19:21:32 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,10 @@
 ** registry toward a second argument. Its opcode is 0x03. For example, st r1, 42
 ** store the value of r1 at the address (PC + (42 % IDX_MOD))
 */
+
 #define RR 0x50
 #define RI 0x70
 #define ZMASK(c) (c & 0xff)
-
-int		nb_bytes(int value)
-{
-	int tmp;
-	int k;
-
-	k = 1;
-	tmp = value;
-	while ((value = value / 256))
-		k++;
-	printf("k nb_bytes %i\n", k);
-	return (k);
-}
 
 void	ft_st(t_env *e, t_cursor *cursor)
 {
@@ -45,38 +33,30 @@ void	ft_st(t_env *e, t_cursor *cursor)
 
 	acb = e->a[cursor->index + 1].hex;
 	p1 = e->a[cursor->index + 2].hex;
-	printf("acb in hex %x\n", acb & 0xFF);
-	if ((char)RR == acb)
+	p2 = 0;
+	printf("reg[p1] %x acb %x\n", cursor->reg[p1], acb);
+	if (RR == ZMASK(acb))
 	{
-		printf("reg[2] %i (expected: ?)\n", cursor->reg[1]);
+		printf("RR\n");
 		p2 = e->a[cursor->index + 3].hex;
 		cursor->reg[p2] = cursor->reg[p1];
-		printf("reg[2] %i (expected: ?)\n", cursor->reg[1]);
+		printf("reg[p2] %x (expected: ?)\n", cursor->reg[p2]);
 	}
-	else
+	else if (RI == ZMASK(acb))
 	{
-		p2 = (ZMASK(e->a[cursor->index + 3].hex) << 8) | ZMASK(e->a[cursor->index + 3].hex);
+		printf("RI\n");
+		p2 = (ZMASK(e->a[cursor->index + 3].hex) << 8) |
+		ZMASK(e->a[cursor->index + 4].hex);
+		printf("p2 AV mod %i\n", p2);
 		p2 = MODX(p2);
-		i = 0;
-		size = nb_bytes(cursor->reg[p1]);
-		while (4 - size)
-		{
-			e->a[MODA((cursor->index + p2 + i))].hex = 0;
-			size++;
-			i++;
-		}
-		size = nb_bytes(cursor->reg[p1]);
-		while (size > 1)
-		{
-			e->a[MODA((cursor->index + p2 + i))].hex = cursor->reg[p1] / 256;
-			size--;
-			i++;
-		}
-		e->a[MODA((cursor->index + p2 + i))].hex = cursor->reg[p1] % 256;
+		printf("p2 AP mod %i\n", p2);
+		i = -1;
+		while (++i < 4)
+			e->a[MODA((cursor->index + p2 + i))].hex = cursor->reg[p1] >> (8 * (3 - i));
 		printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2].hex);
 		printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 1].hex);
 		printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 2].hex);
 		printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 3].hex);
+		printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 4].hex);
 	}
-	printf("RI\n");
 }
