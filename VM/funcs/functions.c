@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/24 17:25:29 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 17:35:25 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void	ft_st(t_env *e, t_cursor *cursor)
 	(void)cursor;
 }
 
-void	ft_add(t_env *e, t_cursor *cursor)
-{
-	ft_printf("add\n");
-	(void)e;
-	(void)cursor;
-}
+// void	ft_add(t_env *e, t_cursor *cursor)
+// {
+// 	ft_printf("add\n");
+// 	(void)e;
+// 	(void)cursor;
+// }
 
 void	ft_sub(t_env *e, t_cursor *cursor)
 {

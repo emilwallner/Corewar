@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/24 17:21:27 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 17:34:43 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ void	ft_debug_lld(t_env e, t_cursor *cursor);
 void	ft_debug_lld2(t_env e, t_cursor *cursor);
 void	ft_debug_ldi(t_env e, t_cursor *cursor);
 void	ft_debug_ldi2(t_env e, t_cursor *cursor);
-
+void	ft_debug_add(t_env e, t_cursor *cursor);
+void	ft_debug_add2(t_env e, t_cursor *cursor);
 
 #endif
