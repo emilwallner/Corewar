@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/21 18:41:06 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 17:35:25 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void	ft_st(t_env *e, t_cursor *cursor)
 	(void)cursor;
 }
 
-void	ft_add(t_env *e, t_cursor *cursor)
-{
-	ft_printf("add\n");
-	(void)e;
-	(void)cursor;
-}
+// void	ft_add(t_env *e, t_cursor *cursor)
+// {
+// 	ft_printf("add\n");
+// 	(void)e;
+// 	(void)cursor;
+// }
 
 void	ft_sub(t_env *e, t_cursor *cursor)
 {
@@ -82,13 +82,6 @@ void	ft_zjmp(t_env *e, t_cursor *cursor)
 	(void)cursor;
 }
 
-void	ft_ldi(t_env *e, t_cursor *cursor)
-{
-	ft_printf("live\n");
-	(void)e;
-	(void)cursor;
-}
-
 void	ft_sti(t_env *e, t_cursor *cursor)
 {
 	ft_printf("live\n");
@@ -99,13 +92,6 @@ void	ft_sti(t_env *e, t_cursor *cursor)
 void	ft_fork(t_env *e, t_cursor *cursor)
 {
 	ft_printf("live\n");
-	(void)e;
-	(void)cursor;
-}
-
-void	ft_lld(t_env *e, t_cursor *cursor)
-{
-	ft_printf("lld\n");
 	(void)e;
 	(void)cursor;
 }
