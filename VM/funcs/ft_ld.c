@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/24 16:45:01 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 16:57:54 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,20 @@ void	ft_ld(t_env *e, t_cursor *cursor)
 	short int	ind_value;
 
 	opc_ind = cursor->index;
-	acb = e->a[opc_ind + 1].hex;
+	acb = e->a[MODA(opc_ind + 1)].hex;
 	if (((acb & 0xFF) >> 6) == DIR_CODE)
 	{
-		value = ft_cp_int(opc_ind + 2, *e);
-		cursor->reg[e->a[opc_ind + 2 + 4].hex] = value;
+		value = ft_cp_int(MODA(opc_ind + 2), *e);
+		cursor->reg[e->a[MODA(opc_ind + 2 + 4)].hex] = value;
 		cursor->index += 7;
 	}
 	else
 	{
-		ind_value = ((e->a[opc_ind + 2].hex & 0xFF) << 8)
-									+ (e->a[opc_ind + 3].hex & 0xFF);
-		// Not sure of the IDX_MOD
-		ind_value = (ind_value % IDX_MOD) & 0xFFFF;
-		value = ft_cp_int(opc_ind + ind_value, *e);
-		cursor->reg[e->a[opc_ind + 2 + 2].hex] = value;
+		ind_value = ((e->a[MODA(opc_ind + 2)].hex & 0xFF) << 8)
+									+ (e->a[MODA(opc_ind + 3)].hex & 0xFF);
+		ind_value = MODX(ind_value) & 0xFFFF;
+		value = ft_cp_int(MODA(opc_ind + ind_value), *e);
+		cursor->reg[e->a[MODA(opc_ind + 2 + 2)].hex] = value;
 		cursor->index += 5;
 	}
 	cursor->carry = 1;
