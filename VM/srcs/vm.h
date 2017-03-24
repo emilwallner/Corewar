@@ -82,12 +82,12 @@ typedef struct	s_env
 
 
 void		ft_update_cursor(t_env *e, t_cursor *cursor, int i);
-void 		ft_store_and_check_operation(t_env *e, t_cursor *cursor);
+void		ft_add_cycle(t_env *e, t_cursor *cursor);
 void 		ft_init_ncurses(void);
 void		ft_update_cursor(t_env *e, t_cursor *cursor, int i);
 void		ft_init_ncurses(void);
-void		ft_cycle_break(t_env *e, t_cursor *cursor);
-void		ft_adjust_cycle(t_env *e, t_cursor *cursor, int *end);
+void 		ft_cycle_end_and_execute(t_env *e, t_cursor *cursor);
+void 		ft_adjust_cycle_macro(t_env *e, t_cursor *cursor, int *end);
 void		ft_declare_winner(t_env *e);
 void		ft_new_cycle(t_env *e, int *end);
 void		ft_print_function(int index, t_cursor *cursor, t_env *e);

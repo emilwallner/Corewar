@@ -26,7 +26,7 @@ void ft_new_cycle(t_env *e, int *end)
 	}
 }
 
-void ft_adjust_cycle(t_env *e, t_cursor *cursor, int *end)
+void ft_adjust_cycle_macro(t_env *e, t_cursor *cursor, int *end)
 {
 	if(e->cycle == e->cycles_to_die)
 		ft_new_cycle(e, end);
@@ -36,7 +36,7 @@ void ft_adjust_cycle(t_env *e, t_cursor *cursor, int *end)
 	ft_print_arena(e);
 }
 
-void ft_cycle_break(t_env *e, t_cursor *cursor)
+void ft_cycle_end_and_execute(t_env *e, t_cursor *cursor)
 {
 	void (*func_ptr[17])(t_env *e, t_cursor *cursor) =
 	{ft_live, ft_live, ft_live, ft_st, ft_add, ft_sub, ft_and, ft_or,
@@ -45,6 +45,7 @@ void ft_cycle_break(t_env *e, t_cursor *cursor)
 
 	if(cursor->cycle == 0)
 	{
+		//ft_ld(e, cursor);
 		if(e->a[cursor->index].hex == 1)
 			(*func_ptr[1]) (e, cursor);
 		cursor->running = 0;
