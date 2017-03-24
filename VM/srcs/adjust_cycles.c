@@ -45,11 +45,15 @@ void ft_cycle_end_and_execute(t_env *e, t_cursor *cursor)
 
 	if(cursor->cycle == 0)
 	{
-		//ft_ld(e, cursor);
-		if(e->a[cursor->index].hex == 1)
-			(*func_ptr[1]) (e, cursor);
+		if(ft_check_args(*e, *cursor))
+		{
+			if(e->a[cursor->index].hex == 1)
+				(*func_ptr[1]) (e, cursor);
+			ft_update_cursor(e, cursor, cursor->comnd_len);
+		}
+		else
+			ft_update_cursor(e, cursor, 1);
 		cursor->running = 0;
-		ft_update_cursor(e, cursor, cursor->comnd_len);
 	}
 	else
 		cursor->cycle -= 1;
