@@ -1,5 +1,5 @@
-.name "erase_opcode"
-.comment "fork by live opcode"
+.name "erase_opcode2"
+.comment "crush a ld by a fork -> 0f001e => wait end of ld, jump to 1e, 1 cycle, jump to the next..."
 
 fork %20
 ld %1,r2
