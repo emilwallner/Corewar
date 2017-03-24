@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:02:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/24 17:43:05 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/24 18:36:48 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,22 +56,23 @@ void	ft_st(t_env *e, t_cursor *cursor)
 	else
 	{
 		p2 = (ZMASK(e->a[cursor->index + 3].hex) << 8) | ZMASK(e->a[cursor->index + 3].hex);
+		p2 = MODX(p2);
 		i = 0;
 		size = nb_bytes(cursor->reg[p1]);
 		while (4 - size)
 		{
-			e->a[cursor->index + p2 + i].hex = 0;
+			e->a[MODA((cursor->index + p2 + i))].hex = 0;
 			size++;
 			i++;
 		}
 		size = nb_bytes(cursor->reg[p1]);
 		while (size > 1)
 		{
-			e->a[cursor->index + p2 + i].hex = cursor->reg[p1] / 256;
+			e->a[MODA((cursor->index + p2 + i))].hex = cursor->reg[p1] / 256;
 			size--;
 			i++;
 		}
-		e->a[cursor->index + p2 + i].hex = cursor->reg[p1] % 256;
+		e->a[MODA((cursor->index + p2 + i))].hex = cursor->reg[p1] % 256;
 		printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2].hex);
 		printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 1].hex);
 		printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 2].hex);
