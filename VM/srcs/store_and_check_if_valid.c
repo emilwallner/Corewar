@@ -12,23 +12,18 @@
 
 #include "vm.h"
 
-int		check_if_valid(t_env *e, t_cursor *cursor)
-{
-	if(e->a[cursor->index].hex > 0 && e->a[cursor->index].hex < 17)
-		return (1);
-	else
-		return (0);
-}
-
 void ft_store_and_check_operation(t_env *e, t_cursor *cursor)
 {
-	if(check_if_valid(e, cursor))
+	if(ft_check_args(*e, *cursor))
 	{
+		printf("HELLO\n");
 		//ft_copy_command(e);
+		ft_ld(e, cursor);
 		cursor->cycle = e->op_tab[e->a[cursor->index].hex].cycles;
 		cursor->running = 1;
 		//cursor->comnd_len = calc_len_of_op(cursor);
 		cursor->comnd_len = 5;
+
 	}
 	else
 		ft_update_cursor(e, cursor, 1);

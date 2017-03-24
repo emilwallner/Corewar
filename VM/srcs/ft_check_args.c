@@ -23,39 +23,48 @@
 ** data that we get
 */
 
-void	ft_check_args(t_env e, int opcode, int acb)
+int	ft_check_args(t_env e, t_cursor cursor)
 {
 	int	nb_of_args;
 	int	i;
-
+	char	opcode;
+	char	acb;
 	i = -1;
 	nb_of_args = 0;
 
-printf("for opcode is %i and acb is %#x\n", opcode, acb);
+	opcode = e.a[cursor.index].hex;
+	acb = e.a[cursor.index + 1].hex;
+// printf("for opcode is %i and acb is %#x\n", opcode, acb);
 
-if (acb & 0x3)
-	printf("ERROR\n");
+	if (acb & 0x3)
+		return (0);
+		// printf("ERROR\n");
 	while (++i < 3)
 		if (acb >> (6 - i * 2) & 0x3)
 			nb_of_args++;
 	if (nb_of_args != e.op_tab[opcode].nb_params)
-		printf("ERROR NB OF ARGS");
-	printf("nb_of_args is %i\n", nb_of_args);
+		return (0);
+	// 	printf("ERROR NB OF ARGS");
+	// printf("nb_of_args is %i\n", nb_of_args);
 	i = 0;
 	while (i < nb_of_args)
 	{
 		if ((acb >> (6 - i * 2) & 0x3) == REG_CODE &&
 				(e.op_tab[opcode].params_type[i] & T_REG) == T_REG)
-			printf("REG\n");
+				;
+			// printf("REG\n");
 		else if ((acb >> (6 - i * 2) & 0x3) == DIR_CODE &&
 				(e.op_tab[opcode].params_type[i] & T_DIR) == T_DIR)
-			printf("DIR\n");
-
+				;
+			// printf("DIR\n");
 		else if ((acb >> (6 - i * 2) & 0x3) == IND_CODE &&
 				(e.op_tab[opcode].params_type[i] & T_IND) == T_IND)
-			printf("IND\n");
+				;
+			// printf("IND\n");
 		else
-			printf("ERROR ARG - acb >> (6 - i * 2) is %i\n", acb >> (6 - i * 2));
+			return (0);
+			// printf("ERROR ARG - acb >> (6 - i * 2) is %i\n", acb >> (6 - i * 2));
 		i++;
 	}
+	return (1);
 }
