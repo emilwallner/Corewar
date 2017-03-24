@@ -44,6 +44,7 @@ SRCS	=		main_vm.c 	\
 				tests_ft_add.c \
 				tests_ft_ldi.c \
 				ft_cp_int.c \
+				ft_fork.c \
 
 
 GREEN		= \033[32m
