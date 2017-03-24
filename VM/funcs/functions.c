@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/21 18:41:06 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 17:00:03 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ void	ft_live(t_env *e, t_cursor *cursor)
 // 	(void)cursor;
 // }
 
-void	ft_st(t_env *e, t_cursor *cursor)
-{
-	ft_printf("st\n");
-	(void)e;
-	(void)cursor;
-}
+// void	ft_st(t_env *e, t_cursor *cursor)
+// {
+// 	ft_printf("st\n");
+// 	(void)e;
+// 	(void)cursor;
+// }
 
 void	ft_add(t_env *e, t_cursor *cursor)
 {
