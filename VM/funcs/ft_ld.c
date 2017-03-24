@@ -43,10 +43,10 @@ void	ft_ld(t_env *e, t_cursor *cursor)
 	i = 4;
 	ocp_ind = cursor->index;
 	acb = e->a[ocp_ind + 1].hex;
-	printf("acb in hex %x\n", acb & 0xFF);
+	//printf("acb in hex %x\n", acb & 0xFF);
 	if (((acb & 0xFF) >> 6) == DIR_CODE)
 	{
-		printf("\nDIR\n");
+		//printf("\nDIR\n");
 		value = ft_cp_int(ocp_ind + 2, *e);
 		// printf("value is %i\n", value);
 		// printf("ocp_ind + 2 + 4 is %i\n", ocp_ind + 2 + 4);
@@ -56,12 +56,12 @@ void	ft_ld(t_env *e, t_cursor *cursor)
 	}
 	else
 	{
-		printf("\nIND\n");
+		//printf("\nIND\n");
 		value = ft_cp_int(ocp_ind + e->a[ocp_ind + e->a[ocp_ind + 3].hex].hex, *e);
-		printf("value is %i\n", value);
-		printf("ocp_ind + 2 + 4 is %i\n", ocp_ind + 2 + 4);
+		//printf("value is %i\n", value);
+	//	printf("ocp_ind + 2 + 4 is %i\n", ocp_ind + 2 + 4);
 		cursor->reg[e->a[ocp_ind + 2 + 2].hex] = value;
-		printf("cursor->reg[2] value is %i\n", cursor->reg[2]);
+		//printf("cursor->reg[2] value is %i\n", cursor->reg[2]);
 		// cursor->reg[copied_code[2 + 2]] = value;
 		cursor->index += 5;
 		// ocp_ind += (*(copied_code + 3) % IDX_MOD);
