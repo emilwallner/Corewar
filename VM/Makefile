@@ -41,10 +41,10 @@ SRCS	=		main_vm.c 	\
 				ft_add.c \
 				ft_zjmp.c \
 				ft_aff.c \
-				# ft_lld.c \
-				# ft_ldi.c \
-				# ft_ld.c \
-				# ft_st.c \
+				ft_lld.c \
+				ft_ldi.c \
+				ft_ld.c \
+				ft_st.c \
 
 GREEN		= \033[32m
 RED			= \033[31m

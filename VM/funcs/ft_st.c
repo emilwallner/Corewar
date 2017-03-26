@@ -59,4 +59,5 @@ void	ft_st(t_env *e, t_cursor *cursor)
 		// printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 3].hex);
 		// printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 4].hex);
 	}
+	ft_update_cursor(e, cursor, 2);
 }

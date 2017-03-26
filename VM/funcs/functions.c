@@ -28,33 +28,33 @@
 // 	ft_update_cursor(e, cursor, 1);
 // }
 
-void	ft_ld(t_env *e, t_cursor *cursor)
-{
-	(void)e;
-	(void)cursor;
-	ft_update_cursor(e, cursor, 1);
-}
-
-void	ft_lld(t_env *e, t_cursor *cursor)
-{
-	(void)e;
-	(void)cursor;
-	ft_update_cursor(e, cursor, 1);
-}
-
-void	ft_st(t_env *e, t_cursor *cursor)
-{
-	(void)e;
-	(void)cursor;
-	ft_update_cursor(e, cursor, 1);
-}
-
-void	ft_ldi(t_env *e, t_cursor *cursor)
-{
-	(void)e;
-	(void)cursor;
-	ft_update_cursor(e, cursor, 1);
-}
+// void	ft_ld(t_env *e, t_cursor *cursor)
+// {
+// 	(void)e;
+// 	(void)cursor;
+// 	ft_update_cursor(e, cursor, 1);
+// }
+//
+// void	ft_lld(t_env *e, t_cursor *cursor)
+// {
+// 	(void)e;
+// 	(void)cursor;
+// 	ft_update_cursor(e, cursor, 1);
+// }
+//
+// void	ft_st(t_env *e, t_cursor *cursor)
+// {
+// 	(void)e;
+// 	(void)cursor;
+// 	ft_update_cursor(e, cursor, 1);
+// }
+//
+// void	ft_ldi(t_env *e, t_cursor *cursor)
+// {
+// 	(void)e;
+// 	(void)cursor;
+// 	ft_update_cursor(e, cursor, 1);
+// }
 
 // void	ft_add(t_env *e, t_cursor *cursor)
 // {
