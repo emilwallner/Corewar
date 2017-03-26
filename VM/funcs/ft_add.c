@@ -30,7 +30,7 @@ void	ft_add(t_env *e, t_cursor *cursor)
 	{
 		value = ft_cp_int(MODA(opc_ind + 2), *e);
 		cursor->reg[e->a[MODA(opc_ind + 2 + 4)].hex] = value;
-		cursor->index += 7;
+		ft_update_cursor(e, cursor, 7);
 	}
 	else
 	{
@@ -39,7 +39,7 @@ void	ft_add(t_env *e, t_cursor *cursor)
 		ind_value = MODX(ind_value) & 0xFFFF;
 		value = ft_cp_int(MODA(opc_ind + ind_value), *e);
 		cursor->reg[e->a[MODA(opc_ind + 2 + 2)].hex] = value;
-		cursor->index += 5;
+		ft_update_cursor(e, cursor, 5);
 	}
 	cursor->carry = 1;
 }

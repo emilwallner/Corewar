@@ -50,11 +50,11 @@ typedef struct	s_player
 
 typedef struct		s_cursor{
 	struct s_cursor	*next;
+	struct s_cursor	*prev;
 	int				carry;
 	int				counter;
 	int				running;
 	int				player;
-	int				id;
 	int				index;
 	int				color;
 	int				cycle;
@@ -69,6 +69,7 @@ typedef struct	s_env
 	t_player	*player;
 	t_cursor	*head;
 	t_arena		a[MEM_SIZE];
+	int 		cursors;
 	int 		cycle;
 	int			lives;
 	int			check;

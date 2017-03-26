@@ -21,12 +21,11 @@ t_cursor		*ft_create_cursor(int i, t_env *e)
 		return (NULL);
 	newcursor->counter = 0;
 	newcursor->player = i;
-	newcursor->id = 0;
 	newcursor->carry = 0;
 	newcursor->cycle = 0;
 	newcursor->color = (i + 1 % 6) + 6;
 	newcursor->running = 0;
-	newcursor->comnd_len = 5;
+	newcursor->comnd_len = 1;
 	newcursor->index = e->player[i].index_start;
 	newcursor->next = NULL;
 	return (newcursor);
@@ -38,6 +37,7 @@ t_cursor		*ft_add_cursor_to_stack(t_env *e, t_cursor *stack, int i)
 	while (stack && stack->next)
 		stack = stack->next;
 	stack->next = ft_create_cursor(i, e);
+	stack->next->prev = stack;
 	return (stack);
 }
 
@@ -87,5 +87,6 @@ void		ft_init_cursor(t_env *e)
 	stack = stack->next;
 	stack->counter = 1;
 	stack->next = e->head;
+	e->head->prev = stack;
 	init_color_cursor(e);
 }

@@ -12,38 +12,18 @@
 
 #include "../srcs/vm.h"
 
-/*
-**
-** Instructions:
-** Means long-load. Same as ld, but without % IDX_MOD.
-** No % IDX_MOD
-** Modify the carry
-**
-*/
-
-void	ft_lld(t_env *e, t_cursor *cursor)
+void	ft_live(t_env *e, t_cursor *cursor)
 {
-	char		acb;
-	int			value;
-	int			opc_ind;
-	short int	ind_value;
-
-	opc_ind = cursor->index;
-	acb = e->a[MODA(opc_ind + 1)].hex;
-	if (((acb & 0xFF) >> 6) == DIR_CODE)
+	char player_id;
+	(void)cursor;
+	e->lives += 1;
+	player_id = e->a[cursor->index + 4].hex;
+	if(player_id != 0 && player_id < e->player_amount)
 	{
-		value = ft_cp_int(MODA(opc_ind + 2), *e);
-		cursor->reg[e->a[MODA(opc_ind + 2 + 4)].hex] = value;
-		ft_update_cursor(e, cursor, 7);
+		e->player[player_id].live += 1;
+		e->winner = player_id;
+		ft_update_cursor(e, cursor, 5);	
 	}
 	else
-	{
-		ind_value = ((e->a[MODA(opc_ind + 2)].hex & 0xFF) << 8)
-									+ (e->a[MODA(opc_ind + 3)].hex & 0xFF);
-		ind_value = ind_value & 0xFFFF;
-		value = ft_cp_int(MODA(opc_ind + ind_value), *e);
-		cursor->reg[e->a[MODA(opc_ind + 2 + 2)].hex] = value;
-		ft_update_cursor(e, cursor, 5);
-	}
-	cursor->carry = 1;
+		ft_update_cursor(e, cursor, 1);
 }

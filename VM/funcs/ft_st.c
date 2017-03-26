@@ -34,29 +34,29 @@ void	ft_st(t_env *e, t_cursor *cursor)
 	acb = e->a[cursor->index + 1].hex;
 	p1 = e->a[cursor->index + 2].hex;
 	p2 = 0;
-	printf("reg[p1] %x acb %x\n", cursor->reg[p1], acb);
+//	printf("reg[p1] %x acb %x\n", cursor->reg[p1], acb);
 	if (RR == ZMASK(acb))
 	{
-		printf("RR\n");
+	//	printf("RR\n");
 		p2 = e->a[cursor->index + 3].hex;
 		cursor->reg[p2] = cursor->reg[p1];
-		printf("reg[p2] %x (expected: ?)\n", cursor->reg[p2]);
+	//	printf("reg[p2] %x (expected: ?)\n", cursor->reg[p2]);
 	}
 	else if (RI == ZMASK(acb))
 	{
-		printf("RI\n");
+	//	printf("RI\n");
 		p2 = (ZMASK(e->a[cursor->index + 3].hex) << 8) |
 		ZMASK(e->a[cursor->index + 4].hex);
-		printf("p2 AV mod %i\n", p2);
+	//	printf("p2 AV mod %i\n", p2);
 		p2 = MODX(p2);
-		printf("p2 AP mod %i\n", p2);
+//		printf("p2 AP mod %i\n", p2);
 		i = -1;
 		while (++i < 4)
 			e->a[MODA((cursor->index + p2 + i))].hex = cursor->reg[p1] >> (8 * (3 - i));
-		printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2].hex);
-		printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 1].hex);
-		printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 2].hex);
-		printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 3].hex);
-		printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 4].hex);
+		// printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2].hex);
+		// printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 1].hex);
+		// printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 2].hex);
+		// printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 3].hex);
+		// printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 4].hex);
 	}
 }

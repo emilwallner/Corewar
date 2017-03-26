@@ -39,19 +39,16 @@ void ft_adjust_cycle_macro(t_env *e, t_cursor *cursor, int *end)
 void ft_cycle_end_and_execute(t_env *e, t_cursor *cursor)
 {
 	void (*func_ptr[17])(t_env *e, t_cursor *cursor) =
-	{ft_live, ft_live, ft_live, ft_st, ft_add, ft_sub, ft_and, ft_or,
+	{ft_live, ft_live, ft_ld, ft_st, ft_add, ft_sub, ft_and, ft_or,
 	ft_xor, ft_zjmp, ft_ldi, ft_sti, ft_fork, ft_lld, ft_lldi,
 	ft_lfork, ft_aff};
 
 	if(cursor->cycle == 0)
 	{
-		if(ft_check_args(*e, *cursor))
-		{
-			(*func_ptr[e->a[cursor->index].hex])(e, cursor);
-			ft_update_cursor(e, cursor, cursor->comnd_len);
-		}
-		else
-			ft_update_cursor(e, cursor, 1);
+		//if(ft_check_args(*e, *cursor) && e->a[cursor->index].hex == 1)
+		(*func_ptr[e->a[cursor->index].hex])(e, cursor);
+		//	else
+		//ft_update_cursor(e, cursor, 1);
 		cursor->running = 0;
 	}
 	else
