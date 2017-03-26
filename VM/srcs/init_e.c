@@ -45,6 +45,7 @@ void init_e(t_env *e, int ac, char **av)
 	e->files = av;
 	e->cycle = 0;
 	e->lives = 0;
+	e->bonus = 1;
 	e->winner = 1;
 	e->check = 0;
 	e->cursors = e->player_amount;

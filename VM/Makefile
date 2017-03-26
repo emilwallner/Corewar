@@ -36,8 +36,11 @@ SRCS	=		main_vm.c 	\
 				declare_winner.c \
 				ft_cp_int.c \
 				ft_fork.c \
+				ft_lfork.c \
 				ft_live.c \
 				ft_add.c \
+				ft_zjmp.c \
+				ft_aff.c \
 				# ft_lld.c \
 				# ft_ldi.c \
 				# ft_ld.c \

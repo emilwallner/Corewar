@@ -94,12 +94,12 @@ void	ft_xor(t_env *e, t_cursor *cursor)
 	ft_update_cursor(e, cursor, 1);
 }
 
-void	ft_zjmp(t_env *e, t_cursor *cursor)
-{
-	(void)e;
-	(void)cursor;
-	ft_update_cursor(e, cursor, 1);
-}
+// void	ft_zjmp(t_env *e, t_cursor *cursor)
+// {
+// 	(void)e;
+// 	(void)cursor;
+// 	ft_update_cursor(e, cursor, 1);
+// }
 
 void	ft_sti(t_env *e, t_cursor *cursor)
 {
@@ -115,16 +115,16 @@ void	ft_lldi(t_env *e, t_cursor *cursor)
 	ft_update_cursor(e, cursor, 1);
 }
 
-void	ft_lfork(t_env *e, t_cursor *cursor)
-{
-	(void)e;
-	(void)cursor;
-	ft_update_cursor(e, cursor, 1);
-}
+// void	ft_lfork(t_env *e, t_cursor *cursor)
+// {
+// 	(void)e;
+// 	(void)cursor;
+// 	ft_update_cursor(e, cursor, 1);
+// }
 
-void	ft_aff(t_env *e, t_cursor *cursor)
-{
-	(void)e;
-	(void)cursor;
-	ft_update_cursor(e, cursor, 1);
-}
+// void	ft_aff(t_env *e, t_cursor *cursor)
+// {
+// 	(void)e;
+// 	(void)cursor;
+// 	ft_update_cursor(e, cursor, 1);
+// }

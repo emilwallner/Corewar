@@ -70,6 +70,7 @@ typedef struct	s_env
 	int 		cycle;
 	int			lives;
 	int			check;
+	int 		bonus;
 	char		winner;
 	int 		last_alive;
 	int			cycles_to_die;
@@ -81,7 +82,7 @@ typedef struct	s_env
 }				t_env;
 
 
-
+void		ft_fork_both(t_env *e, t_cursor *cursor, int lfork);
 void		ft_update_cursor(t_env *e, t_cursor *cursor, int i);
 void		ft_add_cycle(t_env *e, t_cursor *cursor);
 void 		ft_init_ncurses(void);
