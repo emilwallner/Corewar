@@ -58,9 +58,6 @@ typedef struct		s_cursor{
 	int				index;
 	int				color;
 	int				cycle;
-	int 			cycle_end;
-	int				comnd_len;
-	char			operation[30];
 	int				reg[REG_NUMBER];
 }					t_cursor;
 

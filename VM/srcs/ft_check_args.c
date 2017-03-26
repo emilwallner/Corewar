@@ -36,6 +36,8 @@ int	ft_check_args(t_env e, t_cursor cursor)
 	acb = e.a[cursor.index + 1].hex;
 // printf("for opcode is %i and acb is %#x\n", opcode, acb);
 
+	if(e.op_tab[opcode].acb == 0)
+		return(1);
 	if (acb & 0x3)
 		return (0);
 		// printf("ERROR\n");

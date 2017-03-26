@@ -12,6 +12,16 @@
 
 #include "../srcs/vm.h"
 
+void 	ft_clone_cursor_reg(int *dest, int *src)
+{
+	int i;
+
+	i = -1;
+	while(++i < REG_NUMBER)
+		dest[i] = src[i];
+}
+
+
 t_cursor		*ft_clone_cursor(t_cursor *cursor, t_cursor *fork_cursor,
 	char index_extra)
 {
@@ -24,10 +34,11 @@ t_cursor		*ft_clone_cursor(t_cursor *cursor, t_cursor *fork_cursor,
 	fork_cursor->cycle = 0;
 	fork_cursor->color = cursor->color;
 	fork_cursor->running = 0;
-	fork_cursor->comnd_len = 1;
 	fork_cursor->index = cursor->index + index_extra;
 	fork_cursor->index = MODA(fork_cursor->index);
+	ft_clone_cursor_reg(fork_cursor->reg, cursor->reg);
 	fork_cursor->next = NULL;
+	fork_cursor->prev = NULL;
 	return (fork_cursor);
 }
 
@@ -43,16 +54,11 @@ void	ft_fork(t_env *e, t_cursor *cursor)
 	fork_cursor = NULL;
 	index_extra = e->a[cursor->index + 1].hex;
 	fork_cursor = ft_clone_cursor(cursor, fork_cursor, index_extra);
-	// while(!stack->next->counter)
-	// 	stack = stack->next;
 	temp = e->head->prev;
 	e->head->prev = fork_cursor;
 	fork_cursor->prev = temp;
 	temp->next = fork_cursor;
 	fork_cursor->next = e->head;
-	// temp = stack->next;
-	// stack->next = fork_cursor;
-	// fork_cursor->next = temp;
 	e->cursors += 1;
 	ft_update_cursor(e, cursor, 2);
 }

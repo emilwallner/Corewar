@@ -14,7 +14,7 @@
 
 // Ready functions >>>>>>>>>>>>
 
-
+//
 // void	ft_fork(t_env *e, t_cursor *cursor)
 // {
 // 	(void)e;
@@ -25,7 +25,7 @@
 // {
 // 	(void)e;
 // 	(void)cursor;
-//	ft_update_cursor(e, cursor, 1);
+// 	ft_update_cursor(e, cursor, 1);
 // }
 
 void	ft_ld(t_env *e, t_cursor *cursor)
@@ -56,12 +56,12 @@ void	ft_ldi(t_env *e, t_cursor *cursor)
 	ft_update_cursor(e, cursor, 1);
 }
 
-void	ft_add(t_env *e, t_cursor *cursor)
-{
-	(void)e;
-	(void)cursor;
-	ft_update_cursor(e, cursor, 1);
-}
+// void	ft_add(t_env *e, t_cursor *cursor)
+// {
+// 	(void)e;
+// 	(void)cursor;
+// 	ft_update_cursor(e, cursor, 1);
+// }
 // Todo functions >>>>>>>>>>>>
 
 
