@@ -70,7 +70,7 @@ typedef struct	s_env
 	int 		cycle;
 	int			lives;
 	int			check;
-	int			winner;
+	char		winner;
 	int 		last_alive;
 	int			cycles_to_die;
 	char		**strings;

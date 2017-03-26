@@ -16,12 +16,12 @@ void	ft_live(t_env *e, t_cursor *cursor)
 {
 	char player_id;
 
-	e->lives += 1;
 	player_id = e->a[cursor->index + 4].hex;
-	if(player_id != 0 && player_id < e->player_amount)
+	if(player_id > 0 && player_id < e->player_amount)
 	{
-		e->player[0xFF & player_id].live += 1;
-		e->winner = player_id - 1;
+		e->lives += 1;
+		e->player[player_id].live += 1;
+		e->winner = player_id + 1;
 		ft_update_cursor(e, cursor, 5);
 	}
 	else

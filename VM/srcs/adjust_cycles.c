@@ -15,15 +15,19 @@
 void ft_new_cycle(t_env *e, int *end)
 {
 	if(e->lives == 0)
-		end = 0;
+		*end = 0;
 	if(e->lives < NBR_LIVE)
 		e->check += 1;
 	if(e->check == MAX_CHECKS || e->lives >= NBR_LIVE)
 	{
 		e->cycles_to_die -= CYCLE_DELTA;
+		if(e->cycles_to_die < 0)
+			e->cycles_to_die = 0;
 		e->lives = 0;
 		e->check = 0;
 	}
+	e->lives = 0;
+	e->cycle = 0;
 }
 
 void ft_adjust_cycle_macro(t_env *e, t_cursor *cursor, int *end)

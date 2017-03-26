@@ -19,8 +19,9 @@
 void ft_declare_winner(t_env *e)
 {
 	attron(COLOR_PAIR(8));
-	printw("The winner is: Player %d\n", e->winner);
+	printw("The winner is: Player %d\n", 0xFF & e->winner);
 	attroff(COLOR_PAIR(8));
-	sleep(3);
+	refresh();
+	getch();
 	endwin();
 }
