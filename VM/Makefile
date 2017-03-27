@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/27 16:29:54 by nsabbah          ###   ########.fr        #
+#    Updated: 2017/03/27 16:37:58 by nsabbah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,7 @@ SRCS	=		main_vm.c 	\
 				tests_ft_ldi.c \
 				tests_ft_lld.c \
 				tests_ft_st.c \
+				ft_funcs_tools.c \
 
 GREEN		= \033[32m
 RED			= \033[31m
