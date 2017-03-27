@@ -6,14 +6,13 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 16:39:06 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 16:42:33 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../srcs/vm.h"
 
 /*
-**
 ** Instructions: Opcode 4. Take three registries, add the first two, and place
 ** the result in the third, right before modifying the carry.
 **
@@ -21,8 +20,6 @@
 
 void	ft_add(t_env *e, t_cursor *cursor)
 {
-	int			value1;
-	int			value2;
 	int			opc_ind;
 	int			r1;
 	int			r2;
@@ -37,9 +34,7 @@ void	ft_add(t_env *e, t_cursor *cursor)
 		cursor->index += 1;
 		return ;
 	}
-	value1 = cursor->reg[r1];
-	value2 = cursor->reg[r2];
-	cursor->reg[r3] = value1 + value2;
+	cursor->reg[r3] = cursor->reg[r1] + cursor->reg[r2];
 	cursor->index += 5;
 	cursor->carry = 1;
 }
