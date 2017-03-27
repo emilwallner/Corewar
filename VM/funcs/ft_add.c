@@ -6,40 +6,48 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/24 17:34:00 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 16:13:37 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../srcs/vm.h"
 
 /*
-** Instructions:
-
+**
+** Instructions: Opcode 4. Take three registries, add the first two, and place
+** the result in the third, right before modifying the carry.
+**
 */
 
+int		ft_is_reg(int r1, int r2, int r3)
+{
+	if (r1 < 0 || r1 > REG_SIZE ||
+			r2 < 0 || r2 > REG_SIZE ||
+				r3 < 0 || r3 > REG_SIZE)
+		return (0);
+	return (1);
+}
 void	ft_add(t_env *e, t_cursor *cursor)
 {
-	char		acb;
-	int			value;
+	int			value1;
+	int			value2;
 	int			opc_ind;
-	short int	ind_value;
+	int			r1;
+	int			r2;
+	int			r3;
 
 	opc_ind = cursor->index;
-	acb = e->a[MODA(opc_ind + 1)].hex;
-	if (((acb & 0xFF) >> 6) == DIR_CODE)
+	r1 = e->a[MODA(opc_ind + 2)].hex;
+	r2 = e->a[MODA(opc_ind + 3)].hex;
+	r3 = e->a[MODA(opc_ind + 4)].hex;
+	if (!ft_is_reg(r1, r2, r3))
 	{
-		value = ft_cp_int(MODA(opc_ind + 2), *e);
-		cursor->reg[e->a[MODA(opc_ind + 2 + 4)].hex] = value;
-		cursor->index += 7;
+		cursor->index += 1;
+		return ;
 	}
-	else
-	{
-		ind_value = ((e->a[MODA(opc_ind + 2)].hex & 0xFF) << 8)
-									+ (e->a[MODA(opc_ind + 3)].hex & 0xFF);
-		ind_value = MODX(ind_value) & 0xFFFF;
-		value = ft_cp_int(MODA(opc_ind + ind_value), *e);
-		cursor->reg[e->a[MODA(opc_ind + 2 + 2)].hex] = value;
-		cursor->index += 5;
-	}
+	value1 = cursor->reg[r1];
+	value2 = cursor->reg[r2];
+	cursor->reg[r3] = value1 + value2;
+	cursor->index += 5;
 	cursor->carry = 1;
 }
