@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_add.c                                           :+:      :+:    :+:   */
+/*   ft_sub.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 16:57:59 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 17:05:37 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../srcs/vm.h"
 
 /*
-** Instructions: Opcode 4. Take three registries, add the first two, and place
-** the result in the third, right before modifying the carry.
+** Instructions: Same as add, but with the opcode est 0b101 (5 in decimal)
+** and uses a substraction
 */
 
-void	ft_add(t_env *e, t_cursor *cursor)
+void	ft_sub(t_env *e, t_cursor *cursor)
 {
 	int			opc_ind;
 	int			r1;
@@ -33,7 +33,7 @@ void	ft_add(t_env *e, t_cursor *cursor)
 		cursor->index += 5;
 		return ;
 	}
-	cursor->reg[r3] = cursor->reg[r1] + cursor->reg[r2];
+	cursor->reg[r3] = cursor->reg[r1] - cursor->reg[r2];
 	cursor->index += 5;
 	cursor->carry = 1;
 }

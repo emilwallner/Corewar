@@ -6,13 +6,13 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 15:31:16 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/24 17:07:54 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 16:30:16 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../srcs/vm.h"
+#include "../../srcs/vm.h"
 
-void	ft_debug_lld(t_env e, t_cursor *cursor)
+void	ft_tests_lld(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	// Building the fake copied code:
@@ -56,7 +56,7 @@ void	ft_debug_lld(t_env e, t_cursor *cursor)
 	printf("index is %i (expected: 5)\n", cursor->index);
 }
 
-void	ft_debug_lld2(t_env e, t_cursor *cursor)
+void	ft_tests_lld2(t_env e, t_cursor *cursor)
 {
 	// From the asm : 02 90 00 00 00 0a 02
 	int i = 0;

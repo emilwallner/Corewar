@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:02:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/24 19:21:32 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/27 17:22:59 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 #define RR 0x50
 #define RI 0x70
-#define ZMASK(c) (c & 0xff)
+// #define ZMASK(c) (c & 0xff)
 
 void	ft_st(t_env *e, t_cursor *cursor)
 {

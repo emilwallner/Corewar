@@ -6,13 +6,13 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 15:31:16 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 16:15:04 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 18:14:20 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../srcs/vm.h"
 
-void	ft_debug_add(t_env e, t_cursor *cursor)
+void	ft_tests_add(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	// Building the fake copied code:
@@ -47,7 +47,7 @@ void	ft_debug_add(t_env e, t_cursor *cursor)
 	printf("index is %i (expected: 5)\n", cursor->index);
 }
 
-void	ft_debug_add2(t_env e, t_cursor *cursor)
+void	ft_tests_add2(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	// Building the fake copied code:

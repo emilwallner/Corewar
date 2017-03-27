@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/24 17:34:43 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 17:53:17 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,16 @@
 # define MODA(x)	(x % MEM_SIZE)
 # define MODX(x)	(x % IDX_MOD)
 # define MM(x)		(x & 0xFF)
+# define ZMASK(x)	(x & 0xFF)
+# define RRR 0b01010100
+# define RIR 0b01110100
+# define RDR 0b01100100
+# define IRR 0b11010100
+# define IIR 0b11110100
+# define IDR 0b11100100
+# define DRR 0b10010100
+# define DIR 0b10110100
+# define DDR 0b10100100
 
 typedef struct s_arena
 {
@@ -126,15 +136,21 @@ void		set_op_tab(t_env *e);
 int			ft_check_args(t_env e, t_cursor cursor);
 void		ft_debug(t_env e);
 int			ft_cp_int(int int_start, t_env e);
+int			ft_is_reg(int r1, int r2, int r3);
+int			get_dir(t_env *e, t_cursor *cursor, int i, int bytes);
+int			get_ind(t_env *e, t_cursor *cursor, int i);
+int			get_reg(t_env *e, t_cursor *cursor, int i);
 
 // Testing section
-void	ft_debug_ld(t_env e, t_cursor *cursor);
-void	ft_debug_ld2(t_env e, t_cursor *cursor);
-void	ft_debug_lld(t_env e, t_cursor *cursor);
-void	ft_debug_lld2(t_env e, t_cursor *cursor);
-void	ft_debug_ldi(t_env e, t_cursor *cursor);
-void	ft_debug_ldi2(t_env e, t_cursor *cursor);
-void	ft_debug_add(t_env e, t_cursor *cursor);
-void	ft_debug_add2(t_env e, t_cursor *cursor);
-
+void	ft_tests_ld(t_env e, t_cursor *cursor);
+void	ft_tests_ld2(t_env e, t_cursor *cursor);
+void	ft_tests_lld(t_env e, t_cursor *cursor);
+void	ft_tests_lld2(t_env e, t_cursor *cursor);
+void	ft_tests_ldi(t_env e, t_cursor *cursor);
+void	ft_tests_ldi2(t_env e, t_cursor *cursor);
+void	ft_tests_add(t_env e, t_cursor *cursor);
+void	ft_tests_add2(t_env e, t_cursor *cursor);
+void	ft_tests_sub(t_env e, t_cursor *cursor);
+void	ft_tests_sub2(t_env e, t_cursor *cursor);
+void	ft_debug_sti(t_env e, t_cursor *cursor);
 #endif

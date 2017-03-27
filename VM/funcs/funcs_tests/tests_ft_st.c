@@ -6,13 +6,13 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 15:31:16 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/24 18:22:48 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/27 16:32:50 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../srcs/vm.h"
+#include "../../srcs/vm.h"
 
-void	ft_debug_st(t_env e, t_cursor *cursor)
+void	ft_tests_st(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	// Building the fake copied code:
@@ -36,7 +36,7 @@ void	ft_debug_st(t_env e, t_cursor *cursor)
 	e.a[7].hex = 0x00;
 	e.a[8].hex = 0x00;
 
-	printf("%+.60y\n", 1234);
+	// printf("%+.60x\n", 1234);
 
 	printf(CYAN "INFO : Test with IND, write value of index + 10 in R2\n\n" RESET);
 	printf("Data: \n");
@@ -65,7 +65,7 @@ void	ft_debug_st(t_env e, t_cursor *cursor)
 	printf("index is %i\n", cursor->index);
 }
 
-void	ft_debug_st2(t_env e, t_cursor *cursor)
+void	ft_tests_st2(t_env e, t_cursor *cursor)
 {
 	// From the asm : 02 90 00 00 00 0a 02
 	int i = 0;
