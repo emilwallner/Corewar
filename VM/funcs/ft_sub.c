@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 16:57:13 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 17:05:37 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ft_sub(t_env *e, t_cursor *cursor)
 	int			r2;
 	int			r3;
 
-	printf("HELLO\n");
 	opc_ind = cursor->index;
 	r1 = e->a[MODA(opc_ind + 2)].hex;
 	r2 = e->a[MODA(opc_ind + 3)].hex;
