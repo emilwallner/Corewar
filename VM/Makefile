@@ -39,6 +39,8 @@ SRCS	=		main_vm.c 	\
 				ft_lfork.c \
 				ft_live.c \
 				ft_add.c \
+				ft_and.c \
+				ft_or.c \
 				ft_sub.c \
 				ft_zjmp.c \
 				ft_aff.c \
@@ -50,6 +52,8 @@ SRCS	=		main_vm.c 	\
 				main_test.c \
 				tests_ft_ld.c \
 				tests_ft_add.c \
+				tests_ft_or.c \
+				tests_ft_and.c \
 				tests_ft_sub.c \
 				tests_ft_ldi.c \
 				tests_ft_lld.c \
