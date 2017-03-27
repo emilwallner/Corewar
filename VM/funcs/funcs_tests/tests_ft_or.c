@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_ft_and.c                                     :+:      :+:    :+:   */
+/*   tests_ft_or.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 15:31:16 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 20:12:00 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 20:25:20 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../srcs/vm.h"
 
-void	ft_tests_and(t_env e, t_cursor *cursor)
+void	ft_tests_or(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	// Building the fake copied code:
@@ -43,7 +43,7 @@ void	ft_tests_and(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_and(&e, cursor);
+	ft_or(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
 	printf("reg[4] %i (expected: %i)\n", cursor->reg[4], cursor->reg[2] | cursor->reg[3]);
@@ -51,7 +51,7 @@ void	ft_tests_and(t_env e, t_cursor *cursor)
 	printf("index is %i (expected: 5)\n", cursor->index);
 }
 
-void	ft_tests_and1(t_env e, t_cursor *cursor)
+void	ft_tests_or1(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	int direct;
@@ -84,15 +84,15 @@ void	ft_tests_and1(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_and(&e, cursor);
+	ft_or(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], direct & cursor->reg[2]);
+	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], direct | cursor->reg[2]);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 7)\n", cursor->index);
 }
 
-void	ft_tests_and2(t_env e, t_cursor *cursor)
+void	ft_tests_or2(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	int ind;
@@ -131,15 +131,15 @@ void	ft_tests_and2(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_and(&e, cursor);
+	ft_or(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], ind & cursor->reg[2]);
+	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], ind | cursor->reg[2]);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 6)\n", cursor->index);
 }
 
-void	ft_tests_and3(t_env e, t_cursor *cursor)
+void	ft_tests_or3(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	int ind;
@@ -178,15 +178,15 @@ void	ft_tests_and3(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_and(&e, cursor);
+	ft_or(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], ind & cursor->reg[2]);
+	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], ind | cursor->reg[2]);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 6)\n", cursor->index);
 }
 
-void	ft_tests_and4(t_env e, t_cursor *cursor)
+void	ft_tests_or4(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	int ind;
@@ -219,15 +219,15 @@ void	ft_tests_and4(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_and(&e, cursor);
+	ft_or(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], direct & cursor->reg[2]);
+	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], direct | cursor->reg[2]);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 6)\n", cursor->index);
 }
 
-void	ft_tests_and5(t_env e, t_cursor *cursor)
+void	ft_tests_or5(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	int ind;
@@ -274,15 +274,15 @@ void	ft_tests_and5(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_and(&e, cursor);
+	ft_or(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], direct1 & direct2);
+	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], direct1 | direct2);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 11)\n", cursor->index);
 }
 
-void	ft_tests_and6(t_env e, t_cursor *cursor)
+void	ft_tests_or6(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	int ind;
@@ -331,15 +331,15 @@ void	ft_tests_and6(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_and(&e, cursor);
+	ft_or(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], direct1 & ind);
+	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], direct1 | ind);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 9)\n", cursor->index);
 }
 
-void	ft_tests_and7(t_env e, t_cursor *cursor)
+void	ft_tests_or7(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	int ind1;
@@ -389,15 +389,15 @@ void	ft_tests_and7(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_and(&e, cursor);
+	ft_or(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], ind1 & ind2);
+	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], ind1 | ind2);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 9)\n", cursor->index);
 }
 
-void	ft_tests_and8(t_env e, t_cursor *cursor)
+void	ft_tests_or8(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	int ind;
@@ -445,10 +445,10 @@ void	ft_tests_and8(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_and(&e, cursor);
+	ft_or(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], direct & ind);
+	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], direct | ind);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 9)\n", cursor->index);
 }

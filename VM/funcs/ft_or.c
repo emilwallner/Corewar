@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_and.c                                           :+:      :+:    :+:   */
+/*   ft_or.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 20:13:33 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 20:18:19 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../srcs/vm.h"
 
 /*
-** Instructions: Apply an & (bit-to-bit AND) over the first two arguments
+** Instructions: Apply an | (bit-to-bit AND) over the first two arguments
 ** and store the result in a registry, which is the third argument.
 ** Opcode 0x06. Modifies the carry.
 ** T_REG | T_IND | T_DIR, T_REG | T_IND | T_DIR, T_REG
 */
 
-void	ft_and(t_env *e, t_cursor *cursor)
+void	ft_or(t_env *e, t_cursor *cursor)
 {
 	int			opc_ind;
 	int			r1;
@@ -48,7 +48,7 @@ void	ft_and(t_env *e, t_cursor *cursor)
 		r1 = e->a[MODA(opc_ind + 2)].hex;
 		r2 = e->a[MODA(opc_ind + 7)].hex;
 		if (ft_is_reg(r1, r2, r2))
-			cursor->reg[r2] = cursor->reg[r1] & get_dir(e, cursor, 3, 4);
+			cursor->reg[r2] = cursor->reg[r1] | get_dir(e, cursor, 3, 4);
 		cursor->index += 8;
 	}
 	else if (ZMASK(acb) == RIR)
@@ -57,7 +57,7 @@ void	ft_and(t_env *e, t_cursor *cursor)
 		r2 = e->a[MODA(opc_ind + 5)].hex;
 		if (ft_is_reg(r1, r2, r2))
 		{
-			cursor->reg[r2] = cursor->reg[r1] & get_ind(e, cursor, 3);
+			cursor->reg[r2] = cursor->reg[r1] | get_ind(e, cursor, 3);
 			cursor->carry = 1;
 		}
 			cursor->index += 6;
@@ -68,7 +68,7 @@ void	ft_and(t_env *e, t_cursor *cursor)
 		r2 = e->a[MODA(opc_ind + 5)].hex;
 		if (ft_is_reg(r1, r2, r2))
 		{
-			cursor->reg[r2] = cursor->reg[r1] & get_ind(e, cursor, 2);
+			cursor->reg[r2] = cursor->reg[r1] | get_ind(e, cursor, 2);
 			cursor->carry = 1;
 		}
 			cursor->index += 6;
@@ -79,7 +79,7 @@ void	ft_and(t_env *e, t_cursor *cursor)
 		r2 = e->a[MODA(opc_ind + 7)].hex;
 		if (ft_is_reg(r1, r2, r2))
 		{
-			cursor->reg[r2] = cursor->reg[r1] & get_dir(e, cursor, 2, 4);
+			cursor->reg[r2] = cursor->reg[r1] | get_dir(e, cursor, 2, 4);
 			cursor->carry = 1;
 		}
 			cursor->index += 8;
@@ -89,7 +89,7 @@ void	ft_and(t_env *e, t_cursor *cursor)
 		r1 = e->a[MODA(opc_ind + 10)].hex;
 		if (ft_is_reg(r1, r1, r1))
 		{
-			cursor->reg[r1] = get_dir(e, cursor, 2, 4) &
+			cursor->reg[r1] = get_dir(e, cursor, 2, 4) |
 				get_dir(e, cursor, 6, 4);
 			cursor->carry = 1;
 		}
@@ -100,7 +100,7 @@ void	ft_and(t_env *e, t_cursor *cursor)
 		r1 = e->a[MODA(opc_ind + 8)].hex;
 		if (ft_is_reg(r1, r1, r1))
 		{
-			cursor->reg[r1] = get_dir(e, cursor, 2, 4) &
+			cursor->reg[r1] = get_dir(e, cursor, 2, 4) |
 				get_ind(e, cursor, 6);
 			cursor->carry = 1;
 		}
@@ -111,7 +111,7 @@ void	ft_and(t_env *e, t_cursor *cursor)
 		r1 = e->a[MODA(opc_ind + 6)].hex;
 		if (ft_is_reg(r1, r1, r1))
 		{
-			cursor->reg[r1] = get_ind(e, cursor, 2) &
+			cursor->reg[r1] = get_ind(e, cursor, 2) |
 				get_ind(e, cursor, 4);
 			cursor->carry = 1;
 		}
@@ -122,7 +122,7 @@ void	ft_and(t_env *e, t_cursor *cursor)
 		r1 = e->a[MODA(opc_ind + 8)].hex;
 		if (ft_is_reg(r1, r1, r1))
 		{
-			cursor->reg[r1] = get_ind(e, cursor, 2) &
+			cursor->reg[r1] = get_ind(e, cursor, 2) |
 				get_dir(e, cursor, 4, 4);
 			cursor->carry = 1;
 		}

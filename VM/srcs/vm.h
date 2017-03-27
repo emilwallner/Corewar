@@ -3,10 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   vm.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+<<<<<<< HEAD
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
 /*   Updated: 2017/03/27 21:02:52 by mhaziza          ###   ########.fr       */
+=======
+/*   Created: 2017/03/27 20:22:29 by nsabbah           #+#    #+#             */
+/*   Updated: 2017/03/27 20:24:03 by nsabbah          ###   ########.fr       */
+>>>>>>> 0b3df684b977c4896f0a1767851f9262b68cb5c8
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +32,7 @@
 # define RESET   "\x1b[0m"
 # define MODA(x)	(x % MEM_SIZE)
 # define MODX(x)	(x % IDX_MOD)
+# define MM(x)		(x & 0xFF)
 # define ZMASK(x)	(x & 0xFF)
 # define RRR 0b01010100
 # define RIR 0b01110100
@@ -151,6 +157,28 @@ void	ft_tests_add(t_env e, t_cursor *cursor);
 void	ft_tests_add2(t_env e, t_cursor *cursor);
 void	ft_tests_sub(t_env e, t_cursor *cursor);
 void	ft_tests_sub2(t_env e, t_cursor *cursor);
+<<<<<<< HEAD
 void	ft_debug_sti(t_env e, t_cursor *cursor);
 void	ft_debug_ldi(t_env e, t_cursor *cursor);
+=======
+void	ft_tests_and(t_env e, t_cursor *cursor);
+void	ft_tests_and1(t_env e, t_cursor *cursor);
+void	ft_tests_and2(t_env e, t_cursor *cursor);
+void	ft_tests_and3(t_env e, t_cursor *cursor);
+void	ft_tests_and4(t_env e, t_cursor *cursor);
+void	ft_tests_and5(t_env e, t_cursor *cursor);
+void	ft_tests_and6(t_env e, t_cursor *cursor);
+void	ft_tests_and7(t_env e, t_cursor *cursor);
+void	ft_tests_and8(t_env e, t_cursor *cursor);
+void	ft_debug_sti(t_env e, t_cursor *cursor);
+void	ft_tests_or(t_env e, t_cursor *cursor);
+void	ft_tests_or1(t_env e, t_cursor *cursor);
+void	ft_tests_or2(t_env e, t_cursor *cursor);
+void	ft_tests_or3(t_env e, t_cursor *cursor);
+void	ft_tests_or4(t_env e, t_cursor *cursor);
+void	ft_tests_or5(t_env e, t_cursor *cursor);
+void	ft_tests_or6(t_env e, t_cursor *cursor);
+void	ft_tests_or7(t_env e, t_cursor *cursor);
+void	ft_tests_or8(t_env e, t_cursor *cursor);
+>>>>>>> 0b3df684b977c4896f0a1767851f9262b68cb5c8
 #endif
