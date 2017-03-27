@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/27 19:30:04 by mhaziza          ###   ########.fr        #
+#    Updated: 2017/03/27 21:41:31 by mhaziza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRCS	=		main_vm.c 	\
 				ft_aff.c \
 				ft_lld.c \
 				ft_ldi.c \
+				ft_lldi.c \
 				ft_ld.c \
 				ft_st.c \
 				ft_sti.c \
