@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 16:36:36 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 18:02:00 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 18:41:13 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int get_ind(t_env *e, t_cursor *cursor, int i)
 	int r;
 
 	r = (ZMASK(e->a[cursor->index + i].hex) << 8) |
-	ZMASK(e->a[cursor->index + i + 1].hex);
+			ZMASK(e->a[cursor->index + i + 1].hex);
 	return ((e->a[r].hex<< 24) | (e->a[r + 1].hex<< 16) |
 			(e->a[r + 2].hex<< 8) | e->a[r + 3].hex);
 }
@@ -50,6 +50,6 @@ int get_reg(t_env *e, t_cursor *cursor, int i)
 {
 	int r;
 
-	r = ZMASK(e->a[cursor->index + i + 1].hex);
+	r = ZMASK(e->a[cursor->index + i].hex);
 	return (cursor->reg[r]);
 }

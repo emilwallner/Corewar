@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/27 17:23:11 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 18:30:41 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,16 @@
 # define MODA(x)	(x % MEM_SIZE)
 # define MODX(x)	(x % IDX_MOD)
 # define ZMASK(x)	(x & 0xFF)
+# define RRR 0b01010100
+# define RIR 0b01110100
+# define RDR 0b01100100
+# define IRR 0b11010100
+# define IIR 0b11110100
+# define IDR 0b11100100
+# define DRR 0b10010100
+# define DIR 0b10110100
+# define DDR 0b10100100
+
 
 typedef struct s_arena
 {
@@ -142,5 +152,7 @@ void	ft_tests_add(t_env e, t_cursor *cursor);
 void	ft_tests_add2(t_env e, t_cursor *cursor);
 void	ft_tests_sub(t_env e, t_cursor *cursor);
 void	ft_tests_sub2(t_env e, t_cursor *cursor);
+void	ft_tests_and(t_env e, t_cursor *cursor);
+void	ft_tests_and2(t_env e, t_cursor *cursor);
 
 #endif
