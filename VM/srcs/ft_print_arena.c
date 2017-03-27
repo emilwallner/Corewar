@@ -31,13 +31,13 @@ void	ft_print_arena(t_env *e)
 	}
 	attron(COLOR_PAIR(14));
 	printw("\nNumber of cycles: %d \n", e->cycle);
-	printw("\nIndex 1: %d Hex %d\n", e->head->index, e->a[e->head->index].hex);
-	printw("\nIndex 2: %d Hex %d\n", e->head->next->index, e->a[e->head->next->index].hex);
-	printw("\nIndex 3: %d Hex %d\n", e->head->next->next->index, e->a[e->head->next->next->index].hex);
-	// printw("\nPlayer 1 lives: %d \n", e->player[0].live);
-	// printw("\nPlayer 2 lives: %d \n", e->player[1].live);
-	// printw("\nPlayer 3 lives: %d \n", e->player[2].live);
-	printw("\nCursors: %d \n", e->cursors);
+	printw("Index 1: %d Hex %d\n", e->head->index, e->a[e->head->index].hex);
+	printw("Index 2: %d Hex %d\n", e->head->next->index, e->a[e->head->next->index].hex);
+	printw("Index 3: %d Hex %d\n", e->head->next->next->index, e->a[e->head->next->next->index].hex);
+	printw("Player 1 name: %s \n", e->player[0].name);
+	printw("Player 1 comment: %s \n", e->player[0].comment);
+	printw("Player 3 name: %s \n", e->player[2].name);
+	printw("Cursors: %d \n", e->cursors);
 	// printw("\nNumber of cycles to die: %d \n", e->cycles_to_die);
 	// printw("\nNumber of checks: %d \n", e->check);
 	// printw("\nNumber of lives: %d \n", e->lives);
@@ -49,6 +49,6 @@ void	ft_print_arena(t_env *e)
 	// printw("\nReg 2 : %d \n", e->head->reg[2]);
 	attroff(COLOR_PAIR(14));
 	refresh();
-	getch();
+	//getch();
 	//usleep(500000);
 }

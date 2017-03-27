@@ -24,6 +24,81 @@
 **
 */
 
+
+void ft_add_player_name(t_env *e, int k)
+{
+	char *dest;
+	char *src;
+	int i;
+
+	src = e->player[k].string;
+	dest = e->player[k].name;
+	i = 0;
+	while (i < PROG_NAME_LENGTH)
+	{
+		dest[i] = src[i + 4];
+		i++;
+	}
+	while (i <= PROG_NAME_LENGTH)
+		dest[i++] = '\0';
+	dest[PROG_NAME_LENGTH] = '\0';
+}
+
+void ft_add_player_comment(t_env *e, int k)
+{
+	char *dest;
+	char *src;
+	int i;
+
+	src = e->player[k].string;
+	dest = e->player[k].comment;
+	i = 0;
+	while (i < COMMENT_LENGTH)
+	{
+		dest[i] = src[i + PROG_NAME_LENGTH + 12];
+		i++;
+	}
+	while (i <= COMMENT_LENGTH)
+		dest[i++] = '\0';
+	dest[COMMENT_LENGTH] = '\0';
+}
+
+void ft_check_coding_byte(t_env *e, int k)
+{
+	int i;
+	char *str;
+	int number;
+
+	str = e->player[k].string;
+	number = ((MM(str[0]) << 24) | (MM(str[1]) << 16) | (MM(str[2]) << 8) | MM(str[3]));
+	if(number != COREWAR_EXEC_MAGIC)
+		ft_exit(e, 4);
+}
+
+void ft_check_label_name(t_env *e, int k)
+{
+	int i;
+	char *name;
+
+	i = -1;
+	name = e->player[k].name;
+	while(name[++i])
+		if(!(ft_strchr(CMD_CHARS, name[i])))
+			ft_exit(e, 5);
+}
+
+void ft_check_label_comment(t_env *e, int k)
+{
+	int i;
+	char *comment;
+
+	i = -1;
+	comment = e->player[k].comment;
+	while(comment[++i])
+		if(!(ft_strchr(CMD_CHARS, comment[i])))
+			ft_exit(e, 5);
+}
+
 void ft_parsing(t_env *e, int ac)
 {
 	// int	error;
@@ -36,9 +111,13 @@ void ft_parsing(t_env *e, int ac)
 	i = 0;
 	while (i < e->player_amount)
 	{
-
-		k = PROG_NAME_LENGTH + COMMENT_LENGTH;
 		str = e->player[i].string;
+		ft_check_coding_byte(e, i);
+		ft_add_player_name(e, i);
+		ft_add_player_comment(e, i);
+		ft_check_label_name(e, i);
+		ft_check_label_comment(e, i);
+		k = PROG_NAME_LENGTH + COMMENT_LENGTH;
 		inst = e->player[i].inst;
 		while (!(str[k]))
 			k++;

@@ -27,6 +27,7 @@
 # define RESET   "\x1b[0m"
 # define MODA(x)	(x % MEM_SIZE)
 # define MODX(x)	(x % IDX_MOD)
+# define MM(x)		(x & 0xFF)
 
 typedef struct s_arena
 {

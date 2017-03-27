@@ -40,6 +40,10 @@ void ft_error_msg(int i)
 		ft_putstr_fd("\x1b[31m[Failed to read file]\x1b[0m ", 2);
 	else if (i == 3)
 		ft_putstr_fd("\x1b[31m[Failed to close file]\x1b[0m ", 2);
+	else if (i == 4)
+		ft_putstr_fd("\x1b[31m[Wrong Corewar Exec Magic]\x1b[0m ", 2);
+	else if (i == 5)
+		ft_putstr_fd("\x1b[31m[Incorrect Label Char]\x1b[0m ", 2);
 	else
 		ft_putstr_fd("\x1b[31m[ERROR]\x1b[0m ", 2);
 	exit(1);
