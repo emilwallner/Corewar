@@ -34,17 +34,17 @@ SRCS	=		main_vm.c 	\
 				adjust_cycles.c \
 				init_ncurses.c \
 				declare_winner.c \
-				ft_ld.c \
-				ft_ldi.c \
-				ft_lld.c \
-				ft_add.c \
-				main_test.c \
-				tests_ft_ld.c \
-				tests_ft_lld.c \
-				tests_ft_add.c \
-				tests_ft_ldi.c \
 				ft_cp_int.c \
-
+				ft_fork.c \
+				ft_lfork.c \
+				ft_live.c \
+				ft_add.c \
+				ft_zjmp.c \
+				ft_aff.c \
+				ft_lld.c \
+				ft_ldi.c \
+				ft_ld.c \
+				ft_st.c \
 
 GREEN		= \033[32m
 RED			= \033[31m

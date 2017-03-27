@@ -16,6 +16,7 @@ void	ft_update_cursor(t_env *e, t_cursor *cursor, int i)
 {
 	e->a[cursor->index].color = e->a[cursor->index].prevcolor;
 		cursor->index += i;
+		cursor->index = MODA(cursor->index);
 	e->a[cursor->index].color = cursor->color;
 }
 
@@ -39,7 +40,5 @@ void 	ft_move_cursors(t_env *e)
 				ft_cycle_end_and_execute(e, cursor);
 		}
 		cursor = cursor->next;
-		cursor->index = cursor->index % MEM_SIZE;
-		ft_update_cursor(e, cursor, 5);
 	}
 }

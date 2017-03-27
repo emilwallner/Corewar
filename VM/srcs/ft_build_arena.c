@@ -37,6 +37,7 @@ void ft_build_arena(t_env *e, int ac)
 	while (i < e->player_amount)
 	{
 		e->player[i].index_start = (MEM_SIZE / e->player_amount) * i;
+		e->player[i].live = 0;
 		k = (MEM_SIZE / e->player_amount) * i;
 		ft_player_to_arena(e, i, &k);
 		i++;

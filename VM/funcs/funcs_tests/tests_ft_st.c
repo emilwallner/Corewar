@@ -1,87 +1,105 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_ft_add.c                                     :+:      :+:    :+:   */
+/*   tests_ft_st.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 15:31:16 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 16:15:04 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/24 18:22:48 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../srcs/vm.h"
 
-void	ft_debug_add(t_env e, t_cursor *cursor)
+void	ft_debug_st(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	// Building the fake copied code:
-	e.a[0].hex = 0x04;
-	e.a[1].hex = 0x54;
-	e.a[2].hex = 0x03;
-	e.a[3].hex = 0x03;
+	e.a[0].hex = 0x03;
+	e.a[1].hex = 0x70;
+	e.a[2].hex = 0x01;
+	e.a[3].hex = 0x02;
 	e.a[4].hex = 0x03;
+	e.a[5].hex = 0x70;
+	e.a[6].hex = 0x01;
+	e.a[7].hex = 0x00;
+	e.a[8].hex = 0x00;
+	e.a[4].hex = 0x03;
+	e.a[5].hex = 0x70;
+	e.a[6].hex = 0x01;
+	e.a[7].hex = 0x00;
+	e.a[8].hex = 0x00;
+	e.a[4].hex = 0x03;
+	e.a[5].hex = 0x70;
+	e.a[6].hex = 0x01;
+	e.a[7].hex = 0x00;
+	e.a[8].hex = 0x00;
 
-	printf(CYAN "INFO : Multiple reg[3] by 2\n\n" RESET);
+	printf("%+.60y\n", 1234);
+
+	printf(CYAN "INFO : Test with IND, write value of index + 10 in R2\n\n" RESET);
 	printf("Data: \n");
-	while (i < 4)
+	while (i < 14)
 	{
 		ft_printf("%02.x ", (e.a[i].hex & 0xFF));
 		i++;
 	}
 	printf("\n");
-	cursor->reg[3] = 8;
+	cursor->reg[1] = 300;
 	cursor->index = 0;
 
 	printf("\nBEFORE FUNCTION CALL\n\n");
 
-	printf("reg[3] %i\n", cursor->reg[3]);
+	printf("reg[1] %i\n", cursor->reg[1]);
+	printf("reg[2] %i (expected: ?)\n", cursor->reg[2]);
+
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_add(&e, cursor);
+	ft_st(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	printf("reg[3] %i (expected: 16)\n", cursor->reg[3]);
+	printf("reg[2] %i (expected: ?)\n", cursor->reg[2]);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
-	printf("index is %i (expected: 5)\n", cursor->index);
+	printf("index is %i\n", cursor->index);
 }
 
-void	ft_debug_add2(t_env e, t_cursor *cursor)
+void	ft_debug_st2(t_env e, t_cursor *cursor)
 {
+	// From the asm : 02 90 00 00 00 0a 02
 	int i = 0;
-	// Building the fake copied code:
-	e.a[0].hex = 0x04;
-	e.a[1].hex = 0x54;
-	e.a[2].hex = 0x02;
-	e.a[3].hex = 0x03;
-	e.a[4].hex = 0x04;
+	e.a[0].hex = 0x03;
+	e.a[1].hex = 0x50;
+	e.a[2].hex = 0x01;
+	e.a[3].hex = 0x02;
+	e.a[4].hex = 0x03;
+	e.a[5].hex = 0x70;
+	e.a[6].hex = 0x01;
+	e.a[7].hex = 0x00;
+	e.a[8].hex = 0x0a;
 
-	printf(CYAN "INFO : Adds reg[2] and reg[3] in reg[4] by 2\n\n" RESET);
+	printf(CYAN "\nINFO : Test with DIR (4 bytes), write value in R2\n\n" RESET);
 	printf("Data: \n");
-	while (i < 4)
+	while (i < 7)
 	{
 		ft_printf("%02.x ", (e.a[i].hex & 0xFF));
 		i++;
 	}
 	printf("\n");
-	cursor->reg[2] = 1;
-	cursor->reg[3] = 2;
-	cursor->reg[4] = 8;
+	cursor->reg[2] = 8;
 	cursor->index = 0;
 
 	printf("\nBEFORE FUNCTION CALL\n\n");
 
 	printf("reg[2] %i\n", cursor->reg[2]);
-	printf("reg[3] %i\n", cursor->reg[3]);
-	printf("reg[4] %i\n", cursor->reg[4]);
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_add(&e, cursor);
+	ft_ld(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	printf("reg[4] %i (expected: 3)\n", cursor->reg[4]);
+	printf("reg[2] %i (expected: 1012323)\n", cursor->reg[2]);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
-	printf("index is %i (expected: 5)\n", cursor->index);
+	printf("index is %i\n", cursor->index);
 }

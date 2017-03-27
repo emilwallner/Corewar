@@ -20,7 +20,7 @@ int ft_string_len(t_env *e, int i)
 
 	buff[0] = 0;
 	if ((fd = open(e->files[i + 1], O_RDONLY)) == -1)
-		ft_exit(e);
+		ft_exit(e, 1);
 	e->player[i].len = 0;
 	while ((ret = read(fd, buff, BUFF_SIZE)) > 0)
 	{
@@ -28,9 +28,9 @@ int ft_string_len(t_env *e, int i)
 			e->player[i].len += ret;
 	}
 	if (close(fd) == -1)
-		ft_exit(e);
+		ft_exit(e, 2);
 	if (ret == -1)
-		ft_exit(e);
+		ft_exit(e, 3);
 	return(e->player[i].len);
 }
 
@@ -44,14 +44,13 @@ void  ft_files_to_string(t_env *e)
 	while(i < e->player_amount)
 	{
 		len = ft_string_len(e, i);
-		 	//e->player[i].string = malloc(sizeof(char*) * (len + 1));
 		if ((fd = open(e->files[i + 1], O_RDONLY)) == -1)
-			ft_exit(e);
+			ft_exit(e, 1);
 		if (read(fd, e->player[i].string, e->player[i].len) == -1)
-			ft_exit(e);
+			ft_exit(e, 3);
 		e->player[i].string[len] = '\0';
 		if (close(fd) == -1)
-			ft_exit(e);
+			ft_exit(e, 2);
 		i++;
 	}
 }

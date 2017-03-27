@@ -50,32 +50,30 @@ typedef struct	s_player
 
 typedef struct		s_cursor{
 	struct s_cursor	*next;
+	struct s_cursor	*prev;
 	int				carry;
 	int				counter;
 	int				running;
 	int				player;
-	int				id;
 	int				index;
 	int				color;
 	int				cycle;
-	int 			cycle_end;
-	int				comnd_len;
-	char			operation[30];
 	int				reg[REG_NUMBER];
 }					t_cursor;
 
 typedef struct	s_env
 {
-	t_player	*player;
+	t_player	player[MAX_PLAYERS];
 	t_cursor	*head;
 	t_arena		a[MEM_SIZE];
+	int 		cursors;
 	int 		cycle;
 	int			lives;
 	int			check;
-	int			winner;
+	int 		bonus;
+	char		winner;
 	int 		last_alive;
 	int			cycles_to_die;
-	char		**strings;
 	char		arena[MEM_SIZE];
 	int			player_amount;
 	char		**files;
@@ -83,7 +81,7 @@ typedef struct	s_env
 }				t_env;
 
 
-
+void		ft_fork_both(t_env *e, t_cursor *cursor, int lfork);
 void		ft_update_cursor(t_env *e, t_cursor *cursor, int i);
 void		ft_add_cycle(t_env *e, t_cursor *cursor);
 void 		ft_init_ncurses(void);
@@ -118,7 +116,7 @@ t_cursor	*ft_create_cursor(int i, t_env *e);
 void		ft_init_cursor(t_env *e);
 void		init_e(t_env *e, int ac, char **av);
 void		ft_files_to_string(t_env *e);
-void		ft_exit(t_env *e);
+void		ft_exit(t_env *e, int i);
 void		ft_print_strings(t_env *e, int ac);
 void		ft_parsing(t_env *e, int ac);
 void		ft_print_arena(t_env *e);

@@ -12,21 +12,6 @@
 
 #include "vm.h"
 
-t_player	*player;
-t_cursor	*head;
-t_arena		a[MEM_SIZE];
-int 		cycle;
-int			lives;
-int			check;
-int			winner;
-int 		last_alive;
-int			cycles_to_die;
-char		**strings;
-char		arena[MEM_SIZE];
-int			player_amount;
-char		**files;
-t_op		op_tab[17];
-
 void	ft_print_arena(t_env *e)
 {
 	int i;
@@ -46,11 +31,18 @@ void	ft_print_arena(t_env *e)
 	}
 	attron(COLOR_PAIR(14));
 	printw("\nNumber of cycles: %d \n", e->cycle);
-	printw("\nNumber of cycles to die: %d \n", e->cycles_to_die);
-	printw("\nNumber of checks: %d \n", e->check);
-	printw("\nNumber of lives: %d \n", e->lives);
-	printw("\nNumber of lives limit: %d \n", NBR_LIVE);
-	printw("\nNumber of max checks: %d \n", MAX_CHECKS);
+	printw("\nIndex 1: %d Hex %d\n", e->head->index, e->a[e->head->index].hex);
+	printw("\nIndex 2: %d Hex %d\n", e->head->next->index, e->a[e->head->next->index].hex);
+	printw("\nIndex 3: %d Hex %d\n", e->head->next->next->index, e->a[e->head->next->next->index].hex);
+	// printw("\nPlayer 1 lives: %d \n", e->player[0].live);
+	// printw("\nPlayer 2 lives: %d \n", e->player[1].live);
+	// printw("\nPlayer 3 lives: %d \n", e->player[2].live);
+	printw("\nCursors: %d \n", e->cursors);
+	// printw("\nNumber of cycles to die: %d \n", e->cycles_to_die);
+	// printw("\nNumber of checks: %d \n", e->check);
+	// printw("\nNumber of lives: %d \n", e->lives);
+	// printw("\nNumber of lives limit: %d \n", NBR_LIVE);
+	// printw("\nNumber of max checks: %d \n", MAX_CHECKS);
 	// printw("\nNumber of player 0: %d \n", e->player[0].index_start);
 	// printw("\nNumber of player 1: %d \n", e->player[1].index_start);
 	// printw("\nNumber of player 2: %d \n", e->player[2].index_start);
