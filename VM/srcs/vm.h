@@ -6,11 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2017/03/27 17:53:17 by mhaziza          ###   ########.fr       */
-=======
-/*   Updated: 2017/03/27 18:30:41 by nsabbah          ###   ########.fr       */
->>>>>>> e7fe4c2f07e708c7dad3d460478e8bb55c22cb83
+/*   Updated: 2017/03/27 21:02:52 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +37,6 @@
 # define DRR 0b10010100
 # define DIR 0b10110100
 # define DDR 0b10100100
-
 
 typedef struct s_arena
 {
@@ -156,11 +151,6 @@ void	ft_tests_add(t_env e, t_cursor *cursor);
 void	ft_tests_add2(t_env e, t_cursor *cursor);
 void	ft_tests_sub(t_env e, t_cursor *cursor);
 void	ft_tests_sub2(t_env e, t_cursor *cursor);
-<<<<<<< HEAD
 void	ft_debug_sti(t_env e, t_cursor *cursor);
-=======
-void	ft_tests_and(t_env e, t_cursor *cursor);
-void	ft_tests_and2(t_env e, t_cursor *cursor);
-
->>>>>>> e7fe4c2f07e708c7dad3d460478e8bb55c22cb83
+void	ft_debug_ldi(t_env e, t_cursor *cursor);
 #endif

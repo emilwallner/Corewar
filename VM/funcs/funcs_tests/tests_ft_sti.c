@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 15:31:16 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 19:21:21 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/27 20:50:29 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_debug_sti(t_env e, t_cursor *cursor)
 	// e.a[6].hex = 0x0a;
 	// test RDD
 	e.a[0].hex = 0x0b;
-	e.a[1].hex = 0x78;
+	e.a[1].hex = 0x68;
 	e.a[2].hex = 0x01;
 	e.a[3].hex = 0x00;
 	e.a[4].hex = 0x00;
