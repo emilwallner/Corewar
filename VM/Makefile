@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/27 18:30:48 by nsabbah          ###   ########.fr        #
+#    Updated: 2017/03/27 19:30:04 by mhaziza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ SRCS	=		main_vm.c 	\
 				ft_lfork.c \
 				ft_live.c \
 				ft_add.c \
-				ft_and.c \
 				ft_sub.c \
 				ft_zjmp.c \
 				ft_aff.c \
@@ -47,14 +46,15 @@ SRCS	=		main_vm.c 	\
 				ft_ldi.c \
 				ft_ld.c \
 				ft_st.c \
+				ft_sti.c \
 				main_test.c \
 				tests_ft_ld.c \
 				tests_ft_add.c \
-				tests_ft_and.c \
 				tests_ft_sub.c \
 				tests_ft_ldi.c \
 				tests_ft_lld.c \
 				tests_ft_st.c \
+				tests_ft_sti.c \
 				ft_funcs_tools.c \
 
 GREEN		= \033[32m

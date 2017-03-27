@@ -6,7 +6,11 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/27 20:09:48 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 20:15:40 by nsabbah          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+>>>>>>> f807277599bb14509ca000c4835c47ecc19ea4aa
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +31,7 @@
 # define RESET   "\x1b[0m"
 # define MODA(x)	(x % MEM_SIZE)
 # define MODX(x)	(x % IDX_MOD)
+# define MM(x)		(x & 0xFF)
 # define ZMASK(x)	(x & 0xFF)
 # define RRR 0b01010100
 # define RIR 0b01110100
@@ -37,7 +42,6 @@
 # define DRR 0b10010100
 # define DIR 0b10110100
 # define DDR 0b10100100
-
 
 typedef struct s_arena
 {
@@ -160,5 +164,5 @@ void	ft_tests_and4(t_env e, t_cursor *cursor);
 void	ft_tests_and5(t_env e, t_cursor *cursor);
 void	ft_tests_and6(t_env e, t_cursor *cursor);
 void	ft_tests_and7(t_env e, t_cursor *cursor);
-
+void	ft_debug_sti(t_env e, t_cursor *cursor);
 #endif

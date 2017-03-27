@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/27 16:21:46 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 17:50:57 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ int			main(int ac, char **av)
 	// ft_move_cursors(&e);
 	// ft_declare_winner(&e);
 	// ft_exit(&e, 0);
-	ft_debug(e);
+	// ft_debug(e);
+	t_cursor *cursor;
+	cursor = (t_cursor*)malloc(sizeof(*cursor) * 10);
+	ft_debug_sti(e, &cursor[0]);
 	return(0);
 }
