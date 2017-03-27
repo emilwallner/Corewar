@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/27 16:37:47 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 16:48:20 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,5 +136,7 @@ void	ft_tests_ldi(t_env e, t_cursor *cursor);
 void	ft_tests_ldi2(t_env e, t_cursor *cursor);
 void	ft_tests_add(t_env e, t_cursor *cursor);
 void	ft_tests_add2(t_env e, t_cursor *cursor);
+void	ft_tests_sub(t_env e, t_cursor *cursor);
+void	ft_tests_sub2(t_env e, t_cursor *cursor);
 
 #endif
