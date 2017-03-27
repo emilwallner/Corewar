@@ -6,17 +6,17 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 09:49:37 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/27 19:31:50 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/27 20:55:32 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../srcs/vm.h"
 
-#define RRR 0x54
+// #define RRR 0x54
 #define RRD 0x58
-#define RDR 0x64
+// #define RDR 0x64
 #define RDD 0x68
-#define RIR 0x74
+// #define RIR 0x74
 #define RID 0x78
 
 static int	rrd_rdr_rir(t_env *e, t_cursor *cursor, int acb)
@@ -49,7 +49,8 @@ static int	rdd_rid(t_env *e, t_cursor *cursor, int acb)
 
 	if (RDD == ZMASK(acb))
 	{
-		r2 = get_dir(e, cursor, 2, 2) + get_dir(e, cursor, 4, 2);
+		r2 = get_dir(e, cursor, 3, 2) + get_dir(e, cursor, 5, 2);
+		// printf("RDD D= %x D= %x D+D = %i  %x\n", get_dir(e, cursor, 3, 2), get_dir(e, cursor, 5, 2),r2, r2);
 	}
 	else
 	{
@@ -68,8 +69,8 @@ void	ft_sti(t_env *e, t_cursor *cursor)
 	int		i;
 	int		r2;
 
-	acb = e->a[cursor->index + 1].hex;
-	r = cursor->reg[e->a[cursor->index + 2].hex];
+	acb = e->a[MODA(cursor->index + 1)].hex;
+	r = cursor->reg[e->a[MODA(cursor->index + 2)].hex];
 	if (RRR == ZMASK(acb))
 	{
 			r2 = get_reg(e, cursor, 3) + get_reg(e, cursor, 4);
