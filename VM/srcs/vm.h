@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vm.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/27 20:15:40 by nsabbah          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
->>>>>>> f807277599bb14509ca000c4835c47ecc19ea4aa
+/*   Created: 2017/03/27 20:22:29 by nsabbah           #+#    #+#             */
+/*   Updated: 2017/03/27 20:24:03 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,5 +160,15 @@ void	ft_tests_and4(t_env e, t_cursor *cursor);
 void	ft_tests_and5(t_env e, t_cursor *cursor);
 void	ft_tests_and6(t_env e, t_cursor *cursor);
 void	ft_tests_and7(t_env e, t_cursor *cursor);
+void	ft_tests_and8(t_env e, t_cursor *cursor);
 void	ft_debug_sti(t_env e, t_cursor *cursor);
+void	ft_tests_or(t_env e, t_cursor *cursor);
+void	ft_tests_or1(t_env e, t_cursor *cursor);
+void	ft_tests_or2(t_env e, t_cursor *cursor);
+void	ft_tests_or3(t_env e, t_cursor *cursor);
+void	ft_tests_or4(t_env e, t_cursor *cursor);
+void	ft_tests_or5(t_env e, t_cursor *cursor);
+void	ft_tests_or6(t_env e, t_cursor *cursor);
+void	ft_tests_or7(t_env e, t_cursor *cursor);
+void	ft_tests_or8(t_env e, t_cursor *cursor);
 #endif
