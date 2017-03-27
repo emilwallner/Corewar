@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 16:36:36 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 17:25:51 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 19:24:36 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ int get_dir(t_env *e, t_cursor *cursor, int i, int bytes)
 	else if (bytes == 4)
 		r = (ZMASK(e->a[cursor->index + i].hex) << 24) |
 				(ZMASK(e->a[cursor->index + i + 1].hex) << 16) |
-					(ZMASK(e->a[cursor->index + i + 1].hex) << 8) |
-						ZMASK(e->a[cursor->index + i + 1].hex);
+					(ZMASK(e->a[cursor->index + i + 2].hex) << 8) |
+						ZMASK(e->a[cursor->index + i + 3].hex);
+	printf(">DIR i %i r %i  value i %i i+1 %i\n", i, r, ZMASK(e->a[cursor->index + 5].hex), ZMASK(e->a[cursor->index + 6].hex));
 	return (r);
 }
 
@@ -42,14 +43,16 @@ int get_ind(t_env *e, t_cursor *cursor, int i)
 
 	r = (ZMASK(e->a[cursor->index + i].hex) << 8) |
 	ZMASK(e->a[cursor->index + i + 1].hex);
-	return ((e->a[r].hex<< 24) | (e->a[r + 1].hex<< 16) |
-			(e->a[r + 2].hex<< 8) | e->a[r + 3].hex);
+	printf(">IND i %i r %i  value i %i i+1 %i\n", i, r, ZMASK(e->a[cursor->index + 3].hex), ZMASK(e->a[cursor->index + 4].hex));
+
+	return (ZMASK(e->a[r].hex<< 24) | ZMASK(e->a[r + 1].hex<< 16) |
+			ZMASK(e->a[r + 2].hex<< 8) | ZMASK(e->a[r + 3].hex));
 }
 
 int get_reg(t_env *e, t_cursor *cursor, int i)
 {
 	int r;
 
-	r = ZMASK(e->a[cursor->index + i + 1].hex);
+	r = ZMASK(e->a[cursor->index + i].hex);
 	return (cursor->reg[r]);
 }
