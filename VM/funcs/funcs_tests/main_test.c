@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/21 17:23:13 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 16:49:01 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 18:30:01 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	ft_debug(t_env e)
 {
 	t_cursor *cursor;
 
-	//cursor = (t_cursor*)malloc(sizeof(*cursor) * 10);
+	cursor = (t_cursor*)malloc(sizeof(*cursor) * 10);
+
 	printf(RED "\n###### FUNCTION TEST : ft_st.c ######\n\n" RESET);
 	ft_tests_st(e, &cursor[0]);
 	// ft_tests_st2(e, &cursor[1]);
@@ -51,4 +52,9 @@ void	ft_debug(t_env e)
 
 	ft_tests_sub(e, &cursor[0]);
 	ft_tests_sub2(e, &cursor[1]);
+
+	printf(RED "\n###### FUNCTION TEST : ft_and.c ######\n\n" RESET);
+
+	ft_tests_and(e, &cursor[0]);
+	// ft_tests_sub2(e, &cursor[1]);
 }
