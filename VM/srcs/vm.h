@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/24 17:34:43 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 16:31:09 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,13 +127,13 @@ void		ft_debug(t_env e);
 int			ft_cp_int(int int_start, t_env e);
 
 // Testing section
-void	ft_debug_ld(t_env e, t_cursor *cursor);
-void	ft_debug_ld2(t_env e, t_cursor *cursor);
-void	ft_debug_lld(t_env e, t_cursor *cursor);
-void	ft_debug_lld2(t_env e, t_cursor *cursor);
-void	ft_debug_ldi(t_env e, t_cursor *cursor);
-void	ft_debug_ldi2(t_env e, t_cursor *cursor);
-void	ft_debug_add(t_env e, t_cursor *cursor);
-void	ft_debug_add2(t_env e, t_cursor *cursor);
+void	ft_tests_ld(t_env e, t_cursor *cursor);
+void	ft_tests_ld2(t_env e, t_cursor *cursor);
+void	ft_tests_lld(t_env e, t_cursor *cursor);
+void	ft_tests_lld2(t_env e, t_cursor *cursor);
+void	ft_tests_ldi(t_env e, t_cursor *cursor);
+void	ft_tests_ldi2(t_env e, t_cursor *cursor);
+void	ft_tests_add(t_env e, t_cursor *cursor);
+void	ft_tests_add2(t_env e, t_cursor *cursor);
 
 #endif
