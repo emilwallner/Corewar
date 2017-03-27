@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/27 16:48:20 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 17:23:11 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define RESET   "\x1b[0m"
 # define MODA(x)	(x % MEM_SIZE)
 # define MODX(x)	(x % IDX_MOD)
+# define ZMASK(x)	(x & 0xFF)
 
 typedef struct s_arena
 {
@@ -126,6 +127,9 @@ int			ft_check_args(t_env e, t_cursor cursor);
 void		ft_debug(t_env e);
 int			ft_cp_int(int int_start, t_env e);
 int			ft_is_reg(int r1, int r2, int r3);
+int			get_dir(t_env *e, t_cursor *cursor, int i, int bytes);
+int			get_ind(t_env *e, t_cursor *cursor, int i);
+int			get_reg(t_env *e, t_cursor *cursor, int i);
 
 // Testing section
 void	ft_tests_ld(t_env e, t_cursor *cursor);
