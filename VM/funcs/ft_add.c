@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 16:14:50 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 16:39:06 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,6 @@
 **
 */
 
-int		ft_is_reg(int r1, int r2, int r3)
-{
-	if (r1 < 0 || r1 > REG_SIZE ||
-			r2 < 0 || r2 > REG_SIZE ||
-				r3 < 0 || r3 > REG_SIZE)
-		return (0);
-	return (1);
-}
 void	ft_add(t_env *e, t_cursor *cursor)
 {
 	int			value1;
