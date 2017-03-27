@@ -12,21 +12,6 @@
 
 #include "vm.h"
 
-t_player	*player;
-t_cursor	*head;
-t_arena		a[MEM_SIZE];
-int 		cycle;
-int			lives;
-int			check;
-int			winner;
-int 		last_alive;
-int			cycles_to_die;
-char		**strings;
-char		arena[MEM_SIZE];
-int			player_amount;
-char		**files;
-t_op		op_tab[17];
-
 void	ft_print_arena(t_env *e)
 {
 	int i;

@@ -26,7 +26,7 @@ void	ft_debug(t_env e)
 {
 	t_cursor *cursor;
 
-	cursor = (t_cursor*)malloc(sizeof(*cursor) * 10);
+	//cursor = (t_cursor*)malloc(sizeof(*cursor) * 10);
 <<<<<<< HEAD
 	printf(RED "\n###### FUNCTION TEST : ft_st.c ######\n\n" RESET);
 	ft_debug_st(e, &cursor[0]);

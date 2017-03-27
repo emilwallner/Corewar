@@ -63,7 +63,7 @@ typedef struct		s_cursor{
 
 typedef struct	s_env
 {
-	t_player	*player;
+	t_player	player[MAX_PLAYERS];
 	t_cursor	*head;
 	t_arena		a[MEM_SIZE];
 	int 		cursors;
@@ -74,7 +74,6 @@ typedef struct	s_env
 	char		winner;
 	int 		last_alive;
 	int			cycles_to_die;
-	char		**strings;
 	char		arena[MEM_SIZE];
 	int			player_amount;
 	char		**files;
@@ -117,7 +116,7 @@ t_cursor	*ft_create_cursor(int i, t_env *e);
 void		ft_init_cursor(t_env *e);
 void		init_e(t_env *e, int ac, char **av);
 void		ft_files_to_string(t_env *e);
-void		ft_exit(t_env *e);
+void		ft_exit(t_env *e, int i);
 void		ft_print_strings(t_env *e, int ac);
 void		ft_parsing(t_env *e, int ac);
 void		ft_print_arena(t_env *e);

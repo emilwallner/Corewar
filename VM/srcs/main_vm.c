@@ -22,6 +22,7 @@ int			main(int ac, char **av)
 	ft_init_cursor(&e);
 	ft_move_cursors(&e);
 	ft_declare_winner(&e);
+	ft_exit(&e, 0);
 	//ft_debug(e);
 	return(0);
 }

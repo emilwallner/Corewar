@@ -32,6 +32,7 @@ void ft_szero(t_env *e)
 	i = 0;
 	while(i < MEM_SIZE)
 	{
+		//e->a[i].hex = rand() % 256;
 		e->a[i].hex = 0;
 		e->a[i].color = 12;
 		e->a[i].prevcolor = 12;
@@ -51,7 +52,6 @@ void init_e(t_env *e, int ac, char **av)
 	e->cursors = e->player_amount;
 	e->head = NULL;
 	e->cycles_to_die = CYCLE_TO_DIE;
-	e->player = malloc(sizeof(t_player) * e->player_amount);
 	init_players(e);
 	ft_szero(e);
 	ft_files_to_string(e);

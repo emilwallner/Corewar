@@ -84,9 +84,9 @@ void		ft_init_cursor(t_env *e)
 	while (stack && stack->next)
 		stack = stack->next;
 	stack->next = ft_create_cursor(0, e);
-	stack = stack->next;
-	stack->counter = 1;
-	stack->next = e->head;
-	e->head->prev = stack;
+	stack->next->counter = 1;
+	stack->next->next = e->head;
+	stack->next->prev = stack;
+	e->head->prev = stack->next;
 	init_color_cursor(e);
 }
