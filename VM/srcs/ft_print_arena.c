@@ -49,6 +49,6 @@ void	ft_print_arena(t_env *e)
 	// printw("\nReg 2 : %d \n", e->head->reg[2]);
 	attroff(COLOR_PAIR(14));
 	refresh();
-	//getch();
+	getch();
 	//usleep(500000);
 }
