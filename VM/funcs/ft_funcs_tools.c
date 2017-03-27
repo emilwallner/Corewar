@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 16:36:36 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 18:41:13 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 19:01:52 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int get_dir(t_env *e, t_cursor *cursor, int i, int bytes)
 	else if (bytes == 4)
 		r = (ZMASK(e->a[cursor->index + i].hex) << 24) |
 				(ZMASK(e->a[cursor->index + i + 1].hex) << 16) |
-					(ZMASK(e->a[cursor->index + i + 1].hex) << 8) |
-						ZMASK(e->a[cursor->index + i + 1].hex);
+					(ZMASK(e->a[cursor->index + i + 2].hex) << 8) |
+						ZMASK(e->a[cursor->index + i + 3].hex);
 	return (r);
 }
 

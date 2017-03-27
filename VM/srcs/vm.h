@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/27 18:30:41 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 20:09:48 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,12 @@ void	ft_tests_add2(t_env e, t_cursor *cursor);
 void	ft_tests_sub(t_env e, t_cursor *cursor);
 void	ft_tests_sub2(t_env e, t_cursor *cursor);
 void	ft_tests_and(t_env e, t_cursor *cursor);
+void	ft_tests_and1(t_env e, t_cursor *cursor);
 void	ft_tests_and2(t_env e, t_cursor *cursor);
+void	ft_tests_and3(t_env e, t_cursor *cursor);
+void	ft_tests_and4(t_env e, t_cursor *cursor);
+void	ft_tests_and5(t_env e, t_cursor *cursor);
+void	ft_tests_and6(t_env e, t_cursor *cursor);
+void	ft_tests_and7(t_env e, t_cursor *cursor);
 
 #endif
