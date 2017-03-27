@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 09:49:37 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/27 19:24:16 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/27 19:31:50 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,17 @@ static int	rrd_rdr_rir(t_env *e, t_cursor *cursor, int acb)
 	if (RRD == ZMASK(acb))
 	{
 		r2 = get_reg(e, cursor, 3) + get_dir(e, cursor, 4, 2);
-		printf("RRD R= %i D= %i reg sum = %i  %x\n", get_reg(e, cursor, 3), get_dir(e, cursor, 4, 2),r2, r2);
+		// printf("RRD R= %i D= %i reg sum = %i  %x\n", get_reg(e, cursor, 3), get_dir(e, cursor, 4, 2),r2, r2);
 	}
 	else if (RDR == ZMASK(acb))
 	{
 		r2 = get_dir(e, cursor, 3, 2) + get_reg(e, cursor, 5);
-		printf("RDR R= %x D= %x R+D = %i  %x\n", get_reg(e, cursor, 5), get_dir(e, cursor, 3, 2),r2, r2);
+		// printf("RDR R= %x D= %x R+D = %i  %x\n", get_reg(e, cursor, 5), get_dir(e, cursor, 3, 2),r2, r2);
 	}
 	else
 	{
 		r2 = get_ind(e, cursor, 3) + get_reg(e, cursor, 5);
-		printf("RIR R= %x I= %x R+I = %i  %x\n", get_reg(e, cursor, 5), get_ind(e, cursor, 3),r2, r2);
+		// printf("RIR R= %x I= %x R+I = %i  %x\n", get_reg(e, cursor, 5), get_ind(e, cursor, 3),r2, r2);
 	}
 	ft_update_cursor(e, cursor, 5);
 	r2 = MODX(r2);
@@ -54,7 +54,7 @@ static int	rdd_rid(t_env *e, t_cursor *cursor, int acb)
 	else
 	{
 		r2 = get_ind(e, cursor, 3) + get_dir(e, cursor, 5, 2);
-		printf("RID D= %x I= %x D+I = %i  %x\n", get_dir(e, cursor, 5, 2), get_ind(e, cursor, 3),r2, r2);
+		// printf("RID D= %x I= %x D+I = %i  %x\n", get_dir(e, cursor, 5, 2), get_ind(e, cursor, 3),r2, r2);
 	}
 	ft_update_cursor(e, cursor, 6);
 	r2 = MODX(r2);
@@ -73,7 +73,7 @@ void	ft_sti(t_env *e, t_cursor *cursor)
 	if (RRR == ZMASK(acb))
 	{
 			r2 = get_reg(e, cursor, 3) + get_reg(e, cursor, 4);
-			printf("RRR reg sum = %i  %x\n", r2, r2);
+			// printf("RRR reg sum = %i  %x\n", r2, r2);
 			ft_update_cursor(e, cursor, 4);
 	}
 	else if (RRD == ZMASK(acb) || RDR == ZMASK(acb) || RIR == ZMASK(acb))
