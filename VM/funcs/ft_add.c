@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 16:42:33 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 16:43:39 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 /*
 ** Instructions: Opcode 4. Take three registries, add the first two, and place
 ** the result in the third, right before modifying the carry.
-**
 */
 
 void	ft_add(t_env *e, t_cursor *cursor)
