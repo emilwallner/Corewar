@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/27 16:31:09 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/27 16:37:47 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ void		set_op_tab(t_env *e);
 int			ft_check_args(t_env e, t_cursor cursor);
 void		ft_debug(t_env e);
 int			ft_cp_int(int int_start, t_env e);
+int			ft_is_reg(int r1, int r2, int r3);
 
 // Testing section
 void	ft_tests_ld(t_env e, t_cursor *cursor);
