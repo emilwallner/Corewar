@@ -6,17 +6,17 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 09:49:37 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/27 19:31:50 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/27 20:23:47 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../srcs/vm.h"
 
-#define RRR 0x54
+// #define RRR 0x54
 #define RRD 0x58
-#define RDR 0x64
+// #define RDR 0x64
 #define RDD 0x68
-#define RIR 0x74
+// #define RIR 0x74
 #define RID 0x78
 
 static int	rrd_rdr_rir(t_env *e, t_cursor *cursor, int acb)
