@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 13:56:56 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 13:56:58 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/28 14:08:47 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,4 +190,13 @@ void	ft_tests_or5(t_env e, t_cursor *cursor);
 void	ft_tests_or6(t_env e, t_cursor *cursor);
 void	ft_tests_or7(t_env e, t_cursor *cursor);
 void	ft_tests_or8(t_env e, t_cursor *cursor);
+void	ft_tests_xor(t_env e, t_cursor *cursor);
+void	ft_tests_xor1(t_env e, t_cursor *cursor);
+void	ft_tests_xor2(t_env e, t_cursor *cursor);
+void	ft_tests_xor3(t_env e, t_cursor *cursor);
+void	ft_tests_xor4(t_env e, t_cursor *cursor);
+void	ft_tests_xor5(t_env e, t_cursor *cursor);
+void	ft_tests_xor6(t_env e, t_cursor *cursor);
+void	ft_tests_xor7(t_env e, t_cursor *cursor);
+void	ft_tests_xor8(t_env e, t_cursor *cursor);
 #endif
