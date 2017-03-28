@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/28 10:52:17 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 13:51:20 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,15 @@
 # define DRR 0b10010100
 # define DIR 0b10110100
 # define DDR 0b10100100
+
+typedef struct s_var
+{
+	int			r1;
+	int			r2;
+	int			r3;
+	int			ind;
+	char		acb;
+}				t_var;
 
 typedef struct s_arena
 {
