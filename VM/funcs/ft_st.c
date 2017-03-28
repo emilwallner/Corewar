@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:02:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/28 17:28:51 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 17:58:06 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,19 @@ void	ft_st(t_env *e, t_cursor *cursor)
 	else if (RI == ZMASK(acb))
 	{
 	//	printf("RI\n");
-		p2 = (get_short(e, cursor, 3)) & 0xffff;
+		p2 = (get_short(e, cursor, cursor->index + 3) & 0xffff);
+		printf("p2 vaut %i\n", p2);
+		printf("p2 vaut %x\n", p2);
 		// printf("p2 %i - %#x \n", p2, p2);
 		p2 = p2 < 0 && p2 > -IDX_MOD ? p2 : MODX(p2);
 		// printf("p2 %i - %#x \n", p2, p2);
-		int byte = MODA(get_bytes(e, cursor, p2));
+		int byte = MODA(get_bytes(e, cursor, MODX(p2)));
 		// byte = byte < 0 ? byte + MEM_SIZE : byte;
 		// printf("byte %i\n", byte);
 		i = -1;
 		while (++i < 4)
 		{
-			v = cursor->index + byte + i;
+			v = cursor->index + p2 + i;
 			// v = (cursor->index + byte + i < 0) ? cursor->index + byte + i + MEM_SIZE : cursor->index + byte + i;
 			// printf("cursor->index %i v %i\n", cursor->index, v);
 			e->a[MODA((v))].hex = (cursor->reg[p1 - 1] >> (8 * (3 - i))) & 0xff;
