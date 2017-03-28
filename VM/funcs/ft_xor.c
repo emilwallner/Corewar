@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 14:08:06 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/28 15:05:14 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	ft_xor_4(t_env *e, t_cursor *cursor, t_var v)
 		if (ft_is_reg(v.r1, v.r1, v.r1) && (cursor->carry = 1))
 			cursor->reg[v.r1 - 1] = get_dir(e, cursor, 2, 4) ^
 				get_ind(e, cursor, 6);
-		cursor->index += 9;
+		ft_update_cursor(e, cursor, 9);
 	}
 	else if (ZMASK(v.acb) == IIR)
 	{
@@ -33,7 +33,7 @@ static void	ft_xor_4(t_env *e, t_cursor *cursor, t_var v)
 		if (ft_is_reg(v.r1, v.r1, v.r1) && (cursor->carry = 1))
 			cursor->reg[v.r1 - 1] = get_ind(e, cursor, 2) ^
 				get_ind(e, cursor, 4);
-		cursor->index += 7;
+		ft_update_cursor(e, cursor, 7);
 	}
 	else if (ZMASK(v.acb) == IDR)
 	{
@@ -41,7 +41,7 @@ static void	ft_xor_4(t_env *e, t_cursor *cursor, t_var v)
 		if (ft_is_reg(v.r1, v.r1, v.r1) && (cursor->carry = 1))
 			cursor->reg[v.r1 - 1] = get_ind(e, cursor, 2) ^
 				get_dir(e, cursor, 4, 4);
-		cursor->index += 9;
+		ft_update_cursor(e, cursor, 9);
 	}
 }
 
@@ -54,7 +54,7 @@ static void	ft_xor_3(t_env *e, t_cursor *cursor, t_var v)
 		if (ft_is_reg(v.r1, v.r2, v.r2) && (cursor->carry = 1))
 			cursor->reg[v.r2 - 1] = cursor->reg[v.r1 - 1] ^
 				get_dir(e, cursor, 2, 4);
-		cursor->index += 8;
+		ft_update_cursor(e, cursor, 8);
 	}
 	else if (ZMASK(v.acb) == DDR)
 	{
@@ -62,7 +62,7 @@ static void	ft_xor_3(t_env *e, t_cursor *cursor, t_var v)
 		if (ft_is_reg(v.r1, v.r1, v.r1) && (cursor->carry = 1))
 			cursor->reg[v.r1 - 1] = get_dir(e, cursor, 2, 4) ^
 				get_dir(e, cursor, 6, 4);
-		cursor->index += 11;
+		ft_update_cursor(e, cursor, 11);
 	}
 	else
 		ft_xor_4(e, cursor, v);
@@ -77,7 +77,7 @@ static void	ft_xor_2(t_env *e, t_cursor *cursor, t_var v)
 		if (ft_is_reg(v.r1, v.r2, v.r2) && (cursor->carry = 1))
 			cursor->reg[v.r2 - 1] = cursor->reg[v.r1 - 1] ^
 				get_ind(e, cursor, 3);
-		cursor->index += 6;
+		ft_update_cursor(e, cursor, 6);
 	}
 	else if (ZMASK(v.acb) == IRR)
 	{
@@ -86,7 +86,7 @@ static void	ft_xor_2(t_env *e, t_cursor *cursor, t_var v)
 		if (ft_is_reg(v.r1, v.r2, v.r2) && (cursor->carry = 1))
 			cursor->reg[v.r2 - 1] = cursor->reg[v.r1 - 1] ^
 				get_ind(e, cursor, 2);
-		cursor->index += 6;
+		ft_update_cursor(e, cursor, 6);
 	}
 	else
 		ft_xor_3(e, cursor, v);
@@ -105,7 +105,7 @@ void		ft_xor(t_env *e, t_cursor *cursor)
 		if (ft_is_reg(v.r1, v.r2, v.r3) && (cursor->carry = 1))
 			cursor->reg[v.r3 - 1] = cursor->reg[v.r1 - 1] ^
 				cursor->reg[v.r2 - 1];
-		cursor->index += 5;
+		ft_update_cursor(e, cursor, 5);
 	}
 	else if (ZMASK(v.acb) == RDR)
 	{
@@ -114,7 +114,7 @@ void		ft_xor(t_env *e, t_cursor *cursor)
 		if (ft_is_reg(v.r1, v.r2, v.r2) && (cursor->carry = 1))
 			cursor->reg[v.r2 - 1] = cursor->reg[v.r1 - 1] ^
 				get_dir(e, cursor, 3, 4);
-		cursor->index += 8;
+		ft_update_cursor(e, cursor, 8);
 	}
 	else
 		ft_xor_2(e, cursor, v);
