@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:02:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/28 17:58:06 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 20:58:22 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	ft_st(t_env *e, t_cursor *cursor)
 	{
 	//	printf("RI\n");
 		p2 = (get_short(e, cursor, cursor->index + 3) & 0xffff);
-		printf("p2 vaut %i\n", p2);
-		printf("p2 vaut %x\n", p2);
+		// printf("p2 vaut %i\n", p2);
+		// printf("p2 vaut %x\n", p2);
 		// printf("p2 %i - %#x \n", p2, p2);
 		p2 = p2 < 0 && p2 > -IDX_MOD ? p2 : MODX(p2);
 		// printf("p2 %i - %#x \n", p2, p2);

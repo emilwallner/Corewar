@@ -1,8 +1,11 @@
 .name "test_ldi_instruction"
 .comment "test_registeries"
 
-ldi r2,%10,r3
-ldi r2,%:label,r3
+st r1,-20
+ld -25,r3
+st r3,-20
+ldi r1,r1,r3
+st r3,-26
 ldi %6,%10,r3
 ldi %6,%:label2,r3
 ldi %:label,%10,r3
