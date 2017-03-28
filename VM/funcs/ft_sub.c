@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 17:05:37 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/28 15:25:44 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void	ft_sub(t_env *e, t_cursor *cursor)
 	r3 = e->a[MODA(opc_ind + 4)].hex;
 	if (!ft_is_reg(r1, r2, r3))
 	{
-		cursor->index += 5;
+		ft_update_cursor(e, cursor, 5);
 		return ;
 	}
 	cursor->reg[r3] = cursor->reg[r1] - cursor->reg[r2];
-	cursor->index += 5;
+	ft_update_cursor(e, cursor, 5);
 	cursor->carry = 1;
 }
