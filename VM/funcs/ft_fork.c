@@ -53,10 +53,6 @@ void	ft_fork_both(t_env *e, t_cursor *cursor, int lfork)
 	fork_cursor = NULL;
 	index_extra = get_dir(e, cursor, 1, 2);
 	fork_cursor = ft_clone_cursor(cursor, fork_cursor);
-	if(lfork)
-		ft_update_cursor(e, fork_cursor, MODA(index_extra));
-	else
-		ft_update_cursor(e, fork_cursor, MODX(index_extra));
 	head_temp = e->head->prev;
 	temp = head_temp->prev;
 	head_temp->prev = fork_cursor;
@@ -65,6 +61,10 @@ void	ft_fork_both(t_env *e, t_cursor *cursor, int lfork)
 	fork_cursor->next = head_temp;
 	e->cursors += 1;
 	ft_update_cursor(e, cursor, 3);
+	if(lfork)
+		ft_update_cursor(e, fork_cursor, MODA(index_extra));
+	else
+		ft_update_cursor(e, fork_cursor, MODX(index_extra));
 }
 
 void	ft_fork(t_env *e, t_cursor *cursor)
