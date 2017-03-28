@@ -32,10 +32,10 @@ void ft_szero(t_env *e)
 	i = 0;
 	while(i < MEM_SIZE)
 	{
-		//e->a[i].hex = rand() % 256;
 		e->a[i].hex = 0;
 		e->a[i].color = 12;
 		e->a[i].prevcolor = 12;
+		e->a[i].occupied = 0;
 		i++;
 	}
 }

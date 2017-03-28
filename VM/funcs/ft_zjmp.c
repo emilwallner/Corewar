@@ -19,7 +19,10 @@ void	ft_zjmp(t_env *e, t_cursor *cursor)
 	if(cursor->carry)
 	{
 		index_extra = e->a[cursor->index + 1].hex;
-		ft_update_cursor(e, cursor, MODX(index_extra));
+		index_extra = MODX(index_extra);
+		if(index_extra == 0)
+			index_extra++;
+		ft_update_cursor(e, cursor, index_extra);
 	}
 	else
 		ft_update_cursor(e, cursor, 1);

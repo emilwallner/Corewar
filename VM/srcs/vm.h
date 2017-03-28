@@ -44,6 +44,7 @@ typedef struct s_arena
 	char 	hex;
 	int		color;
 	int 	prevcolor;
+	int 	occupied;
 }				t_arena;
 
 typedef struct	s_player
