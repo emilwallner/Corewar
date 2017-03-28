@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/28 10:52:17 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 11:36:34 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ int			get_ind(t_env *e, t_cursor *cursor, int i);
 int			get_reg(t_env *e, t_cursor *cursor, int i);
 int			get_bytes(t_env *e, t_cursor *cursor, int r);
 int			is_reg_valid(int i);
+int			check_register_ldi(t_env *e, t_cursor *cursor, char acb);
 
 
 // Testing section
