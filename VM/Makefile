@@ -45,7 +45,6 @@ SRCS	=		main_vm.c \
 				ft_zjmp.c \
 				ft_aff.c \
 				ft_lld.c \
-				ft_ldi.c \
 				ft_lldi.c \
 				ft_ld.c	\
 				ft_st.c	\
@@ -61,6 +60,7 @@ SRCS	=		main_vm.c \
 				tests_ft_st.c \
 				tests_ft_sti.c \
 				ft_funcs_tools.c \
+				ft_ldi.c \
 
 GREEN		= \033[32m
 RED			= \033[31m

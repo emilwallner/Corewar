@@ -35,7 +35,10 @@ void ft_adjust_cycle_macro(t_env *e, t_cursor *cursor, int *end)
 	if(e->cycle == e->cycles_to_die)
 		ft_new_cycle(e, end);
 	else
+	{
 		e->cycle += 1;
+		e->tot_cycle += 1;
+	}
 	cursor = cursor->next;
 	ft_print_arena(e);
 }

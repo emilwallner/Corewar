@@ -23,8 +23,11 @@ int		ft_is_reg(int r1, int r2, int r3)
 
 int get_bytes(t_env *e, t_cursor *cursor, int r)
 {
-	return (ZMASK(e->a[MODA(r)].hex << 24) | ZMASK(e->a[MODA(r + 1)].hex << 16)
-	| ZMASK(e->a[MODA(r + 2)].hex << 8) | ZMASK(e->a[MODA(r + 3)].hex));
+	unsigned int    ret;
+
+    ret = ZMASK(e->a[MODA(r)].hex << 24) | ZMASK(e->a[MODA(r + 1)].hex << 16)
+    | ZMASK(e->a[MODA(r + 2)].hex << 8) | ZMASK(e->a[MODA(r + 3)].hex);
+    return ((int)ret);
 }
 
 int get_dir(t_env *e, t_cursor *cursor, int i, int bytes)
