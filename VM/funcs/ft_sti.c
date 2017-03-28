@@ -38,7 +38,7 @@ static int	rrd_rdr_rir(t_env *e, t_cursor *cursor, int acb, int *ind)
 		r2 = get_ind(e, cursor, 3) + get_reg(e, cursor, 5);
 		// printf("RIR R= %x I= %x R+I = %i  %x\n", get_reg(e, cursor, 5), get_ind(e, cursor, 3),r2, r2);
 	}
-	*ind = 5;
+	*ind = 6;
 	return (r2);
 }
 
@@ -56,7 +56,7 @@ static int	rdd_rid(t_env *e, t_cursor *cursor, int acb, int *ind)
 		r2 = get_ind(e, cursor, 3) + get_dir(e, cursor, 5, 2);
 		// printf("RID D= %x I= %x D+I = %i  %x\n", get_dir(e, cursor, 5, 2), get_ind(e, cursor, 3),r2, r2);
 	}
-	*ind = 6;
+	*ind = 7;
 	return (r2);
 }
 
@@ -85,7 +85,7 @@ void	ft_sti(t_env *e, t_cursor *cursor)
 {
 	char	acb;
 	int		r;
-	int		i;
+	int		i; 
 	int		r2;
 	int		ind;
 
@@ -95,7 +95,7 @@ void	ft_sti(t_env *e, t_cursor *cursor)
 	if (RRR == ZMASK(acb))
 	{
 			r2 = get_reg(e, cursor, 3) + get_reg(e, cursor, 4);
-			ind = 4;
+			ind = 5;
 			// printf("RRR reg sum = %i  %x\n", r2, r2);
 	}
 	else if (RRD == ZMASK(acb) || RDR == ZMASK(acb) || RIR == ZMASK(acb))
