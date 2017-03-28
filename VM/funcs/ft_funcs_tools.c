@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 20:16:15 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 20:16:30 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/28 09:39:48 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,24 @@ int		ft_is_reg(int r1, int r2, int r3)
 	return (1);
 }
 
+int get_bytes(t_env *e, t_cursor *cursor, int r)
+{
+	return (ZMASK(e->a[MODA(r)].hex << 24) | ZMASK(e->a[MODA(r + 1)].hex << 16)
+	| ZMASK(e->a[MODA(r + 2)].hex << 8) | ZMASK(e->a[MODA(r + 3)].hex));
+}
+
 int get_dir(t_env *e, t_cursor *cursor, int i, int bytes)
 {
 	int r;
 
 	if (bytes == 2)
-		r = (ZMASK(e->a[cursor->index + i].hex) << 8) |
-				ZMASK(e->a[cursor->index + i + 1].hex);
+		r = (ZMASK(e->a[MODA(cursor->index + i)].hex) << 8) |
+				ZMASK(e->a[MODA(cursor->index + i + 1)].hex);
 	else if (bytes == 4)
-		r = (ZMASK(e->a[cursor->index + i].hex) << 24) |
-				(ZMASK(e->a[cursor->index + i + 1].hex) << 16) |
-					(ZMASK(e->a[cursor->index + i + 2].hex) << 8) |
-						ZMASK(e->a[cursor->index + i + 3].hex);
+		r = (ZMASK(e->a[MODA(cursor->index + i)].hex) << 24) |
+				(ZMASK(e->a[MODA(cursor->index + i + 1)].hex) << 16) |
+					(ZMASK(e->a[MODA(cursor->index + i + 2)].hex) << 8) |
+						ZMASK(e->a[MODA(cursor->index + i + 3)].hex);
 
 	return (r);
 }
@@ -41,16 +47,15 @@ int get_ind(t_env *e, t_cursor *cursor, int i)
 {
 	int r;
 
-	r = (ZMASK(e->a[cursor->index + i].hex) << 8) |
-	ZMASK(e->a[cursor->index + i + 1].hex);
-	return (ZMASK(e->a[r].hex<< 24) | ZMASK(e->a[r + 1].hex<< 16) |
-			ZMASK(e->a[r + 2].hex<< 8) | ZMASK(e->a[r + 3].hex));
+	r = (ZMASK(e->a[MODA(cursor->index + i)].hex) << 8) |
+	ZMASK(e->a[MODA(cursor->index + i + 1)].hex);
+	return (get_bytes(e, cursor, r));
 }
 
 int get_reg(t_env *e, t_cursor *cursor, int i)
 {
 	int r;
 
-	r = ZMASK(e->a[cursor->index + i].hex);
+	r = ZMASK(e->a[MODA(cursor->index + i)].hex);
 	return (cursor->reg[r]);
 }

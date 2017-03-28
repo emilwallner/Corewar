@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 09:49:37 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/27 21:35:51 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 09:30:29 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 // #define RIR 0x74
 #define RID 0x78
 
-static int	rrd_rdr_rir(t_env *e, t_cursor *cursor, int acb)
+static int	rrd_rdr_rir(t_env *e, t_cursor *cursor, int acb, int *ind)
 {
 	int	r2;
 
@@ -39,11 +39,11 @@ static int	rrd_rdr_rir(t_env *e, t_cursor *cursor, int acb)
 		// printf("RIR R= %x I= %x R+I = %i  %x\n", get_reg(e, cursor, 5), get_ind(e, cursor, 3),r2, r2);
 	}
 	ft_update_cursor(e, cursor, 5);
-	r2 = MODX(r2);
+	*ind = 5;
 	return (r2);
 }
 
-static int	rdd_rid(t_env *e, t_cursor *cursor, int acb)
+static int	rdd_rid(t_env *e, t_cursor *cursor, int acb, int *ind)
 {
 	int	r2;
 
@@ -58,7 +58,7 @@ static int	rdd_rid(t_env *e, t_cursor *cursor, int acb)
 		// printf("RID D= %x I= %x D+I = %i  %x\n", get_dir(e, cursor, 5, 2), get_ind(e, cursor, 3),r2, r2);
 	}
 	ft_update_cursor(e, cursor, 6);
-	r2 = MODX(r2);
+	*ind = 6;
 	return (r2);
 }
 
@@ -68,7 +68,9 @@ void	ft_sti(t_env *e, t_cursor *cursor)
 	int		r;
 	int		i;
 	int		r2;
+	int		ind;
 
+	ind = 4;
 	acb = e->a[MODA(cursor->index + 1)].hex;
 	r = cursor->reg[e->a[MODA(cursor->index + 2)].hex];
 	if (RRR == ZMASK(acb))
@@ -78,15 +80,16 @@ void	ft_sti(t_env *e, t_cursor *cursor)
 			ft_update_cursor(e, cursor, 4);
 	}
 	else if (RRD == ZMASK(acb) || RDR == ZMASK(acb) || RIR == ZMASK(acb))
-		r2 = rrd_rdr_rir(e, cursor, acb);
+		r2 = rrd_rdr_rir(e, cursor, acb, &ind);
 	else if (RDD == ZMASK(acb) || RID == ZMASK(acb))
-		r2 = rdd_rid(e, cursor, acb);
+		r2 = rdd_rid(e, cursor, acb, &ind);
 	else
 	{
 		ft_update_cursor(e, cursor, 1);
 		return ;
 	}
+	r2 = MODX(r2);
 	i = -1;
 	while (++i < 4)
-		e->a[MODA((cursor->index + r2 + i))].hex = r >> (8 * (3 - i));
+		e->a[MODA((cursor->index - ind + r2 + i))].hex = r >> (8 * (3 - i));
 }
