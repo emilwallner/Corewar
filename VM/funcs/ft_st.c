@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:02:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/28 12:05:39 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 12:38:35 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ void	ft_st(t_env *e, t_cursor *cursor)
 	else if (RI == ZMASK(acb))
 	{
 	//	printf("RI\n");
-		p2 = get_bytes(e, cursor, ZMASK(e->a[cursor->index + 3].hex));
-	//	printf("p2 AV mod %i\n", p2);
+
+		p2 = get_bytes(e, cursor, 4);
 		p2 = p2 < 0 ? MODX(p2) - IDX_MOD : MODX(p2);
 //		printf("p2 AP mod %i\n", p2);
 		i = -1;
