@@ -85,7 +85,7 @@ void	ft_sti(t_env *e, t_cursor *cursor)
 {
 	char	acb;
 	int		r;
-	int		i; 
+	int		i;
 	int		r2;
 	int		ind;
 
@@ -105,6 +105,11 @@ void	ft_sti(t_env *e, t_cursor *cursor)
 	r2 = MODX(r2);
 	i = -1;
 	while (++i < 4 && check_register(e, cursor, acb))
+	{
 		e->a[MODA((cursor->index + r2 + i))].hex = r >> (8 * (3 - i));
+		e->a[MODA((cursor->index + r2 + i))].color = cursor->color - 6;
+		e->a[MODA((cursor->index + r2 + i))].prevcolor = cursor->color - 6;
+		e->a[MODA((cursor->index + r2 + i))].new_color_count = 50;
+	}
 	ft_update_cursor(e, cursor, ind);
 }
