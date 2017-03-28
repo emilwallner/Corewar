@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:02:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/28 16:38:58 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 17:11:43 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ void	ft_st(t_env *e, t_cursor *cursor)
 		i = -1;
 		while (++i < 4)
 		{
-			v = cursor->index + byte + i;
+			v = (cursor->index + byte + i < 0) ? cursor->index + byte + i + MEM_SIZE : cursor->index + byte + i;
+			// printf("cursor->index %i v %i\n", cursor->index, v);
 			e->a[MODA((v))].hex = (cursor->reg[p1 - 1] >> (8 * (3 - i))) & 0xff;
 			e->a[MODA((v))].color = cursor->color - 6;
 			e->a[MODA((v))].prevcolor = cursor->color - 6;

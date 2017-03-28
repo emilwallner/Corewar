@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 18:04:53 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 14:16:58 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 16:53:27 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_print_arena(t_env *e)
 	int i;
 	i = 0;
 
-	if(e->tot_cycle > 1103)
+	if(e->tot_cycle > 0)
 		getch();
 	erase();
 	while(i < MEM_SIZE)
