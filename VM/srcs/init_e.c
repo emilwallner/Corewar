@@ -36,6 +36,8 @@ void ft_szero(t_env *e)
 		e->a[i].color = 12;
 		e->a[i].prevcolor = 12;
 		e->a[i].occupied = 0;
+		e->a[i].new_color_count = 0;
+		e->a[i].light_color = 12;
 		i++;
 	}
 }

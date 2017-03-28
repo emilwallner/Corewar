@@ -55,6 +55,7 @@ typedef struct s_arena
 	int		color;
 	int 	prevcolor;
 	int 	occupied;
+	int 	new_color_count;
 }				t_arena;
 
 typedef struct	s_player
