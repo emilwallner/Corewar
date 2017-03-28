@@ -30,8 +30,15 @@ void ft_init_ncurses(void)
 	init_pair(9, COLOR_BLACK, COLOR_CYAN);
 	init_pair(10, COLOR_BLACK, COLOR_RED);
 	init_pair(11, COLOR_BLACK, COLOR_GREEN);
+	// init_color(COLOR_WHITE, 220, 220, 220);
+	// init_color(COLOR_WHITE, 220, 220, 220);
+	// init_color(COLOR_WHITE, 220, 220, 220);
+	// init_color(COLOR_WHITE, 220, 220, 220);
+	// init_color(COLOR_WHITE, 220, 220, 220);
+	// init_color(COLOR_WHITE, 220, 220, 220);
 	init_pair(12, COLOR_WHITE, COLOR_BLACK);
 	init_pair(13, COLOR_BLACK, COLOR_GREEN);
 	init_pair(14, COLOR_GREEN, COLOR_BLACK);
+
 	curs_set(FALSE);
 }
