@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 15:31:16 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/27 20:50:29 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 10:41:44 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,21 @@ void	ft_debug_sti(t_env e, t_cursor *cursor)
 	// e.a[4].hex = 0x0a;
 	// e.a[5].hex = 0x02;
 	// test RID
+	e.a[0].hex = 0x0b;
+	e.a[1].hex = 0x78;
+	e.a[2].hex = 0x01;
+	e.a[3].hex = 0x00;
+	e.a[4].hex = 0x0a;
+	e.a[5].hex = 0x00;
+	e.a[6].hex = 0x0a;
+	// test RDD
 	// e.a[0].hex = 0x0b;
-	// e.a[1].hex = 0x78;
+	// e.a[1].hex = 0b01101000;
 	// e.a[2].hex = 0x01;
 	// e.a[3].hex = 0x00;
 	// e.a[4].hex = 0x00;
 	// e.a[5].hex = 0x00;
 	// e.a[6].hex = 0x0a;
-	// test RDD
-	e.a[0].hex = 0x0b;
-	e.a[1].hex = 0x68;
-	e.a[2].hex = 0x01;
-	e.a[3].hex = 0x00;
-	e.a[4].hex = 0x00;
-	e.a[5].hex = 0x00;
-	e.a[6].hex = 0x0a;
 	e.a[7].hex = 0x0a;
 	e.a[8].hex = 0x02;
 	e.a[9].hex = 0x01;
@@ -81,7 +81,7 @@ void	ft_debug_sti(t_env e, t_cursor *cursor)
 
 	printf("reg[1] %x\n", cursor->reg[1]);
 	printf("reg[2] %i\n", cursor->reg[2]);
-	printf("e.a[4].hex %x\ne.a[5].hex %x\n", ZMASK(e.a[3].hex), ZMASK(e.a[4].hex));
+	// printf("e.a[4].hex %x\ne.a[5].hex %x\n", ZMASK(e.a[3].hex), ZMASK(e.a[4].hex));
 
 	// printf("carry is %i\n", cursor->carry);
 	// printf("index is %i\n", cursor->index);
@@ -90,7 +90,7 @@ void	ft_debug_sti(t_env e, t_cursor *cursor)
 	i = 0;
 	while (i < 4)
 	{
-		printf("e.a[10 + i] %x \n", e.a[cursor->index + 10 + i].hex);
+		printf("e.a[10 + i] %x \n", e.a[cursor->index + 9 + i].hex);
 		i++;
 	}
 	// printf("\n\nAFTER FUNCTION CALL\n\n");

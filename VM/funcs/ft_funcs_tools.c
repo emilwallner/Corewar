@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 20:16:15 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 09:39:48 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 10:11:12 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		ft_is_reg(int r1, int r2, int r3)
 {
-	if (r1 < 0 || r1 > REG_SIZE ||
-			r2 < 0 || r2 > REG_SIZE ||
-				r3 < 0 || r3 > REG_SIZE)
+	if (r1 < 0 || r1 > REG_NUMBER ||
+			r2 < 0 || r2 > REG_NUMBER ||
+				r3 < 0 || r3 > REG_NUMBER)
 		return (0);
 	return (1);
 }
@@ -57,5 +57,7 @@ int get_reg(t_env *e, t_cursor *cursor, int i)
 	int r;
 
 	r = ZMASK(e->a[MODA(cursor->index + i)].hex);
-	return (cursor->reg[r]);
+	if (r > 0 && r < REG_NUMBER)
+		return (cursor->reg[r]);
+	return (0);
 }

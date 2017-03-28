@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 09:38:16 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 10:49:25 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,25 @@ static int	ddr_idr(t_env *e, t_cursor *cursor, int acb)
 	}
 	ft_update_cursor(e, cursor, 6);
 	return (r2);
+}
+
+int is_reg_valid(int i);
+
+static int check_register(t_env *e, t_cursor *cursor, char acb)
+{
+	if (RRR == ZMASK(acb) && (!is_reg_valid(e->a[MODA(cursor->index + 2)].hex ||
+	!is_reg_valid(e->a[MODA(cursor->index + 3)].hex)) ||
+	!is_reg_valid(e->a[MODA(cursor->index + 4)].hex)))
+		return (0);
+	else if (RDR == ZMASK(acb) &&
+	(!is_reg_valid(e->a[MODA(cursor->index + 2)].hex) ||
+	!is_reg_valid(e->a[MODA(cursor->index + 5)].hex)))
+		return (0);
+	else if ((DRR == ZMASK(acb) || IRR == ZMASK(acb)) &&
+	(!is_reg_valid(e->a[MODA(cursor->index + 4)].hex) ||
+	!is_reg_valid(e->a[MODA(cursor->index + 5)].hex)))
+		return (0);
+	return (1);
 }
 
 void	ft_ldi(t_env *e, t_cursor *cursor)
