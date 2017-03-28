@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:02:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/28 13:46:38 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 15:33:24 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@
 #define RI 0x70
 // #define ZMASK(c) (c & 0xff)
 
+int get_short(t_env *e, t_cursor *cursor, int r)
+{
+	unsigned short	ret;
+
+	ret = ((ZMASK(e->a[MODA(r)].hex) << 8) | ZMASK(e->a[MODA(r + 1)].hex));
+	return ((short)ret);
+}
+
 void	ft_st(t_env *e, t_cursor *cursor)
 {
 	char	acb;
@@ -30,11 +38,12 @@ void	ft_st(t_env *e, t_cursor *cursor)
 	int		p2;
 	int		i;
 	int		size;
+	int		v;
 
 	acb = e->a[cursor->index + 1].hex;
 	p1 = e->a[cursor->index + 2].hex;
 	p2 = 0;
-//	printf("reg[p1] %x acb %x\n", cursor->reg[p1], acb);
+// printf("p1 %i reg[p1] %x acb %x\n", p1, cursor->reg[p1], acb);
 	if (RR == ZMASK(acb))
 	{
 	//	printf("RR\n");
@@ -46,11 +55,19 @@ void	ft_st(t_env *e, t_cursor *cursor)
 	else if (RI == ZMASK(acb))
 	{
 	//	printf("RI\n");
-		p2 = get_bytes(e, cursor, 4);
-		p2 = p2 < 0 && p2 > -512 ? p2 : MODX(p2);
+		p2 = (get_short(e, cursor, 3)) & 0xffff;
+		// printf("p2 %i - %#x \n", p2, p2);
+		p2 = p2 < 0 && p2 > -IDX_MOD ? p2 : MODX(p2);
+		// printf("p2 %i - %#x \n", p2, p2);
 		i = -1;
 		while (++i < 4)
-			e->a[MODA((cursor->index + p2 + i))].hex = cursor->reg[p1 - 1] >> (8 * (3 - i));
-		ft_update_cursor(e, cursor, 7);
+		{
+			v = cursor->index + p2 + i < 0 ? cursor->index + p2 + i + MEM_SIZE :cursor->index + p2 + i;
+			e->a[MODA((v))].hex = (cursor->reg[p1 - 1] >> (8 * (3 - i))) & 0xff;
+			// printf("v %i\n", MODA((v)));
+			// printf("reg[1] %x\n",(cursor->reg[p1 - 1] >> (8 * (3 - i))) & 0xff);
+
+		}
+		ft_update_cursor(e, cursor, 5);
 	}
 }
