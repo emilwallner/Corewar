@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_and.c                                           :+:      :+:    :+:   */
+/*   ft_xor.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 15:25:46 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/28 15:05:14 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../srcs/vm.h"
 
 /*
-** Instructions: Apply an & (bit-to-bit AND) over the first two arguments
-** and store the result in a registry, which is the third argument.
-** Opcode 0x06. Modifies the carry.
-** T_REG | T_v.ind | T_DIR, T_REG | T_v.ind | T_DIR, T_REG
+** Instructions: Acts like and with an exclusive OR. As you will have guessed,
+** its opcode in octal is 10.
 */
 
-static void	ft_and_4(t_env *e, t_cursor *cursor, t_var v)
+static void	ft_xor_4(t_env *e, t_cursor *cursor, t_var v)
 {
 	if (ZMASK(v.acb) == DIR)
 	{
 		v.r1 = e->a[MODA(cursor->index + 8)].hex;
 		if (ft_is_reg(v.r1, v.r1, v.r1) && (cursor->carry = 1))
-			cursor->reg[v.r1 - 1] = get_dir(e, cursor, 2, 4) &
+			cursor->reg[v.r1 - 1] = get_dir(e, cursor, 2, 4) ^
 				get_ind(e, cursor, 6);
 		ft_update_cursor(e, cursor, 9);
 	}
@@ -33,7 +31,7 @@ static void	ft_and_4(t_env *e, t_cursor *cursor, t_var v)
 	{
 		v.r1 = e->a[MODA(cursor->index + 6)].hex;
 		if (ft_is_reg(v.r1, v.r1, v.r1) && (cursor->carry = 1))
-			cursor->reg[v.r1 - 1] = get_ind(e, cursor, 2) &
+			cursor->reg[v.r1 - 1] = get_ind(e, cursor, 2) ^
 				get_ind(e, cursor, 4);
 		ft_update_cursor(e, cursor, 7);
 	}
@@ -41,20 +39,20 @@ static void	ft_and_4(t_env *e, t_cursor *cursor, t_var v)
 	{
 		v.r1 = e->a[MODA(cursor->index + 8)].hex;
 		if (ft_is_reg(v.r1, v.r1, v.r1) && (cursor->carry = 1))
-			cursor->reg[v.r1 - 1] = get_ind(e, cursor, 2) &
+			cursor->reg[v.r1 - 1] = get_ind(e, cursor, 2) ^
 				get_dir(e, cursor, 4, 4);
 		ft_update_cursor(e, cursor, 9);
 	}
 }
 
-static void	ft_and_3(t_env *e, t_cursor *cursor, t_var v)
+static void	ft_xor_3(t_env *e, t_cursor *cursor, t_var v)
 {
 	if (ZMASK(v.acb) == DRR)
 	{
 		v.r1 = e->a[MODA(cursor->index + 6)].hex;
 		v.r2 = e->a[MODA(cursor->index + 7)].hex;
 		if (ft_is_reg(v.r1, v.r2, v.r2) && (cursor->carry = 1))
-			cursor->reg[v.r2 - 1] = cursor->reg[v.r1 - 1] &
+			cursor->reg[v.r2 - 1] = cursor->reg[v.r1 - 1] ^
 				get_dir(e, cursor, 2, 4);
 		ft_update_cursor(e, cursor, 8);
 	}
@@ -62,22 +60,22 @@ static void	ft_and_3(t_env *e, t_cursor *cursor, t_var v)
 	{
 		v.r1 = e->a[MODA(cursor->index + 10)].hex;
 		if (ft_is_reg(v.r1, v.r1, v.r1) && (cursor->carry = 1))
-			cursor->reg[v.r1 - 1] = get_dir(e, cursor, 2, 4) &
+			cursor->reg[v.r1 - 1] = get_dir(e, cursor, 2, 4) ^
 				get_dir(e, cursor, 6, 4);
 		ft_update_cursor(e, cursor, 11);
 	}
 	else
-		ft_and_4(e, cursor, v);
+		ft_xor_4(e, cursor, v);
 }
 
-static void	ft_and_2(t_env *e, t_cursor *cursor, t_var v)
+static void	ft_xor_2(t_env *e, t_cursor *cursor, t_var v)
 {
 	if (ZMASK(v.acb) == RIR)
 	{
 		v.r1 = e->a[MODA(cursor->index + 2)].hex;
 		v.r2 = e->a[MODA(cursor->index + 5)].hex;
 		if (ft_is_reg(v.r1, v.r2, v.r2) && (cursor->carry = 1))
-			cursor->reg[v.r2 - 1] = cursor->reg[v.r1 - 1] &
+			cursor->reg[v.r2 - 1] = cursor->reg[v.r1 - 1] ^
 				get_ind(e, cursor, 3);
 		ft_update_cursor(e, cursor, 6);
 	}
@@ -86,15 +84,15 @@ static void	ft_and_2(t_env *e, t_cursor *cursor, t_var v)
 		v.r1 = e->a[MODA(cursor->index + 4)].hex;
 		v.r2 = e->a[MODA(cursor->index + 5)].hex;
 		if (ft_is_reg(v.r1, v.r2, v.r2) && (cursor->carry = 1))
-			cursor->reg[v.r2 - 1] = cursor->reg[v.r1 - 1] &
+			cursor->reg[v.r2 - 1] = cursor->reg[v.r1 - 1] ^
 				get_ind(e, cursor, 2);
 		ft_update_cursor(e, cursor, 6);
 	}
 	else
-		ft_and_3(e, cursor, v);
+		ft_xor_3(e, cursor, v);
 }
 
-void		ft_and(t_env *e, t_cursor *cursor)
+void		ft_xor(t_env *e, t_cursor *cursor)
 {
 	t_var	v;
 
@@ -105,7 +103,7 @@ void		ft_and(t_env *e, t_cursor *cursor)
 		v.r2 = e->a[MODA(cursor->index + 3)].hex;
 		v.r3 = e->a[MODA(cursor->index + 4)].hex;
 		if (ft_is_reg(v.r1, v.r2, v.r3) && (cursor->carry = 1))
-			cursor->reg[v.r3 - 1] = cursor->reg[v.r1 - 1] &
+			cursor->reg[v.r3 - 1] = cursor->reg[v.r1 - 1] ^
 				cursor->reg[v.r2 - 1];
 		ft_update_cursor(e, cursor, 5);
 	}
@@ -114,10 +112,10 @@ void		ft_and(t_env *e, t_cursor *cursor)
 		v.r1 = e->a[MODA(cursor->index + 2)].hex;
 		v.r2 = e->a[MODA(cursor->index + 7)].hex;
 		if (ft_is_reg(v.r1, v.r2, v.r2) && (cursor->carry = 1))
-			cursor->reg[v.r2 - 1] = cursor->reg[v.r1 - 1] &
+			cursor->reg[v.r2 - 1] = cursor->reg[v.r1 - 1] ^
 				get_dir(e, cursor, 3, 4);
 		ft_update_cursor(e, cursor, 8);
 	}
 	else
-		ft_and_2(e, cursor, v);
+		ft_xor_2(e, cursor, v);
 }

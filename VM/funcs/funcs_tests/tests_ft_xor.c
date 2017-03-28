@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_ft_or.c                                      :+:      :+:    :+:   */
+/*   tests_ft_xor.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/28 14:00:59 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 14:01:04 by nsabbah          ###   ########.fr       */
+/*   Created: 2017/03/24 15:31:16 by nsabbah           #+#    #+#             */
+/*   Updated: 2017/03/28 14:15:14 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../srcs/vm.h"
 
-void	ft_tests_or(t_env e, t_cursor *cursor)
+void	ft_tests_xor(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	// Building the fake copied code:
@@ -29,12 +29,12 @@ void	ft_tests_or(t_env e, t_cursor *cursor)
 	printf("Data: \n");
 	while (i < 4)
 	{
-		ft_printf("%02.x ", (e.a[i].hex & 0xFF));
+		ft_printf("%02.x ", (ZMASK(e.a[i].hex)));
 		i++;
 	}
 	printf("\n");
-	cursor->reg[1] = 0b10110100 & 0xFF;
-	cursor->reg[2] = 0b11101001 & 0xFF;
+	cursor->reg[1] = ZMASK(0b10110100);
+	cursor->reg[2] = ZMASK(0b11101001);
 	cursor->reg[3] = 8;
 	cursor->index = 0;
 
@@ -46,18 +46,18 @@ void	ft_tests_or(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_or(&e, cursor);
+	ft_xor(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	if (cursor->reg[3] - (cursor->reg[1] | cursor->reg[2]) || cursor->carry - 1 || cursor->index - 5)
+	if (cursor->reg[3] - (cursor->reg[1] ^ cursor->reg[2]) || cursor->carry - 1 || cursor->index - 5)
 		printf(RED);
-	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], cursor->reg[1] | cursor->reg[2]);
+	printf("reg[3] %i (expected: %i)\n", cursor->reg[3], cursor->reg[1] ^ cursor->reg[2]);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 5)\n", cursor->index);
 	printf(RESET);
 }
 
-void	ft_tests_or1(t_env e, t_cursor *cursor)
+void	ft_tests_xor1(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	int direct;
@@ -78,7 +78,7 @@ void	ft_tests_or1(t_env e, t_cursor *cursor)
 	printf("Data: \n");
 	while (i < 8)
 	{
-		ft_printf("%02.x ", (e.a[i].hex & 0xFF));
+		ft_printf("%02.x ", (ZMASK(e.a[i].hex)));
 		i++;
 	}
 	printf("\n");
@@ -93,18 +93,18 @@ void	ft_tests_or1(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_or(&e, cursor);
+	ft_xor(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	if (cursor->reg[2] - (direct | cursor->reg[1]) || cursor->carry - 1 || cursor->index - 8)
+	if (cursor->reg[2] - (direct ^ cursor->reg[1]) || cursor->carry - 1 || cursor->index - 8)
 		printf(RED);
-	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], direct | cursor->reg[1]);
+	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], direct ^ cursor->reg[1]);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 8)\n", cursor->index);
 	printf(RESET);
 }
 
-void	ft_tests_or2(t_env e, t_cursor *cursor)
+void	ft_tests_xor2(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	int ind;
@@ -133,7 +133,7 @@ void	ft_tests_or2(t_env e, t_cursor *cursor)
 	printf("Data: \n");
 	while (i < 15)
 	{
-		ft_printf("%02.x ", (e.a[i].hex & 0xFF));
+		ft_printf("%02.x ", (ZMASK(e.a[i].hex)));
 		i++;
 	}
 	printf("\n");
@@ -147,18 +147,18 @@ void	ft_tests_or2(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_or(&e, cursor);
+	ft_xor(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	if (cursor->reg[2] - (ind | cursor->reg[1]) || cursor->carry - 1 || cursor->index - 6)
+	if (cursor->reg[2] - (ind ^ cursor->reg[1]) || cursor->carry - 1 || cursor->index - 6)
 		printf(RED);
-	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], ind | cursor->reg[1]);
+	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], ind ^ cursor->reg[1]);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 6)\n", cursor->index);
 	printf(RESET);
 }
 
-void	ft_tests_or3(t_env e, t_cursor *cursor)
+void	ft_tests_xor3(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	int ind;
@@ -187,7 +187,7 @@ void	ft_tests_or3(t_env e, t_cursor *cursor)
 	printf("Data: \n");
 	while (i < 15)
 	{
-		ft_printf("%02.x ", (e.a[i].hex & 0xFF));
+		ft_printf("%02.x ", (ZMASK(e.a[i].hex)));
 		i++;
 	}
 	printf("\n");
@@ -201,18 +201,18 @@ void	ft_tests_or3(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_or(&e, cursor);
+	ft_xor(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	if (cursor->reg[2] - (ind | cursor->reg[1]) || cursor->carry - 1 || cursor->index - 6)
+	if (cursor->reg[2] - (ind ^ cursor->reg[1]) || cursor->carry - 1 || cursor->index - 6)
 		printf(RED);
-	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], ind | cursor->reg[1]);
+	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], ind ^ cursor->reg[1]);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 6)\n", cursor->index);
 	printf(RESET);
 }
 
-void	ft_tests_or4(t_env e, t_cursor *cursor)
+void	ft_tests_xor4(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	int ind;
@@ -234,7 +234,7 @@ void	ft_tests_or4(t_env e, t_cursor *cursor)
 	printf("Data: \n");
 	while (i < 8)
 	{
-		ft_printf("%02.x ", (e.a[i].hex & 0xFF));
+		ft_printf("%02.x ", (ZMASK(e.a[i].hex)));
 		i++;
 	}
 	printf("\n");
@@ -248,18 +248,18 @@ void	ft_tests_or4(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_or(&e, cursor);
+	ft_xor(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	if (cursor->reg[2] - (direct | cursor->reg[1]) || cursor->carry - 1 || cursor->index - 8)
+	if (cursor->reg[2] - (direct ^ cursor->reg[1]) || cursor->carry - 1 || cursor->index - 8)
 		printf(RED);
-	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], direct | cursor->reg[1]);
+	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], direct ^ cursor->reg[1]);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 8)\n", cursor->index);
 	printf(RESET);
 }
 
-void	ft_tests_or5(t_env e, t_cursor *cursor)
+void	ft_tests_xor5(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	int ind;
@@ -290,7 +290,7 @@ void	ft_tests_or5(t_env e, t_cursor *cursor)
 	printf("Data: \n");
 	while (i < 15)
 	{
-		ft_printf("%02.x ", (e.a[i].hex & 0xFF));
+		ft_printf("%02.x ", (ZMASK(e.a[i].hex)));
 		i++;
 	}
 	printf("\n");
@@ -306,18 +306,18 @@ void	ft_tests_or5(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_or(&e, cursor);
+	ft_xor(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	if (cursor->reg[2] - (direct1 | direct2) || cursor->carry - 1 || cursor->index - 11)
+	if (cursor->reg[2] - (direct1 ^ direct2) || cursor->carry - 1 || cursor->index - 11)
 		printf(RED);
-	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], direct1 | direct2);
+	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], direct1 ^ direct2);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 11)\n", cursor->index);
 	printf(RESET);
 }
 
-void	ft_tests_or6(t_env e, t_cursor *cursor)
+void	ft_tests_xor6(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	int ind;
@@ -350,7 +350,7 @@ void	ft_tests_or6(t_env e, t_cursor *cursor)
 	printf("Data: \n");
 	while (i < 15)
 	{
-		ft_printf("%02.x ", (e.a[i].hex & 0xFF));
+		ft_printf("%02.x ", (ZMASK(e.a[i].hex)));
 		i++;
 	}
 	printf("\n");
@@ -366,18 +366,18 @@ void	ft_tests_or6(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_or(&e, cursor);
+	ft_xor(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	if (cursor->reg[2] - (direct1 | ind) || cursor->carry - 1 || cursor->index - 9)
+	if (cursor->reg[2] - (direct1 ^ ind) || cursor->carry - 1 || cursor->index - 9)
 		printf(RED);
-	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], direct1 | ind);
+	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], direct1 ^ ind);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 9)\n", cursor->index);
 	printf(RESET);
 }
 
-void	ft_tests_or7(t_env e, t_cursor *cursor)
+void	ft_tests_xor7(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	int ind1;
@@ -409,7 +409,7 @@ void	ft_tests_or7(t_env e, t_cursor *cursor)
 	printf("Data: \n");
 	while (i < 15)
 	{
-		ft_printf("%02.x ", (e.a[i].hex & 0xFF));
+		ft_printf("%02.x ", (ZMASK(e.a[i].hex)));
 		i++;
 	}
 	printf("\n");
@@ -427,18 +427,18 @@ void	ft_tests_or7(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_or(&e, cursor);
+	ft_xor(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	if (cursor->reg[2] - (ind1 | ind2) || cursor->carry - 1 || cursor->index - 7)
+	if (cursor->reg[2] - (ind1 ^ ind2) || cursor->carry - 1 || cursor->index - 7)
 		printf(RED);
-	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], ind1 | ind2);
+	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], ind1 ^ ind2);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 7)\n", cursor->index);
 	printf(RESET);
 }
 
-void	ft_tests_or8(t_env e, t_cursor *cursor)
+void	ft_tests_xor8(t_env e, t_cursor *cursor)
 {
 	int i = 0;
 	int ind;
@@ -470,7 +470,7 @@ void	ft_tests_or8(t_env e, t_cursor *cursor)
 	printf("Data: \n");
 	while (i < 15)
 	{
-		ft_printf("%02.x ", (e.a[i].hex & 0xFF));
+		ft_printf("%02.x ", (ZMASK(e.a[i].hex)));
 		i++;
 	}
 	printf("\n");
@@ -486,12 +486,12 @@ void	ft_tests_or8(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_or(&e, cursor);
+	ft_xor(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
-	if (cursor->reg[2] - (direct | ind) || cursor->carry - 1 || cursor->index - 9)
+	if (cursor->reg[2] - (direct ^ ind) || cursor->carry - 1 || cursor->index - 9)
 		printf(RED);
-	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], direct | ind);
+	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], direct ^ ind);
 	printf("carry is %i (expected: 1)\n", cursor->carry);
 	printf("index is %i (expected: 9)\n", cursor->index);
 	printf(RESET);

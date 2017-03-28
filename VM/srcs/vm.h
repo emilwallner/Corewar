@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vm.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/28 11:36:34 by mhaziza          ###   ########.fr       */
+/*   Created: 2017/03/28 13:56:56 by nsabbah           #+#    #+#             */
+/*   Updated: 2017/03/28 14:08:47 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,22 @@
 # define DIR 0b10110100
 # define DDR 0b10100100
 
+typedef struct s_var
+{
+	int			r1;
+	int			r2;
+	int			r3;
+	int			ind;
+	char		acb;
+}				t_var;
+
 typedef struct s_arena
 {
 	char 	hex;
 	int		color;
 	int 	prevcolor;
 	int 	occupied;
+	int 	new_color_count;
 }				t_arena;
 
 typedef struct	s_player
@@ -180,4 +190,13 @@ void	ft_tests_or5(t_env e, t_cursor *cursor);
 void	ft_tests_or6(t_env e, t_cursor *cursor);
 void	ft_tests_or7(t_env e, t_cursor *cursor);
 void	ft_tests_or8(t_env e, t_cursor *cursor);
+void	ft_tests_xor(t_env e, t_cursor *cursor);
+void	ft_tests_xor1(t_env e, t_cursor *cursor);
+void	ft_tests_xor2(t_env e, t_cursor *cursor);
+void	ft_tests_xor3(t_env e, t_cursor *cursor);
+void	ft_tests_xor4(t_env e, t_cursor *cursor);
+void	ft_tests_xor5(t_env e, t_cursor *cursor);
+void	ft_tests_xor6(t_env e, t_cursor *cursor);
+void	ft_tests_xor7(t_env e, t_cursor *cursor);
+void	ft_tests_xor8(t_env e, t_cursor *cursor);
 #endif
