@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/19 18:37:40 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/28 14:49:47 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void ft_szero(t_env *e)
 		e->a[i].prevcolor = 12;
 		e->a[i].occupied = 0;
 		e->a[i].new_color_count = 0;
-		e->a[i].light_color = 12;
+		// e->a[i].light_color = 12;
 		i++;
 	}
 }
