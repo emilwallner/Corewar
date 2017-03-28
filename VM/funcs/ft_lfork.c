@@ -14,5 +14,5 @@
 
 void	ft_lfork(t_env *e, t_cursor *cursor)
 {
-	ft_fork_both(e, cursor, 0);
+	ft_fork_both(e, cursor, 1);
 }

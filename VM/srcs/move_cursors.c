@@ -14,10 +14,14 @@
 
 void	ft_update_cursor(t_env *e, t_cursor *cursor, int i)
 {
-	e->a[cursor->index].color = e->a[cursor->index].prevcolor;
-		cursor->index += i;
-		cursor->index = MODA(cursor->index);
+	if(e->a[cursor->index].occupied > 0)
+		e->a[cursor->index].occupied -= 1;
+	if(e->a[cursor->index].occupied == 0)
+		e->a[cursor->index].color = e->a[cursor->index].prevcolor;
+	cursor->index += i;
+	cursor->index = MODA(cursor->index);
 	e->a[cursor->index].color = cursor->color;
+	e->a[cursor->index].occupied += 1;
 }
 
 void 	ft_move_cursors(t_env *e)

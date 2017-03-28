@@ -50,12 +50,12 @@ void	ft_fork_both(t_env *e, t_cursor *cursor, int lfork)
 	t_cursor *stack;
 	t_cursor *temp;
 	t_cursor *head_temp;
-	char	index_extra;
+	int	index_extra;
 
 	temp = e->head;
 	stack = cursor;
 	fork_cursor = NULL;
-	index_extra = e->a[cursor->index + 1].hex;
+	index_extra = get_dir(e, cursor, 1, 2);
 	fork_cursor = ft_clone_cursor(cursor, fork_cursor, index_extra, lfork);
 	head_temp = e->head->prev;
 	temp = head_temp->prev;
@@ -64,7 +64,7 @@ void	ft_fork_both(t_env *e, t_cursor *cursor, int lfork)
 	temp->next = fork_cursor;
 	fork_cursor->next = head_temp;
 	e->cursors += 1;
-	ft_update_cursor(e, cursor, 2);
+	ft_update_cursor(e, cursor, 3);
 }
 
 void	ft_fork(t_env *e, t_cursor *cursor)
