@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 20:16:15 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 17:51:45 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 18:04:15 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,6 @@ int get_dir(t_env *e, t_cursor *cursor, int i, int bytes)
 
 int get_ind(t_env *e, t_cursor *cursor, int i)
 {
-	// int r;
-	//
-	// r = (ZMASK(0) << 8) |
-	// ZMASK(e->a[MODA(cursor->index + i + 1)].hex);
-	// return (get_bytes(e, cursor, r));
 	unsigned short	r;
 
 	r = ((ZMASK(e->a[MODA(i)].hex) << 8) | ZMASK(e->a[MODA(i + 1)].hex));

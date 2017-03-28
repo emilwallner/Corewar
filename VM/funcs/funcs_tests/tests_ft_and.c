@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 15:31:16 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 17:03:32 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/28 17:40:55 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ void	ft_tests_and2(t_env e, t_cursor *cursor)
 	cursor->reg[1] = 0x10229409;
 	cursor->index = 0;
 	ind = get_ind(&e, cursor, 3);
-	ind = 0;
+	// ind = 0;
 	printf("\nBEFORE FUNCTION CALL\n\n");
 
 	printf("reg[1] %i\n", cursor->reg[1]);
@@ -491,9 +491,9 @@ void	ft_tests_and8(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_and(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
+	ft_and(&e, cursor);
 	if (cursor->reg[2] - (direct & ind) || cursor->carry - 1 || cursor->index - 9)
 		printf(RED);
 	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], direct & ind);
