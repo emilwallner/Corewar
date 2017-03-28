@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 15:03:35 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/28 15:08:41 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ static void	ft_and_2(t_env *e, t_cursor *cursor, t_var v)
 {
 	if (ZMASK(v.acb) == RIR)
 	{
-		printf("HELLO\n");
 		v.r1 = e->a[MODA(cursor->index + 2)].hex;
 		v.r2 = e->a[MODA(cursor->index + 5)].hex;
 		if (ft_is_reg(v.r1, v.r2, v.r2) && (cursor->carry = 1))
