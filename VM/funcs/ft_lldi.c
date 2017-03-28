@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 21:40:56 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/27 21:41:46 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 09:38:26 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,7 @@ void	ft_lldi(t_env *e, t_cursor *cursor)
 		ft_update_cursor(e, cursor, 1);
 		return ;
 	}
-	cursor->reg[e->a[cursor->index].hex] = r2;
+	cursor->reg[e->a[MODA(cursor->index)].hex] = get_bytes(e, cursor, r2);
+
+	ft_update_cursor(e, cursor, 1);
 }
