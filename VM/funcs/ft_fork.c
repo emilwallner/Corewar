@@ -30,7 +30,7 @@ t_cursor		*ft_clone_cursor(t_cursor *cursor, t_cursor *fork_cursor)
 	fork_cursor->counter = 0;
 	fork_cursor->player = cursor->player;
 	fork_cursor->carry = cursor->carry;
-	fork_cursor->cycle = 0;
+	fork_cursor->cycle = 1;
 	fork_cursor->color = cursor->color;
 	ft_clone_cursor_reg(fork_cursor->reg, cursor->reg);
 	fork_cursor->running = 0;
@@ -52,8 +52,6 @@ void	ft_fork_both(t_env *e, t_cursor *cursor, int lfork)
 	stack = cursor;
 	fork_cursor = NULL;
 	index_extra = get_dir(e, cursor, 1, 2);
-	printf("Index_extra, moda: %d\n", MODA(index_extra));
-	printf("Index_extra, moda: %d\n", MODX(index_extra));
 	fork_cursor = ft_clone_cursor(cursor, fork_cursor);
 	if(lfork)
 		ft_update_cursor(e, fork_cursor, MODA(index_extra));
