@@ -17,7 +17,7 @@ void	ft_print_arena(t_env *e)
 	int i;
 	i = 0;
 
-	if(e->tot_cycle > 0)
+	if(e->tot_cycle > 4400)
 		getch();
 	erase();
 	while(i < MEM_SIZE)
