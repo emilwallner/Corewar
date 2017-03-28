@@ -8,4 +8,4 @@ live:
  live	%3
 live2:
 	live %3
-	fork %:l2
+	fork %0
