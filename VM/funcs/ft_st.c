@@ -35,7 +35,7 @@ void	ft_st(t_env *e, t_cursor *cursor)
 {
 	char	acb;
 	int		p1;
-	int		p2;
+	short	p2;
 	int		i;
 	int		size;
 	int		v;
@@ -64,6 +64,9 @@ void	ft_st(t_env *e, t_cursor *cursor)
 		{
 			v = cursor->index + p2 + i < 0 ? cursor->index + p2 + i + MEM_SIZE :cursor->index + p2 + i;
 			e->a[MODA((v))].hex = (cursor->reg[p1 - 1] >> (8 * (3 - i))) & 0xff;
+			e->a[MODA((v))].color = cursor->color - 6;
+			e->a[MODA((v))].prevcolor = cursor->color - 6;
+			e->a[MODA((v))].new_color_count = 50;
 			// printf("v %i\n", MODA((v)));
 			// printf("reg[1] %x\n",(cursor->reg[p1 - 1] >> (8 * (3 - i))) & 0xff);
 

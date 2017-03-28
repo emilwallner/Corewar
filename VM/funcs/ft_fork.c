@@ -22,8 +22,7 @@ void 	ft_clone_cursor_reg(int *dest, int *src)
 }
 
 
-t_cursor		*ft_clone_cursor(t_cursor *cursor, t_cursor *fork_cursor,
-	char index_extra, int lfork)
+t_cursor		*ft_clone_cursor(t_cursor *cursor, t_cursor *fork_cursor)
 {
 	fork_cursor = malloc(sizeof(t_cursor));
 	if (fork_cursor == NULL)
@@ -35,10 +34,7 @@ t_cursor		*ft_clone_cursor(t_cursor *cursor, t_cursor *fork_cursor,
 	fork_cursor->color = cursor->color;
 	ft_clone_cursor_reg(fork_cursor->reg, cursor->reg);
 	fork_cursor->running = 0;
-	if(lfork)
-		fork_cursor->index = cursor->index + MODA(index_extra);
-	else
-		fork_cursor->index = cursor->index + MODX(index_extra);
+	fork_cursor->index = cursor->index;
 	fork_cursor->next = NULL;
 	fork_cursor->prev = NULL;
 	return (fork_cursor);
@@ -56,7 +52,13 @@ void	ft_fork_both(t_env *e, t_cursor *cursor, int lfork)
 	stack = cursor;
 	fork_cursor = NULL;
 	index_extra = get_dir(e, cursor, 1, 2);
-	fork_cursor = ft_clone_cursor(cursor, fork_cursor, index_extra, lfork);
+	printf("Index_extra, moda: %d\n", MODA(index_extra));
+	printf("Index_extra, moda: %d\n", MODX(index_extra));
+	fork_cursor = ft_clone_cursor(cursor, fork_cursor);
+	if(lfork)
+		ft_update_cursor(e, fork_cursor, MODA(index_extra));
+	else
+		ft_update_cursor(e, fork_cursor, MODX(index_extra));
 	head_temp = e->head->prev;
 	temp = head_temp->prev;
 	head_temp->prev = fork_cursor;
