@@ -22,7 +22,6 @@ void ft_player_to_arena(t_env *e, int i, int *k)
 		e->a[*k].hex = 0xFF & e->player[i].inst[count];
 		e->a[*k].color = i + 1 % 6;
 		e->a[*k].prevcolor = i + 1 % 6;
-		e->a[*k].new_color_count = 50;
 		*k += 1;
 		count++;
 	}

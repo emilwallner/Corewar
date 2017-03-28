@@ -27,7 +27,7 @@ void ft_add_cycle(t_env *e, t_cursor *cursor)
 {
 	if(ft_check_if_an_operation(e, cursor))
 	{
-		cursor->cycle = e->op_tab[e->a[cursor->index].hex & 0xFF].cycles - 2;
+		cursor->cycle += e->op_tab[e->a[cursor->index].hex & 0xFF].cycles - 2;
 		cursor->running = 1;
 	}
 	else

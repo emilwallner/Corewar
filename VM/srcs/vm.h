@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 13:56:56 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 14:08:47 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/28 17:26:30 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define MAGENTA "\x1b[35m"
 # define CYAN    "\x1b[36m"
 # define RESET   "\x1b[0m"
-# define MODA(x)	(x % MEM_SIZE)
+# define MODA(x)	(x % MEM_SIZE < 0 ? x % MEM_SIZE + MEM_SIZE : x % MEM_SIZE)
 # define MODX(x)	(x % IDX_MOD)
 # define MM(x)		(x & 0xFF)
 # define ZMASK(x)	(x & 0xFF)
