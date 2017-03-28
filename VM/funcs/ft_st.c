@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:02:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/28 15:33:24 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 16:38:58 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,19 @@ void	ft_st(t_env *e, t_cursor *cursor)
 		// printf("p2 %i - %#x \n", p2, p2);
 		p2 = p2 < 0 && p2 > -IDX_MOD ? p2 : MODX(p2);
 		// printf("p2 %i - %#x \n", p2, p2);
+		int byte = MODA(get_bytes(e, cursor, p2));
+		byte = byte < 0 ? byte + MEM_SIZE : byte;
+		// printf("byte %i\n", byte);
 		i = -1;
 		while (++i < 4)
 		{
-			v = cursor->index + p2 + i < 0 ? cursor->index + p2 + i + MEM_SIZE :cursor->index + p2 + i;
+			v = cursor->index + byte + i;
 			e->a[MODA((v))].hex = (cursor->reg[p1 - 1] >> (8 * (3 - i))) & 0xff;
 			e->a[MODA((v))].color = cursor->color - 6;
 			e->a[MODA((v))].prevcolor = cursor->color - 6;
 			e->a[MODA((v))].new_color_count = 50;
 			// printf("v %i\n", MODA((v)));
 			// printf("reg[1] %x\n",(cursor->reg[p1 - 1] >> (8 * (3 - i))) & 0xff);
-
 		}
 		ft_update_cursor(e, cursor, 5);
 	}

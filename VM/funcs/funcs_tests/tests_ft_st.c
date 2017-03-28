@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 15:31:16 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 15:42:39 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 16:21:12 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,25 @@ void	ft_tests_st(t_env e, t_cursor *cursor)
 	e.a[2].hex = 0x01;
 
 	e.a[3].hex = 0x00;
-	e.a[4].hex = 0x0a;
+	e.a[4].hex = 0x0d;
 
-	e.a[5].hex = 0x00;
-	e.a[6].hex = 0xe0;
-	e.a[7].hex = 0xfe;
-	e.a[8].hex = 0x00;
-	e.a[9].hex = 0x00;
+	e.a[5].hex = 0x03;
+	e.a[6].hex = 0x70;
+	e.a[7].hex = 0x01;
+	e.a[8].hex = 0xfc;
+	e.a[9].hex = 0x18;
 
-	e.a[10].hex = 0x00;
-	e.a[11].hex = 0x00;
-	e.a[12].hex = 0x00;
-	e.a[13].hex = 0x0a;
+	e.a[10].hex = 0x03;
+	e.a[11].hex = 0x70;
+	e.a[12].hex = 0x01;
+	e.a[13].hex = 0xff;
 
-	e.a[14].hex = 0x00;
+	e.a[14].hex = 0x9c;
+	e.a[15].hex = 0x03;
+	e.a[16].hex = 0x70;
+	e.a[17].hex = 0x01;
+	e.a[18].hex = 0x00;
+	e.a[19].hex = 0x32;
 
 
 	// printf("%+.60x\n", 1234);
