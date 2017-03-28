@@ -33,6 +33,7 @@ t_cursor		*ft_clone_cursor(t_cursor *cursor, t_cursor *fork_cursor,
 	fork_cursor->carry = cursor->carry;
 	fork_cursor->cycle = 0;
 	fork_cursor->color = cursor->color;
+	ft_clone_cursor_reg(fork_cursor->reg, cursor->reg);
 	fork_cursor->running = 0;
 	if(lfork)
 		fork_cursor->index = cursor->index + MODA(index_extra);
