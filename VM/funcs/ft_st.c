@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:02:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/28 17:11:43 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 17:28:51 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,13 @@ void	ft_st(t_env *e, t_cursor *cursor)
 		p2 = p2 < 0 && p2 > -IDX_MOD ? p2 : MODX(p2);
 		// printf("p2 %i - %#x \n", p2, p2);
 		int byte = MODA(get_bytes(e, cursor, p2));
-		byte = byte < 0 ? byte + MEM_SIZE : byte;
+		// byte = byte < 0 ? byte + MEM_SIZE : byte;
 		// printf("byte %i\n", byte);
 		i = -1;
 		while (++i < 4)
 		{
-			v = (cursor->index + byte + i < 0) ? cursor->index + byte + i + MEM_SIZE : cursor->index + byte + i;
+			v = cursor->index + byte + i;
+			// v = (cursor->index + byte + i < 0) ? cursor->index + byte + i + MEM_SIZE : cursor->index + byte + i;
 			// printf("cursor->index %i v %i\n", cursor->index, v);
 			e->a[MODA((v))].hex = (cursor->reg[p1 - 1] >> (8 * (3 - i))) & 0xff;
 			e->a[MODA((v))].color = cursor->color - 6;
