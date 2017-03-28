@@ -81,6 +81,7 @@ typedef struct	s_env
 	t_arena		a[MEM_SIZE];
 	int 		cursors;
 	int 		cycle;
+	int 		tot_cycle;
 	int			lives;
 	int			check;
 	int 		bonus;
