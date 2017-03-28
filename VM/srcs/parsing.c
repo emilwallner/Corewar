@@ -101,7 +101,6 @@ void ft_check_label_comment(t_env *e, int k)
 
 void ft_parsing(t_env *e, int ac)
 {
-	// int	error;
 	int		i;
 	int		k;
 	int		hex;
@@ -117,10 +116,8 @@ void ft_parsing(t_env *e, int ac)
 		ft_add_player_comment(e, i);
 		ft_check_label_name(e, i);
 		ft_check_label_comment(e, i);
-		k = PROG_NAME_LENGTH + COMMENT_LENGTH + 12;
+		k = PROG_NAME_LENGTH + COMMENT_LENGTH + 16;
 		inst = e->player[i].inst;
-		// while (!(str[k]))
-		// 	k++;
 		e->player[i].inst_len = k;
 	    while(k < e->player[i].len)
 		{
