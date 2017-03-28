@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 20:16:15 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 10:11:12 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 12:40:24 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ int		ft_is_reg(int r1, int r2, int r3)
 
 int get_bytes(t_env *e, t_cursor *cursor, int r)
 {
-	return (ZMASK(e->a[MODA(r)].hex << 24) | ZMASK(e->a[MODA(r + 1)].hex << 16)
-	| ZMASK(e->a[MODA(r + 2)].hex << 8) | ZMASK(e->a[MODA(r + 3)].hex));
+	unsigned int	ret;
+
+	ret = (ZMASK(e->a[MODA(r)].hex) << 24) | (ZMASK(e->a[MODA(r + 1)].hex) << 16)
+	| (ZMASK(e->a[MODA(r + 2)].hex) << 8) | ZMASK(e->a[MODA(r + 3)].hex);
+	return ((int)ret);
 }
 
 int get_dir(t_env *e, t_cursor *cursor, int i, int bytes)

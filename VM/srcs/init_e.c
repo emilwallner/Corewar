@@ -49,6 +49,7 @@ void init_e(t_env *e, int ac, char **av)
 	e->bonus = 1;
 	e->winner = 1;
 	e->check = 0;
+	e->tot_cycle = 0;
 	e->cursors = e->player_amount;
 	e->head = NULL;
 	e->cycles_to_die = CYCLE_TO_DIE;

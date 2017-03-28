@@ -29,7 +29,7 @@ void	ft_print_arena(t_env *e)
 		i++;
 	}
 	attron(COLOR_PAIR(14));
-	printw("\nNumber of cycles: %d \n", e->cycle);
+	printw("\nNumber of cycles: %d \n", e->tot_cycle);
 	// printw("Index 1: %d Hex %d\n", e->head->index, e->a[e->head->index].hex);
 	// printw("Index 2: %d Hex %d\n", e->head->next->index, e->a[e->head->next->index].hex);
 	// printw("Index 3: %d Hex %d\n", e->head->next->next->index, e->a[e->head->next->next->index].hex);
@@ -48,6 +48,7 @@ void	ft_print_arena(t_env *e)
 	// printw("\nReg 2 : %d \n", e->head->reg[2]);
 	attroff(COLOR_PAIR(14));
 	refresh();
-	getch();
+	if(e->tot_cycle > 1500)
+		getch();
 	//usleep(500000);
 }

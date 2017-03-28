@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vm.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/17 14:20:20 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/28 13:51:20 by nsabbah          ###   ########.fr       */
+/*   Created: 2017/03/28 13:56:56 by nsabbah           #+#    #+#             */
+/*   Updated: 2017/03/28 13:56:58 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ typedef struct	s_env
 	t_arena		a[MEM_SIZE];
 	int 		cursors;
 	int 		cycle;
+	int 		tot_cycle;
 	int			lives;
 	int			check;
 	int 		bonus;
@@ -153,6 +154,7 @@ int			get_ind(t_env *e, t_cursor *cursor, int i);
 int			get_reg(t_env *e, t_cursor *cursor, int i);
 int			get_bytes(t_env *e, t_cursor *cursor, int r);
 int			is_reg_valid(int i);
+int			check_register_ldi(t_env *e, t_cursor *cursor, char acb);
 
 
 // Testing section
