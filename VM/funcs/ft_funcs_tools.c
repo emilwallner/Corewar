@@ -57,7 +57,7 @@ int get_reg(t_env *e, t_cursor *cursor, int i)
 	int r;
 
 	r = ZMASK(e->a[MODA(cursor->index + i)].hex);
-	if (r > 0 && r < REG_NUMBER)
-		return (cursor->reg[r]);
+	if (r > 0 && r <= REG_NUMBER)
+		return (cursor->reg[r - 1]);
 	return (0);
 }

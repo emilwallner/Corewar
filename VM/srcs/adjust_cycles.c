@@ -15,7 +15,7 @@
 void ft_new_cycle(t_env *e, int *end)
 {
 	if(e->lives == 0)
-		*end = 0;
+		*end = 1;
 	if(e->lives < NBR_LIVE)
 		e->check += 1;
 	if(e->check == MAX_CHECKS || e->lives >= NBR_LIVE)
