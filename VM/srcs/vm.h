@@ -29,6 +29,7 @@
 # define MODX(x)	(x % IDX_MOD)
 # define MM(x)		(x & 0xFF)
 # define ZMASK(x)	(x & 0xFF)
+# define ABS(value)  (value > 0 ? value : -value)
 # define RRR 0b01010100
 # define RIR 0b01110100
 # define RDR 0b01100100

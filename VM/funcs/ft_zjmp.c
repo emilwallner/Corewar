@@ -14,11 +14,11 @@
 
 void	ft_zjmp(t_env *e, t_cursor *cursor)
 {
-	char	index_extra;
+	int	index_extra;
 
 	if(cursor->carry)
 	{
-		index_extra = e->a[cursor->index + 1].hex;
+		index_extra = get_dir(e, cursor, 1, 2);
 		index_extra = MODX(index_extra);
 		if(index_extra == 0)
 			index_extra++;

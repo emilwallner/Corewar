@@ -14,10 +14,10 @@
 
 void	ft_live(t_env *e, t_cursor *cursor)
 {
-	char player_id;
+	int player_id;
 
-	player_id = e->a[cursor->index + 4].hex;
-	if(player_id > 0 && player_id < e->player_amount)
+	player_id = ABS(get_dir(e, cursor, 1, 4)) - 1;
+	if(player_id > -1 && player_id < e->player_amount)
 	{
 		e->lives += 1;
 		e->player[player_id].live += 1;
