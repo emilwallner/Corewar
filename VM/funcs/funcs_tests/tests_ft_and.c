@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 15:31:16 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 12:31:00 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/28 17:03:32 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,8 @@ void	ft_tests_and2(t_env e, t_cursor *cursor)
 
 	e.a[2].hex = 0x02;
 
-	e.a[3].hex = 0x00;
-	e.a[4].hex = 0x04;
+	e.a[3].hex = 0xff;
+	e.a[4].hex = 0xff;
 
 	e.a[5].hex = 0x03;
 
@@ -129,6 +129,8 @@ void	ft_tests_and2(t_env e, t_cursor *cursor)
 	e.a[13].hex = 0x11;
 	e.a[14].hex = 0x03;
 
+	e.a[4*1024 - 1].hex = 0x0a;
+
 	printf(CYAN "\nINFO : RIR (D 4 bytes)\n\n" RESET);
 	printf("Data: \n");
 	while (i < 15)
@@ -136,10 +138,13 @@ void	ft_tests_and2(t_env e, t_cursor *cursor)
 		ft_printf("%02.x ", (e.a[i].hex & 0xFF));
 		i++;
 	}
+	ft_printf("|| %02.x ", (e.a[MEM_SIZE - 1].hex & 0xFF));
+	printf("MODA[MEM_SIZE - 1] is %i\n", MODA(MEM_SIZE - 1));
 	printf("\n");
 	cursor->reg[1] = 0x10229409;
 	cursor->index = 0;
 	ind = get_ind(&e, cursor, 3);
+	ind = 0;
 	printf("\nBEFORE FUNCTION CALL\n\n");
 
 	printf("reg[1] %i\n", cursor->reg[1]);
@@ -147,9 +152,9 @@ void	ft_tests_and2(t_env e, t_cursor *cursor)
 	printf("carry is %i\n", cursor->carry);
 	printf("index is %i\n", cursor->index);
 
-	ft_and(&e, cursor);
 
 	printf("\n\nAFTER FUNCTION CALL\n\n");
+	ft_and(&e, cursor);
 	if (cursor->reg[2] - (ind & cursor->reg[1]) || cursor->carry - 1 || cursor->index - 6)
 		printf(RED);
 	printf("reg[2] %i (expected: %i)\n", cursor->reg[2], ind & cursor->reg[1]);
