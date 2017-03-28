@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:02:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/27 17:22:59 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/28 12:05:39 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,25 +39,20 @@ void	ft_st(t_env *e, t_cursor *cursor)
 	{
 	//	printf("RR\n");
 		p2 = e->a[cursor->index + 3].hex;
-		cursor->reg[p2] = cursor->reg[p1];
+		cursor->reg[p2 - 1] = cursor->reg[p1 - 1];
+		ft_update_cursor(e, cursor, 4);
 	//	printf("reg[p2] %x (expected: ?)\n", cursor->reg[p2]);
 	}
 	else if (RI == ZMASK(acb))
 	{
 	//	printf("RI\n");
-		p2 = (ZMASK(e->a[cursor->index + 3].hex) << 8) |
-		ZMASK(e->a[cursor->index + 4].hex);
+		p2 = get_bytes(e, cursor, ZMASK(e->a[cursor->index + 3].hex));
 	//	printf("p2 AV mod %i\n", p2);
-		p2 = MODX(p2);
+		p2 = p2 < 0 ? MODX(p2) - IDX_MOD : MODX(p2);
 //		printf("p2 AP mod %i\n", p2);
 		i = -1;
 		while (++i < 4)
-			e->a[MODA((cursor->index + p2 + i))].hex = cursor->reg[p1] >> (8 * (3 - i));
-		// printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2].hex);
-		// printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 1].hex);
-		// printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 2].hex);
-		// printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 3].hex);
-		// printf("p2 %i arene[p2] %x \n", p2, e->a[cursor->index + p2 + 4].hex);
+			e->a[MODA((cursor->index + p2 + i))].hex = cursor->reg[p1 - 1] >> (8 * (3 - i));
+		ft_update_cursor(e, cursor, 7);
 	}
-	ft_update_cursor(e, cursor, 2);
 }

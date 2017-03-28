@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 11:08:40 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/28 11:36:50 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static int	ddr_idr(t_env *e, t_cursor *cursor, int acb)
 	return (r2);
 }
 
-static int check_register(t_env *e, t_cursor *cursor, char acb)
+int check_register_ldi(t_env *e, t_cursor *cursor, char acb)
 {
 	if (RRR == ZMASK(acb) && (!is_reg_valid(e->a[MODA(cursor->index + 2)].hex ||
 	!is_reg_valid(e->a[MODA(cursor->index + 3)].hex)) ||
@@ -103,7 +103,7 @@ void	ft_ldi(t_env *e, t_cursor *cursor)
 	else if (DDR == ZMASK(acb) || IDR == ZMASK(acb))
 		r2 = ddr_idr(e, cursor, acb);
 	r2 = MODX(r2);
-	if (check_register(t_env *e, t_cursor *cursor, char acb))
-		cursor->reg[e->a[MODA(cursor->index)].hex] = get_bytes(e, cursor, r2);
+	if (check_register_ldi(e, cursor, acb))
+		cursor->reg[e->a[MODA(cursor->index)].hex - 1] = get_bytes(e, cursor, r2);
 	ft_update_cursor(e, cursor, 1);
 }
