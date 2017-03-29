@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/29 15:59:58 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/29 18:27:34 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,13 @@ void	ft_ldi(t_env *e, t_cursor *cursor)
 		r2 = ddr_idr(e, cursor, acb, &ind);
 	r2 = MODX(r2);
 	if (check_register_ldi(e, cursor, acb))
-		cursor->reg[e->a[MODA(cursor->index)].hex - 1] = get_bytes(e, cursor, cursor->index - ind + r2);
+	{
+		value = get_bytes(e, cursor, cursor->index - ind + r2);
+		cursor->reg[e->a[MODA(cursor->index)].hex - 1] = value;
+		if (value == 0)
+			cursor->carry = 1;
+		else
+			cursor->carry = 0;
+	}
 	ft_update_cursor(e, cursor, 1);
 }

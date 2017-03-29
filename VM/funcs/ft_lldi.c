@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 21:40:56 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/29 16:01:20 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/29 18:28:51 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ void	ft_lldi(t_env *e, t_cursor *cursor)
 	else if (DDR == ZMASK(acb) || IDR == ZMASK(acb))
 		r2 = ddr_idr(e, cursor, acb, &ind);
 	if (check_register_ldi(e, cursor, acb))
-		cursor->reg[e->a[MODA(cursor->index)].hex - 1] = get_bytes(e, cursor, cursor->index - ind + r2);
+	{
+		value = get_bytes(e, cursor, cursor->index - ind + r2);
+		cursor->reg[e->a[MODA(cursor->index)].hex - 1] = value;
+		if (value == 0)
+			cursor->carry = 1;
+		else
+			cursor->carry = 0;
+	}
 	ft_update_cursor(e, cursor, 1);
 }

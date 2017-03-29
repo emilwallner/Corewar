@@ -3,10 +3,15 @@
 
 st r1,-10
 st r1,400
-ld 907,r2
-lld 4998,r3
-ld %10,r4
-st r1,100
-st r2,100
-st r3,100
-st r4,100
+lld %0,r3
+zjmp %7
+st r1,-10
+st r1,400
+ldi %1,%1,r2
+ldi %0,%200,r2
+zjmp %7
+st r1,-10
+st r1,400
+ldi r10,r3,r2
+lldi %0,%200,r2
+zjmp %10

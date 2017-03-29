@@ -6,13 +6,13 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/29 15:40:38 by nsabbah          ###   ########.fr        #
+#    Updated: 2017/03/29 18:36:29 by mhaziza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 COREWAR =	corewar
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -g
+CFLAGS	=	-Wall -Wextra -Werror
 RM		=	rm -f
 MKDIR	=	mkdir -p
 LIBFT	=	-L ../libft -lft -lcurses
