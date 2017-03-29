@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 19:56:00 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/29 10:35:23 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ void	ft_zjmp(t_env *e, t_cursor *cursor)
 		ft_update_cursor(e, cursor, index_extra);
 	}
 	else
-		ft_update_cursor(e, cursor, 1);
+		ft_update_cursor(e, cursor, 3);
 }
