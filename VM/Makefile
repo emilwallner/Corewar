@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/29 15:39:38 by nsabbah          ###   ########.fr        #
+#    Updated: 2017/03/29 15:40:38 by nsabbah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ SRCS	=		main_vm.c \
 				tests_ft_st.c \
 				tests_ft_sti.c \
 				ft_funcs_tools.c \
-				ft_funcs_tools2.c \
+				ft_funcs_tools_two.c \
 				ft_ldi.c \
 				ft_st.c	\
 
