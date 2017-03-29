@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/29 10:22:00 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/29 15:59:58 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 ** registry’s size and putting it on the third.
 **
 */
-int	rdr_drr_irr(t_env *e, t_cursor *cursor, int acb)
+int	rdr_drr_irr(t_env *e, t_cursor *cursor, int acb, int *ind)
 {
 	int	r2;
 	if (RDR == ZMASK(acb))
@@ -42,14 +42,15 @@ int	rdr_drr_irr(t_env *e, t_cursor *cursor, int acb)
 	}
 	else
 	{
-		r2 = get_ind(e, cursor, 2) + get_reg(e, cursor, 4);
+		r2 = get_ind(e, cursor, cursor->index + 2) + get_reg(e, cursor, 4);
 		// printf("IRR R= %x I= %x R+I = %i  %x\n", get_reg(e, cursor, 4), get_ind(e, cursor, 2),r2, r2);
 	}
+	*ind = 5;
 	ft_update_cursor(e, cursor, 5);
 	return (r2);
 }
 
-int	ddr_idr(t_env *e, t_cursor *cursor, int acb)
+int	ddr_idr(t_env *e, t_cursor *cursor, int acb, int *ind)
 {
 	int	r2;
 
@@ -60,9 +61,10 @@ int	ddr_idr(t_env *e, t_cursor *cursor, int acb)
 	}
 	else
 	{
-		r2 = get_ind(e, cursor, 2) + get_dir(e, cursor, 4, 2);
+		r2 = get_ind(e, cursor, cursor->index + 2) + get_dir(e, cursor, 4, 2);
 		// printf("IDR D= %x I= %x D+I = %i  %x\n", get_dir(e, cursor, 4, 2), get_ind(e, cursor, 2),r2, r2);
 	}
+	*ind = 6;
 	ft_update_cursor(e, cursor, 6);
 	return (r2);
 }
@@ -89,21 +91,23 @@ void	ft_ldi(t_env *e, t_cursor *cursor)
 	char		acb;
 	int			value;
 	int			r2;
-	short int	ind_value;
+	int			ind;
 
+	ind = 1;
 	acb = e->a[MODA(cursor->index + 1)].hex;
 	if (RRR == ZMASK(acb))
 	{
 			r2 = get_reg(e, cursor, 2) + get_reg(e, cursor, 3);
 			// printf("RRR reg sum = %i  %x\n", r2, r2);
+			ind = 4;
 			ft_update_cursor(e, cursor, 4);
 	}
 	else if (RDR == ZMASK(acb) || DRR == ZMASK(acb) || IRR == ZMASK(acb))
-		r2 = rdr_drr_irr(e, cursor, acb);
+		r2 = rdr_drr_irr(e, cursor, acb, &ind);
 	else if (DDR == ZMASK(acb) || IDR == ZMASK(acb))
-		r2 = ddr_idr(e, cursor, acb);
+		r2 = ddr_idr(e, cursor, acb, &ind);
 	r2 = MODX(r2);
 	if (check_register_ldi(e, cursor, acb))
-		cursor->reg[e->a[MODA(cursor->index)].hex - 1] = get_bytes(e, cursor, r2);
+		cursor->reg[e->a[MODA(cursor->index)].hex - 1] = get_bytes(e, cursor, cursor->index - ind + r2);
 	ft_update_cursor(e, cursor, 1);
 }
