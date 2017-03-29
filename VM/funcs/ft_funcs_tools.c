@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 20:16:15 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/29 12:30:15 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/29 14:49:40 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int get_bytes(t_env *e, t_cursor *cursor, int r)
 {
 	unsigned int	ret;
 
-	ret = (ZMASK(e->a[MODA(r)].hex) << 24) | (ZMASK(e->a[MODA(r + 1)].hex) << 16)
-	| (ZMASK(e->a[MODA(r + 2)].hex) << 8) | ZMASK(e->a[MODA(r + 3)].hex);
+	ret = (ZMASK(e->a[MODA(r)].hex) << 24) | (ZMASK(e->a[MODA((r + 1))].hex) << 16)
+	| (ZMASK(e->a[MODA((r + 2))].hex) << 8) | ZMASK(e->a[MODA((r + 3))].hex);
 	return ((int)ret);
 }
 

@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 17:07:21 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/29 12:59:51 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/29 14:49:50 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ void	ft_lld(t_env *e, t_cursor *cursor)
 	{
 		r = ((ZMASK(e->a[MODA(opc_ind + 2)].hex) << 8) | ZMASK(e->a[MODA(opc_ind + 3)].hex));
 		value = get_bytes(e, cursor, (short)r + opc_ind);
-		// printf("v = %x\n", value);
-		if (e->a[MODA(opc_ind + 2 + 2)].hex - 1 >= 1 && e->a[MODA(opc_ind + 2 + 2)].hex - 1 <= REG_NUMBER)
+		if (e->a[MODA((opc_ind + 2 + 2))].hex - 1 >= 1 && e->a[MODA(opc_ind + 2 + 2)].hex - 1 <= REG_NUMBER)
 		{
 			cursor->reg[e->a[MODA(opc_ind + 2 + 2)].hex - 1] = value;
 			if (value == 0)
