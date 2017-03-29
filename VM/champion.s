@@ -2,8 +2,8 @@
 .comment "do something"
 
 st r1,-10
-ld -10,r2
-ld -10,r3
+ld -15,r2
+lld -20,r3
 ld %10,r4
 st r1,100
 st r2,100
