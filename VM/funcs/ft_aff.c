@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/29 12:25:58 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/29 12:33:39 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	ft_aff(t_env *e, t_cursor *cursor)
 	i = (cursor->reg[index_extra - 1] % 256);
 	i = i < 0 ? i + 256 : i;
 	// ft_printf("index_extra = %i\n", i);
+	// index_extra = get_reg(e, cursor, 1);
+	// index_extra = index_extra % 256;
 	if(e->bonus)
 		printw("%c", i);
 	else
