@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/21 17:23:13 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 17:41:30 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/29 15:37:04 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_debug(t_env e)
 	// ft_tests_and6(e, &cursor[2]);
 	// ft_tests_and7(e, &cursor[2]);
 	// ft_tests_and8(e, &cursor[2]);
-	// 
+	//
 	// printf(RED "\n###### FUNCTION TEST : ft_or.c ######\n\n" RESET);
 	//
 	// ft_tests_or(e, &cursor[0]);

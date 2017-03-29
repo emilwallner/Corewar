@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 15:31:16 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 17:40:55 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/29 15:37:00 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	ft_tests_and2(t_env e, t_cursor *cursor)
 	e.a[0].hex = 0x06;
 	e.a[1].hex = RIR;
 
-	e.a[2].hex = 0x02;
+	e.a[2].hex = 0x20;
 
 	e.a[3].hex = 0xff;
 	e.a[4].hex = 0xff;
