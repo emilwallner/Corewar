@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 13:56:56 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 17:26:30 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/29 10:37:36 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,8 @@ int			get_reg(t_env *e, t_cursor *cursor, int i);
 int			get_bytes(t_env *e, t_cursor *cursor, int r);
 int			is_reg_valid(int i);
 int			check_register_ldi(t_env *e, t_cursor *cursor, char acb);
-
+int			rdr_drr_irr(t_env *e, t_cursor *cursor, int acb);
+int			ddr_idr(t_env *e, t_cursor *cursor, int acb);
 
 // Testing section
 void	ft_tests_ld(t_env e, t_cursor *cursor);

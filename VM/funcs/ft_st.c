@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:02:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/29 10:31:39 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/29 10:39:27 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ void	ft_st(t_env *e, t_cursor *cursor)
 		// printf("p2 %i - %#x \n", p2, p2);
 		p2 = p2 < 0 && p2 > -IDX_MOD ? p2 : MODX(p2);
 		// printf("p2 %i - %#x \n", p2, p2);
-		int byte = MODA(get_bytes(e, cursor, MODX(p2)));
+		// int byte = MODA(get_bytes(e, cursor, MODX(p2)));
 		// byte = byte < 0 ? byte + MEM_SIZE : byte;
 		// printf("byte %i\n", byte);
 		i = -1;
-		while (++i < 4)
+		while (ft_is_reg(p1 - 1, REG_NUMBER, REG_NUMBER) && ++i < 4)
 		{
 			v = cursor->index + p2 + i;
 			// v = (cursor->index + byte + i < 0) ? cursor->index + byte + i + MEM_SIZE : cursor->index + byte + i;

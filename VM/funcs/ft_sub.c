@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/29 09:28:24 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/29 10:10:21 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_sub(t_env *e, t_cursor *cursor)
 	}
 	cursor->reg[r3] = cursor->reg[r1] - cursor->reg[r2];
 	ft_update_cursor(e, cursor, 5);
-	if (cursor->reg[r3])
+	if (cursor->reg[r3] == 0)
 		cursor->carry = 1;
 	else
 		cursor->carry = 0;

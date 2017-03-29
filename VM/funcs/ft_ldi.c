@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 11:36:50 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/29 10:22:00 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 ** registry’s size and putting it on the third.
 **
 */
-static int	rdr_drr_irr(t_env *e, t_cursor *cursor, int acb)
+int	rdr_drr_irr(t_env *e, t_cursor *cursor, int acb)
 {
 	int	r2;
 	if (RDR == ZMASK(acb))
@@ -49,7 +49,7 @@ static int	rdr_drr_irr(t_env *e, t_cursor *cursor, int acb)
 	return (r2);
 }
 
-static int	ddr_idr(t_env *e, t_cursor *cursor, int acb)
+int	ddr_idr(t_env *e, t_cursor *cursor, int acb)
 {
 	int	r2;
 
