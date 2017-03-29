@@ -16,7 +16,7 @@ void	ft_aff(t_env *e, t_cursor *cursor)
 {
 	char	index_extra;
 
-	index_extra = e->a[MODA(cursor->index + 1)].hex;
+	index_extra = get_reg(e, cursor, 1);
 	index_extra = index_extra % 256;
 	if(e->bonus)
 		printw("%c", index_extra);
