@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:02:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/28 20:58:22 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/29 10:31:39 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,16 @@ void	ft_st(t_env *e, t_cursor *cursor)
 	int		size;
 	int		v;
 
-	acb = e->a[cursor->index + 1].hex;
-	p1 = e->a[cursor->index + 2].hex;
+	acb = e->a[MODA(cursor->index + 1)].hex;
+	p1 = e->a[MODA(cursor->index + 2)].hex;
 	p2 = 0;
 // printf("p1 %i reg[p1] %x acb %x\n", p1, cursor->reg[p1], acb);
 	if (RR == ZMASK(acb))
 	{
 	//	printf("RR\n");
-		p2 = e->a[cursor->index + 3].hex;
-		cursor->reg[p2 - 1] = cursor->reg[p1 - 1];
+		p2 = e->a[MODA(cursor->index + 3)].hex;
+		if (ft_is_reg(p1 - 1, p2 - 1, REG_NUMBER))
+			cursor->reg[p2 - 1] = cursor->reg[p1 - 1];
 		ft_update_cursor(e, cursor, 4);
 	//	printf("reg[p2] %x (expected: ?)\n", cursor->reg[p2]);
 	}
