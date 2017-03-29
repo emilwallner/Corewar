@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 13:56:56 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/29 10:37:36 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/29 12:49:57 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@
 # define DRR 0b10010100
 # define DIR 0b10110100
 # define DDR 0b10100100
+# define IR 0b11010000
+# define DR 0b10010000
 
 typedef struct s_var
 {

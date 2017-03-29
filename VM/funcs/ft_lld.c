@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 17:07:21 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/29 10:50:22 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/29 12:50:26 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,23 @@
 **
 */
 
+
 void	ft_lld(t_env *e, t_cursor *cursor)
 {
 	char		acb;
 	int			value;
 	int			opc_ind;
-	short int	ind_value;
+	unsigned short		r;
 
 	opc_ind = cursor->index;
 	acb = e->a[MODA(opc_ind + 1)].hex;
-	if (((acb & 0xFF) >> 6) == DIR_CODE)
+	if (DR == ZMASK(acb))
 	{
-		value = ft_cp_int(MODA(opc_ind + 2), *e);
-		if (e->a[MODA(opc_ind + 2 + 4)].hex >= 1 && e->a[MODA(opc_ind + 2 + 4)].hex <= REG_NUMBER)
+		value = get_bytes(e, cursor, opc_ind + 2);
+		// printf("V = %i\n", value);
+		if (e->a[MODA(opc_ind + 2 + 4)].hex - 1 >= 1 && e->a[MODA(opc_ind + 2 + 4)].hex - 1 <= REG_NUMBER)
 		{
-			cursor->reg[e->a[MODA(opc_ind + 2 + 4)].hex] = value;
+			cursor->reg[e->a[MODA(opc_ind + 2 + 4)].hex - 1] = value;
 			if (value == 0)
 				cursor->carry = 1;
 			else
@@ -43,15 +45,14 @@ void	ft_lld(t_env *e, t_cursor *cursor)
 		}
 		ft_update_cursor(e, cursor, 7);
 	}
-	else
+	else if (IR == ZMASK(acb))
 	{
-		ind_value = ((e->a[MODA(opc_ind + 2)].hex & 0xFF) << 8)
-									+ (e->a[MODA(opc_ind + 3)].hex & 0xFF);
-		ind_value = ind_value & 0xFFFF;
-		value = ft_cp_int(MODA(opc_ind + ind_value), *e);
-		if (e->a[MODA(opc_ind + 2 + 2)].hex >= 1 && e->a[MODA(opc_ind + 2 + 2)].hex <= REG_NUMBER)
+		r = ((ZMASK(e->a[MODA(opc_ind + 2)].hex) << 8) | ZMASK(e->a[MODA(opc_ind + 3)].hex));
+		value = get_bytes(e, cursor, (short)r);
+		// printf("v = %x\n", value);
+		if (e->a[MODA(opc_ind + 2 + 2)].hex - 1 >= 1 && e->a[MODA(opc_ind + 2 + 2)].hex - 1 <= REG_NUMBER)
 		{
-			cursor->reg[e->a[MODA(opc_ind + 2 + 2)].hex] = value;
+			cursor->reg[e->a[MODA(opc_ind + 2 + 2)].hex - 1] = value;
 			if (value == 0)
 				cursor->carry = 1;
 			else
@@ -59,5 +60,4 @@ void	ft_lld(t_env *e, t_cursor *cursor)
 		}
 		ft_update_cursor(e, cursor, 5);
 	}
-	cursor->carry = 1;
 }
