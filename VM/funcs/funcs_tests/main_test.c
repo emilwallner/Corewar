@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/21 17:23:13 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 17:41:30 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/29 15:57:11 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,20 +53,20 @@ void	ft_debug(t_env e)
  // ft_tests_sub(e, &cursor[0]);
  // ft_tests_sub2(e, &cursor[1]);
  //
- printf(RED "\n###### FUNCTION TEST : ft_and.c ######\n\n" RESET);
+ // printf(RED "\n###### FUNCTION TEST : ft_and.c ######\n\n" RESET);
 
 	// ft_tests_and(e, &cursor[0]);
 	// ft_tests_and1(e, &cursor[1]);
-	ft_tests_and2(e, &cursor[2]);
+	// ft_tests_and2(e, &cursor[2]);
 	// ft_tests_and3(e, &cursor[2]);
 	// ft_tests_and4(e, &cursor[2]);
 	// ft_tests_and5(e, &cursor[2]);
 	// ft_tests_and6(e, &cursor[2]);
 	// ft_tests_and7(e, &cursor[2]);
 	// ft_tests_and8(e, &cursor[2]);
-	// 
-	// printf(RED "\n###### FUNCTION TEST : ft_or.c ######\n\n" RESET);
 	//
+	// printf(RED "\n###### FUNCTION TEST : ft_or.c ######\n\n" RESET);
+	// //
 	// ft_tests_or(e, &cursor[0]);
 	// ft_tests_or1(e, &cursor[1]);
 	// ft_tests_or2(e, &cursor[2]);
@@ -76,16 +76,16 @@ void	ft_debug(t_env e)
 	// ft_tests_or6(e, &cursor[2]);
 	// ft_tests_or7(e, &cursor[2]);
 	// ft_tests_or8(e, &cursor[2]);
-	//
-	// printf(RED "\n###### FUNCTION TEST : ft_xor.c ######\n\n" RESET);
-	//
-	// ft_tests_xor(e, &cursor[0]);
-	// ft_tests_xor1(e, &cursor[1]);
-	// ft_tests_xor2(e, &cursor[2]);
-	// ft_tests_xor3(e, &cursor[2]);
-	// ft_tests_xor4(e, &cursor[2]);
-	// ft_tests_xor5(e, &cursor[2]);
-	// ft_tests_xor6(e, &cursor[2]);
-	// ft_tests_xor7(e, &cursor[2]);
-	// ft_tests_xor8(e, &cursor[2]);
+
+	printf(RED "\n###### FUNCTION TEST : ft_xor.c ######\n\n" RESET);
+
+	ft_tests_xor(e, &cursor[0]);
+	ft_tests_xor1(e, &cursor[1]);
+	ft_tests_xor2(e, &cursor[2]);
+	ft_tests_xor3(e, &cursor[2]);
+	ft_tests_xor4(e, &cursor[2]);
+	ft_tests_xor5(e, &cursor[2]);
+	ft_tests_xor6(e, &cursor[2]);
+	ft_tests_xor7(e, &cursor[2]);
+	ft_tests_xor8(e, &cursor[2]);
 }

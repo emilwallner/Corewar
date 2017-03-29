@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 13:56:56 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/29 16:02:12 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/29 16:05:41 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_var
 	int			r3;
 	int			ind;
 	char		acb;
+	int			carry;
 }				t_var;
 
 typedef struct s_arena
@@ -202,4 +203,5 @@ void	ft_tests_xor5(t_env e, t_cursor *cursor);
 void	ft_tests_xor6(t_env e, t_cursor *cursor);
 void	ft_tests_xor7(t_env e, t_cursor *cursor);
 void	ft_tests_xor8(t_env e, t_cursor *cursor);
+void	ft_init_v(t_env *e, t_cursor *cursor, t_var *v);
 #endif

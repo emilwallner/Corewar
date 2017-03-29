@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 14:00:59 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 14:01:04 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/29 15:54:17 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_tests_or(t_env e, t_cursor *cursor)
 
 	e.a[2].hex = 0x02;
 
-	e.a[3].hex = 0x03;
+	e.a[3].hex = 0x33;
 
 	e.a[4].hex = 0x04;
 
@@ -33,9 +33,10 @@ void	ft_tests_or(t_env e, t_cursor *cursor)
 		i++;
 	}
 	printf("\n");
-	cursor->reg[1] = 0b10110100 & 0xFF;
-	cursor->reg[2] = 0b11101001 & 0xFF;
+	cursor->reg[1] = 0;
+	cursor->reg[2] = 0;
 	cursor->reg[3] = 8;
+	cursor->carry = 8;
 	cursor->index = 0;
 
 	printf("\nBEFORE FUNCTION CALL\n\n");

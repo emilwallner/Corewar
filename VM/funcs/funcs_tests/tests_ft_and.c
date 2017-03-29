@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 15:31:16 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 17:40:55 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/29 15:49:50 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,8 +141,9 @@ void	ft_tests_and2(t_env e, t_cursor *cursor)
 	ft_printf("|| %02.x ", (e.a[MEM_SIZE - 1].hex & 0xFF));
 	printf("MODA[MEM_SIZE - 1] is %i\n", MODA(MEM_SIZE - 1));
 	printf("\n");
-	cursor->reg[1] = 0x10229409;
+	cursor->reg[1] = 0xff000;
 	cursor->index = 0;
+	cursor->carry = 15;
 	ind = get_ind(&e, cursor, 3);
 	// ind = 0;
 	printf("\nBEFORE FUNCTION CALL\n\n");
