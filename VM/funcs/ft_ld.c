@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/24 17:07:22 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/29 09:40:05 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_ld(t_env *e, t_cursor *cursor)
 	if (((acb & 0xFF) >> 6) == DIR_CODE)
 	{
 		value = ft_cp_int(MODA(opc_ind + 2), *e);
-		cursor->reg[e->a[MODA(opc_ind + 2 + 4)].hex] = value;
+		cursor->reg[e->a[MODA(opc_ind + 2 + 4)].hex] = value;//need to check if the register exist before
 		ft_update_cursor(e, cursor, 7);
 	}
 	else
@@ -41,7 +41,7 @@ void	ft_ld(t_env *e, t_cursor *cursor)
 									+ (e->a[MODA(opc_ind + 3)].hex & 0xFF);
 		ind_value = MODX(ind_value) & 0xFFFF;
 		value = ft_cp_int(MODA(opc_ind + ind_value), *e);
-		cursor->reg[e->a[MODA(opc_ind + 2 + 2)].hex] = value;
+		cursor->reg[e->a[MODA(opc_ind + 2 + 2)].hex] = value; //need to check if the register exist before
 		ft_update_cursor(e, cursor, 5);
 	}
 	cursor->carry = 1;
