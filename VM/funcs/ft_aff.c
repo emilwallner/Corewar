@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/29 09:24:16 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/29 12:25:58 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,21 @@
 void	ft_aff(t_env *e, t_cursor *cursor)
 {
 	char	index_extra;
+	int		i;
 
-	index_extra = e->a[MODA(cursor->index + 1)].hex;
-	index_extra = index_extra % 256;
+	i = 0;
+	index_extra = e->a[MODA(cursor->index + 2)].hex;
+	if (index_extra < 0 || index_extra > 15)
+	{
+		ft_update_cursor(e, cursor, 3);
+		return ;
+	}
+	i = (cursor->reg[index_extra - 1] % 256);
+	i = i < 0 ? i + 256 : i;
+	// ft_printf("index_extra = %i\n", i);
 	if(e->bonus)
-		printw("%c", index_extra);
+		printw("%c", i);
 	else
-		ft_printf("%c", index_extra);
+		ft_printf("%c", i);
 	ft_update_cursor(e, cursor, 3);
 }

@@ -1,7 +1,6 @@
 .name "vm_test_st"
 .comment "do something"
 
-zjmp %10
 st r1,11
 st r1,-20
 live %1
