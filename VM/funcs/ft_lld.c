@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 17:07:21 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/24 17:07:17 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/29 10:50:22 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,14 @@ void	ft_lld(t_env *e, t_cursor *cursor)
 	if (((acb & 0xFF) >> 6) == DIR_CODE)
 	{
 		value = ft_cp_int(MODA(opc_ind + 2), *e);
-		cursor->reg[e->a[MODA(opc_ind + 2 + 4)].hex] = value;
+		if (e->a[MODA(opc_ind + 2 + 4)].hex >= 1 && e->a[MODA(opc_ind + 2 + 4)].hex <= REG_NUMBER)
+		{
+			cursor->reg[e->a[MODA(opc_ind + 2 + 4)].hex] = value;
+			if (value == 0)
+				cursor->carry = 1;
+			else
+				cursor->carry = 0;
+		}
 		ft_update_cursor(e, cursor, 7);
 	}
 	else
@@ -42,7 +49,14 @@ void	ft_lld(t_env *e, t_cursor *cursor)
 									+ (e->a[MODA(opc_ind + 3)].hex & 0xFF);
 		ind_value = ind_value & 0xFFFF;
 		value = ft_cp_int(MODA(opc_ind + ind_value), *e);
-		cursor->reg[e->a[MODA(opc_ind + 2 + 2)].hex] = value;
+		if (e->a[MODA(opc_ind + 2 + 2)].hex >= 1 && e->a[MODA(opc_ind + 2 + 2)].hex <= REG_NUMBER)
+		{
+			cursor->reg[e->a[MODA(opc_ind + 2 + 2)].hex] = value;
+			if (value == 0)
+				cursor->carry = 1;
+			else
+				cursor->carry = 0;
+		}
 		ft_update_cursor(e, cursor, 5);
 	}
 	cursor->carry = 1;
