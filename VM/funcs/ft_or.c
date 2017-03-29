@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 15:04:23 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/29 10:49:43 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_or_4(t_env *e, t_cursor *cursor, t_var v)
 	if (ZMASK(v.acb) == DIR)
 	{
 		v.r1 = e->a[MODA(cursor->index + 8)].hex;
-		if (ft_is_reg(v.r1, v.r1, v.r1) && (cursor->carry = 1))
+		if (ft_is_reg(v.r1 - 1, v.r1 - 1, v.r1 - 1) && (cursor->carry = 1))
 			cursor->reg[v.r1 - 1] = get_dir(e, cursor, 2, 4) |
 				get_ind(e, cursor, 6);
 		ft_update_cursor(e, cursor, 9);
@@ -32,7 +32,7 @@ static void	ft_or_4(t_env *e, t_cursor *cursor, t_var v)
 	else if (ZMASK(v.acb) == IIR)
 	{
 		v.r1 = e->a[MODA(cursor->index + 6)].hex;
-		if (ft_is_reg(v.r1, v.r1, v.r1) && (cursor->carry = 1))
+		if (ft_is_reg(v.r1 - 1, v.r1 - 1, v.r1 - 1) && (cursor->carry = 1))
 			cursor->reg[v.r1 - 1] = get_ind(e, cursor, 2) |
 				get_ind(e, cursor, 4);
 		ft_update_cursor(e, cursor, 7);
@@ -40,7 +40,7 @@ static void	ft_or_4(t_env *e, t_cursor *cursor, t_var v)
 	else if (ZMASK(v.acb) == IDR)
 	{
 		v.r1 = e->a[MODA(cursor->index + 8)].hex;
-		if (ft_is_reg(v.r1, v.r1, v.r1) && (cursor->carry = 1))
+		if (ft_is_reg(v.r1 - 1, v.r1 - 1, v.r1 - 1) && (cursor->carry = 1))
 			cursor->reg[v.r1 - 1] = get_ind(e, cursor, 2) |
 				get_dir(e, cursor, 4, 4);
 		ft_update_cursor(e, cursor, 9);
@@ -53,7 +53,7 @@ static void	ft_or_3(t_env *e, t_cursor *cursor, t_var v)
 	{
 		v.r1 = e->a[MODA(cursor->index + 6)].hex;
 		v.r2 = e->a[MODA(cursor->index + 7)].hex;
-		if (ft_is_reg(v.r1, v.r2, v.r2) && (cursor->carry = 1))
+		if (ft_is_reg(v.r1 - 1, v.r2 - 1, v.r2 - 1) && (cursor->carry = 1))
 			cursor->reg[v.r2 - 1] = cursor->reg[v.r1 - 1] |
 				get_dir(e, cursor, 2, 4);
 		ft_update_cursor(e, cursor, 8);
@@ -61,7 +61,7 @@ static void	ft_or_3(t_env *e, t_cursor *cursor, t_var v)
 	else if (ZMASK(v.acb) == DDR)
 	{
 		v.r1 = e->a[MODA(cursor->index + 10)].hex;
-		if (ft_is_reg(v.r1, v.r1, v.r1) && (cursor->carry = 1))
+		if (ft_is_reg(v.r1 - 1, v.r1 - 1, v.r1 - 1) && (cursor->carry = 1))
 			cursor->reg[v.r1 - 1] = get_dir(e, cursor, 2, 4) |
 				get_dir(e, cursor, 6, 4);
 		ft_update_cursor(e, cursor, 11);
@@ -76,7 +76,7 @@ static void	ft_or_2(t_env *e, t_cursor *cursor, t_var v)
 	{
 		v.r1 = e->a[MODA(cursor->index + 2)].hex;
 		v.r2 = e->a[MODA(cursor->index + 5)].hex;
-		if (ft_is_reg(v.r1, v.r2, v.r2) && (cursor->carry = 1))
+		if (ft_is_reg(v.r1 - 1, v.r2 - 1, v.r2 - 1) && (cursor->carry = 1))
 			cursor->reg[v.r2 - 1] = cursor->reg[v.r1 - 1] |
 				get_ind(e, cursor, 3);
 		ft_update_cursor(e, cursor, 6);
@@ -85,7 +85,7 @@ static void	ft_or_2(t_env *e, t_cursor *cursor, t_var v)
 	{
 		v.r1 = e->a[MODA(cursor->index + 4)].hex;
 		v.r2 = e->a[MODA(cursor->index + 5)].hex;
-		if (ft_is_reg(v.r1, v.r2, v.r2) && (cursor->carry = 1))
+		if (ft_is_reg(v.r1 - 1, v.r2 - 1, v.r2 - 1) && (cursor->carry = 1))
 			cursor->reg[v.r2 - 1] = cursor->reg[v.r1 - 1] |
 				get_ind(e, cursor, 2);
 		ft_update_cursor(e, cursor, 6);
@@ -104,7 +104,7 @@ void		ft_or(t_env *e, t_cursor *cursor)
 		v.r1 = e->a[MODA(cursor->index + 2)].hex;
 		v.r2 = e->a[MODA(cursor->index + 3)].hex;
 		v.r3 = e->a[MODA(cursor->index + 4)].hex;
-		if (ft_is_reg(v.r1, v.r2, v.r3) && (cursor->carry = 1))
+		if (ft_is_reg(v.r1 - 1, v.r2 - 1, v.r3 - 1) && (cursor->carry = 1))
 			cursor->reg[v.r3 - 1] = cursor->reg[v.r1 - 1] |
 				cursor->reg[v.r2 - 1];
 		ft_update_cursor(e, cursor, 5);
@@ -113,7 +113,7 @@ void		ft_or(t_env *e, t_cursor *cursor)
 	{
 		v.r1 = e->a[MODA(cursor->index + 2)].hex;
 		v.r2 = e->a[MODA(cursor->index + 7)].hex;
-		if (ft_is_reg(v.r1, v.r2, v.r2) && (cursor->carry = 1))
+		if (ft_is_reg(v.r1 - 1, v.r2 - 1, v.r2 - 1) && (cursor->carry = 1))
 			cursor->reg[v.r2 - 1] = cursor->reg[v.r1 - 1] |
 				get_dir(e, cursor, 3, 4);
 		ft_update_cursor(e, cursor, 8);
