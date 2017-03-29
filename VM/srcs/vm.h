@@ -41,6 +41,8 @@
 # define DDR 0b10100100
 # define IR 0b11010000
 # define DR 0b10010000
+# define INT_MAX 2147483647
+# define INT_MIN −2147483648
 
 typedef struct s_var
 {
@@ -66,6 +68,8 @@ typedef struct	s_player
 	char name[PROG_NAME_LENGTH + 1];
 	char comment[COMMENT_LENGTH + 1];
 	char inst[CHAMP_MAX_SIZE + 1];
+	int	nbr;
+	char **file;
 	int	len;
 	int live;
 	int	cursor_amount;
@@ -81,6 +85,7 @@ typedef struct		s_cursor{
 	int				counter;
 	int				running;
 	int				player;
+	int				nbr;
 	int				index;
 	int				color;
 	int				cycle;
@@ -89,7 +94,7 @@ typedef struct		s_cursor{
 
 typedef struct	s_env
 {
-	t_player	player[MAX_PLAYERS];
+	t_player	player[MAX_PLAYERS + 1];
 	t_cursor	*head;
 	t_arena		a[MEM_SIZE];
 	int 		cursors;
