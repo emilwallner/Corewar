@@ -9,8 +9,8 @@ DIFF="../DIFF/"
 P="./corewar -d 200";
 DIR="../Players/"
 
-C="./corewar -dump 1000 -n -1";
-C2="./corewarzaz -d 1000";
+C="./corewar -dump 200 -n -1";
+C2="./corewarzaz -a -d 200";
 
 FILE="bee_gees.cor";
 FILE2="bigzork.cor";

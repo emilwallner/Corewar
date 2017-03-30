@@ -47,7 +47,7 @@ void init_e(t_env *e, int ac, char **av)
 	e->lives = 0;
 	e->bonus = 0;
 	e->dump = 0;
-	e->winner = 1;
+	e->winner = 0;
 	e->check = 0;
 	e->tot_cycle = 0;
 	e->head = NULL;
