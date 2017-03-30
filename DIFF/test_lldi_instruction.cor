@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-2c2
-< * Player -1, weighing 97 bytes, "test_lldi_instruction" ("test_registeries") !
----
-> * Player 1, weighing 97 bytes, "test_lldi_instruction" ("test_registeries") !
-=======
 2,3c2,3
 < * Player -1, weighing 97 bytes, "test_lldi_instruction" ("test_registeries") !
 < Contestant -1, "test_lldi_instruction", has won !
 ---
 > * Player 1, weighing 97 bytes, "test_lldi_instruction" ("test_registeries") !
 > Contestant 1, "test_lldi_instruction", has won !
->>>>>>> c47558d81ead924dacd985868b38a77418ffa38c

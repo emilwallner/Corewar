@@ -1,13 +1,8 @@
 1d0
 < Aff: ÿ
-<<<<<<< HEAD
-3c2,3
-< * Player -1, weighing 3 bytes, "test_aff_instruction" ("test_registeries") !
-=======
 3,4c2,4
 < * Player -1, weighing 3 bytes, "test_aff_instruction" ("test_registeries") !
 < Contestant -1, "test_aff_instruction", has won !
->>>>>>> c47558d81ead924dacd985868b38a77418ffa38c
 ---
 > * Player 1, weighing 3 bytes, "test_aff_instruction" ("test_registeries") !
 > Aff: ÿ

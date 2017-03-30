@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:48:38 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/24 13:00:09 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/30 19:06:58 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # define DIR_CODE			2
 # define IND_CODE			3
 
-# define MAX_ARGS_NUMBER		4
-# define MAX_PLAYERS			4
+# define MAX_ARGS_NUMBER	4
+# define MAX_PLAYERS		4
 # define MEM_SIZE			(4*1024)
 # define IDX_MOD			(MEM_SIZE / 8)
 # define CHAMP_MAX_SIZE		(MEM_SIZE / 6)
@@ -33,8 +33,8 @@
 # define SEPARATOR_CHAR		','
 
 # define LABEL_CHARS		"abcdefghijklmnopqrstuvwxyz_0123456789"
-# define COMMENT_CHARS		"abcdefghijklmnopqrstuvwxyz_0123456789()QWERTYUIOPASDFGHJKLZXCVBNM{}[]=+-*/<> "
-# define CMD_CHARS			" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_0123456789+-*/=.?!<>"
+# define COMMENT_CHARS		"abcdefghijklmnopqrstuvwxyz_0123456789()=+-*/<> "
+# define CMD_CHARS			" abcdefghijklmnopqrstuvwxyz_0123456789+-*/=.?!<>"
 
 # define NAME_CMD_STRING		".name"
 # define COMMENT_CMD_STRING	".comment"
