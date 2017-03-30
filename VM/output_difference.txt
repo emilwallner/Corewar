@@ -1,0 +1,257 @@
+Only in ../US/: -Nothing
+Only in ../US/: -dev-null
+Only in ../US/: -dev-urandom
+Only in ../US/: -dev-zero
+diff -r ../Players/../ZAZ/bee_gees.cor ../US/bee_gees.cor
+2,4c2,4
+< * Player 1, weighing 71 bytes, "stayin alive" ("Ha Ha Ha stayiiiiin aliiiiiiiiiive") !
+< 0x0000 : 0b 68 01 00 3f 00 01 0b 68 01 00 22 00 01 02 90 00 00 00 01 03 02 90 00 00 00 21 06 04 54 02 03 02 08 64 02 00 00 00 0f 04 01 ff ff ff ff 09 00 0a 02 90 00 00 00 00 04 02 90 00 00 00 00 04 01 
+< 0x0040 : ff ff ff ff 09 ff fb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+---
+> * Player -1, weighing 71 bytes, stayin alive (Ha Ha Ha stayiiiiin aliiiiiiiiiive) !
+> 0x0000 : 0b 68 01 00 3f 00 01 0b 68 01 00 22 00 01 02 90 00 00 00 01 03 02 90 00 00 00 21 06 04 54 02 03 02 08 64 02 00 00 00 0f 04 01 00 00 00 04 09 00 0a 02 90 00 00 00 00 04 02 90 00 00 00 00 04 01 
+> 0x0040 : 00 00 00 04 09 ff fb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+diff -r ../Players/../ZAZ/bigzork.cor ../US/bigzork.cor
+2c2
+< * Player 1, weighing 20 bytes, "bigzork" ("I know i cant win") !
+---
+> * Player -1, weighing 20 bytes, bigzork (I know i cant win) !
+diff -r ../Players/../ZAZ/fork.cor ../US/fork.cor
+2c2
+< * Player 1, weighing 23 bytes, "tim" ("just_a_basic_living_prog") !
+---
+> * Player -1, weighing 23 bytes, tim (just_a_basic_living_prog) !
+diff -r ../Players/../ZAZ/helltrain.cor ../US/helltrain.cor
+2c2
+< * Player 1, weighing 617 bytes, "helltrain" ("choochoo motherf") !
+---
+> * Player -1, weighing 617 bytes, helltrain (choochoo motherf) !
+4c4
+< 0x0040 : 68 01 01 cd 00 01 0b 68 01 01 c6 00 09 0b 68 01 01 98 00 01 02 90 00 00 00 00 10 0c 01 43 02 90 00 00 00 00 02 02 90 00 00 00 00 10 01 ff ff ff ff 03 70 02 ff e8 03 70 02 ff df 03 70 02 ff d6 
+---
+> 0x0040 : 68 01 01 cd 00 01 0b 68 01 01 c6 00 09 0b 68 01 01 98 00 01 02 90 00 00 00 00 10 0c 01 43 02 90 00 00 00 00 02 02 90 00 00 00 00 10 01 00 00 01 ea 03 70 02 ff e8 03 70 02 ff df 03 70 02 ff d6 
+9,10c9,10
+< 0x0180 : 70 02 fe 02 09 fe e8 01 ff ff ff ff 0c ff fb 02 90 00 00 00 00 10 01 ff ff ff ff 09 ff fb 01 ff ff ff ff 09 00 03 0c ff f8 01 ff ff ff ff 0c 00 5e 01 ff ff ff ff 0c 00 2f 01 ff ff ff ff 0c 00 
+< 0x01c0 : 84 02 90 00 00 00 00 02 02 90 00 00 09 d6 03 02 90 00 00 00 00 10 01 ff ff ff ff 02 90 00 00 00 00 10 09 00 78 01 00 00 10 f6 0c fe 74 02 90 00 00 09 d6 02 02 90 00 00 01 82 03 02 90 00 00 00 
+---
+> 0x0180 : 70 02 fe 02 09 fe e8 01 00 00 01 a7 0c ff fb 02 90 00 00 00 00 10 01 00 00 01 58 09 ff fb 01 00 00 10 e0 09 00 03 0c ff f8 01 00 42 0e 4a 0c 00 5e 01 00 00 01 54 0c 00 2f 01 00 00 01 cb 0c 00 
+> 0x01c0 : 84 02 90 00 00 00 00 02 02 90 00 00 09 d6 03 02 90 00 00 00 00 10 01 00 00 01 ed 02 90 00 00 00 00 10 09 00 78 01 00 00 10 f6 0c fe 74 02 90 00 00 09 d6 02 02 90 00 00 01 82 03 02 90 00 00 00 
+diff -r ../Players/../ZAZ/id_player_dyn.cor ../US/id_player_dyn.cor
+2,3c2,3
+< * Player 1, weighing 18 bytes, "zork" ("justabasiclivingprog") !
+< 0x0000 : 03 70 01 00 0b 04 54 02 03 04 01 ff ff ff ff 09 ff fb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+---
+> * Player -1, weighing 18 bytes, zork (justabasiclivingprog) !
+> 0x0000 : 03 70 01 00 0b 04 54 02 03 04 01 00 00 00 0a 09 ff fb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+diff -r ../Players/../ZAZ/jmp_after_add.cor ../US/jmp_after_add.cor
+2c2
+< * Player 1, weighing 20 bytes, "zork" ("justabasiclivingprog") !
+---
+> * Player -1, weighing 20 bytes, zork (justabasiclivingprog) !
+diff -r ../Players/../ZAZ/jmp_after_load.cor ../US/jmp_after_load.cor
+2c2
+< * Player 1, weighing 15 bytes, "zork" ("just_a_basic_living_prog") !
+---
+> * Player -1, weighing 15 bytes, zork (just_a_basic_living_prog) !
+diff -r ../Players/../ZAZ/move.cor ../US/move.cor
+2,4c2,4
+< * Player 1, weighing 74 bytes, "stayin alive" ("Ha Ha Ha stayiiiiin aliiiiiiiiiive") !
+< 0x0000 : 0b 68 01 00 42 00 01 0b 68 01 00 22 00 01 02 90 00 00 00 01 03 02 90 00 00 00 21 06 04 54 02 03 02 08 64 02 00 00 00 0f 04 01 ff ff ff ff 09 00 0d 02 90 00 00 00 00 04 09 ff e4 02 90 00 00 00 
+< 0x0040 : 00 04 01 ff ff ff ff 09 ff fb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+---
+> * Player -1, weighing 74 bytes, stayin alive (Ha Ha Ha stayiiiiin aliiiiiiiiiive) !
+> 0x0000 : 0b 68 01 00 42 00 01 0b 68 01 00 22 00 01 02 90 00 00 00 01 03 02 90 00 00 00 21 06 04 54 02 03 02 08 64 02 00 00 00 0f 04 01 00 00 00 04 09 00 0d 02 90 00 00 00 00 04 09 ff e4 02 90 00 00 00 
+> 0x0040 : 00 04 01 00 00 00 04 09 ff fb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+diff -r ../Players/../ZAZ/st.cor ../US/st.cor
+2c2
+< * Player 1, weighing 5 bytes, "Yo dang" ("Zup why you lookin at me like that") !
+---
+> * Player -1, weighing 5 bytes, Yo dang (Zup why you lookin at me like that) !
+4c4
+< 0x0040 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff 00 
+---
+> 0x0040 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+diff -r ../Players/../ZAZ/test_add_instruction.cor ../US/test_add_instruction.cor
+2c2
+< * Player 1, weighing 5 bytes, "test_add_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 5 bytes, test_add_instruction (test_registeries) !
+diff -r ../Players/../ZAZ/test_aff_instruction.cor ../US/test_aff_instruction.cor
+2c2
+< * Player 1, weighing 3 bytes, "test_aff_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 3 bytes, test_aff_instruction (test_registeries) !
+diff -r ../Players/../ZAZ/test_and_instruction.cor ../US/test_and_instruction.cor
+2c2
+< * Player 1, weighing 109 bytes, "test_and_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 109 bytes, test_and_instruction (test_registeries) !
+diff -r ../Players/../ZAZ/test_comment_line.cor ../US/test_comment_line.cor
+2c2
+< * Player 1, weighing 22 bytes, "test_comment_line" ("comment_on_the_line") !
+---
+> * Player -1, weighing 22 bytes, test_comment_line (comment_on_the_line) !
+6c6
+< 0x00c0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff 00 ff ff ff ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+---
+> 0x00c0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+64c64
+< 0x0f40 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+---
+> 0x0f40 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+diff -r ../Players/../ZAZ/test_comments_eol.cor ../US/test_comments_eol.cor
+2c2
+< * Player 1, weighing 27 bytes, "test_comments_eol" ("comments_at_the_end_of_the_line") !
+---
+> * Player -1, weighing 27 bytes, test_comments_eol (comments_at_the_end_of_the_line) !
+6c6
+< 0x00c0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff 00 ff ff ff ff 00 ff ff ff ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+---
+> 0x00c0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+64c64
+< 0x0f40 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+---
+> 0x0f40 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+diff -r ../Players/../ZAZ/test_fork_instruction.cor ../US/test_fork_instruction.cor
+2c2
+< * Player 1, weighing 6 bytes, "test_fork_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 6 bytes, test_fork_instruction (test_registeries) !
+diff -r ../Players/../ZAZ/test_ld_instruction.cor ../US/test_ld_instruction.cor
+2c2
+< * Player 1, weighing 24 bytes, "test_ld_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 24 bytes, test_ld_instruction (test_registeries) !
+diff -r ../Players/../ZAZ/test_ldi_instruction.cor ../US/test_ldi_instruction.cor
+2c2
+< * Player 1, weighing 110 bytes, "test_ldi_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 110 bytes, test_ldi_instruction (test_registeries) !
+66c66
+< 0x0fc0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff 00 00 00 00 00 00 ff ff ff ff ff ec 0a 54 00 00 
+---
+> 0x0fc0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+diff -r ../Players/../ZAZ/test_lfork_instruction.cor ../US/test_lfork_instruction.cor
+2c2
+< * Player 1, weighing 6 bytes, "test_lfork_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 6 bytes, test_lfork_instruction (test_registeries) !
+diff -r ../Players/../ZAZ/test_live_instruction.cor ../US/test_live_instruction.cor
+2c2
+< * Player 1, weighing 20 bytes, "test_live_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 20 bytes, test_live_instruction (test_registeries) !
+diff -r ../Players/../ZAZ/test_lld_instruction.cor ../US/test_lld_instruction.cor
+2c2
+< * Player 1, weighing 24 bytes, "test_lld_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 24 bytes, test_lld_instruction (test_registeries) !
+diff -r ../Players/../ZAZ/test_lldi_instruction.cor ../US/test_lldi_instruction.cor
+2c2
+< * Player 1, weighing 97 bytes, "test_lldi_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 97 bytes, test_lldi_instruction (test_registeries) !
+diff -r ../Players/../ZAZ/test_max_direct.cor ../US/test_max_direct.cor
+2c2
+< * Player 1, weighing 7 bytes, "test_max_direct" ("overlap_max_direct_param") !
+---
+> * Player -1, weighing 7 bytes, test_max_direct (overlap_max_direct_param) !
+diff -r ../Players/../ZAZ/test_max_indirect.cor ../US/test_max_indirect.cor
+2,3c2,3
+< * Player 1, weighing 5 bytes, "test_max_indirect" ("overlap_max_indirect_param") !
+< 0x0000 : ff ff 01 ff fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+---
+> * Player -1, weighing 5 bytes, test_max_indirect (overlap_max_indirect_param) !
+> 0x0000 : 03 70 01 ff fe 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+66c66
+< 0x0fc0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff 
+---
+> 0x0fc0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+diff -r ../Players/../ZAZ/test_max_register.cor ../US/test_max_register.cor
+2c2
+< * Player 1, weighing 7 bytes, "test_max_register" ("overlap_max_register_param") !
+---
+> * Player -1, weighing 7 bytes, test_max_register (overlap_max_register_param) !
+diff -r ../Players/../ZAZ/test_min_direct.cor ../US/test_min_direct.cor
+2c2
+< * Player 1, weighing 7 bytes, "test_min_direct" ("overlap_min_direct_param") !
+---
+> * Player -1, weighing 7 bytes, test_min_direct (overlap_min_direct_param) !
+diff -r ../Players/../ZAZ/test_min_indirect.cor ../US/test_min_indirect.cor
+2c2
+< * Player 1, weighing 5 bytes, "test_min_indirect" ("overlap_min_indirect_param") !
+---
+> * Player -1, weighing 5 bytes, test_min_indirect (overlap_min_indirect_param) !
+59c59
+< 0x0e00 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+---
+> 0x0e00 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+diff -r ../Players/../ZAZ/test_min_register.cor ../US/test_min_register.cor
+2c2
+< * Player 1, weighing 7 bytes, "test_min_register" ("overlap_min_register_param") !
+---
+> * Player -1, weighing 7 bytes, test_min_register (overlap_min_register_param) !
+diff -r ../Players/../ZAZ/test_or_instruction.cor ../US/test_or_instruction.cor
+2c2
+< * Player 1, weighing 109 bytes, "test_or_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 109 bytes, test_or_instruction (test_registeries) !
+diff -r ../Players/../ZAZ/test_st_instruction.cor ../US/test_st_instruction.cor
+2c2
+< * Player 1, weighing 9 bytes, "test_st_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 9 bytes, test_st_instruction (test_registeries) !
+diff -r ../Players/../ZAZ/test_sti_instruction.cor ../US/test_sti_instruction.cor
+2,4c2,4
+< * Player 1, weighing 97 bytes, "test_sti_instruction" ("test_registeries") !
+< 0x0000 : 0b 58 03 02 ff f6 0b 58 03 02 00 49 0b 68 03 00 06 00 0a 0b 68 03 00 06 00 48 0b 68 00 00 00 00 0a 0b 68 03 00 2e 00 3a 0b 78 03 00 27 00 0a 0b 78 03 00 00 00 00 0b 78 03 00 0a 00 0a 0b 78 03 
+< 0x0040 : 00 0a 00 1e 0b 54 03 02 0a 0b 64 03 00 06 0a 00 00 00 00 00 0a 0b 74 03 ff fa 0a 0b 74 03 00 0a 0a 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+---
+> * Player -1, weighing 97 bytes, test_sti_instruction (test_registeries) !
+> 0x0000 : 0b 58 03 02 ff f6 0b 58 03 02 00 49 0b 68 03 00 06 00 0a 0b 68 03 00 06 00 48 0b 68 03 00 35 00 0a 0b 68 03 00 2e 00 3a 0b 78 03 00 27 00 0a 0b 78 03 00 20 00 2c 0b 78 03 00 0a 00 0a 0b 78 03 
+> 0x0040 : 00 0a 00 1e 0b 54 03 02 0a 0b 64 03 00 06 0a 0b 64 03 00 00 0a 0b 74 03 ff fa 0a 0b 74 03 00 0a 0a 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+diff -r ../Players/../ZAZ/test_sub_instruction.cor ../US/test_sub_instruction.cor
+2c2
+< * Player 1, weighing 5 bytes, "test_sub_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 5 bytes, test_sub_instruction (test_registeries) !
+diff -r ../Players/../ZAZ/test_xor_instruction.cor ../US/test_xor_instruction.cor
+2c2
+< * Player 1, weighing 109 bytes, "test_xor_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 109 bytes, test_xor_instruction (test_registeries) !
+diff -r ../Players/../ZAZ/test_zjump_instruction.cor ../US/test_zjump_instruction.cor
+2c2
+< * Player 1, weighing 12 bytes, "test_zjmp_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 12 bytes, test_zjmp_instruction (test_registeries) !
+diff -r ../Players/../ZAZ/turtle.cor ../US/turtle.cor
+2,4c2,4
+< * Player 1, weighing 394 bytes, "turtle" ("q") !
+< 0x0000 : 0b 68 01 00 df 00 01 0b 68 01 00 35 00 01 0b 68 01 00 d9 00 01 0b 68 01 00 11 00 01 02 90 00 00 00 00 10 0c 00 bc 01 ff ff ff ff 02 90 1a 2b 00 f0 02 02 90 00 00 00 00 10 0c 00 ae 01 ff ff ff 
+< 0x0040 : ff 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 
+---
+> * Player -1, weighing 394 bytes, turtle (q) !
+> 0x0000 : 0b 68 01 00 df 00 01 0b 68 01 00 35 00 01 0b 68 01 00 d9 00 01 0b 68 01 00 11 00 01 02 90 00 00 00 00 10 0c 00 bc 01 00 00 00 2a 02 90 1a 2b 00 f0 02 02 90 00 00 00 00 10 0c 00 ae 01 00 00 00 
+> 0x0040 : 2a 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 
+6c6
+< 0x00c0 : 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 09 ff 60 01 ff ff ff ff 09 ff fb 01 ff ff ff ff 03 70 02 01 90 03 70 02 01 90 03 70 02 01 90 03 70 02 01 90 
+---
+> 0x00c0 : 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 03 70 02 fe 70 09 ff 60 01 00 00 00 2a 09 ff fb 01 00 00 00 2a 03 70 02 01 90 03 70 02 01 90 03 70 02 01 90 03 70 02 01 90 
+diff -r ../Players/../ZAZ/zork.cor ../US/zork.cor
+2,4c2,4
+< * Player 1, weighing 75 bytes, "zork" ("hello_world") !
+< 0x0000 : 01 00 00 00 01 01 00 00 00 01 01 00 00 00 01 01 00 00 00 01 01 00 00 00 01 01 00 00 00 01 02 90 00 00 00 ff 02 03 70 01 01 00 03 70 01 01 ff 03 ff ff ff ff 0b 68 01 00 0f 00 01 06 64 01 00 00 
+< 0x0040 : 00 01 01 01 ff ff ff ff 09 ff fb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+---
+> * Player -1, weighing 75 bytes, zork (hello_world) !
+> 0x0000 : 01 00 00 00 01 01 00 00 00 01 01 00 00 00 01 01 00 00 00 01 01 00 00 00 01 01 00 00 00 01 02 90 00 00 00 ff 02 03 70 01 01 00 03 70 01 01 ff 03 70 01 02 01 0b 68 01 00 0f 00 01 06 64 01 00 00 
+> 0x0040 : 00 01 01 01 00 00 00 01 09 ff fb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+7c7
+< 0x0100 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+---
+> 0x0100 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+11c11
+< 0x0200 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+---
+> 0x0200 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 

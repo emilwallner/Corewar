@@ -1,0 +1,4 @@
+2c2
+< * Player -1, weighing 3 bytes, test_aff_instruction (test_registeries) !
+---
+> * Player 1, weighing 3 bytes, "test_aff_instruction" ("test_registeries") !

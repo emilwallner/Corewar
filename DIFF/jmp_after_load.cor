@@ -1,0 +1,4 @@
+2c2
+< * Player -1, weighing 15 bytes, zork (just_a_basic_living_prog) !
+---
+> * Player 1, weighing 15 bytes, "zork" ("just_a_basic_living_prog") !

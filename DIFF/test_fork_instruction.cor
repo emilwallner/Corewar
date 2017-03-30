@@ -1,0 +1,4 @@
+2c2
+< * Player -1, weighing 6 bytes, test_fork_instruction (test_registeries) !
+---
+> * Player 1, weighing 6 bytes, "test_fork_instruction" ("test_registeries") !
