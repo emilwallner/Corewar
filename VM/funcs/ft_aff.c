@@ -21,7 +21,7 @@ void	ft_aff(t_env *e, t_cursor *cursor)
 	r = ZMASK(e->a[MODA(cursor->index + 2)].hex);
 	acb = ZMASK(e->a[MODA(cursor->index + 1)].hex);
 	if (r < 0 || r > 15 || acb != 64)
-		ft_update_cursor(e, cursor, 1);
+		ft_update_cursor(e, cursor, 3);
 	else
 	{
 		index_extra = get_reg(e, cursor, 2);
