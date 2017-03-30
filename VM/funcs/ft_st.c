@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:02:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/30 15:33:39 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/30 17:19:46 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	ft_st(t_env *e, t_cursor *cursor)
 		// byte = byte < 0 ? byte + MEM_SIZE : byte;
 		// printf("byte %i\n", byte);
 		i = -1;
-		while (ft_is_reg(p1 - 1, 0, 0) && ++i < 4)
+		while ((i > 0 || ft_is_reg(p1 - 1, 0, 0)) && ++i < 4)
 		{
 			v = cursor->index + p2 + i;
 			// v = (cursor->index + byte + i < 0) ? cursor->index + byte + i + MEM_SIZE : cursor->index + byte + i;
