@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 20:16:15 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/30 18:57:12 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/30 19:03:53 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,10 @@ int get_ind(t_env *e, t_cursor *cursor, int i)
 {
 	unsigned short	r;
 
-	r = ((ZMASK(e->a[MODA(cursor->index + i)].hex) << 8) |
-			ZMASK(e->a[MODA(cursor->index + i + 1)].hex));
-	// printf("cursor->index + i = %i\n", cursor->index + i);
-	// printf("(short)r + cursor->index = %i\n", (short)r + cursor->index);
-	// printf("get_bytes(e, cursor, (short)r + cursor->index)) = %x\n", MODA(get_bytes(e, cursor, ((short)r + cursor->index))));
-	return (get_bytes(e, cursor, (short)r + cursor->index));
+	i += cursor->index;
+	r = ((ZMASK(e->a[MODA(i)].hex) << 8) | ZMASK(e->a[MODA(i + 1)].hex));
+	r += cursor->index;
+	return (MODA(get_bytes(e, cursor, (short)r)));
 }
 
 int get_reg(t_env *e, t_cursor *cursor, int i)

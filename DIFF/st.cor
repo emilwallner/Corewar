@@ -1,1 +1,13 @@
-Files ../US/st.cor and ../ZAZ/st.cor are identical
+<<<<<<< HEAD
+2c2
+< * Player -1, weighing 5 bytes, "Yo dang" ("Zup why you lookin at me like that") !
+---
+> * Player 1, weighing 5 bytes, "Yo dang" ("Zup why you lookin at me like that") !
+=======
+2,3c2,3
+< * Player -1, weighing 5 bytes, "Yo dang" ("Zup why you lookin at me like that") !
+< Contestant -1, "Yo dang", has won !
+---
+> * Player 1, weighing 5 bytes, "Yo dang" ("Zup why you lookin at me like that") !
+> Contestant 1, "Yo dang", has won !
+>>>>>>> c47558d81ead924dacd985868b38a77418ffa38c

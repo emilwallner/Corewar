@@ -72,6 +72,7 @@ typedef struct	s_player
 	int file_pos;
 	int	len;
 	int live;
+	int color;
 	int	cursor_amount;
 	int	index_start;
 	char string[CHAMP_MAX_SIZE + 1];

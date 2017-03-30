@@ -1,1 +1,13 @@
-Files ../US/test_comment_line.cor and ../ZAZ/test_comment_line.cor are identical
+<<<<<<< HEAD
+2c2
+< * Player -1, weighing 22 bytes, "test_comment_line" ("comment_on_the_line") !
+---
+> * Player 1, weighing 22 bytes, "test_comment_line" ("comment_on_the_line") !
+=======
+2,3c2,3
+< * Player -1, weighing 22 bytes, "test_comment_line" ("comment_on_the_line") !
+< Contestant -1, "test_comment_line", has won !
+---
+> * Player 1, weighing 22 bytes, "test_comment_line" ("comment_on_the_line") !
+> Contestant 1, "test_comment_line", has won !
+>>>>>>> c47558d81ead924dacd985868b38a77418ffa38c

@@ -1,1 +1,13 @@
-Files ../US/test_max_register.cor and ../ZAZ/test_max_register.cor are identical
+<<<<<<< HEAD
+2c2
+< * Player -1, weighing 7 bytes, "test_max_register" ("overlap_max_register_param") !
+---
+> * Player 1, weighing 7 bytes, "test_max_register" ("overlap_max_register_param") !
+=======
+2,3c2,3
+< * Player -1, weighing 7 bytes, "test_max_register" ("overlap_max_register_param") !
+< Contestant -1, "test_max_register", has won !
+---
+> * Player 1, weighing 7 bytes, "test_max_register" ("overlap_max_register_param") !
+> Contestant 1, "test_max_register", has won !
+>>>>>>> c47558d81ead924dacd985868b38a77418ffa38c

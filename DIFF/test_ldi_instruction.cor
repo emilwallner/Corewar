@@ -1,4 +1,15 @@
+<<<<<<< HEAD
+2c2
+< * Player -1, weighing 110 bytes, "test_ldi_instruction" ("test_registeries") !
+---
+> * Player 1, weighing 110 bytes, "test_ldi_instruction" ("test_registeries") !
 66c66
 < 0x0fc0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff 00 00 00 00 00 00 ff ff ff ff ff ff ff ff 00 00 
+=======
+2,3c2,3
+< * Player -1, weighing 110 bytes, "test_ldi_instruction" ("test_registeries") !
+< Contestant -1, "test_ldi_instruction", has won !
+>>>>>>> c47558d81ead924dacd985868b38a77418ffa38c
 ---
-> 0x0fc0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff 00 00 00 00 00 00 ff ff ff ff ff ec 0a 54 00 00 
+> * Player 1, weighing 110 bytes, "test_ldi_instruction" ("test_registeries") !
+> Contestant 1, "test_ldi_instruction", has won !
