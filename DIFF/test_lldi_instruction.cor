@@ -1,1 +1,4 @@
-Files ../US/test_lldi_instruction.cor and ../ZAZ/test_lldi_instruction.cor are identical
+2c2
+< * Player -1, weighing 97 bytes, "test_lldi_instruction" ("test_registeries") !
+---
+> * Player 1, weighing 97 bytes, "test_lldi_instruction" ("test_registeries") !

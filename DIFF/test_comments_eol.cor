@@ -1,1 +1,4 @@
-Files ../US/test_comments_eol.cor and ../ZAZ/test_comments_eol.cor are identical
+2c2
+< * Player -1, weighing 27 bytes, "test_comments_eol" ("comments_at_the_end_of_the_line") !
+---
+> * Player 1, weighing 27 bytes, "test_comments_eol" ("comments_at_the_end_of_the_line") !

@@ -1,1 +1,4 @@
-Files ../US/test_max_direct.cor and ../ZAZ/test_max_direct.cor are identical
+2c2
+< * Player -1, weighing 7 bytes, "test_max_direct" ("overlap_max_direct_param") !
+---
+> * Player 1, weighing 7 bytes, "test_max_direct" ("overlap_max_direct_param") !

@@ -12,6 +12,15 @@
 
 #include "vm.h"
 
+void ft_clear_player_lives(t_env *e)
+{
+	int i;
+
+	i = -1;
+	while(++i < e->player_amount)
+		e->player[i].live = 0;
+}
+
 void ft_new_cycle(t_env *e, int *end)
 {
 	if(e->lives == 0)
@@ -25,6 +34,7 @@ void ft_new_cycle(t_env *e, int *end)
 			e->cycles_to_die = 0;
 		e->lives = 0;
 		e->check = 0;
+		ft_clear_player_lives(e);
 	}
 	e->lives = 0;
 	e->cycle = 0;

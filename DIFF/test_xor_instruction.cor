@@ -1,1 +1,4 @@
-Files ../US/test_xor_instruction.cor and ../ZAZ/test_xor_instruction.cor are identical
+2c2
+< * Player -1, weighing 109 bytes, "test_xor_instruction" ("test_registeries") !
+---
+> * Player 1, weighing 109 bytes, "test_xor_instruction" ("test_registeries") !

@@ -1,1 +1,4 @@
-Files ../US/zork.cor and ../ZAZ/zork.cor are identical
+2c2
+< * Player -1, weighing 75 bytes, "zork" ("hello_world") !
+---
+> * Player 1, weighing 75 bytes, "zork" ("hello_world") !

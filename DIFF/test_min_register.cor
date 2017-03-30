@@ -1,1 +1,4 @@
-Files ../US/test_min_register.cor and ../ZAZ/test_min_register.cor are identical
+2c2
+< * Player -1, weighing 7 bytes, "test_min_register" ("overlap_min_register_param") !
+---
+> * Player 1, weighing 7 bytes, "test_min_register" ("overlap_min_register_param") !

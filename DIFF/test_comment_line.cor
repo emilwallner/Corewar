@@ -1,1 +1,4 @@
-Files ../US/test_comment_line.cor and ../ZAZ/test_comment_line.cor are identical
+2c2
+< * Player -1, weighing 22 bytes, "test_comment_line" ("comment_on_the_line") !
+---
+> * Player 1, weighing 22 bytes, "test_comment_line" ("comment_on_the_line") !

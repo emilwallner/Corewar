@@ -13,13 +13,44 @@
 #include "vm.h"
 
 
+void ft_print_lives(t_env *e, int i)
+{
+	int k;
+	int cycles;
+
+	attron(COLOR_PAIR(e->player[i].color));
+	cycles = (e->player[i].live < 161) ? e->player[i].live : 161;
+	k = -1;
+	printw("\nLives for %-15s", e->player[i].name);
+	printw("%-5d", e->player[i].live);
+	while(++k < cycles)
+		addch(ACS_CKBOARD);
+	attroff(COLOR_PAIR(e->player[i].color));
+}
+
+
+
+void ft_print_game_stats(t_env *e)
+{
+	int i;
+
+	i = -1;
+	while(++i < e->player_amount)
+		ft_print_lives(e, i);
+
+	attron(COLOR_PAIR(14));
+	printw("\n\nCycle: %-10d Cursors: %-10d Total Number of lives: %d/%-10d Checks: %d/9 > Decrease cycle to die with: %d     Cycles to die: %d/%d\n\n", e->tot_cycle, e->cursors, NBR_LIVE, e->lives, e->check, CYCLE_DELTA, e->cycles_to_die, e->cycle);
+	attroff(COLOR_PAIR(14));
+	refresh();
+}
+
 void	ft_print_bonus(t_env *e)
 {
 	int i;
 	i = 0;
 
-	if(e->tot_cycle > 0)
-		getch();
+	// if(e->tot_cycle > 0)
+	// 	getch();
 	erase();
 	while(i < MEM_SIZE)
 	{
@@ -27,7 +58,6 @@ void	ft_print_bonus(t_env *e)
 			attron(A_BOLD);
 		attron(COLOR_PAIR(e->a[i].color));
 		printw("%02x", 0xFF & e->a[i].hex);
-		//addch(ACS_DIAMOND);
 		attroff(COLOR_PAIR(e->a[i].color));
 		if(e->a[i].new_color_count > 0)
 		{
@@ -39,12 +69,7 @@ void	ft_print_bonus(t_env *e)
 			printw("\n");
 		i++;
 	}
-	attron(COLOR_PAIR(14));
-	printw("\nCycle: %d \n", e->tot_cycle);
-	printw("Cursors: %d \n", e->cursors);
-	printw("Number of lives: %d \n", e->lives);
-	attroff(COLOR_PAIR(14));
-	refresh();
+	ft_print_game_stats(e);
 }
 
 void ft_print_dump_init(t_env *e)

@@ -1,1 +1,4 @@
-Files ../US/st.cor and ../ZAZ/st.cor are identical
+2c2
+< * Player -1, weighing 5 bytes, "Yo dang" ("Zup why you lookin at me like that") !
+---
+> * Player 1, weighing 5 bytes, "Yo dang" ("Zup why you lookin at me like that") !

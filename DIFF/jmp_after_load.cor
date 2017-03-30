@@ -1,1 +1,4 @@
-Files ../US/jmp_after_load.cor and ../ZAZ/jmp_after_load.cor are identical
+2c2
+< * Player -1, weighing 15 bytes, "zork" ("just_a_basic_living_prog") !
+---
+> * Player 1, weighing 15 bytes, "zork" ("just_a_basic_living_prog") !

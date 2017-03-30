@@ -1,1 +1,4 @@
-Files ../US/test_min_indirect.cor and ../ZAZ/test_min_indirect.cor are identical
+2c2
+< * Player -1, weighing 5 bytes, "test_min_indirect" ("overlap_min_indirect_param") !
+---
+> * Player 1, weighing 5 bytes, "test_min_indirect" ("overlap_min_indirect_param") !

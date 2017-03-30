@@ -20,6 +20,7 @@ void init_players(t_env *e)
 	while(i < e->player_amount)
 	{
 		e->player[i].live = 0;
+		e->player[i].color = (i + 1 % 6);
 		i++;
 	}
 }

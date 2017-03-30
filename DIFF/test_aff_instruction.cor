@@ -1,4 +1,7 @@
 1d0
 < Aff: ÿ
-3a3
+3c2,3
+< * Player -1, weighing 3 bytes, "test_aff_instruction" ("test_registeries") !
+---
+> * Player 1, weighing 3 bytes, "test_aff_instruction" ("test_registeries") !
 > Aff: ÿ

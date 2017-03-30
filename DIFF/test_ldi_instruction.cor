@@ -1,3 +1,7 @@
+2c2
+< * Player -1, weighing 110 bytes, "test_ldi_instruction" ("test_registeries") !
+---
+> * Player 1, weighing 110 bytes, "test_ldi_instruction" ("test_registeries") !
 66c66
 < 0x0fc0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff 00 00 00 00 00 00 ff ff ff ff ff ff ff ff 00 00 
 ---

@@ -2,18 +2,184 @@ Only in ../US/: -Nothing
 Only in ../US/: -dev-null
 Only in ../US/: -dev-urandom
 Only in ../US/: -dev-zero
-diff -r ../Players/../ZAZ/test_aff_instruction.cor ../US/test_aff_instruction.cor
-1c1
-< Introducing contestants...
+diff -r ../Players/../ZAZ/bee_gees.cor ../US/bee_gees.cor
+2c2
+< * Player 1, weighing 71 bytes, "stayin alive" ("Ha Ha Ha stayiiiiin aliiiiiiiiiive") !
 ---
-> ÿIntroducing contestants...
+> * Player -1, weighing 71 bytes, "stayin alive" ("Ha Ha Ha stayiiiiin aliiiiiiiiiive") !
+diff -r ../Players/../ZAZ/bigzork.cor ../US/bigzork.cor
+2c2
+< * Player 1, weighing 20 bytes, "bigzork" ("I know i cant win") !
+---
+> * Player -1, weighing 20 bytes, "bigzork" ("I know i cant win") !
+diff -r ../Players/../ZAZ/fork.cor ../US/fork.cor
+2c2
+< * Player 1, weighing 23 bytes, "tim" ("just_a_basic_living_prog") !
+---
+> * Player -1, weighing 23 bytes, "tim" ("just_a_basic_living_prog") !
+diff -r ../Players/../ZAZ/helltrain.cor ../US/helltrain.cor
+2c2
+< * Player 1, weighing 617 bytes, "helltrain" ("choochoo motherf") !
+---
+> * Player -1, weighing 617 bytes, "helltrain" ("choochoo motherf") !
+diff -r ../Players/../ZAZ/id_player_dyn.cor ../US/id_player_dyn.cor
+2c2
+< * Player 1, weighing 18 bytes, "zork" ("justabasiclivingprog") !
+---
+> * Player -1, weighing 18 bytes, "zork" ("justabasiclivingprog") !
+diff -r ../Players/../ZAZ/jmp_after_add.cor ../US/jmp_after_add.cor
+2c2
+< * Player 1, weighing 20 bytes, "zork" ("justabasiclivingprog") !
+---
+> * Player -1, weighing 20 bytes, "zork" ("justabasiclivingprog") !
+diff -r ../Players/../ZAZ/jmp_after_load.cor ../US/jmp_after_load.cor
+2c2
+< * Player 1, weighing 15 bytes, "zork" ("just_a_basic_living_prog") !
+---
+> * Player -1, weighing 15 bytes, "zork" ("just_a_basic_living_prog") !
+diff -r ../Players/../ZAZ/move.cor ../US/move.cor
+2c2
+< * Player 1, weighing 74 bytes, "stayin alive" ("Ha Ha Ha stayiiiiin aliiiiiiiiiive") !
+---
+> * Player -1, weighing 74 bytes, "stayin alive" ("Ha Ha Ha stayiiiiin aliiiiiiiiiive") !
+diff -r ../Players/../ZAZ/st.cor ../US/st.cor
+2c2
+< * Player 1, weighing 5 bytes, "Yo dang" ("Zup why you lookin at me like that") !
+---
+> * Player -1, weighing 5 bytes, "Yo dang" ("Zup why you lookin at me like that") !
+diff -r ../Players/../ZAZ/test_add_instruction.cor ../US/test_add_instruction.cor
+2c2
+< * Player 1, weighing 5 bytes, "test_add_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 5 bytes, "test_add_instruction" ("test_registeries") !
+diff -r ../Players/../ZAZ/test_aff_instruction.cor ../US/test_aff_instruction.cor
+1,2d0
+< Introducing contestants...
+< * Player 1, weighing 3 bytes, "test_aff_instruction" ("test_registeries") !
+3a2,3
+> Introducing contestants...
+> * Player -1, weighing 3 bytes, "test_aff_instruction" ("test_registeries") !
+diff -r ../Players/../ZAZ/test_and_instruction.cor ../US/test_and_instruction.cor
+2c2
+< * Player 1, weighing 109 bytes, "test_and_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 109 bytes, "test_and_instruction" ("test_registeries") !
+diff -r ../Players/../ZAZ/test_comment_line.cor ../US/test_comment_line.cor
+2c2
+< * Player 1, weighing 22 bytes, "test_comment_line" ("comment_on_the_line") !
+---
+> * Player -1, weighing 22 bytes, "test_comment_line" ("comment_on_the_line") !
+diff -r ../Players/../ZAZ/test_comments_eol.cor ../US/test_comments_eol.cor
+2c2
+< * Player 1, weighing 27 bytes, "test_comments_eol" ("comments_at_the_end_of_the_line") !
+---
+> * Player -1, weighing 27 bytes, "test_comments_eol" ("comments_at_the_end_of_the_line") !
+diff -r ../Players/../ZAZ/test_fork_instruction.cor ../US/test_fork_instruction.cor
+2c2
+< * Player 1, weighing 6 bytes, "test_fork_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 6 bytes, "test_fork_instruction" ("test_registeries") !
+diff -r ../Players/../ZAZ/test_ld_instruction.cor ../US/test_ld_instruction.cor
+2c2
+< * Player 1, weighing 24 bytes, "test_ld_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 24 bytes, "test_ld_instruction" ("test_registeries") !
 diff -r ../Players/../ZAZ/test_ldi_instruction.cor ../US/test_ldi_instruction.cor
+2c2
+< * Player 1, weighing 110 bytes, "test_ldi_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 110 bytes, "test_ldi_instruction" ("test_registeries") !
 66c66
 < 0x0fc0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff 00 00 00 00 00 00 ff ff ff ff ff ec 0a 54 00 00 
 ---
 > 0x0fc0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff 00 00 00 00 00 00 ff ff ff ff ff ff ff ff 00 00 
-diff -r ../Players/../ZAZ/test_sti_instruction.cor ../US/test_sti_instruction.cor
-4c4
-< 0x0040 : 00 0a 00 1e 00 00 00 00 0a 0b 64 03 00 06 0a 00 00 00 00 00 0a 0b 74 03 ff fa 0a 0b 74 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+diff -r ../Players/../ZAZ/test_lfork_instruction.cor ../US/test_lfork_instruction.cor
+2c2
+< * Player 1, weighing 6 bytes, "test_lfork_instruction" ("test_registeries") !
 ---
-> 0x0040 : 00 0a 00 1e 00 00 00 02 0a 0b 64 03 00 06 0a 00 00 00 00 00 0a 00 00 00 ff fa 0a 0b 74 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+> * Player -1, weighing 6 bytes, "test_lfork_instruction" ("test_registeries") !
+diff -r ../Players/../ZAZ/test_live_instruction.cor ../US/test_live_instruction.cor
+2c2
+< * Player 1, weighing 20 bytes, "test_live_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 20 bytes, "test_live_instruction" ("test_registeries") !
+diff -r ../Players/../ZAZ/test_lld_instruction.cor ../US/test_lld_instruction.cor
+2c2
+< * Player 1, weighing 24 bytes, "test_lld_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 24 bytes, "test_lld_instruction" ("test_registeries") !
+diff -r ../Players/../ZAZ/test_lldi_instruction.cor ../US/test_lldi_instruction.cor
+2c2
+< * Player 1, weighing 97 bytes, "test_lldi_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 97 bytes, "test_lldi_instruction" ("test_registeries") !
+diff -r ../Players/../ZAZ/test_max_direct.cor ../US/test_max_direct.cor
+2c2
+< * Player 1, weighing 7 bytes, "test_max_direct" ("overlap_max_direct_param") !
+---
+> * Player -1, weighing 7 bytes, "test_max_direct" ("overlap_max_direct_param") !
+diff -r ../Players/../ZAZ/test_max_indirect.cor ../US/test_max_indirect.cor
+2c2
+< * Player 1, weighing 5 bytes, "test_max_indirect" ("overlap_max_indirect_param") !
+---
+> * Player -1, weighing 5 bytes, "test_max_indirect" ("overlap_max_indirect_param") !
+diff -r ../Players/../ZAZ/test_max_register.cor ../US/test_max_register.cor
+2c2
+< * Player 1, weighing 7 bytes, "test_max_register" ("overlap_max_register_param") !
+---
+> * Player -1, weighing 7 bytes, "test_max_register" ("overlap_max_register_param") !
+diff -r ../Players/../ZAZ/test_min_direct.cor ../US/test_min_direct.cor
+2c2
+< * Player 1, weighing 7 bytes, "test_min_direct" ("overlap_min_direct_param") !
+---
+> * Player -1, weighing 7 bytes, "test_min_direct" ("overlap_min_direct_param") !
+diff -r ../Players/../ZAZ/test_min_indirect.cor ../US/test_min_indirect.cor
+2c2
+< * Player 1, weighing 5 bytes, "test_min_indirect" ("overlap_min_indirect_param") !
+---
+> * Player -1, weighing 5 bytes, "test_min_indirect" ("overlap_min_indirect_param") !
+diff -r ../Players/../ZAZ/test_min_register.cor ../US/test_min_register.cor
+2c2
+< * Player 1, weighing 7 bytes, "test_min_register" ("overlap_min_register_param") !
+---
+> * Player -1, weighing 7 bytes, "test_min_register" ("overlap_min_register_param") !
+diff -r ../Players/../ZAZ/test_or_instruction.cor ../US/test_or_instruction.cor
+2c2
+< * Player 1, weighing 109 bytes, "test_or_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 109 bytes, "test_or_instruction" ("test_registeries") !
+diff -r ../Players/../ZAZ/test_st_instruction.cor ../US/test_st_instruction.cor
+2c2
+< * Player 1, weighing 9 bytes, "test_st_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 9 bytes, "test_st_instruction" ("test_registeries") !
+diff -r ../Players/../ZAZ/test_sti_instruction.cor ../US/test_sti_instruction.cor
+2c2
+< * Player 1, weighing 102 bytes, "test_sti_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 102 bytes, "test_sti_instruction" ("test_registeries") !
+diff -r ../Players/../ZAZ/test_sub_instruction.cor ../US/test_sub_instruction.cor
+2c2
+< * Player 1, weighing 5 bytes, "test_sub_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 5 bytes, "test_sub_instruction" ("test_registeries") !
+diff -r ../Players/../ZAZ/test_xor_instruction.cor ../US/test_xor_instruction.cor
+2c2
+< * Player 1, weighing 109 bytes, "test_xor_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 109 bytes, "test_xor_instruction" ("test_registeries") !
+diff -r ../Players/../ZAZ/test_zjump_instruction.cor ../US/test_zjump_instruction.cor
+2c2
+< * Player 1, weighing 12 bytes, "test_zjmp_instruction" ("test_registeries") !
+---
+> * Player -1, weighing 12 bytes, "test_zjmp_instruction" ("test_registeries") !
+diff -r ../Players/../ZAZ/turtle.cor ../US/turtle.cor
+2c2
+< * Player 1, weighing 394 bytes, "turtle" ("q") !
+---
+> * Player -1, weighing 394 bytes, "turtle" ("q") !
+diff -r ../Players/../ZAZ/zork.cor ../US/zork.cor
+2c2
+< * Player 1, weighing 75 bytes, "zork" ("hello_world") !
+---
+> * Player -1, weighing 75 bytes, "zork" ("hello_world") !

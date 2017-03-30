@@ -1,1 +1,4 @@
-Files ../US/test_lfork_instruction.cor and ../ZAZ/test_lfork_instruction.cor are identical
+2c2
+< * Player -1, weighing 6 bytes, "test_lfork_instruction" ("test_registeries") !
+---
+> * Player 1, weighing 6 bytes, "test_lfork_instruction" ("test_registeries") !
