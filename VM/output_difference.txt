@@ -13,7 +13,6 @@ diff -r ../Players/../ZAZ/test_ldi_instruction.cor ../US/test_ldi_instruction.co
 ---
 > 0x0fc0 : 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff ff ff 00 00 00 00 00 00 ff ff ff ff ff ff ff ff 00 00 
 diff -r ../Players/../ZAZ/test_sti_instruction.cor ../US/test_sti_instruction.cor
-3c3
-< 0x0000 : 0b 58 03 02 ff f6 0b 58 03 02 00 49 0b 68 03 00 06 00 0a 0b 68 03 00 06 00 48 0b 68 00 00 00 00 0a 0b 68 03 00 2e 00 3a 0b 78 03 00 27 00 0a 0b 78 03 00 00 00 00 0b 78 03 00 0a 00 0a 0b 78 03 
----
-> 0x0000 : 0b 58 03 02 ff f6 0b 58 03 02 00 49 0b 68 03 00 06 00 0a 0b 68 03 00 06 00 48 0b 68 00 00 00 00 0a 0b 68 03 00 2e 00 3a 0b 78 03 00 27 00 0a 00 00 00 00 00 00 00 0b 78 03 00 0a 00 0a 0b 78 03 
+66a67,68
+> RID D= a I= 803 D+I = 10  a
+> RID D= 0 I= 302 D+I = 768  300

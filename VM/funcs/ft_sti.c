@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 09:49:37 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/28 11:10:32 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/30 12:19:10 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@
 #define RDD 0x68
 // #define RIR 0x74
 #define RID 0x78
+
+int get_ind_sti(t_env *e, t_cursor *cursor, int i)
+{
+	unsigned short	r;
+
+	r = ((ZMASK(e->a[MODA(i)].hex) << 8) | ZMASK(e->a[MODA(i + 1)].hex));
+	r = cursor->index + (short)r;
+	return (MODA(get_bytes(e, cursor, r)));
+}
 
 static int	rrd_rdr_rir(t_env *e, t_cursor *cursor, int acb, int *ind)
 {
@@ -35,8 +44,8 @@ static int	rrd_rdr_rir(t_env *e, t_cursor *cursor, int acb, int *ind)
 	}
 	else
 	{
-		r2 = get_ind(e, cursor, 3) + get_reg(e, cursor, 5);
-		// printf("RIR R= %x I= %x R+I = %i  %x\n", get_reg(e, cursor, 5), get_ind(e, cursor, 3),r2, r2);
+		r2 = get_ind_sti(e, cursor, cursor->index + 3) + get_reg(e, cursor, 5);
+		// printf("RIR R= %x I= %x R+I = %i  %x\n", get_reg(e, cursor, 5), get_ind(e, cursor, cursor->index + 3),r2, r2);
 	}
 	*ind = 6;
 	return (r2);
@@ -53,8 +62,8 @@ static int	rdd_rid(t_env *e, t_cursor *cursor, int acb, int *ind)
 	}
 	else
 	{
-		r2 = get_ind(e, cursor, 3) + get_dir(e, cursor, 5, 2);
-		// printf("RID D= %x I= %x D+I = %i  %x\n", get_dir(e, cursor, 5, 2), get_ind(e, cursor, 3),r2, r2);
+		r2 = get_ind_sti(e, cursor, cursor->index + 3) + get_dir(e, cursor, 5, 2);
+		// printf("RID D= %x I= %x D+I = %i  %x\n", get_dir(e, cursor, 5, 2), get_ind(e, cursor, cursor->index + 3), r2, r2);
 	}
 	*ind = 7;
 	return (r2);
