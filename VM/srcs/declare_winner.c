@@ -28,5 +28,9 @@ void ft_declare_winner(t_env *e)
 		endwin();
 	}
 	else
-		ft_printf("The winner is: Player %s\n", e->player[e->winner].name);
+	{
+		if(e->dump)
+			ft_print_dump_init(e);
+		ft_printf("Contestant %d, \"%s\", has won !\n", e->player[e->winner].nbr, e->player[e->winner].name);
+	}
 }

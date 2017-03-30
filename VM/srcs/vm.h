@@ -114,6 +114,7 @@ typedef struct	s_env
 	t_op		op_tab[17];
 }				t_env;
 
+void 		ft_print_dump_init(t_env *e);
 void 		init_players(t_env *e);
 void		ft_parse_flags(t_env *e, int args, char **av);
 void		ft_fork_both(t_env *e, t_cursor *cursor, int lfork);

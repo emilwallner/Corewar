@@ -94,7 +94,7 @@ void ft_add_player_empty(t_env *e, int *i, int players)
 {
 	int value;
 	if(players == 0)
-		value = -4;
+		value = 1;
 	else
 		value = find_next_value(e);
 	e->player[players].nbr = value;

@@ -47,20 +47,26 @@ void	ft_print_bonus(t_env *e)
 	refresh();
 }
 
+void ft_print_dump_init(t_env *e)
+{
+	int k;
+
+	k = -1;
+	ft_printf("Introducing contestants...\n");
+	while(++k < e->player_amount)
+		ft_printf("* Player %i, weighing %i bytes, \"%s\" (\"%s\") !\n", \
+		e->player[k].nbr, e->player[k].inst_len, e->player[k].name, \
+		e->player[k].comment);
+}
 
 void	ft_print_normal(t_env *e)
 {
 	int i;
 	int hex;
-	int k;
-
-	k = -1;
 	hex = 0;
 	i = 0;
 
-	ft_printf("Introducing contestants...\n");
-	while(++k < e->player_amount)
-		ft_printf("* Player %i, weighing %i bytes, \"%s\" (\"%s\") !\n", ABS(e->player[k].nbr), e->player[k].inst_len, e->player[k].name, e->player[k].comment);
+	ft_print_dump_init(e);
 	while(i < MEM_SIZE)
 	{
 		if ((i) % (128 / 2) == 0)
