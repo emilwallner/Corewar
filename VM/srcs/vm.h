@@ -41,8 +41,8 @@
 # define DDR 0b10100100
 # define IR 0b11010000
 # define DR 0b10010000
-# define INT_MAX 2147483647
-# define INT_MIN −2147483648
+# define INT_MAXA 2147483647
+# define INT_MINA (-INT_MAXA - 1)
 
 typedef struct s_var
 {
@@ -69,7 +69,7 @@ typedef struct	s_player
 	char comment[COMMENT_LENGTH + 1];
 	char inst[CHAMP_MAX_SIZE + 1];
 	int	nbr;
-	char **file;
+	int file_pos;
 	int	len;
 	int live;
 	int	cursor_amount;
@@ -98,6 +98,8 @@ typedef struct	s_env
 	t_cursor	*head;
 	t_arena		a[MEM_SIZE];
 	int 		cursors;
+	int 		dump;
+	int			dump_value;
 	int 		cycle;
 	int 		tot_cycle;
 	int			lives;
@@ -112,7 +114,8 @@ typedef struct	s_env
 	t_op		op_tab[17];
 }				t_env;
 
-
+void 		init_players(t_env *e);
+void		ft_parse_flags(t_env *e, int args, char **av);
 void		ft_fork_both(t_env *e, t_cursor *cursor, int lfork);
 void		ft_update_cursor(t_env *e, t_cursor *cursor, int i);
 void		ft_add_cycle(t_env *e, t_cursor *cursor);

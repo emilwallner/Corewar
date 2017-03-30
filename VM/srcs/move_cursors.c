@@ -33,7 +33,8 @@ void 	ft_move_cursors(t_env *e)
 	t_cursor *cursor;
 	end = 1;
 	cursor = e->head;
-	ft_init_ncurses();
+	if(e->bonus)
+		ft_init_ncurses();
 	ft_print_arena(e);
 	while (end)
 	{

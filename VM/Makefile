@@ -64,6 +64,7 @@ SRCS	=		main_vm.c \
 				ft_funcs_tools_two.c \
 				ft_ldi.c \
 				ft_st.c	\
+				parse_flags.c \
 
 GREEN		= \033[32m
 RED			= \033[31m

@@ -11,12 +11,15 @@
 /* ************************************************************************** */
 
 #include "vm.h"
-void	ft_tests_st(t_env e, t_cursor *cursor);
+//void	ft_tests_st(t_env e, t_cursor *cursor);
 int			main(int ac, char **av)
 {
 	t_env e;
 
 	init_e(&e, ac, av);
+	ft_parse_flags(&e, ac, av);
+	ft_files_to_string(&e);
+	init_players(&e);
 	ft_parsing(&e, ac);
 	ft_build_arena(&e, ac);
 	ft_init_cursor(&e);
