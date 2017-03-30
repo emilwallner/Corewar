@@ -1,4 +1,1 @@
-2c2
-< * Player -1, weighing 20 bytes, test_live_instruction (test_registeries) !
----
-> * Player 1, weighing 20 bytes, "test_live_instruction" ("test_registeries") !
+Files ../US/test_live_instruction.cor and ../ZAZ/test_live_instruction.cor are identical

@@ -1,4 +1,1 @@
-2c2
-< * Player -1, weighing 7 bytes, test_max_register (overlap_max_register_param) !
----
-> * Player 1, weighing 7 bytes, "test_max_register" ("overlap_max_register_param") !
+Files ../US/test_max_register.cor and ../ZAZ/test_max_register.cor are identical

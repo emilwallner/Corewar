@@ -1,4 +1,1 @@
-2c2
-< * Player -1, weighing 7 bytes, test_min_direct (overlap_min_direct_param) !
----
-> * Player 1, weighing 7 bytes, "test_min_direct" ("overlap_min_direct_param") !
+Files ../US/test_min_direct.cor and ../ZAZ/test_min_direct.cor are identical

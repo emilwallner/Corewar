@@ -1,4 +1,1 @@
-2c2
-< * Player -1, weighing 12 bytes, test_zjmp_instruction (test_registeries) !
----
-> * Player 1, weighing 12 bytes, "test_zjmp_instruction" ("test_registeries") !
+Files ../US/test_zjump_instruction.cor and ../ZAZ/test_zjump_instruction.cor are identical

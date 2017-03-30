@@ -60,7 +60,7 @@ void	ft_print_normal(t_env *e)
 
 	ft_printf("Introducing contestants...\n");
 	while(++k < e->player_amount)
-		ft_printf("* Player %i, weighing %i bytes, %s (%s) !\n", e->player[k].nbr, e->player[k].inst_len, e->player[k].name, e->player[k].comment);
+		ft_printf("* Player %i, weighing %i bytes, \"%s\" (\"%s\") !\n", ABS(e->player[k].nbr), e->player[k].inst_len, e->player[k].name, e->player[k].comment);
 	while(i < MEM_SIZE)
 	{
 		if ((i) % (128 / 2) == 0)
