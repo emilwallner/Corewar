@@ -31,9 +31,9 @@ void	ft_live(t_env *e, t_cursor *cursor)
 	int player_id;
 	int player_pos;
 
-	player_id = ABS(get_dir(e, cursor, 1, 4));
+	player_id = get_dir(e, cursor, 1, 4);
 	player_pos = ft_live_match(e, player_id);
-	if(player_pos > 0)
+	if(player_pos > -1)
 	{
 		e->lives += 1;
 		e->player[player_pos].live += 1;
@@ -41,5 +41,5 @@ void	ft_live(t_env *e, t_cursor *cursor)
 		ft_update_cursor(e, cursor, 5);
 	}
 	else
-		ft_update_cursor(e, cursor, 1);
+		ft_update_cursor(e, cursor, 5);
 }
