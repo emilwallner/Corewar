@@ -15,23 +15,21 @@
 void	ft_aff(t_env *e, t_cursor *cursor)
 {
 	char	index_extra;
-	int		i;
+	int		r;
+	int 	acb;
 
-	i = 0;
-	index_extra = e->a[MODA(cursor->index + 2)].hex;
-	if (index_extra < 0 || index_extra > 15)
-	{
-		ft_update_cursor(e, cursor, 3);
-		return ;
-	}
-	i = (cursor->reg[index_extra - 1] % 256);
-	i = i < 0 ? i + 256 : i;
-	// ft_printf("index_extra = %i\n", i);
-	// index_extra = get_reg(e, cursor, 1);
-	// index_extra = index_extra % 256;
-	if(e->bonus)
-		printw("%c", i);
+	r = ZMASK(e->a[MODA(cursor->index + 2)].hex);
+	acb = ZMASK(e->a[MODA(cursor->index + 1)].hex);
+	if (r < 0 || r > 15 || acb != 64)
+		ft_update_cursor(e, cursor, 1);
 	else
-		ft_printf("%c", i);
-	ft_update_cursor(e, cursor, 3);
+	{
+		index_extra = get_reg(e, cursor, 2);
+		index_extra = index_extra % 256;
+		if(e->bonus)
+			printw("Aff: %c\n", index_extra);
+		else
+			ft_printf("Aff: %c\n", index_extra);
+		ft_update_cursor(e, cursor, 3);
+	}
 }
