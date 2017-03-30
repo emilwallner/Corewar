@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 2c2
 < * Player -1, weighing 7 bytes, "test_min_direct" ("overlap_min_direct_param") !
 ---
 > * Player 1, weighing 7 bytes, "test_min_direct" ("overlap_min_direct_param") !
+=======
+2,3c2,3
+< * Player -1, weighing 7 bytes, "test_min_direct" ("overlap_min_direct_param") !
+< Contestant -1, "test_min_direct", has won !
+---
+> * Player 1, weighing 7 bytes, "test_min_direct" ("overlap_min_direct_param") !
+> Contestant 1, "test_min_direct", has won !
+>>>>>>> c47558d81ead924dacd985868b38a77418ffa38c

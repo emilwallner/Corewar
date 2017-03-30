@@ -6,11 +6,10 @@ CYAN="\x1b[36m";
 USER="../US/";
 USER2="../ZAZ/"
 DIFF="../DIFF/"
-P="./corewar -d 200";
 DIR="../Players/"
 
-C="./corewar -dump 200 -n -1";
-C2="./corewarzaz -a -d 200";
+C="./corewar -dump 2000 -n -1 ";
+C2="./corewarzaz -a -d 2000 ";
 
 FILE="bee_gees.cor";
 FILE2="bigzork.cor";

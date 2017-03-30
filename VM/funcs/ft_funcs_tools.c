@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 20:16:15 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/30 15:33:20 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/30 17:29:56 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,9 @@ int get_ind(t_env *e, t_cursor *cursor, int i)
 {
 	unsigned short	r;
 
+	i += cursor->index;
 	r = ((ZMASK(e->a[MODA(i)].hex) << 8) | ZMASK(e->a[MODA(i + 1)].hex));
+	r += cursor->index;
 	return (MODA(get_bytes(e, cursor, (short)r)));
 }
 
