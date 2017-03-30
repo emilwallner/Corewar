@@ -6,17 +6,21 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 20:16:15 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/29 14:49:40 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/30 15:33:20 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../srcs/vm.h"
 
+/*
+** Take the index of reg (between 0 and 15 for example if REG_NUMBER = 16)
+*/
+
 int		ft_is_reg(int r1, int r2, int r3)
 {
-	if (r1 < 0 || r1 > REG_NUMBER ||
-			r2 < 0 || r2 > REG_NUMBER ||
-				r3 < 0 || r3 > REG_NUMBER)
+	if (r1 < 0 || r1 >= REG_NUMBER ||
+			r2 < 0 || r2 >= REG_NUMBER ||
+				r3 < 0 || r3 >= REG_NUMBER)
 		return (0);
 	return (1);
 }
