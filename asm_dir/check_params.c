@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 16:58:11 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/22 16:11:10 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/30 15:05:22 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,25 @@ static int	count_params(char *params, t_op top)
 	return (1);
 }
 
-int			check_params(char *params, t_op top, t_asm *tasm)
+int			check_params(char *params, t_op top, t_asm *tasm, int line)
 {
 	int	i;
 	int	p;
 
 	if (!count_params(params, top))
-		return (0);
+		return (eoll(7, line + 1));
 	i = 0;
 	p = 0;
 	while (params[i] && p < top.nb_params)
 	{
 		if (params[i] == 'r' && !check_register(params + i, top, p))
-			return (0);
+			return (eoll(8, line + 1));
 		else if (params[i] == DIRECT_CHAR &&
 			!check_direct(params + i, top, p, tasm))
-			return (0);
+			return (eoll(9, line + 1));
 		else if (params[i] != DIRECT_CHAR && params[i] != 'r' &&
 			!check_indirect(params + i, top, p, tasm))
-			return (0);
+			return (eoll(10, line + 1));
 		if (ft_strchr(params + i, SEPARATOR_CHAR))
 			i += ft_strchr(params + i, SEPARATOR_CHAR) - (params + i) + 1;
 		else

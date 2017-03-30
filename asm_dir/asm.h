@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:45 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/24 12:56:36 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/30 15:02:00 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int				get_id_by_name(t_asm *tasm, char *name);
 
 int				check_instructions(t_asm *tasm);
 int				set_t_instruction(t_instruction *line, char **str);
-int				check_params(char *params, t_op top, t_asm *tasm);
+int				check_params(char *params, t_op top, t_asm *tasm, int line);
 int				check_valid_label(char *str);
 int				count_label(t_asm *tasm);
 
@@ -111,5 +111,7 @@ int				split_line(char ***asm_master, t_asm *tasm);
 void			puthexa_fd(long code, int fd);
 
 int				error_header(int id);
+int				eol(int id);
+int				eoll(int id, int line);
 
 #endif

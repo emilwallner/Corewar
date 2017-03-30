@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 09:49:37 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/30 12:19:10 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/30 14:39:12 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,9 +113,10 @@ void	ft_sti(t_env *e, t_cursor *cursor)
 		r2 = rdd_rid(e, cursor, acb, &ind);
 	r2 = MODX(r2);
 	i = -1;
-	while (++i < 4 && check_register(e, cursor, acb))
+	while (++i < 4 && ( i > 0 || check_register(e, cursor, acb)))
 	{
 		e->a[MODA((cursor->index + r2 + i))].hex = r >> (8 * (3 - i));
+		// printf("i= %i hex= %x\n", i, e->a[MODA((cursor->index + r2 + i))].hex);
 		e->a[MODA((cursor->index + r2 + i))].color = cursor->color - 6;
 		e->a[MODA((cursor->index + r2 + i))].prevcolor = cursor->color - 6;
 		e->a[MODA((cursor->index + r2 + i))].new_color_count = 50;
