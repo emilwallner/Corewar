@@ -21,7 +21,7 @@ void ft_declare_winner(t_env *e)
 	if(e->bonus)
 	{
 		attron(COLOR_PAIR(8));
-		printw("The winner is: Player %s\n", e->player[e->winner].name);
+		printw("Contestant %d, \"%s\", has won !\n", e->player[e->winner].nbr, e->player[e->winner].name);
 		attroff(COLOR_PAIR(8));
 		refresh();
 		getch();
