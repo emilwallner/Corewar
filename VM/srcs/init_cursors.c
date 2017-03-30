@@ -49,8 +49,8 @@ t_cursor		*ft_create_cursor_list(t_env *e)
 	t_cursor	*head;
 
 	stack = NULL;
-	i = 0;
-	while(i < e->player_amount)
+	i = e->player_amount - 1;
+	while(i > -1)
 	{
 		if(!stack)
 		{
@@ -59,7 +59,7 @@ t_cursor		*ft_create_cursor_list(t_env *e)
 		}
 		else
 			stack = ft_add_cursor_to_stack(e, stack, i);
-		i++;
+		i--;
 	}
 	return(head);
 }
