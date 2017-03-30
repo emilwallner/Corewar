@@ -18,10 +18,15 @@
 
 void ft_declare_winner(t_env *e)
 {
-	attron(COLOR_PAIR(8));
-	printw("The winner is: Player %d\n", 0xFF & e->winner);
-	attroff(COLOR_PAIR(8));
-	refresh();
-	getch();
-	endwin();
+	if(e->bonus)
+	{
+		attron(COLOR_PAIR(8));
+		printw("The winner is: Player %s\n", e->player[e->winner].name);
+		attroff(COLOR_PAIR(8));
+		refresh();
+		getch();
+		endwin();
+	}
+	else
+		ft_printf("The winner is: Player %s\n", e->player[e->winner].name);
 }
