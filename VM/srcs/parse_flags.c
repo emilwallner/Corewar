@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_vm.c                                          :+:      :+:    :+:   */
+/*   parse_flags.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/28 19:27:32 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/30 20:24:01 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ int		find_next_value(t_env *e)
 
 	i = smallest_number(e);
 	i++;
-	while(ft_loop_dup(e, i))
+	while (ft_loop_dup(e, i))
 	{
-		if(i == INT_MAXA)
+		if (i == INT_MAXA)
 			ft_exit(e, 7);
 		else
 			i++;
@@ -58,42 +58,43 @@ int		find_next_value(t_env *e)
 	return (i);
 }
 
-void ft_capture_number(t_env *e, char *nbr, int *i)
+void	ft_capture_number(t_env *e, char *nbr, int *i)
 {
 	long temp;
 
 	*i += 1;
 	e->dump = 1;
-	if(ft_strlen(nbr) > 15)
+	if (ft_strlen(nbr) > 15)
 		ft_exit(e, 7);
 	temp = ft_atoli(nbr);
-	if(temp > INT_MAXA || temp < INT_MINA)
+	if (temp > INT_MAXA || temp < INT_MINA)
 		ft_exit(e, 7);
 	else
 		e->dump_value = temp;
 	*i += 1;
 }
 
-void ft_add_player_w_nbr(t_env *e, char *nbr, int *i, int players)
+void	ft_add_player_w_nbr(t_env *e, char *nbr, int *i, int players)
 {
 	long temp;
 
-	if(ft_strlen(nbr) > 15)
+	if (ft_strlen(nbr) > 15)
 		ft_exit(e, 7);
 	temp = ft_atoli(nbr);
-	if(temp > INT_MAXA || temp < INT_MINA)
+	if (temp > INT_MAXA || temp < INT_MINA)
 		ft_exit(e, 7);
-	if(ft_loop_dup(e, temp))
+	if (ft_loop_dup(e, temp))
 		ft_exit(e, 9);
 	e->player[players].nbr = temp;
 	*i += 2;
 	e->player[players].file_pos = *i;
 }
 
-void ft_add_player_empty(t_env *e, int *i, int players)
+void	ft_add_player_empty(t_env *e, int *i, int players)
 {
-	int value;
-	if(players == 0)
+	int	value;
+
+	if (players == 0)
 		value = 1;
 	else
 		value = find_next_value(e);
@@ -101,27 +102,27 @@ void ft_add_player_empty(t_env *e, int *i, int players)
 	e->player[players].file_pos = *i;
 }
 
-void		ft_parse_flags(t_env *e, int args, char **av)
+void	ft_parse_flags(t_env *e, int args, char **av)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	e->player_amount = 0;
-	if(ft_strequ(av[i], "-dump") && (i + 2) <= args)
+	if (ft_strequ(av[i], "-dump") && (i + 2) <= args)
 		ft_capture_number(e, av[i + 1], &i);
 	else if (ft_strequ(av[i], "-visual") && (i + 1) <= args)
 	{
 		e->bonus = 1;
 		i++;
 	}
-	while(i < args)
+	while (i < args)
 	{
-		if(ft_strequ(av[i], "-n") && (i + 2) <= args)
+		if (ft_strequ(av[i], "-n") && (i + 2) <= args)
 			ft_add_player_w_nbr(e, av[i + 1], &i, e->player_amount);
 		else
 			ft_add_player_empty(e, &i, e->player_amount);
 		e->player_amount += 1;
-		if(e->player_amount > MAX_PLAYERS)
+		if (e->player_amount > MAX_PLAYERS)
 			ft_exit(e, 8);
 		i++;
 	}

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_cursors.c                                     :+:      :+:    :+:   */
+/*   init_ncurses.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/20 17:07:41 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/30 20:16:57 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void ft_init_ncurses(void)
+void	ft_init_ncurses(void)
 {
 	initscr();
 	noecho();
@@ -33,6 +33,5 @@ void ft_init_ncurses(void)
 	init_pair(12, COLOR_WHITE, COLOR_BLACK);
 	init_pair(13, COLOR_BLACK, COLOR_GREEN);
 	init_pair(14, COLOR_GREEN, COLOR_BLACK);
-
 	curs_set(FALSE);
 }

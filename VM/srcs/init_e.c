@@ -6,18 +6,18 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/28 14:49:47 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/30 20:16:32 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-void init_players(t_env *e)
+void	init_players(t_env *e)
 {
 	int i;
 
 	i = 0;
-	while(i < e->player_amount)
+	while (i < e->player_amount)
 	{
 		e->player[i].live = 0;
 		e->player[i].color = (i + 1 % 6);
@@ -25,12 +25,12 @@ void init_players(t_env *e)
 	}
 }
 
-void ft_szero(t_env *e)
+void	ft_szero(t_env *e)
 {
 	int i;
 
 	i = 0;
-	while(i < MEM_SIZE)
+	while (i < MEM_SIZE)
 	{
 		e->a[i].hex = 0;
 		e->a[i].color = 12;
@@ -41,7 +41,7 @@ void ft_szero(t_env *e)
 	}
 }
 
-void init_e(t_env *e, int ac, char **av)
+void	init_e(t_env *e, int ac, char **av)
 {
 	e->files = av;
 	e->cycle = 0;

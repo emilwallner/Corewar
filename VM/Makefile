@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/29 18:36:29 by mhaziza          ###   ########.fr        #
+#    Updated: 2017/03/30 19:48:52 by mhaziza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,6 @@ SRCS	=		main_vm.c \
 				ft_print_arena.c \
 				ft_build_arena.c \
 				op.c \
-				functions.c	\
 				ft_check_args.c	\
 				init_cursors.c	\
 				move_cursors.c	\

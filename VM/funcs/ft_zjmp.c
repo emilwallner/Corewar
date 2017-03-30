@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/29 10:44:00 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/30 19:46:08 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_zjmp(t_env *e, t_cursor *cursor)
 {
 	int	index_extra;
 
-	if(cursor->carry)
+	if (cursor->carry)
 	{
 		index_extra = get_dir(e, cursor, 1, 2);
 		index_extra = MODX(index_extra);

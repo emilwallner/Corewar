@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/29 12:33:39 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/30 19:46:45 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_aff(t_env *e, t_cursor *cursor)
 {
 	char	index_extra;
 	int		r;
-	int 	acb;
+	int		acb;
 
 	r = ZMASK(e->a[MODA(cursor->index + 2)].hex);
 	acb = ZMASK(e->a[MODA(cursor->index + 1)].hex);
@@ -26,7 +26,7 @@ void	ft_aff(t_env *e, t_cursor *cursor)
 	{
 		index_extra = get_reg(e, cursor, 2);
 		index_extra = index_extra % 256;
-		if(e->bonus)
+		if (e->bonus)
 			printw("Aff: %c\n", index_extra);
 		else
 			ft_printf("Aff: %c\n", index_extra);

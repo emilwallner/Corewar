@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 18:26:25 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 09:04:33 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/30 20:06:13 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@
 
 int	ft_check_args(t_env e, t_cursor cursor)
 {
-	int	nb_of_args;
-	int	i;
+	int		nb_of_args;
+	int		i;
 	char	opcode;
 	char	acb;
+
 	i = -1;
 	nb_of_args = 0;
-
 	opcode = e.a[cursor.index].hex;
 	acb = e.a[cursor.index + 1].hex;
 // printf("for opcode is %i and acb is %#x\n", opcode, acb);
 
-	if(e.op_tab[opcode].acb == 0)
-		return(1);
+	if (e.op_tab[opcode].acb == 0)
+		return (1);
 	if (acb & 0x3)
 		return (0);
 		// printf("ERROR\n");

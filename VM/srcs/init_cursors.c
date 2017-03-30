@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cursors.c                                          :+:      :+:    :+:   */
+/*   init_cursors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/20 17:08:18 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/30 20:15:49 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-t_cursor		*ft_create_cursor(int i, t_env *e)
+t_cursor	*ft_create_cursor(int i, t_env *e)
 {
 	t_cursor	*newcursor;
 
@@ -32,8 +32,7 @@ t_cursor		*ft_create_cursor(int i, t_env *e)
 	return (newcursor);
 }
 
-
-t_cursor		*ft_add_cursor_to_stack(t_env *e, t_cursor *stack, int i)
+t_cursor	*ft_add_cursor_to_stack(t_env *e, t_cursor *stack, int i)
 {
 	while (stack && stack->next)
 		stack = stack->next;
@@ -42,17 +41,17 @@ t_cursor		*ft_add_cursor_to_stack(t_env *e, t_cursor *stack, int i)
 	return (stack);
 }
 
-t_cursor		*ft_create_cursor_list(t_env *e)
+t_cursor	*ft_create_cursor_list(t_env *e)
 {
-	int		i;
+	int			i;
 	t_cursor	*stack;
 	t_cursor	*head;
 
 	stack = NULL;
 	i = e->player_amount - 1;
-	while(i > -1)
+	while (i > -1)
 	{
-		if(!stack)
+		if (!stack)
 		{
 			stack = ft_create_cursor(i, e);
 			head = stack;
@@ -61,15 +60,15 @@ t_cursor		*ft_create_cursor_list(t_env *e)
 			stack = ft_add_cursor_to_stack(e, stack, i);
 		i--;
 	}
-	return(head);
+	return (head);
 }
 
-void init_color_cursor(t_env *e)
+void		init_color_cursor(t_env *e)
 {
 	t_cursor *cursor;
 
 	cursor = e->head;
-	while(!cursor->counter)
+	while (!cursor->counter)
 	{
 		ft_update_cursor(e, cursor, 0);
 		cursor = cursor->next;

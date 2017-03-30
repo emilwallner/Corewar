@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/17 17:00:54 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/30 20:03:52 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_clean_head(t_cursor *head)
 
 	while (head)
 	{
-		if(head->next)
+		if (head->next)
 		{
 			temp = head;
 			head = head->next;
@@ -32,7 +32,7 @@ void	ft_clean_head(t_cursor *head)
 	}
 }
 
-void ft_error_msg(int i)
+void	ft_error_msg(int i)
 {
 	if (i == 1)
 		ft_putstr_fd("\x1b[31m[Failed to open]\x1b[0m ", 2);
@@ -57,11 +57,11 @@ void ft_error_msg(int i)
 	exit(1);
 }
 
-void ft_exit(t_env *e, int i)
+void	ft_exit(t_env *e, int i)
 {
 	if (e->head)
 		ft_clean_head(e->head);
-	if(i == -2)
+	if (i == -2)
 		exit(1);
 	if (i > 0)
 		ft_error_msg(i);

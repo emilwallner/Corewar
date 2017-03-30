@@ -6,14 +6,13 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 18:04:53 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/28 20:43:16 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/30 20:13:51 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vm.h"
 
-
-void ft_print_lives(t_env *e, int i)
+void	ft_print_lives(t_env *e, int i)
 {
 	int k;
 	int cycles;
@@ -23,21 +22,18 @@ void ft_print_lives(t_env *e, int i)
 	k = -1;
 	printw("\nLives for %-15s", e->player[i].name);
 	printw("%-5d", e->player[i].live);
-	while(++k < cycles)
+	while (++k < cycles)
 		addch(ACS_CKBOARD);
 	attroff(COLOR_PAIR(e->player[i].color));
 }
 
-
-
-void ft_print_game_stats(t_env *e)
+void	ft_print_game_stats(t_env *e)
 {
 	int i;
 
 	i = -1;
-	while(++i < e->player_amount)
+	while (++i < e->player_amount)
 		ft_print_lives(e, i);
-
 	attron(COLOR_PAIR(14));
 	printw("\n\nCycle: %-10d Cursors: %-10d Total Number of lives: %d/%-10d Checks: %d/9 > Decrease cycle to die with: %d     Cycles to die: %d/%d\n\n", e->tot_cycle, e->cursors, NBR_LIVE, e->lives, e->check, CYCLE_DELTA, e->cycles_to_die, e->cycle);
 	attroff(COLOR_PAIR(14));
@@ -47,19 +43,19 @@ void ft_print_game_stats(t_env *e)
 void	ft_print_bonus(t_env *e)
 {
 	int i;
-	i = 0;
 
+	i = 0;
 	// if(e->tot_cycle > 0)
 	// 	getch();
 	erase();
-	while(i < MEM_SIZE)
+	while (i < MEM_SIZE)
 	{
-		if(e->a[i].new_color_count > 0)
+		if (e->a[i].new_color_count > 0)
 			attron(A_BOLD);
 		attron(COLOR_PAIR(e->a[i].color));
 		printw("%02x", 0xFF & e->a[i].hex);
 		attroff(COLOR_PAIR(e->a[i].color));
-		if(e->a[i].new_color_count > 0)
+		if (e->a[i].new_color_count > 0)
 		{
 			attroff(A_BOLD);
 			e->a[i].new_color_count -= 1;
@@ -72,13 +68,13 @@ void	ft_print_bonus(t_env *e)
 	ft_print_game_stats(e);
 }
 
-void ft_print_dump_init(t_env *e)
+void	ft_print_dump_init(t_env *e)
 {
 	int k;
 
 	k = -1;
 	ft_printf("Introducing contestants...\n");
-	while(++k < e->player_amount)
+	while (++k < e->player_amount)
 		ft_printf("* Player %i, weighing %i bytes, \"%s\" (\"%s\") !\n", \
 		e->player[k].nbr, e->player[k].inst_len, e->player[k].name, \
 		e->player[k].comment);
@@ -86,13 +82,13 @@ void ft_print_dump_init(t_env *e)
 
 void	ft_print_normal(t_env *e)
 {
-	int i;
-	int hex;
+	int	i;
+	int	hex;
+
 	hex = 0;
 	i = 0;
-
 	ft_print_dump_init(e);
-	while(i < MEM_SIZE)
+	while (i < MEM_SIZE)
 	{
 		if ((i) % (128 / 2) == 0)
 			ft_printf("0x%04x : ", hex);
@@ -109,11 +105,11 @@ void	ft_print_normal(t_env *e)
 
 void	ft_print_arena(t_env *e)
 {
-	if(e->bonus)
+	if (e->bonus)
 		ft_print_bonus(e);
-	if(e->dump)
+	if (e->dump)
 	{
-		if(e->tot_cycle >= e->dump_value)
+		if (e->tot_cycle >= e->dump_value)
 			ft_print_normal(e);
 	}
 }
