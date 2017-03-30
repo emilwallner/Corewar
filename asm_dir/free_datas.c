@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/23 15:59:57 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/24 15:35:06 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/30 15:08:06 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,7 @@ int			free_and_return(t_asm *tasm, int ret)
 			free(tasm->labels[i].label);
 		free(tasm->labels);
 	}
-	if (!ret)
-		ft_putstr_fd("Error\n", 2);
-	sleep(1);
+	if (ret)
+		ft_putstr_fd("OK. File.cor has been generated.\n", 2);
 	return (ret);
 }

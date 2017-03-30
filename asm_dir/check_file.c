@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:21:54 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/29 18:33:00 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/30 14:46:12 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ int	check_file(t_asm *tasm, t_header *header)
 	ft_bzero(header, sizeof(t_header));
 	if (!tasm->asm_master[0][0] ||
 		check_file_name(tasm->asm_master[0][0], header) == 0)
-		return (0);
+		return (eol(4));
 	if (!tasm->asm_master[1][0] ||
 		check_file_comment(tasm->asm_master[1][0], header) == 0)
-		return (0);
+		return (eol(5));
 	if (!tasm->asm_master[2] || check_instructions(tasm) == 0)
 		return (0);
 	return (1);

@@ -1,6 +1,7 @@
 .name "test_sti_instruction"
 .comment "test_registeries"
 
+sti r3,r2,r10
 sti r3,r2,%-10
 sti r3,r2,%:label
 sti r3,%6,%10
