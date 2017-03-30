@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 09:49:37 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/30 14:39:12 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/30 16:57:44 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,13 @@ int get_ind_sti(t_env *e, t_cursor *cursor, int i)
 {
 	unsigned short	r;
 
+	// printf("i = %d\n", i);
 	r = ((ZMASK(e->a[MODA(i)].hex) << 8) | ZMASK(e->a[MODA(i + 1)].hex));
-	r = cursor->index + (short)r;
-	return (MODA(get_bytes(e, cursor, r)));
+	// printf("r = %i\n", r);
+	// printf("get_bytes(e, cursor, (short)r) -> %d\n", get_bytes(e, cursor, (short)r));
+	// printf("MODA(get_bytes(e, cursor, (short)r)) -> %d\n", MODA(get_bytes(e, cursor, (short)r)));
+
+	return (MODA(get_bytes(e, cursor, cursor->index + (short)r)));
 }
 
 static int	rrd_rdr_rir(t_env *e, t_cursor *cursor, int acb, int *ind)
@@ -45,7 +49,7 @@ static int	rrd_rdr_rir(t_env *e, t_cursor *cursor, int acb, int *ind)
 	else
 	{
 		r2 = get_ind_sti(e, cursor, cursor->index + 3) + get_reg(e, cursor, 5);
-		// printf("RIR R= %x I= %x R+I = %i  %x\n", get_reg(e, cursor, 5), get_ind(e, cursor, cursor->index + 3),r2, r2);
+		// printf("RIR R= %x I= %x R+I = %i  %x\n", get_reg(e, cursor, 5), get_ind(e, cursor, 3),r2, r2);
 	}
 	*ind = 6;
 	return (r2);
@@ -63,7 +67,8 @@ static int	rdd_rid(t_env *e, t_cursor *cursor, int acb, int *ind)
 	else
 	{
 		r2 = get_ind_sti(e, cursor, cursor->index + 3) + get_dir(e, cursor, 5, 2);
-		// printf("RID D= %x I= %x D+I = %i  %x\n", get_dir(e, cursor, 5, 2), get_ind(e, cursor, cursor->index + 3), r2, r2);
+		// printf("ind = %i - dir = %i\n", get_ind(e, cursor, cursor->index + 3), get_dir(e, cursor, 5, 2));
+		// printf("RID D= %x I= %x D+I = %i  %x\n", get_dir(e, cursor, 5, 2), get_ind(e, cursor, 3),r2, r2);
 	}
 	*ind = 7;
 	return (r2);
@@ -71,7 +76,7 @@ static int	rdd_rid(t_env *e, t_cursor *cursor, int acb, int *ind)
 
 int is_reg_valid(int i)
 {
-	return (i > 0 && i <  REG_NUMBER);
+	return (i > 0 && i <=  REG_NUMBER);
 }
 
 static int check_register(t_env *e, t_cursor *cursor, char acb)
@@ -111,12 +116,14 @@ void	ft_sti(t_env *e, t_cursor *cursor)
 		r2 = rrd_rdr_rir(e, cursor, acb, &ind);
 	else if (RDD == ZMASK(acb) || RID == ZMASK(acb))
 		r2 = rdd_rid(e, cursor, acb, &ind);
+	// printf("r2 -> %d\n", r2);
 	r2 = MODX(r2);
+	// printf("r2 -> %d\n", r2);
 	i = -1;
-	while (++i < 4 && ( i > 0 || check_register(e, cursor, acb)))
+	while (++i < 4 && (i > 0 || check_register(e, cursor, acb)))
 	{
+		// ft_putnbr(i);
 		e->a[MODA((cursor->index + r2 + i))].hex = r >> (8 * (3 - i));
-		// printf("i= %i hex= %x\n", i, e->a[MODA((cursor->index + r2 + i))].hex);
 		e->a[MODA((cursor->index + r2 + i))].color = cursor->color - 6;
 		e->a[MODA((cursor->index + r2 + i))].prevcolor = cursor->color - 6;
 		e->a[MODA((cursor->index + r2 + i))].new_color_count = 50;
