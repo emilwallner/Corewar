@@ -82,7 +82,7 @@ void	ft_print_arena(t_env *e)
 		ft_print_bonus(e);
 	if(e->dump)
 	{
-		if(e->tot_cycle == e->dump_value)
+		if(e->tot_cycle >= e->dump_value)
 			ft_print_normal(e);
 	}
 }
