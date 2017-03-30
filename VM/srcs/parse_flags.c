@@ -107,9 +107,9 @@ void		ft_parse_flags(t_env *e, int args, char **av)
 
 	i = 1;
 	e->player_amount = 0;
-	if(ft_strequ(av[i], "--dump") && (i + 2) <= args)
+	if(ft_strequ(av[i], "-dump") && (i + 2) <= args)
 		ft_capture_number(e, av[i], &i);
-	else if (ft_strequ(av[i], "--visual") && (i + 1) <= args)
+	else if (ft_strequ(av[i], "-visual") && (i + 1) <= args)
 	{
 		e->bonus = 1;
 		i++;
