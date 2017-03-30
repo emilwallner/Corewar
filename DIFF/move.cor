@@ -1,1 +1,4 @@
-Files ../US/move.cor and ../ZAZ/move.cor are identical
+2c2
+< * Player -1, weighing 74 bytes, "stayin alive" ("Ha Ha Ha stayiiiiin aliiiiiiiiiive") !
+---
+> * Player 1, weighing 74 bytes, "stayin alive" ("Ha Ha Ha stayiiiiin aliiiiiiiiiive") !

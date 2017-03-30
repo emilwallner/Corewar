@@ -1,1 +1,4 @@
-Files ../US/bee_gees.cor and ../ZAZ/bee_gees.cor are identical
+2c2
+< * Player -1, weighing 71 bytes, "stayin alive" ("Ha Ha Ha stayiiiiin aliiiiiiiiiive") !
+---
+> * Player 1, weighing 71 bytes, "stayin alive" ("Ha Ha Ha stayiiiiin aliiiiiiiiiive") !

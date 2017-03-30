@@ -1,1 +1,6 @@
-Files ../US/test_comments_eol.cor and ../ZAZ/test_comments_eol.cor are identical
+2,3c2,3
+< * Player -1, weighing 27 bytes, "test_comments_eol" ("comments_at_the_end_of_the_line") !
+< Contestant -1, "test_comments_eol", has won !
+---
+> * Player 1, weighing 27 bytes, "test_comments_eol" ("comments_at_the_end_of_the_line") !
+> Contestant 1, "test_comments_eol", has won !

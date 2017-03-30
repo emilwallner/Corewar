@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/29 18:27:34 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/30 17:27:07 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	rdr_drr_irr(t_env *e, t_cursor *cursor, int acb, int *ind)
 	}
 	else
 	{
-		r2 = get_ind(e, cursor, cursor->index + 2) + get_reg(e, cursor, 4);
+		r2 = get_ind(e, cursor, 2) + get_reg(e, cursor, 4);
 		// printf("IRR R= %x I= %x R+I = %i  %x\n", get_reg(e, cursor, 4), get_ind(e, cursor, 2),r2, r2);
 	}
 	*ind = 5;
@@ -61,7 +61,7 @@ int	ddr_idr(t_env *e, t_cursor *cursor, int acb, int *ind)
 	}
 	else
 	{
-		r2 = get_ind(e, cursor, cursor->index + 2) + get_dir(e, cursor, 4, 2);
+		r2 = get_ind(e, cursor, 2) + get_dir(e, cursor, 4, 2);
 		// printf("IDR D= %x I= %x D+I = %i  %x\n", get_dir(e, cursor, 4, 2), get_ind(e, cursor, 2),r2, r2);
 	}
 	*ind = 6;
