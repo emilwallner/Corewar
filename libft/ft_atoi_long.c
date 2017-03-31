@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_long.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/07 16:35:59 by ewallner          #+#    #+#             */
-/*   Updated: 2017/02/10 17:10:46 by ewallner         ###   ########.fr       */
+/*   Updated: 2017/02/10 19:25:33 by ewallner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *s)
+long long	ft_atoi_long(const char *s)
 {
-	int		i;
-	int		isneg;
-	int		sum;
+	int					i;
+	int					isneg;
+	long long			sum;
 
 	sum = 0;
 	i = 0;
@@ -34,5 +34,8 @@ int		ft_atoi(const char *s)
 		sum = sum + (s[i] - '0');
 		i++;
 	}
-	return (sum * isneg);
+	if (i > 19)
+		return (2147483649);
+	else
+		return (sum * isneg);
 }

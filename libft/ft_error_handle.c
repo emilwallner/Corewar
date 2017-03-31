@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_error_handle.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ewallner <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/07 16:02:37 by ewallner          #+#    #+#             */
-/*   Updated: 2016/11/07 16:07:49 by ewallner         ###   ########.fr       */
+/*   Created: 2017/01/12 21:01:49 by ewallner          #+#    #+#             */
+/*   Updated: 2017/01/19 10:52:39 by ewallner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_toupper(int c)
+#include "ft_print.h"
+#include <stdlib.h>
+
+int		ft_error_handle(t_vars *e)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	else
-		return (c);
+	if (e->type == -1)
+		return (TRUE);
+	if (e->type >= 3 && e->type <= 6 && e->zero)
+		return (TRUE);
+	if (e->type == POINTER && e->flags > 0)
+		return (TRUE);
+	if (e->type == POINTER && e->pointlen != -1)
+		return (TRUE);
+	return (FALSE);
 }

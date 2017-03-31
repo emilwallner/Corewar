@@ -3,78 +3,79 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ewallner <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 14:09:59 by mhaziza           #+#    #+#             */
-/*   Updated: 2016/11/23 22:05:45 by mhaziza          ###   ########.fr       */
+/*   Created: 2016/11/05 15:47:45 by ewallner          #+#    #+#             */
+/*   Updated: 2016/12/13 17:07:05 by ewallner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-static char	**ft_addneww(char const *s, char c, char **tab,
-	unsigned int tab_size)
+static int	ft_cntwrd(char const *s, char c)
 {
 	unsigned int	i;
-	unsigned int	neww_len;
-	char			*neww;
-	char			**tab_tmp;
+	int				w;
+	int				m;
 
-	if (ft_strchr(s, c) != NULL)
-		neww_len = ft_strchr(s, c) - s;
-	else
-		neww_len = ft_strlen(s);
-	if ((neww = ft_strnew(neww_len)))
-		neww = ft_strncpy(neww, s, neww_len);
-	if ((tab_tmp = (char**)malloc(sizeof(char*) * (tab_size + 1))))
+	w = 0;
+	i = 0;
+	while (s[i] != '\0')
 	{
-		i = -1;
-		while (++i < tab_size - 1)
-			*(tab_tmp + i) = ft_strdup(*(tab + i));
-		*(tab_tmp + tab_size - 1) = ft_strdup(neww);
-		*(tab_tmp + tab_size) = 0;
-		if (neww && neww[0])
-			ft_strclr(neww);
-		if (tab_size > 1 && tab && tab[0])
-			ft_strdel(tab);
+		m = 0;
+		while (s[i] != c)
+		{
+			m = 1;
+			if (s[i] == '\0')
+				return (w + 1);
+			i++;
+		}
+		if (m == 1)
+			w++;
+		i++;
 	}
-	return (tab_tmp);
+	return (w);
 }
 
-static char	**ft_stotab(char const *s, char c, char **tab,
-	unsigned int tab_size)
+static int	ft_untilc(const char *s, char c)
 {
-	if (s[0] && s[0] == c)
-		return (ft_stotab(s + 1, c, tab, tab_size));
-	if (s[0] && s[0] != c && ft_strchr(s, c))
+	int		len;
+
+	len = 0;
+	while (*s != c && *s != '\0')
 	{
-		return (ft_stotab(ft_strchr(s, c), c,
-		ft_addneww(s, c, tab, tab_size + 1), tab_size + 1));
+		len++;
+		s++;
 	}
-	if (s[0] && s[0] != c && ft_strchr(s, c) == NULL)
-		return (ft_addneww(s, c, tab, tab_size + 1));
-	return (tab);
+	return (len);
 }
 
 char		**ft_strsplit(char const *s, char c)
 {
-	unsigned int	tab_size;
-	char			**tab;
-	int				i;
+	unsigned int	i;
+	unsigned int	f;
+	int				w;
+	char			**list;
 
-	tab_size = 0;
-	if (!s || !c)
+	if (s == NULL)
 		return (NULL);
-	if ((tab = (char**)malloc(sizeof(char*))) == NULL)
+	if (!(list = (char**)malloc(sizeof(*list) * ft_cntwrd(s, c) + 1)))
 		return (NULL);
-	i = 0;
-	while (s[i] && s[i] == c)
-		i++;
-	if (!s[0] || i == (int)ft_strlen(s))
+	f = 0;
+	w = -1;
+	while (++w < ft_cntwrd(s, c))
 	{
-		tab[0] = 0;
-		return (tab);
+		i = 0;
+		while (s[i + f] == c)
+			f++;
+		i = ft_untilc(&s[f], c);
+		if (!(list[w] = ft_strnew(i)))
+			return (NULL);
+		if (i > 0)
+			list[w] = ft_strncpy(list[w], &s[f], i);
+		f = f + i;
 	}
-	tab = ft_stotab(s, c, tab, tab_size);
-	return (tab);
+	list[w] = NULL;
+	return (list);
 }
