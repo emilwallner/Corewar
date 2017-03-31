@@ -65,7 +65,6 @@ void ft_add_player_comment(t_env *e, int k)
 
 void ft_check_coding_byte(t_env *e, int k)
 {
-	int i;
 	char *str;
 	int number;
 

@@ -11,12 +11,16 @@
 /* ************************************************************************** */
 
 #include "../srcs/vm.h"
+//#include <wchar.h>
+//#include <locale.h>
 
 void	ft_aff(t_env *e, t_cursor *cursor)
 {
-	char	index_extra;
+	int	index_extra;
 	int		r;
 	int 	acb;
+
+	//setlocale(LC_ALL, "");
 
 	r = ZMASK(e->a[MODA(cursor->index + 2)].hex);
 	acb = ZMASK(e->a[MODA(cursor->index + 1)].hex);
@@ -24,12 +28,11 @@ void	ft_aff(t_env *e, t_cursor *cursor)
 		ft_update_cursor(e, cursor, 3);
 	else
 	{
-		index_extra = get_reg(e, cursor, 2);
-		index_extra = index_extra % 256;
+		index_extra = get_reg(e, cursor, 2) % 256;
 		if(e->bonus)
-			printw("Aff: %c\n", index_extra);
+			printw("Aff: %C\n", index_extra);
 		else
-			ft_printf("Aff: %c\n", index_extra);
+			ft_printf("Aff: %C\n", index_extra);
 		ft_update_cursor(e, cursor, 3);
 	}
 }
