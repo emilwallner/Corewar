@@ -12,6 +12,15 @@
 
 #include "vm.h"
 
+void		init_reg(t_cursor *cursor)
+{
+	int i;
+
+	i = -1;
+	while (++i < 16)
+		cursor->reg[i] = 0;
+}
+
 t_cursor	*ft_create_cursor(int i, t_env *e)
 {
 	t_cursor	*newcursor;
@@ -23,6 +32,7 @@ t_cursor	*ft_create_cursor(int i, t_env *e)
 	newcursor->player = i;
 	newcursor->carry = 0;
 	newcursor->cycle = 0;
+	init_reg(newcursor);
 	newcursor->reg[0] = e->player[i].nbr;
 	newcursor->color = (1 + i % 6) + 6;
 	newcursor->running = 0;
