@@ -6,11 +6,11 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/29 18:33:30 by mhaziza          ###   ########.fr        #
+#    Updated: 2017/03/31 11:18:00 by mhaziza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	asm
+NAME	=	../asm
 CC		=   gcc
 CFLAGS	= 	-Wall -Wextra -Werror -I.
 RM		=   rm -f
@@ -39,16 +39,13 @@ LIBFT_PATH	= ../libft
 all:	$(NAME)
 
 $(NAME):$(OBJS)
-	@make -C $(LIBFT_PATH)
 	@$(CC) $(CFLAG) $(SRCS) $(LIBFT) -o $(NAME)
 
 clean:
 	@rm -f $(OBJS)
-	@make -C $(LIBFT_PATH) clean
 
 fclean:	clean
 	@rm -f $(NAME)
-	@make -C $(LIBFT_PATH) fclean
 
 re:		fclean all
 

@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/30 14:58:51 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/31 10:37:28 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void		ft_ld(t_env *e, t_cursor *cursor)
 	char			acb;
 	int				value;
 	int				opc_ind;
-	unsigned short	r;
 	char			r1;
 
 	opc_ind = cursor->index;

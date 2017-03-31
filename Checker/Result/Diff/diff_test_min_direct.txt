@@ -1,0 +1,1 @@
+Files Result/ZaZ/test_min_direct and Result/User/test_min_direct are identical

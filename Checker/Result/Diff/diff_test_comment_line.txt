@@ -1,0 +1,1 @@
+Files Result/ZaZ/test_comment_line and Result/User/test_comment_line are identical

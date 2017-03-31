@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/30 19:56:22 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/31 10:40:34 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,12 @@ static void	ft_load(t_env *e, t_cursor *cursor, int ind, int r2)
 void		ft_ldi(t_env *e, t_cursor *cursor)
 {
 	char		acb;
-	int			value;
 	int			r2;
 	int			ind;
 
 	ind = 1;
 	acb = e->a[MODA(cursor->index + 1)].hex;
+	r2 = 0;
 	if (RRR == ZMASK(acb))
 	{
 		r2 = get_reg(e, cursor, 2) + get_reg(e, cursor, 3);

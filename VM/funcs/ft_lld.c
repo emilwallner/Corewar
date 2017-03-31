@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/22 17:07:21 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/30 19:53:59 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/31 10:37:08 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 static void	ft_dr(t_env *e, t_cursor *cursor, int opc_ind)
 {
 	int					value;
-	unsigned short		r;
 
 	value = get_bytes(e, cursor, opc_ind + 2);
 	if (e->a[MODA(opc_ind + 2 + 4)].hex - 1 >= 1 &&

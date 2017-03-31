@@ -6,11 +6,11 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/30 19:48:52 by mhaziza          ###   ########.fr        #
+#    Updated: 2017/03/31 11:09:13 by mhaziza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-COREWAR =	corewar
+COREWAR =	../corewar
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
 RM		=	rm -f
@@ -48,17 +48,6 @@ SRCS	=		main_vm.c \
 				ft_lldi.c \
 				ft_ld.c	\
 				ft_sti.c \
-				main_test.c	\
-				tests_ft_ld.c \
-				tests_ft_add.c	\
-				tests_ft_or.c	\
-				tests_ft_xor.c	\
-				tests_ft_and.c	\
-				tests_ft_sub.c \
-				tests_ft_ldi.c \
-				tests_ft_lld.c \
-				tests_ft_st.c \
-				tests_ft_sti.c \
 				ft_funcs_tools.c \
 				ft_funcs_tools_two.c \
 				ft_ldi.c \
@@ -70,11 +59,9 @@ RED			= \033[31m
 DEFAULT		= \033[37m
 CYAN		= \x1b[36m
 OBJS	=	$(SRCS:.c=.o)
-VPATH	=	srcs/:funcs/:funcs_tests/:funcs/funcs_tests:
+VPATH	=	srcs/:funcs/:funcs_tests:
 
-all:	libft	$(COREWAR)
-libft:
-	@make -C $(LIBFT_PATH)
+all:	$(COREWAR)
 
 # Executables
 $(COREWAR): $(OBJS)
@@ -89,14 +76,11 @@ $(OBJS): $(SRCS)
 # Cleaning rules
 clean:
 	@rm -f $(OBJS)
-	@make clean -C $(LIBFT_PATH)
 	@echo "Cleaning [$(OBJS)]"
 
 fclean:
 	@rm -f $(OBJS)
-	@make clean -C $(LIBFT_PATH)
 	@rm -rf $(COREWAR)
-	@make fclean -C $(LIBFT_PATH)
 	@echo "Cleaning [libft corewar]"
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 09:49:37 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/30 19:45:08 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/31 10:38:10 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void		ft_sti(t_env *e, t_cursor *cursor)
 
 	ind = 1;
 	acb = e->a[MODA(cursor->index + 1)].hex;
+	r2 = 0;
 	if (RRR == ZMASK(acb))
 	{
 		r2 = get_reg(e, cursor, 3) + get_reg(e, cursor, 4);
