@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/31 10:40:34 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/31 14:21:35 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ int			check_register_ldi(t_env *e, t_cursor *cursor, char acb)
 	(!is_reg_valid(e->a[MODA(cursor->index + 4)].hex) ||
 	!is_reg_valid(e->a[MODA(cursor->index + 5)].hex)))
 		return (0);
+	else if (DDR == ZMASK(acb) &&
+	!is_reg_valid(e->a[MODA((cursor->index + 7))].hex))
+		return (0);
 	return (1);
 }
 
@@ -93,7 +96,7 @@ void		ft_ldi(t_env *e, t_cursor *cursor)
 	}
 	else if (RDR == ZMASK(acb) || DRR == ZMASK(acb) || IRR == ZMASK(acb))
 		r2 = rdr_drr_irr(e, cursor, acb, &ind);
-	else if (DDR == ZMASK(acb) || IDR == ZMASK(acb))
+	else if ((DDR == ZMASK(acb) || IDR == ZMASK(acb)))
 		r2 = ddr_idr(e, cursor, acb, &ind);
 	r2 = MODX(r2);
 	if (check_register_ldi(e, cursor, acb))

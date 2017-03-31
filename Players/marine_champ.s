@@ -1,21 +1,22 @@
 .name "check registries"
-.comment "check registries by st() everything"
+.comment "check registries by st everything"
 
-ld r1,r2
-ld r1,r3
-ld r1,r4
-ld r1,r5
-ld r1,r6
-ld r1,r7
-ld r1,r8
-ld r1,r9
-ld r1,r10
-ld r1,r11
-ld r1,r12
-ld r1,r13
-ld r1,r14
-ld r1,r15
-ld r1,r16
+st r1,-10
+ldi %400,%97,r18
+ld 492,r3
+ld 487,r4
+ld 482,r5
+ld 477,r6
+ld -40,r7
+ld -45,r8
+ld -50,r9
+ld -55,r10
+ld -60,r11
+ld -65,r12
+ld -70,r13
+ld -75,r14
+ld -80,r15
+ld -85,r16
 st r1,100
 st r2,100
 st r3,100
