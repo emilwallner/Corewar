@@ -27,6 +27,16 @@ void	ft_print_lives(t_env *e, int i)
 	attroff(COLOR_PAIR(e->player[i].color));
 }
 
+void ft_print_regs(t_env *e)
+{
+	int i;
+
+	i = -1;
+	printw("This is regs >>");
+	while(++i < 16)
+		printw("%i->%i   ", i, e->head->reg[i]);
+}
+
 void	ft_print_game_stats(t_env *e)
 {
 	int i;
@@ -39,6 +49,7 @@ void	ft_print_game_stats(t_env *e)
 	Checks: %d/9 > Decrease cycle to die with: %d     \
 	Cycles to die: %d/%d\n\n", e->tot_cycle, e->cursors, NBR_LIVE, e->lives, \
 	e->check, CYCLE_DELTA, e->cycles_to_die, e->cycle);
+	ft_print_regs(e);
 	attroff(COLOR_PAIR(14));
 	refresh();
 }
@@ -48,8 +59,8 @@ void	ft_print_bonus(t_env *e)
 	int i;
 
 	i = 0;
-	// if(e->tot_cycle > 0)
-	// 	getch();
+	if(e->tot_cycle > 0)
+		getch();
 	erase();
 	while (i < MEM_SIZE)
 	{
