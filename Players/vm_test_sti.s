@@ -1,19 +1,24 @@
 .name "vm_test_st"
 .comment "do something"
 
-live %1
-sti r3,0,%10
-live %1
-live %2
-live %3
-live %4
-live %5
-live %6
-live %7
-live %8
-live %9
-live %10
-live %11
-live %12
-live %13
-live %14
+label2:
+sti r3,r2,r10
+sti r3,r2,%-10
+sti r3,r2,%:label
+sti r3,%6,%10
+sti r3,%6,%:label2
+sti r3,%:label,%10
+sti r3,%:label,%:label2
+sti r3,:label,%200
+sti r3,:label,%:label2
+sti r3,10,%200
+sti r3,10,%:label2
+sti r3,r2,r20
+sti r3,%6,r10
+label:
+sti r3,%:label,r10
+sti r3,:label,r10
+sti r3,10,r10
+ld %512,r3
+sti r3,%512,%513
+sti r3,%511,%10
