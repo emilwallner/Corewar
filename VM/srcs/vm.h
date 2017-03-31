@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 13:56:56 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/31 10:45:20 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/31 11:50:07 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,7 +155,7 @@ void		init_e(t_env *e, char **av);
 void		ft_files_to_string(t_env *e);
 void		ft_exit(t_env *e, int i);
 void		ft_print_strings(t_env *e, int ac);
-void		ft_parsing(t_env *e, int ac);
+void		ft_parsing(t_env *e);
 void		ft_print_arena(t_env *e);
 void 		ft_build_arena(t_env *e);
 void		set_op_tab(t_env *e);

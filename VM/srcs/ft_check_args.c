@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 18:26:25 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/31 11:21:40 by nsabbah          ###   ########.fr       */
+/*   Updated: 2017/03/31 11:52:14 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int	ft_check_args(t_env e, t_cursor cursor)
 	i = -1;
 	opcode = ZMASK(e.a[cursor.index].hex);
 	acb = e.a[cursor.index + 1].hex;
+	nb_of_args = 0;
 	if (e.op_tab[opcode].acb == 0)
 		return (1);
 	if (acb & 0x3)

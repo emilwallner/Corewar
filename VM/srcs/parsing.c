@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 15:56:53 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/30 20:26:09 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/31 11:49:49 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	ft_check_label_comment(t_env *e, int k)
 			ft_exit(e, 5);
 }
 
-void	ft_parsing(t_env *e, int ac)
+void	ft_parsing(t_env *e)
 {
 	int		i;
 	int		k;

@@ -6,7 +6,7 @@
 #    By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/03/15 15:57:23 by mhaziza           #+#    #+#              #
-#    Updated: 2017/03/31 11:09:13 by mhaziza          ###   ########.fr        #
+#    Updated: 2017/03/31 11:52:44 by mhaziza          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,17 +53,6 @@ SRCS	=		main_vm.c \
 				ft_ldi.c \
 				ft_st.c	\
 				parse_flags.c \
-				# main_test.c	\
-				# tests_ft_ld.c \
-				# tests_ft_add.c	\
-				# tests_ft_or.c	\
-				# tests_ft_xor.c	\
-				# tests_ft_and.c	\
-				# tests_ft_sub.c \
-				# tests_ft_ldi.c \
-				# tests_ft_lld.c \
-				# tests_ft_st.c \
-				# tests_ft_sti.c \
 
 GREEN		= \033[32m
 RED			= \033[31m
