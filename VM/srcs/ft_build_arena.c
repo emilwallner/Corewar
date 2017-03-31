@@ -27,7 +27,7 @@ void	ft_player_to_arena(t_env *e, int i, int *k)
 	}
 }
 
-void	ft_build_arena(t_env *e, int ac)
+void ft_build_arena(t_env *e)
 {
 	int			i;
 	static int	k;

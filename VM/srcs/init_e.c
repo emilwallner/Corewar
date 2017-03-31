@@ -41,7 +41,7 @@ void	ft_szero(t_env *e)
 	}
 }
 
-void	init_e(t_env *e, int ac, char **av)
+void init_e(t_env *e, char **av)
 {
 	e->files = av;
 	e->cycle = 0;
