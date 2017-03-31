@@ -6,13 +6,13 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 12:45:21 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/30 15:08:53 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/30 19:00:25 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-static char	*g_error_msg[11]=
+static char	*g_error_msg[11] =
 {
 	"op.h -> forbidden characters ('\\n', ' ', ...) in #define.\n",
 	"op.h -> COREWAR_EXEC_MAGIC > 0xffffffff\n",
@@ -33,13 +33,13 @@ int	error_header(int id)
 	return (0);
 }
 
-int eol(int id)
+int	eol(int id)
 {
 	ft_putstr_fd(g_error_msg[id], 2);
 	return (0);
 }
 
-int eoll(int id, int line)
+int	eoll(int id, int line)
 {
 	ft_putstr_fd("Line ", 2);
 	ft_putnbr_fd(line, 2);

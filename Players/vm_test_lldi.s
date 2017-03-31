@@ -1,0 +1,57 @@
+.name "vm_test_lldi"
+.comment "do something"
+
+ld %1,r2
+lldi r2,r10,r3
+st r3,400
+lldi r2,%-10,r3
+st r3,400
+lldi r2,%:label,r3
+st r3,400
+lldi %6,%10,r3
+st r3,400
+lldi %6,%:label2,r3
+st r3,400
+lldi %:label,%10,r3
+st r3,400
+lldi %:label,%:label2,r3
+st r3,400
+lldi :label,%10,r3
+st r3,400
+lldi :label,%:label2,r3
+st r3,400
+lldi 10,%10,r3
+st r3,400
+lldi 10,%:label2,r3
+st r3,400
+lldi r2,r10,r3
+st r3,400
+lldi %6,r10,r3
+st r3,400
+label:
+lldi %:label,r10,r3
+st r3,400
+lldi :label,r10,r3
+st r3,400
+label2:
+lldi 10,r10,r3
+st r3,400
+lldi %512,%513,r3
+st r3,400
+lldi %511,%10,r3
+st r3,400
+lldi %4096,%4097,r3
+st r3,400
+lldi %4095,%10,r3
+st r3,400
+lldi %-30,%0,r3
+zjmp %10
+lldi %30,%100,r17
+zjmp %10
+live %1
+live %17
+lldi %30,%0,r3
+zjmp %7
+live %1
+lldi %-30,%0,r0
+zjmp %10

@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 20:16:15 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/30 17:29:56 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/30 19:49:54 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,17 @@ int		ft_is_reg(int r1, int r2, int r3)
 	return (1);
 }
 
-int get_bytes(t_env *e, t_cursor *cursor, int r)
+int		get_bytes(t_env *e, t_cursor *cursor, int r)
 {
 	unsigned int	ret;
 
-	ret = (ZMASK(e->a[MODA(r)].hex) << 24) | (ZMASK(e->a[MODA((r + 1))].hex) << 16)
-	| (ZMASK(e->a[MODA((r + 2))].hex) << 8) | ZMASK(e->a[MODA((r + 3))].hex);
+	ret = (ZMASK(e->a[MODA(r)].hex) << 24) |
+	(ZMASK(e->a[MODA((r + 1))].hex) << 16) |
+	(ZMASK(e->a[MODA((r + 2))].hex) << 8) | ZMASK(e->a[MODA((r + 3))].hex);
 	return ((int)ret);
 }
 
-int get_dir(t_env *e, t_cursor *cursor, int i, int bytes)
+int		get_dir(t_env *e, t_cursor *cursor, int i, int bytes)
 {
 	int r;
 
@@ -51,7 +52,7 @@ int get_dir(t_env *e, t_cursor *cursor, int i, int bytes)
 	return ((int)r);
 }
 
-int get_ind(t_env *e, t_cursor *cursor, int i)
+int		get_ind(t_env *e, t_cursor *cursor, int i)
 {
 	unsigned short	r;
 
@@ -61,7 +62,7 @@ int get_ind(t_env *e, t_cursor *cursor, int i)
 	return (MODA(get_bytes(e, cursor, (short)r)));
 }
 
-int get_reg(t_env *e, t_cursor *cursor, int i)
+int		get_reg(t_env *e, t_cursor *cursor, int i)
 {
 	int r;
 

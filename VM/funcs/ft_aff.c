@@ -6,21 +6,17 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/29 12:33:39 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/03/30 19:46:45 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../srcs/vm.h"
-//#include <wchar.h>
-//#include <locale.h>
 
 void	ft_aff(t_env *e, t_cursor *cursor)
 {
 	int	index_extra;
 	int		r;
-	int 	acb;
-
-	//setlocale(LC_ALL, "");
+	int		acb;
 
 	r = ZMASK(e->a[MODA(cursor->index + 2)].hex);
 	acb = ZMASK(e->a[MODA(cursor->index + 1)].hex);

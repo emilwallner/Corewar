@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:02:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/30 17:19:46 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/30 19:36:01 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@
 
 #define RR 0x50
 #define RI 0x70
-// #define ZMASK(c) (c & 0xff)
 
-int get_short(t_env *e, t_cursor *cursor, int r)
+static int	get_short(t_env *e, t_cursor *cursor, int r)
 {
 	unsigned short	ret;
 
@@ -31,53 +30,42 @@ int get_short(t_env *e, t_cursor *cursor, int r)
 	return ((short)ret);
 }
 
-void	ft_st(t_env *e, t_cursor *cursor)
+static void	ft_ri(t_env *e, t_cursor *cursor, int p1, int p2)
+{
+	int		v;
+	int		i;
+
+	p2 = (get_short(e, cursor, cursor->index + 3) & 0xffff);
+	p2 = p2 < 0 && p2 > -IDX_MOD ? p2 : MODX(p2);
+	i = -1;
+	while ((i > 0 || ft_is_reg(p1 - 1, 0, 0)) && ++i < 4)
+	{
+		v = cursor->index + p2 + i;
+		e->a[MODA((v))].hex = (cursor->reg[p1 - 1] >> (8 * (3 - i))) & 0xff;
+		e->a[MODA((v))].color = cursor->color - 6;
+		e->a[MODA((v))].prevcolor = cursor->color - 6;
+		e->a[MODA((v))].new_color_count = 50;
+	}
+	ft_update_cursor(e, cursor, 5);
+}
+
+void		ft_st(t_env *e, t_cursor *cursor)
 {
 	char	acb;
 	int		p1;
 	short	p2;
-	int		i;
 	int		size;
-	int		v;
 
 	acb = e->a[MODA(cursor->index + 1)].hex;
 	p1 = e->a[MODA(cursor->index + 2)].hex;
 	p2 = 0;
-// printf("p1 %i reg[p1] %x acb %x\n", p1, cursor->reg[p1], acb);
 	if (RR == ZMASK(acb))
 	{
-	//	printf("RR\n");
 		p2 = e->a[MODA(cursor->index + 3)].hex;
 		if (ft_is_reg(p1 - 1, p2 - 1, 0))
 			cursor->reg[p2 - 1] = cursor->reg[p1 - 1];
 		ft_update_cursor(e, cursor, 4);
-	//	printf("reg[p2] %x (expected: ?)\n", cursor->reg[p2]);
 	}
 	else if (RI == ZMASK(acb))
-	{
-	//	printf("RI\n");
-		p2 = (get_short(e, cursor, cursor->index + 3) & 0xffff);
-		// printf("p2 vaut %i\n", p2);
-		// printf("p2 vaut %x\n", p2);
-		// printf("p2 %i - %#x \n", p2, p2);
-		p2 = p2 < 0 && p2 > -IDX_MOD ? p2 : MODX(p2);
-		// printf("p2 %i - %#x \n", p2, p2);
-		// int byte = MODA(get_bytes(e, cursor, MODX(p2)));
-		// byte = byte < 0 ? byte + MEM_SIZE : byte;
-		// printf("byte %i\n", byte);
-		i = -1;
-		while ((i > 0 || ft_is_reg(p1 - 1, 0, 0)) && ++i < 4)
-		{
-			v = cursor->index + p2 + i;
-			// v = (cursor->index + byte + i < 0) ? cursor->index + byte + i + MEM_SIZE : cursor->index + byte + i;
-			// printf("cursor->index %i v %i\n", cursor->index, v);
-			e->a[MODA((v))].hex = (cursor->reg[p1 - 1] >> (8 * (3 - i))) & 0xff;
-			e->a[MODA((v))].color = cursor->color - 6;
-			e->a[MODA((v))].prevcolor = cursor->color - 6;
-			e->a[MODA((v))].new_color_count = 50;
-			// printf("v %i\n", MODA((v)));
-			// printf("reg[1] %x\n",(cursor->reg[p1 - 1] >> (8 * (3 - i))) & 0xff);
-		}
-		ft_update_cursor(e, cursor, 5);
-	}
+		ft_ri(e, cursor, p1, p2);
 }

@@ -34,3 +34,12 @@ st r14,100
 st r15,100
 st r16,100
 st r1,100
+ld %1,r1
+zjmp %10
+ld %0,r10
+zjmp %10
+ld %0,r1
+zjmp %7
+live %17
+ld %1,r0
+zjmp %10

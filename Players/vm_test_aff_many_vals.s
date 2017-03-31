@@ -65,5 +65,5 @@ ld %240,r1
 aff r1
 ld %250,r1
 aff r1
-ld %255,r1
+ld %2,r1
 aff r1
