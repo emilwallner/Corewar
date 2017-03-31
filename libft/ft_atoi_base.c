@@ -1,53 +1,105 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ewallner <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/23 17:33:14 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/01/10 09:32:55 by mhaziza          ###   ########.fr       */
+/*   Created: 2016/11/07 16:35:59 by ewallner          #+#    #+#             */
+/*   Updated: 2017/02/10 18:49:53 by ewallner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_print.h"
+#include <stdio.h>
 
-static int	ft_increment(char c, int base, int nb)
+void	cutn(t_vars *e, char *str)
 {
-	nb *= base;
-	if (c >= '0' && c <= '9')
-		nb += c - '0';
-	else if (c >= 'a' && c < 'a' + base - 10)
-		nb += c - 'a' + 10;
-	else if (c >= 'A' && c < 'A' + base - 10)
-		nb += c - 'A' + 10;
-	else
-		return (0);
-	return (nb);
+	if (str[0] == '0' && e->pointlen == 0)
+		e->len = 0;
+	if (e->plus && !e->neg)
+		addsign('+', e);
+	if (e->printspace && !e->plus && !e->neg)
+		addsign(' ', e);
+	if (e->neg)
+		addsign('-', e);
 }
 
-int			ft_atoi_base(const char *str, int base)
+void	n(intmax_t nb, t_vars *e)
 {
-	int	i;
-	int nb;
-	int	is_neg;
+	char *str;
 
-	i = 0;
-	is_neg = 0;
-	nb = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\r' || str[i] == '\n'
-	|| str[i] == '\v' || str[i] == '\f')
-		i++;
-	if (str[i] == '-')
-		is_neg = 1;
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	while (str[i])
+	e->len = ft_size_of_intmax(nb, e);
+	e->printchar = (e->zero && e->pointlen == -1) ? '0' : ' ';
+	str = ft_atoi_intmax(nb, e);
+	cutn(e, str);
+	e->printlen = (e->len >= e->pointlen) ? e->len : e->pointlen;
+	if ((e->printlen + e->printextra >= e->width || e->printchar == '0' || \
+				e->align) && e->printextra)
+		e->totcount += ft_putchar_count(e->printsign);
+	if ((e->width > e->printextra + e->printlen) && !e->align)
+		ft_printspace(e->width - (e->printextra + e->printlen), \
+				e->printchar, e);
+	if (e->printlen + e->printextra < e->width && e->printextra && !e->align \
+			&& e->printchar != '0')
+		e->totcount += ft_putchar_count(e->printsign);
+	if (e->len < e->pointlen)
+		ft_printspace(e->pointlen - e->len, '0', e);
+	if (!(e->pointlen == 0 && *str == '0'))
+		e->totcount += ft_putstr_count(str);
+	nb_post_flags(e);
+}
+
+void	printpointlen(t_vars *e, char *str)
+{
+	if (e->len < e->pointlen && (e->type == UHEX || e->type == HEX))
+		ft_printspace(e->pointlen - (e->len), '0', e);
+	if (e->len < e->pointlen && (e->type == UUNSIGNED || e->type == UNSIGNED))
+		ft_printspace(e->pointlen - (e->len), '0', e);
+	if (e->len < e->pointlen && (e->type == UOCTAL || e->type == OCTAL))
+		ft_printspace(e->pointlen - (e->len + e->printextra), '0', e);
+	if (e->pointlen > 0 && (e->type == HEX || e->type == UHEX) && *str == '0')
+		e->totcount += ft_putstr_count(str);
+}
+
+void	cutu(t_vars *e, char *str)
+{
+	if (*str == '0' && e->pointlen == 0)
+		e->len = 0;
+	if (*str == '0' && e->pointlen == 0 && (e->type == OCTAL || \
+				e->type == UOCTAL) && e->hash)
+		e->len = 1;
+	if (*str == '0' && e->type != POINTER)
 	{
-		nb = ft_increment(str[i], base, nb);
-		i++;
+		e->printprefix = 0;
+		e->printextra = 0;
 	}
-	if (is_neg)
-		return (-nb);
-	return (nb);
+}
+
+void	u(uintmax_t nb, t_vars *e)
+{
+	char *str;
+
+	e->len = ft_size_of_uintmax(nb, e);
+	e->printchar = (e->zero && e->pointlen == -1) ? '0' : ' ';
+	calc_printextra(e);
+	str = ft_atoi_uintmax(nb, e);
+	cutu(e, str);
+	e->printlen = (e->len >= e->pointlen) ? e->len : e->pointlen;
+	if ((e->printlen + e->printextra >= e->width || e->printchar == '0' \
+				|| e->align) && e->printextra > 0)
+		ft_printprefix(e);
+	if (e->printlen + e->printextra < e->width && !e->align)
+		ft_printspace(e->width - (e->printlen + e->printextra), \
+				e->printchar, e);
+	if (e->printlen + e->printextra < e->width && !e->align && e->printchar \
+			== ' ' && e->printextra)
+		ft_printprefix(e);
+	printpointlen(e, str);
+	if (!(e->pointlen != -1 && *str == '0'))
+		e->totcount += ft_putstr_count(str);
+	if (e->pointlen != -1 && *str == '0' && \
+			(e->type == OCTAL || e->type == UOCTAL) && e->hash)
+		e->totcount += ft_putstr_count(str);
+	nb_post_flags(e);
 }

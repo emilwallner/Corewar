@@ -3,39 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ewallner <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 17:58:19 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/01/18 10:56:39 by mhaziza          ###   ########.fr       */
+/*   Created: 2016/11/05 15:53:54 by ewallner          #+#    #+#             */
+/*   Updated: 2016/11/15 17:26:49 by ewallner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-char	*ft_itoa(long long int n)
+static int	ft_itoa_length(int n)
 {
-	size_t			size;
-	char			*nbr;
-	long long int	n_abs;
-	size_t			i;
+	int		i;
+	int		neg;
 
-	if (n < -9223372036854775807)
-		return ("-9223372036854775808");
-	n_abs = n < 0 ? -n : n;
-	size = n < 0 ? ft_intlen_base(n_abs, 10) + 1 : ft_intlen_base(n_abs, 10);
-	if (!(nbr = (char*)malloc(sizeof(char) * size + 1)))
-		return (NULL);
-	nbr[size] = '\0';
-	if (!n_abs)
-		nbr[0] = '0';
-	i = size - 1;
-	while (n_abs)
-	{
-		nbr[i] = n_abs % 10 + '0';
-		n_abs = n_abs / 10;
-		i--;
-	}
+	neg = 0;
+	i = 1;
 	if (n < 0)
-		nbr[0] = '-';
-	return (nbr);
+	{
+		n = -n;
+		neg = 1;
+	}
+	while (n > 9)
+	{
+		n = n / 10;
+		i++;
+	}
+	return (i + neg + 1);
+}
+
+char		*ft_itoa(int n)
+{
+	char	*str;
+	int		length;
+	int		neg;
+
+	neg = 0;
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	length = ft_itoa_length(n);
+	str = (char*)malloc(sizeof(*str) * (length));
+	if (str == NULL)
+		return (NULL);
+	str[--length] = '\0';
+	if (n < 0)
+	{
+		n = -n;
+		neg = 1;
+	}
+	while (length--)
+	{
+		str[length] = (n % 10) + '0';
+		n = n / 10;
+	}
+	if (neg)
+		str[0] = '-';
+	return (str);
 }

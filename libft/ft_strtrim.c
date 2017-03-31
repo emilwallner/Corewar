@@ -3,34 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ewallner <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/20 11:11:09 by mhaziza           #+#    #+#             */
-/*   Updated: 2016/11/23 16:31:11 by mhaziza          ###   ########.fr       */
+/*   Created: 2016/11/05 15:46:21 by ewallner          #+#    #+#             */
+/*   Updated: 2016/11/16 14:50:09 by ewallner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strtrim(char const *s)
 {
-	char			*str;
-	unsigned int	i;
-	unsigned int	j;
+	char const *s_back;
 
-	if (s)
-	{
-		if ((str = ft_strnew(ft_strlen(s))) == NULL)
-			return (NULL);
-		i = 0;
-		while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-			i++;
-		if (!s[i])
-			return (ft_strsub(s, i, 0));
-		j = ft_strlen(s) - 1;
-		while (s[j] == ' ' || s[j] == '\n' || s[j] == '\t')
-			j--;
-		return (ft_strsub(s, i, j - i + 1));
-	}
-	return (NULL);
+	if (s == NULL)
+		return (NULL);
+	while (*s == ' ' || *s == '\t' || *s == '\n')
+		s++;
+	if (*s == '\0')
+		return (ft_strnew(0));
+	s_back = s + ft_strlen(s) - 1;
+	while (*s_back == ' ' || *s_back == '\t' || *s_back == '\n')
+		s_back--;
+	return (ft_strsub(s, 0, s_back - s + 1));
 }

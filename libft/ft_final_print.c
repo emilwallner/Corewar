@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstrl.c                                       :+:      :+:    :+:   */
+/*   ft_final_print.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ewallner <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 18:15:06 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/01/08 19:04:55 by mhaziza          ###   ########.fr       */
+/*   Created: 2017/01/09 16:39:13 by ewallner          #+#    #+#             */
+/*   Updated: 2017/01/19 10:53:10 by ewallner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstrl(char const *s)
+void		ft_print_zeroes(int i)
 {
-	if (!s)
-		ft_putstr("(Null)");
-	else
-	{
-		ft_putstr(s);
-		ft_putchar('\n');
-	}
+	int c;
+
+	c = -1;
+	while (c++ < i)
+		ft_putchar('0');
 }

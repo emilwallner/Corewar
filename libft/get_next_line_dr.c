@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_rand.c                               :+:      :+:    :+:   */
+/*   get_next_line_dr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/02 16:54:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/02/19 17:23:10 by mhaziza          ###   ########.fr       */
+/*   Created: 2016/12/07 14:25:33 by ewallner          #+#    #+#             */
+/*   Updated: 2017/02/20 18:02:16 by ewallner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,25 +61,24 @@ int		error_handling(char **stock)
 	return (-1);
 }
 
-int		gnl_rand(const int fd, char **line, int ctrl)
+int		get_next_line_dr(const int fd, char **line)
 {
 	static char		*stock = NULL;
 	char			*str;
 	int				bytes_read;
 
-	if (fd < 0 || !(line) || BUFF_SIZE < 0)
+	if (fd < 0 || BUFF_SIZE < 0)
 		return (-1);
 	if (!(stock))
 		stock = ft_strnew(0);
 	while (!(ft_strchr(stock, '\n')))
 	{
-		if ((int)ft_strlen(stock) > ctrl && !ft_strchr(stock, '\n') &&
-		!ft_strchr(str, '\n'))
-			return (-1);
 		if (!(buffer_to_stock(fd, &stock, &bytes_read)))
 			return (error_handling(&stock));
 		if (bytes_read == 0)
 			return (file_end(line, &stock));
+		if (stock && (ft_strlen(stock) > 500 || stock[0] == '\0'))
+			return (error_handling(&stock));
 	}
 	str = ft_strchr(stock, '\n');
 	*line = ft_strsub(stock, 0, str - stock);

@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/19 15:10:01 by mhaziza           #+#    #+#             */
-/*   Updated: 2016/11/19 15:36:41 by mhaziza          ###   ########.fr       */
+/*   Created: 2016/11/09 19:46:35 by ewallner          #+#    #+#             */
+/*   Updated: 2017/02/17 21:04:16 by ewallner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
-int		ft_strequ(const char *s1, const char *s2)
+int		ft_strequ(char const *s1, char const *s2)
 {
 	if (s1 && s2)
 	{

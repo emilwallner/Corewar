@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_wstrncpy.c                                      :+:      :+:    :+:   */
+/*   ft_base.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ewallner <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/17 20:03:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/01/19 18:29:34 by mhaziza          ###   ########.fr       */
+/*   Created: 2017/01/05 16:02:30 by ewallner          #+#    #+#             */
+/*   Updated: 2017/01/19 10:49:42 by ewallner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-wchar_t	*ft_wstrncpy(wchar_t *dest, const wchar_t *src, size_t n)
+void	ft_base(unsigned int i, unsigned int base_length, char *base)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (i < n && src[i])
+	if (i > base_length)
 	{
-		dest[i] = src[i];
-		i++;
+		ft_base(i / base_length, base_length, base);
+		ft_base(i % base_length, base_length, base);
 	}
-	while (i <= n)
-		dest[i++] = '\0';
-	return (dest);
+	else
+		ft_putchar(base[i]);
 }
