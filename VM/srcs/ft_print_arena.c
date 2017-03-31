@@ -35,7 +35,10 @@ void	ft_print_game_stats(t_env *e)
 	while (++i < e->player_amount)
 		ft_print_lives(e, i);
 	attron(COLOR_PAIR(14));
-	printw("\n\nCycle: %-10d Cursors: %-10d Total Number of lives: %d/%-10d Checks: %d/9 > Decrease cycle to die with: %d     Cycles to die: %d/%d\n\n", e->tot_cycle, e->cursors, NBR_LIVE, e->lives, e->check, CYCLE_DELTA, e->cycles_to_die, e->cycle);
+	printw("\n\nCycle: %-10d Cursors: %-10d Total Number of lives: %d/%-10d \
+	Checks: %d/9 > Decrease cycle to die with: %d     \
+	Cycles to die: %d/%d\n\n", e->tot_cycle, e->cursors, NBR_LIVE, e->lives, \
+	e->check, CYCLE_DELTA, e->cycles_to_die, e->cycle);
 	attroff(COLOR_PAIR(14));
 	refresh();
 }
@@ -45,8 +48,8 @@ void	ft_print_bonus(t_env *e)
 	int i;
 
 	i = 0;
-	if(e->tot_cycle > 0)
-		getch();
+	// if(e->tot_cycle > 0)
+	// 	getch();
 	erase();
 	while (i < MEM_SIZE)
 	{

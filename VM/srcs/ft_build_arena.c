@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 18:04:53 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/30 20:05:03 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/31 19:25:25 by ewallner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void	ft_player_to_arena(t_env *e, int i, int *k)
 	while (count < e->player[i].inst_len)
 	{
 		e->a[*k].hex = 0xFF & e->player[i].inst[count];
-		e->a[*k].color = i + 1 % 6;
-		e->a[*k].prevcolor = i + 1 % 6;
+		e->a[*k].color = 1 + (i % 6);
+		e->a[*k].prevcolor = 1 + (i % 6);
 		*k += 1;
 		count++;
 	}
 }
 
-void ft_build_arena(t_env *e)
+void	ft_build_arena(t_env *e)
 {
 	int			i;
 	static int	k;

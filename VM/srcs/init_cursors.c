@@ -24,7 +24,7 @@ t_cursor	*ft_create_cursor(int i, t_env *e)
 	newcursor->carry = 0;
 	newcursor->cycle = 0;
 	newcursor->reg[0] = e->player[i].nbr;
-	newcursor->color = (i + 1 % 6) + 6;
+	newcursor->color = (1 + i % 6) + 6;
 	newcursor->running = 0;
 	newcursor->index = e->player[i].index_start;
 	newcursor->next = NULL;

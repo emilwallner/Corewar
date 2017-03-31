@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/31 14:04:43 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/31 19:25:57 by ewallner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_cycle_end_and_execute(t_env *e, t_cursor *cursor)
 {
 	if (cursor->cycle == 0)
 	{
-		if(ft_check_args(*e, *cursor))
+		if (ft_check_args(*e, *cursor))
 			(*g_func_ptr[(int)e->a[cursor->index].hex])(e, cursor);
 		else
 			ft_update_cursor(e, cursor, 1);

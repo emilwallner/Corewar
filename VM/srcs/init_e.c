@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/30 20:16:32 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/31 19:26:28 by ewallner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_players(t_env *e)
 	while (i < e->player_amount)
 	{
 		e->player[i].live = 0;
-		e->player[i].color = (i + 1 % 6);
+		e->player[i].color = 1 + (i % 6);
 		i++;
 	}
 }
@@ -41,7 +41,7 @@ void	ft_szero(t_env *e)
 	}
 }
 
-void init_e(t_env *e, char **av)
+void	init_e(t_env *e, char **av)
 {
 	e->files = av;
 	e->cycle = 0;
