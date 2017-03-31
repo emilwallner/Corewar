@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 12:45:21 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/30 19:00:25 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/31 15:42:02 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 static char	*g_error_msg[11] =
 {
-	"op.h -> forbidden characters ('\\n', ' ', ...) in #define.\n",
-	"op.h -> COREWAR_EXEC_MAGIC > 0xffffffff\n",
-	"wrong file extension.\n",
-	"Error in label's name.\n",
-	"Error in champion's name.\n",
-	"Error in file's comment.\n",
-	"Error in comment.\n",
-	"Error : number of parameter invalid\n",
-	"Error : registry parameter invalid\n",
-	"Error : direct parameter invalid\n",
-	"Error : indirect parameter invalid\n"
+	"\x1b[31mop.h -> forbidden characters ('\\n', ' ', ...) in #define.\x1b[0m\n",
+	"\x1b[31mop.h -> COREWAR_EXEC_MAGIC > 0xffffffff\x1b[0m\n",
+	"\x1b[31mwrong file extension.\x1b[0m\n",
+	"\x1b[31mError in label's name.\x1b[0m\n",
+	"\x1b[31mError in champion's name.\x1b[0m\n",
+	"\x1b[31mError in file's comment.\x1b[0m\n",
+	"\x1b[31mError in comment.\x1b[0m\n",
+	"\x1b[31mError : number of parameter invalid\x1b[0m\n",
+	"\x1b[31mError : registry parameter invalid\x1b[0m\n",
+	"\x1b[31mError : direct parameter invalid\x1b[0m\n",
+	"\x1b[31mError : indirect parameter invalid\x1b[0m\n"
 };
 
 int	error_header(int id)
