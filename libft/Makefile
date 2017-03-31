@@ -43,7 +43,7 @@ $(NAME):
 	@gcc $(FLAG) $(OPTION) $(SRC)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo "$(GREEN)Ant farm created. $(DEFAULT)"
+	@echo "$(GREEN)Libft created.$(DEFAULT)"
 
 all: $(NAME)
 
@@ -52,6 +52,6 @@ clean:
 
 fclean: clean
 	@/bin/rm -f $(NAME)
-	@echo "$(RED)Ant farm destroyed. $(DEFAULT)"
+	@echo "$(RED)Libft destroyed.$(DEFAULT)"
 
 re: fclean all

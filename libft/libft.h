@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
+# include "ft_print.h"
 # define BUFF_SIZE 10
 # define BASE16 "0123456789ABCDEF"
 # define BASE2	"01"
