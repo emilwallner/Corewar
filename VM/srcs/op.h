@@ -37,7 +37,7 @@
 # define SEPARATOR_CHAR			','
 
 # define LABEL_CHARS				"abcdefghijklmnopqrstuvwxyz_0123456789"
-# define CMD_CHARS			" abcdefghijklmnopqrstuvwxyz_0123456789+-*/=.?!<>"
+# define CMD_CHARS			" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_0123456789+-*/=.?!<>"
 
 # define NAME_CMD_STRING			".name"
 # define COMMENT_CMD_STRING		".comment"
