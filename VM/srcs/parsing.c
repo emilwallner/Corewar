@@ -92,7 +92,7 @@ void	ft_check_label_comment(t_env *e, int k)
 	comment = e->player[k].comment;
 	while (comment[++i])
 		if (!(ft_strchr(CMD_CHARS, comment[i])))
-			ft_exit(e, 5);
+			ft_exit(e, 10);
 }
 
 void	ft_parsing(t_env *e)
