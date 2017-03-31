@@ -90,13 +90,13 @@ void	ft_print_normal(t_env *e)
 	ft_print_dump_init(e);
 	while (i < MEM_SIZE)
 	{
-		if ((i) % (128 / 2) == 0)
+		if ((i) % (64 / 2) == 0)
 			ft_printf("0x%04x : ", hex);
 		ft_printf("%02x ", 0xFF & e->a[i].hex);
-		if ((i + 1) % (128 / 2) == 0)
+		if ((i + 1) % (64 / 2) == 0)
 		{
 			ft_printf("\n");
-			hex += 64;
+			hex += 32;
 		}
 		i++;
 	}
