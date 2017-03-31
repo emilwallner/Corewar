@@ -61,9 +61,8 @@ void	ft_add_player_comment(t_env *e, int k)
 
 void	ft_check_coding_byte(t_env *e, int k)
 {
-	int		i;
-	char	*str;
-	int		number;
+	char *str;
+	int number;
 
 	str = e->player[k].string;
 	number = ((MM(str[0]) << 24) | (MM(str[1]) << 16) | (MM(str[2]) << 8) |

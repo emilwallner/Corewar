@@ -53,6 +53,17 @@ SRCS	=		main_vm.c \
 				ft_ldi.c \
 				ft_st.c	\
 				parse_flags.c \
+				# main_test.c	\
+				# tests_ft_ld.c \
+				# tests_ft_add.c	\
+				# tests_ft_or.c	\
+				# tests_ft_xor.c	\
+				# tests_ft_and.c	\
+				# tests_ft_sub.c \
+				# tests_ft_ldi.c \
+				# tests_ft_lld.c \
+				# tests_ft_st.c \
+				# tests_ft_sti.c \
 
 GREEN		= \033[32m
 RED			= \033[31m
@@ -65,12 +76,12 @@ all:	$(COREWAR)
 
 # Executables
 $(COREWAR): $(OBJS)
-	@$(CC) -o $@ $(CFLAGS) $^ -I $(INC_COREWAR) $(LIBFT)
+	@$(CC) -o $@ $^ $(CFLAGS) -I $(INC_COREWAR) $(LIBFT)
 	@echo "Compiling [$@]"
 
 # Object files
 $(OBJS): $(SRCS)
-	@$(CC) -c $^ $(CFALGS) -I $(INC_COREWAR)
+	@$(CC) -c $^ $(CFLAGS) -I $(INC_COREWAR)
 	@$(ECHO)
 
 # Cleaning rules
