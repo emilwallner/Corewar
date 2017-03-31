@@ -30,7 +30,7 @@ void	ft_clear_player_lives(t_env *e)
 
 void	ft_new_cycle(t_env *e, int *end)
 {
-	if (e->lives == 0)
+	if (e->lives == 0 || (e->cycles_to_die - CYCLE_DELTA) < 1)
 		*end = 0;
 	if (e->lives < NBR_LIVE)
 		e->check += 1;
