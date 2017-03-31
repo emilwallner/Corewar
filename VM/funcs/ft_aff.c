@@ -26,9 +26,9 @@ void	ft_aff(t_env *e, t_cursor *cursor)
 	{
 		index_extra = get_reg(e, cursor, 2) % 256;
 		if(e->bonus)
-			printw("Aff: %C\n", index_extra);
+			printw("Aff: %c\n", index_extra);
 		else
-			ft_printf("Aff: %C\n", index_extra);
+			ft_printf("Aff: %c\n", index_extra);
 		ft_update_cursor(e, cursor, 3);
 	}
 }
