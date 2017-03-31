@@ -1,1 +1,0 @@
-Files Result/ZaZ/test_xor_instruction and Result/User/test_xor_instruction are identical
