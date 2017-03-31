@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 16:02:13 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/31 10:41:31 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/31 15:04:57 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ static void	ft_ri(t_env *e, t_cursor *cursor, int p1, int p2)
 	int		v;
 	int		i;
 
-	p2 = (get_short(e, cursor->index + 3) & 0xffff);
-	p2 = p2 < 0 && p2 > -IDX_MOD ? p2 : MODX(p2);
+	p2 = (get_short(e, cursor->index + 3));
+	p2 = MODX(p2);
 	i = -1;
 	while ((i > 0 || ft_is_reg(p1 - 1, 0, 0)) && ++i < 4)
 	{

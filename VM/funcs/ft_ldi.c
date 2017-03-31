@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/31 14:21:35 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/31 14:27:25 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ static void	ft_load(t_env *e, t_cursor *cursor, int ind, int r2)
 	int			value;
 
 	value = get_bytes(e, cursor, cursor->index - ind + r2);
-	cursor->reg[e->a[MODA(cursor->index)].hex - 1] = value;
+	if (is_reg_valid(e->a[MODA(cursor->index)].hex - 1))
+		cursor->reg[e->a[MODA(cursor->index)].hex - 1] = value;
 	if (value == 0)
 		cursor->carry = 1;
 	else

@@ -1,8 +1,16 @@
 .name "check registries"
 .comment "check registries by st everything"
 
-st r1,-10
-ldi %400,%97,r18
+st r1,-4100
+st r1,-4096
+#st r1,-513
+#st r1,-512
+#st r1,0
+#st r1,512
+#st r1,513
+#st r1,4096
+#st r1,4100
+lldi %400,%97,r16
 ld 492,r3
 ld 487,r4
 ld 482,r5
