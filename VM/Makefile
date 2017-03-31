@@ -48,12 +48,12 @@ SRCS	=		main_vm.c \
 				ft_lldi.c \
 				ft_ld.c	\
 				ft_sti.c \
-				main_test.c	\
 				ft_funcs_tools.c \
 				ft_funcs_tools_two.c \
 				ft_ldi.c \
 				ft_st.c	\
 				parse_flags.c \
+				# main_test.c	\
 				# tests_ft_ld.c \
 				# tests_ft_add.c	\
 				# tests_ft_or.c	\
@@ -78,7 +78,7 @@ libft:
 
 # Executables
 $(COREWAR): $(OBJS)
-	@$(CC) -o $@ $(CFLAGS) $^ -I $(INC_COREWAR) $(LIBFT)
+	@$(CC) -o $@ $^ $(CFLAGS) -I $(INC_COREWAR) $(LIBFT)
 	@echo "Compiling [$@]"
 
 # Object files
