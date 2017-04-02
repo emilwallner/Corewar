@@ -2,3 +2,7 @@
 < * Player -1, weighing 102 bytes, "test_sti_instruction" ("test_registeries") !
 ---
 > * Player 1, weighing 102 bytes, "test_sti_instruction" ("test_registeries") !
+4c4
+< 0x0040 : 00 0a 0b 78 03 00 0a 00 1e 00 00 00 00 0a 0b 64 03 00 06 0a 00 00 00 00 00 0a 00 00 00 00 fa 0a 0b 74 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+---
+> 0x0040 : 00 0a 0b 78 03 00 0a 00 1e 00 00 00 00 0a 0b 64 03 00 06 0a 00 00 00 00 00 0a 0b 74 03 ff fa 0a 0b 74 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 

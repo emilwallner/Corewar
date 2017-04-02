@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 09:49:37 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/04/02 16:20:38 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/02 20:26:52 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 #define RRD 0x58
 #define RDD 0x68
 #define RID 0x78
-
+int		get_dir_sti(t_env *e, t_cursor *cursor, int i);
 static int	rrd_rdr_rir(t_env *e, t_cursor *cursor, int acb, int *ind)
 {
 	int	r2;
 
 	if (RRD == ZMASK(acb))
-		r2 = get_reg(e, cursor, 3) + get_dir(e, cursor, 4, 2);
+		r2 = get_reg(e, cursor, 3) + get_dir_sti(e, cursor, 4);
 	else if (RDR == ZMASK(acb))
-		r2 = get_dir(e, cursor, 3, 2) + get_reg(e, cursor, 5);
+		r2 = get_dir_sti(e, cursor, 3) + get_reg(e, cursor, 5);
 	else
 		r2 = get_ind_sti(e, cursor, 3) + get_reg(e, cursor, 5);
 	*ind = 6;
@@ -35,9 +35,9 @@ static int	rdd_rid(t_env *e, t_cursor *cursor, int acb, int *ind)
 	int	r2;
 
 	if (RDD == ZMASK(acb))
-		r2 = get_dir(e, cursor, 3, 2) + get_dir(e, cursor, 5, 2);
+		r2 = get_dir_sti(e, cursor, 3) + get_dir_sti(e, cursor, 5);
 	else
-		r2 = get_ind_sti(e, cursor, 3) + MODS((get_dir(e, cursor, 5, 2)));
+		r2 = get_ind_sti(e, cursor, 3) + get_dir_sti(e, cursor, 5);
 	*ind = 7;
 	return (r2);
 }
@@ -46,8 +46,8 @@ static int	check_register(t_env *e, t_cursor *cursor, char acb)
 {
 	if (!is_reg_valid(e->a[MODA(cursor->index + 2)].hex))
 		return (0);
-	if (RRR == ZMASK(acb) && (!is_reg_valid(e->a[MODA(cursor->index + 3)].hex ||
-	!is_reg_valid(e->a[MODA(cursor->index + 4)].hex))))
+	if (RRR == ZMASK(acb) && (!is_reg_valid(e->a[MODA(cursor->index + 3)].hex)
+	|| !is_reg_valid(e->a[MODA(cursor->index + 4)].hex)))
 		return (0);
 	else if (RRD == ZMASK(acb) &&
 	!is_reg_valid(e->a[MODA(cursor->index + 3)].hex))
@@ -83,6 +83,7 @@ static void	set_arena(t_env *e, t_cursor *cursor, int r2, int acb)
 
 void		ft_sti(t_env *e, t_cursor *cursor)
 {
+	// ft_putstr(">>>\n");
 	char	acb;
 	int		r2;
 	int		ind;
@@ -100,6 +101,8 @@ void		ft_sti(t_env *e, t_cursor *cursor)
 	else if (RDD == ZMASK(acb) || RID == ZMASK(acb))
 		r2 = rdd_rid(e, cursor, acb, &ind);
 	r2 = MODX(r2);
+	// printf("final %i \n", (r2));
+
 	set_arena(e, cursor, r2, acb);
 	ft_update_cursor(e, cursor, ind);
 }
