@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 13:56:56 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/31 19:32:19 by ewallner         ###   ########.fr       */
+/*   Updated: 2017/04/02 16:15:53 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define MAGENTA "\x1b[35m"
 # define CYAN    "\x1b[36m"
 # define RESET   "\x1b[0m"
+# define MODS(x)	(x % 32768 < 0 ? x % 32768 + 32768 : x % 32768)
 # define MODA(x)	(x % MEM_SIZE < 0 ? x % MEM_SIZE + MEM_SIZE : x % MEM_SIZE)
 # define MODX(x)	(x % IDX_MOD)
 # define MM(x)		(x & 0xFF)
@@ -170,5 +171,6 @@ int					check_register_ldi(t_env *e, t_cursor *cursor, char acb);
 int					rdr_drr_irr(t_env *e, t_cursor *cursor, int acb, int *ind);
 int					ddr_idr(t_env *e, t_cursor *cursor, int acb, int *ind);
 void				ft_init_v(t_env *e, t_cursor *cursor, t_var *v);
+int					get_ind_sti(t_env *e, t_cursor *cursor, int i);
 
 #endif

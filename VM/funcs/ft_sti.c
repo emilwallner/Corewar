@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 09:49:37 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/31 10:38:10 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/02 16:20:38 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	rrd_rdr_rir(t_env *e, t_cursor *cursor, int acb, int *ind)
 	else if (RDR == ZMASK(acb))
 		r2 = get_dir(e, cursor, 3, 2) + get_reg(e, cursor, 5);
 	else
-		r2 = get_ind(e, cursor, 3) + get_reg(e, cursor, 5);
+		r2 = get_ind_sti(e, cursor, 3) + get_reg(e, cursor, 5);
 	*ind = 6;
 	return (r2);
 }
@@ -37,7 +37,7 @@ static int	rdd_rid(t_env *e, t_cursor *cursor, int acb, int *ind)
 	if (RDD == ZMASK(acb))
 		r2 = get_dir(e, cursor, 3, 2) + get_dir(e, cursor, 5, 2);
 	else
-		r2 = get_ind(e, cursor, 3) + get_dir(e, cursor, 5, 2);
+		r2 = get_ind_sti(e, cursor, 3) + MODS((get_dir(e, cursor, 5, 2)));
 	*ind = 7;
 	return (r2);
 }
@@ -55,22 +55,35 @@ static int	check_register(t_env *e, t_cursor *cursor, char acb)
 	else if ((RDR == ZMASK(acb) || RIR == ZMASK(acb)) &&
 	!is_reg_valid(e->a[MODA(cursor->index + 5)].hex))
 		return (0);
+	else if ((RDD == ZMASK(acb) || RID == ZMASK(acb)) &&
+	!is_reg_valid(e->a[MODA(cursor->index + 2)].hex))
+		return (0);
 	return (1);
 }
 
-static void	set_arena(t_env *e, t_cursor *cursor, int i, int r2)
+static void	set_arena(t_env *e, t_cursor *cursor, int r2, int acb)
 {
-	e->a[MODA((cursor->index + r2 + i))].hex =
-	cursor->reg[e->a[MODA(cursor->index + 2)].hex - 1] >> (8 * (3 - i));
-	e->a[MODA((cursor->index + r2 + i))].color = cursor->color - 6;
-	e->a[MODA((cursor->index + r2 + i))].prevcolor = cursor->color - 6;
-	e->a[MODA((cursor->index + r2 + i))].new_color_count = 50;
+	int	i;
+	int reg_value;
+
+	if (check_register(e, cursor, acb))
+	{
+		reg_value = cursor->reg[e->a[MODA(cursor->index + 2)].hex - 1];
+		i = -1;
+		while (++i < 4)
+		{
+			e->a[MODA((cursor->index + r2 + i))].hex =
+			(reg_value >> (8 * (3 - i))) & 0xff;
+			e->a[MODA((cursor->index + r2 + i))].color = cursor->color - 6;
+			e->a[MODA((cursor->index + r2 + i))].prevcolor = cursor->color - 6;
+			e->a[MODA((cursor->index + r2 + i))].new_color_count = 50;
+		}
+	}
 }
 
 void		ft_sti(t_env *e, t_cursor *cursor)
 {
 	char	acb;
-	int		i;
 	int		r2;
 	int		ind;
 
@@ -87,8 +100,6 @@ void		ft_sti(t_env *e, t_cursor *cursor)
 	else if (RDD == ZMASK(acb) || RID == ZMASK(acb))
 		r2 = rdd_rid(e, cursor, acb, &ind);
 	r2 = MODX(r2);
-	i = -1;
-	while (++i < 4 && (i > 0 || check_register(e, cursor, acb)))
-		set_arena(e, cursor, i, r2);
+	set_arena(e, cursor, r2, acb);
 	ft_update_cursor(e, cursor, ind);
 }

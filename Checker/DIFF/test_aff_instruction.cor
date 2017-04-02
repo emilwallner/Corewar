@@ -1,9 +1,6 @@
 1d0
 < Aff: ÿ
-3,4c2,4
+3c2
 < * Player -1, weighing 3 bytes, "test_aff_instruction" ("test_registeries") !
-< Contestant -1, "test_aff_instruction", has won !
 ---
 > * Player 1, weighing 3 bytes, "test_aff_instruction" ("test_registeries") !
-> Aff: ÿ
-> Contestant 1, "test_aff_instruction", has won !

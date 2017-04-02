@@ -8,8 +8,8 @@ USER2="./ZAZ/"
 DIFF="./DIFF/"
 DIR="../Players/"
 
-C="../corewar -dump 2000 -n -1 ";
-C2="./corewarzaz -a -d 2000 ";
+C="../corewar -dump 300 -n -1 ";
+C2="./corewarzaz -d 300 ";
 
 FILE="bee_gees.cor";
 FILE2="bigzork.cor";
@@ -44,8 +44,8 @@ FILE30="test_or_instruction.cor";
 FILE31="test_st_instruction.cor";
 FILE32="test_sti_instruction.cor";
 FILE33="test_sub_instruction.cor";
-FILE34="test_xor_instruction.cor";
-FILE35="test_zjump_instruction.cor";
+FILE34="test1.cor";
+FILE35="test2.cor";
 
 echo "\n\n\033[32m$FILE\n\033[37m"
 $C $DIR$FILE > $USER$FILE; $C2 $DIR$FILE > $USER2$FILE;
@@ -53,7 +53,7 @@ diff -rsa $USER$FILE $USER2$FILE > $DIFF$FILE
 cat $DIFF$FILE
 #echo "\x1b[36mOutput: cat $USER$FILE\n"
 
-echo "\n\n\033[32m$FILE1\n\033[37m"
+echo "\n\n\033[32m$FILE0\n\033[37m"
 $C $DIR$FILE1 > $USER$FILE1 ;$C2 $DIR$FILE1 > $USER2$FILE1 ;
 diff -rsa $USER$FILE1 $USER2$FILE1 > $DIFF$FILE1
 cat $DIFF$FILE1
@@ -154,7 +154,7 @@ diff -rsa $USER$FILE18 $USER2$FILE18 > $DIFF$FILE18
 cat $DIFF$FILE18
 
 echo "\n\n\033[32m$FILE19\n\033[37m"
-$C $DIR$FILE19 > $USER$FILE19 ;$C2 $DIR$FILE19 > $USER2$FILE19 ;
+$C $DIR$FILE19 -n -2 $DIR$FILE19 > $USER$FILE19 ;$C2 $DIR$FILE19 $DIR$FILE19 > $USER2$FILE19 ;
 diff -rsa $USER$FILE19 $USER2$FILE19 > $DIFF$FILE19
 cat $DIFF$FILE19
 

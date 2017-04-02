@@ -6,7 +6,7 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 12:45:21 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/03/31 15:42:02 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/02 16:17:36 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	*g_error_msg[11] =
 {
-	"\x1b[31mop.h -> forbidden characters ('\\n', ' ', ...) in #define.\x1b[0m\n",
+	"\x1b[31mop.h -> forbidden characters in #define.\x1b[0m\n",
 	"\x1b[31mop.h -> COREWAR_EXEC_MAGIC > 0xffffffff\x1b[0m\n",
 	"\x1b[31mwrong file extension.\x1b[0m\n",
 	"\x1b[31mError in label's name.\x1b[0m\n",

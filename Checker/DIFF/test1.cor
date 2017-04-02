@@ -1,0 +1,4 @@
+2c2
+< * Player -1, weighing 123 bytes, "check" ("do something") !
+---
+> * Player 1, weighing 123 bytes, "check" ("do something") !

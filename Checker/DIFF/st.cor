@@ -1,6 +1,4 @@
-2,3c2,3
+2c2
 < * Player -1, weighing 5 bytes, "Yo dang" ("Zup why you lookin at me like that") !
-< Contestant -1, "Yo dang", has won !
 ---
 > * Player 1, weighing 5 bytes, "Yo dang" ("Zup why you lookin at me like that") !
-> Contestant 1, "Yo dang", has won !

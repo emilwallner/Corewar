@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/20 17:14:24 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/31 15:15:55 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/31 22:07:09 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,20 +49,20 @@ int			ddr_idr(t_env *e, t_cursor *cursor, int acb, int *ind)
 
 int			check_register_ldi(t_env *e, t_cursor *cursor, char acb)
 {
-	if (RRR == ZMASK(acb) && (!is_reg_valid(e->a[MODA(cursor->index + 2)].hex ||
-	!is_reg_valid(e->a[MODA(cursor->index + 3)].hex)) ||
-	!is_reg_valid(e->a[MODA(cursor->index + 4)].hex)))
+	if (RRR == ZMASK(acb) && (!is_reg_valid(e->a[MODA(cursor->index)].hex ||
+	!is_reg_valid(e->a[MODA(cursor->index - 1)].hex)) ||
+	!is_reg_valid(e->a[MODA(cursor->index + 1)].hex)))
 		return (0);
 	else if (RDR == ZMASK(acb) &&
-	(!is_reg_valid(e->a[MODA(cursor->index + 2)].hex) ||
-	!is_reg_valid(e->a[MODA(cursor->index + 5)].hex)))
+	(!is_reg_valid(e->a[MODA(cursor->index - 2)].hex) ||
+	!is_reg_valid(e->a[MODA(cursor->index + 1)].hex)))
 		return (0);
 	else if ((DRR == ZMASK(acb) || IRR == ZMASK(acb)) &&
-	(!is_reg_valid(e->a[MODA(cursor->index + 4)].hex) ||
-	!is_reg_valid(e->a[MODA(cursor->index + 5)].hex)))
+	(!is_reg_valid(e->a[MODA(cursor->index)].hex) ||
+	!is_reg_valid(e->a[MODA(cursor->index + 1)].hex)))
 		return (0);
 	else if (DDR == ZMASK(acb) &&
-	!is_reg_valid(e->a[MODA((cursor->index + 7))].hex))
+	!is_reg_valid(e->a[MODA((cursor->index + 1))].hex))
 		return (0);
 	return (1);
 }

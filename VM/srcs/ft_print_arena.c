@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 18:04:53 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/31 12:34:51 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/03/31 22:10:30 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void ft_print_regs(t_env *e)
 	i = -1;
 	printw("This is regs >>");
 	while(++i < 16)
-		printw("%i->%i   ", i, e->head->reg[i]);
+		printw("%i->%i   ", i + 1, e->head->reg[i]);
 }
 
 void	ft_print_game_stats(t_env *e)
@@ -104,13 +104,13 @@ void	ft_print_normal(t_env *e)
 	ft_print_dump_init(e);
 	while (i < MEM_SIZE)
 	{
-		if ((i) % (64 / 2) == 0)
+		if ((i) % (64) == 0)
 			ft_printf("0x%04x : ", hex);
 		ft_printf("%02x ", 0xFF & e->a[i].hex);
-		if ((i + 1) % (64 / 2) == 0)
+		if ((i + 1) % (64) == 0)
 		{
 			ft_printf("\n");
-			hex += 32;
+			hex += 64;
 		}
 		i++;
 	}

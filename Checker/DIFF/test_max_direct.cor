@@ -1,6 +1,4 @@
-2,3c2,3
+2c2
 < * Player -1, weighing 7 bytes, "test_max_direct" ("overlap_max_direct_param") !
-< Contestant -1, "test_max_direct", has won !
 ---
 > * Player 1, weighing 7 bytes, "test_max_direct" ("overlap_max_direct_param") !
-> Contestant 1, "test_max_direct", has won !

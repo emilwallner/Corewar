@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 20:16:15 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/03/31 10:44:42 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/02 15:34:16 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,25 +32,27 @@ int		get_bytes(t_env *e, t_cursor *cursor, int r)
 	(void)cursor;
 	ret = (ZMASK(e->a[MODA(r)].hex) << 24) |
 	(ZMASK(e->a[MODA((r + 1))].hex) << 16) |
-	(ZMASK(e->a[MODA((r + 2))].hex) << 8) | ZMASK(e->a[MODA((r + 3))].hex);
+	(ZMASK(e->a[MODA((r + 2))].hex) << 8) |
+	ZMASK(e->a[MODA((r + 3))].hex);
 	return ((int)ret);
 }
 
 int		get_dir(t_env *e, t_cursor *cursor, int i, int bytes)
 {
-	int r;
+	unsigned short	r;
+	unsigned int	r2;
 
 	if (bytes == 2)
 		r = (ZMASK(e->a[MODA(cursor->index + i)].hex) << 8) |
 				ZMASK(e->a[MODA(cursor->index + i + 1)].hex);
 	else if (bytes == 4)
-		r = (ZMASK(e->a[MODA(cursor->index + i)].hex) << 24) |
+		r2 = (ZMASK(e->a[MODA(cursor->index + i)].hex) << 24) |
 				(ZMASK(e->a[MODA(cursor->index + i + 1)].hex) << 16) |
 					(ZMASK(e->a[MODA(cursor->index + i + 2)].hex) << 8) |
 						ZMASK(e->a[MODA(cursor->index + i + 3)].hex);
 	if (bytes == 2)
 		return ((short)r);
-	return ((int)r);
+	return ((int)r2);
 }
 
 int		get_ind(t_env *e, t_cursor *cursor, int i)
