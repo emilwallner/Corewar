@@ -12,15 +12,6 @@
 
 #include "vm.h"
 
-void		init_reg(t_cursor *cursor)
-{
-	int i;
-
-	i = -1;
-	while (++i < 16)
-		cursor->reg[i] = 0;
-}
-
 t_cursor	*ft_create_cursor(int i, t_env *e)
 {
 	t_cursor	*newcursor;

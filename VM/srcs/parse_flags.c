@@ -12,36 +12,6 @@
 
 #include "vm.h"
 
-int		ft_loop_dup(t_env *e, int nbr)
-{
-	int		k;
-	int		c;
-
-	c = 0;
-	k = -1;
-	while (++k < e->player_amount)
-	{
-		if (nbr == e->player[k].nbr)
-			return (1);
-	}
-	return (0);
-}
-
-int		smallest_number(t_env *e)
-{
-	int i;
-	int small;
-
-	i = 0;
-	small = e->player[i].nbr;
-	while (++i < e->player_amount)
-	{
-		if (small > e->player[i].nbr)
-			small = e->player[i].nbr;
-	}
-	return (small);
-}
-
 int		find_next_value(t_env *e)
 {
 	int i;

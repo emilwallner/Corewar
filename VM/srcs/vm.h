@@ -116,6 +116,13 @@ typedef struct		s_env
 	t_op		op_tab[17];
 }					t_env;
 
+void				ft_add_player_comment(t_env *e, int k);
+void				ft_add_player_name(t_env *e, int k);
+int					smallest_number(t_env *e);
+int					ft_loop_dup(t_env *e, int nbr);
+void				ft_print_regs(t_env *e);
+void				ft_print_lives(t_env *e, int i);
+void				init_reg(t_cursor *cursor);
 void				ft_print_dump_init(t_env *e);
 void				init_players(t_env *e);
 void				ft_parse_flags(t_env *e, int args, char **av);
