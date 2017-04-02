@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 20:13:07 by ewallner          #+#    #+#             */
-/*   Updated: 2017/02/18 23:04:19 by ewallner         ###   ########.fr       */
+/*   Updated: 2017/04/02 22:37:45 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ size_t		ft_strlcat(char *dest, const char *src, size_t n);
 void		ft_strdel(char **as);
 void		ft_strclr(char *s);
 void		*ft_memccpy(void *dest, void const *src, int c, size_t n);
-char		*ft_strdup(const char *s);
+char		*ft_strdup(char *s);
 char		*ft_strncpy(char *dest, const char *src, size_t len);
 int			ft_strcmp(const char *s1, const char *s2);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
