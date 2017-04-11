@@ -84,6 +84,8 @@ typedef struct		s_cursor{
 	struct s_cursor	*next;
 	struct s_cursor	*prev;
 	int				carry;
+	int				life;
+	int				dead;
 	int				counter;
 	int				running;
 	int				player;

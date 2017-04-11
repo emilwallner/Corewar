@@ -30,6 +30,8 @@ t_cursor	*ft_clone_cursor(t_cursor *cursor, t_cursor *fork_cursor)
 	fork_cursor->player = cursor->player;
 	fork_cursor->carry = cursor->carry;
 	fork_cursor->cycle = 1;
+	fork_cursor->life = cursor->life;
+	fork_cursor->dead = cursor->dead;
 	fork_cursor->color = cursor->color;
 	ft_clone_cursor_reg(fork_cursor->reg, cursor->reg);
 	fork_cursor->running = 0;

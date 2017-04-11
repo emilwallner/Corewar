@@ -28,8 +28,23 @@ void	ft_clear_player_lives(t_env *e)
 		e->player[i].live = 0;
 }
 
+void 	ft_kill_cursors(t_cursor *cursor)
+{
+	t_cursor *temp;
+
+	temp = cursor;
+	while(temp && !temp->counter)
+	{
+		if(!temp->life)
+			temp->dead = 1;
+		temp->life = 0;
+		temp = temp->next;
+	}
+}
+
 void	ft_new_cycle(t_env *e, int *end)
 {
+	ft_kill_cursors(e->head);
 	if (e->lives == 0 || (e->cycles_to_die - CYCLE_DELTA) < 1)
 		*end = 0;
 	if (e->lives < NBR_LIVE)

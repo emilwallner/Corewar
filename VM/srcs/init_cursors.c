@@ -21,6 +21,8 @@ t_cursor	*ft_create_cursor(int i, t_env *e)
 		return (NULL);
 	newcursor->counter = 0;
 	newcursor->player = i;
+	newcursor->life = 0;
+	newcursor->dead = 0;
 	newcursor->carry = 0;
 	newcursor->cycle = 0;
 	init_reg(newcursor);
