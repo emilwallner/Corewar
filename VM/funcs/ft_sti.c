@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/10 17:43:04 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/04/11 21:13:18 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/11 21:23:11 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int read_hexa(t_cursor *cursor,t_env *e,  char type, int start)
 		s_value = (ZMASK(e->a[MODA(start)].hex) << 8) |
 				ZMASK(e->a[MODA(start + 1)].hex);
 		s_value = (short)s_value;
+		// s_value = MODX(s_value);
 		value =(ZMASK(e->a[MODA(cursor->index + s_value)].hex) << 24) |
 		(ZMASK(e->a[MODA((cursor->index + s_value + 1))].hex) << 16) |
 		(ZMASK(e->a[MODA((cursor->index + s_value + 2))].hex) << 8) |
@@ -48,7 +49,8 @@ int read_hexa(t_cursor *cursor,t_env *e,  char type, int start)
 		value = cursor->reg[adresse - 1];
 		ret = value;
 	}
-	return (MODX(ret));
+	// return (MODX(ret));
+	return (ret);
 }
 
 void	set_arena(t_env *e, t_cursor *cursor, int value)
@@ -85,14 +87,12 @@ void		ft_sti(t_env *e, t_cursor *cursor)
 	{
 		if (is_reg_valid(e->a[MODA(cidx + 3)].hex) && is_reg_valid(e->a[MODA(cidx + 4)].hex))
 			jump = read_hexa(cursor, e, T_REG, cidx + 3) + read_hexa(cursor, e, T_REG, cidx + 4);
-			// printf("RRR = %x %i\n", jump, jump);
 		ind = 5;
 	}
 	else if (RRD == ZMASK(acb))
 	{
 		if (is_reg_valid(e->a[MODA(cidx + 3)].hex))
 			jump = read_hexa(cursor, e, T_REG, cidx + 3) + read_hexa(cursor, e, T_DIR, cidx + 4);
-			// printf("RRD = %x %i\n", jump, jump);
 		ind = 5;
 	}
 	else if (RDR == ZMASK(acb) || RIR == ZMASK(acb))
@@ -105,23 +105,18 @@ void		ft_sti(t_env *e, t_cursor *cursor)
 				jump = read_hexa(cursor, e, T_IND, cidx + 3) + read_hexa(cursor, e, T_REG, cidx + 5);
 			ind = 5;
 		}
-		// printf("RDR/RIR = %x %i\n", jump, jump);
 	}
 	else if (RDD == ZMASK(acb))
 	{
 		jump = read_hexa(cursor, e, T_DIR, cidx + 3) + read_hexa(cursor, e, T_DIR, cidx + 5);
 		ind = 7;
-		// printf("RDD = %x %i\n", jump, jump);
 	}
 	else if (RID == ZMASK(acb))
 	{
 		jump = read_hexa(cursor, e, T_IND, cidx + 3) + read_hexa(cursor, e, T_DIR, cidx + 5);
 		ind = 7;
-		// printf("RID = %i %i\n", MODX(jump), jump);
 	}
 	jump = MODX(jump);
-	// printf("MODX(jump) = %x %i\n", jump, jump);
-	// printf("final %i \n", (value));
 	set_arena(e, cursor, jump);
 	ft_update_cursor(e, cursor, ind);
 }
