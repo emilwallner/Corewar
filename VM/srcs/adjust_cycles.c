@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   adjust_cycles.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ewallner <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/31 19:25:57 by ewallner         ###   ########.fr       */
+/*   Created: 2017/04/11 19:26:42 by ewallner          #+#    #+#             */
+/*   Updated: 2017/04/11 19:26:48 by ewallner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,23 @@ void	ft_clear_player_lives(t_env *e)
 		e->player[i].live = 0;
 }
 
+void	ft_kill_cursors(t_cursor *cursor)
+{
+	t_cursor *temp;
+
+	temp = cursor;
+	while (temp && !temp->counter)
+	{
+		if (!temp->life)
+			temp->dead = 1;
+		temp->life = 0;
+		temp = temp->next;
+	}
+}
+
 void	ft_new_cycle(t_env *e, int *end)
 {
+	ft_kill_cursors(e->head);
 	if (e->lives == 0 || (e->cycles_to_die - CYCLE_DELTA) < 1)
 		*end = 0;
 	if (e->lives < NBR_LIVE)

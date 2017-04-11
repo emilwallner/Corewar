@@ -21,48 +21,10 @@
 **		- Instructions
 */
 
-void	ft_add_player_name(t_env *e, int k)
-{
-	char	*dest;
-	char	*src;
-	int		i;
-
-	src = e->player[k].string;
-	dest = e->player[k].name;
-	i = 0;
-	while (i < PROG_NAME_LENGTH)
-	{
-		dest[i] = src[i + 4];
-		i++;
-	}
-	while (i <= PROG_NAME_LENGTH)
-		dest[i++] = '\0';
-	dest[PROG_NAME_LENGTH] = '\0';
-}
-
-void	ft_add_player_comment(t_env *e, int k)
-{
-	char	*dest;
-	char	*src;
-	int		i;
-
-	src = e->player[k].string;
-	dest = e->player[k].comment;
-	i = 0;
-	while (i < COMMENT_LENGTH)
-	{
-		dest[i] = src[i + PROG_NAME_LENGTH + 12];
-		i++;
-	}
-	while (i <= COMMENT_LENGTH)
-		dest[i++] = '\0';
-	dest[COMMENT_LENGTH] = '\0';
-}
-
 void	ft_check_coding_byte(t_env *e, int k)
 {
-	char *str;
-	int number;
+	char	*str;
+	int		number;
 
 	str = e->player[k].string;
 	number = ((MM(str[0]) << 24) | (MM(str[1]) << 16) | (MM(str[2]) << 8) |
@@ -95,6 +57,15 @@ void	ft_check_label_comment(t_env *e, int k)
 			ft_exit(e, 10);
 }
 
+void	ft_check_all(t_env *e, int i)
+{
+	ft_check_coding_byte(e, i);
+	ft_add_player_name(e, i);
+	ft_add_player_comment(e, i);
+	ft_check_label_name(e, i);
+	ft_check_label_comment(e, i);
+}
+
 void	ft_parsing(t_env *e)
 {
 	int		i;
@@ -103,15 +74,11 @@ void	ft_parsing(t_env *e)
 	char	*str;
 	char	*inst;
 
-	i = 0;
-	while (i < e->player_amount)
+	i = -1;
+	while (++i < e->player_amount)
 	{
 		str = e->player[i].string;
-		ft_check_coding_byte(e, i);
-		ft_add_player_name(e, i);
-		ft_add_player_comment(e, i);
-		ft_check_label_name(e, i);
-		ft_check_label_comment(e, i);
+		ft_check_all(e, i);
 		k = PROG_NAME_LENGTH + COMMENT_LENGTH + 16;
 		inst = e->player[i].inst;
 		e->player[i].inst_len = k;
@@ -125,6 +92,5 @@ void	ft_parsing(t_env *e)
 		e->player[i].inst_len = k - e->player[i].inst_len;
 		if (e->player[i].inst_len > CHAMP_MAX_SIZE)
 			ft_exit(e, 6);
-		i++;
 	}
 }

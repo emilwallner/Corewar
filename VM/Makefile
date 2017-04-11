@@ -23,7 +23,9 @@ SRCS	=		main_vm.c \
 				init_e.c \
 				error.c	\
 				parsing.c \
+				parsing_second.c \
 				ft_print_arena.c \
+				ft_print_arena_second.c \
 				ft_build_arena.c \
 				op.c \
 				ft_check_args.c	\
@@ -52,7 +54,9 @@ SRCS	=		main_vm.c \
 				ft_funcs_tools_two.c \
 				ft_ldi.c \
 				ft_st.c	\
+				init_reg.c \
 				parse_flags.c \
+				parse_flags_second.c \
 
 GREEN		= \033[32m
 RED			= \033[31m

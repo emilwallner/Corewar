@@ -36,6 +36,7 @@ void	ft_live(t_env *e, t_cursor *cursor)
 	if (player_pos > -1)
 	{
 		e->lives += 1;
+		cursor->life = 1;
 		e->player[player_pos].live += 1;
 		e->winner = player_pos;
 		ft_update_cursor(e, cursor, 5);

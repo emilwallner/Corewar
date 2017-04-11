@@ -43,10 +43,13 @@ void	ft_move_cursors(t_env *e)
 			ft_adjust_cycle_macro(e, cursor, &end);
 		else
 		{
-			if (!cursor->running)
-				ft_add_cycle(e, cursor);
-			else
-				ft_cycle_end_and_execute(e, cursor);
+			if (!cursor->dead)
+			{
+				if (!cursor->running)
+					ft_add_cycle(e, cursor);
+				else
+					ft_cycle_end_and_execute(e, cursor);
+			}
 		}
 		cursor = cursor->next;
 	}
