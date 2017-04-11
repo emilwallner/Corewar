@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 20:16:15 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/04/02 20:19:58 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/10 18:13:31 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		get_ind_sti(t_env *e, t_cursor *cursor, int i)
 	r = ((ZMASK(e->a[MODA(cursor->index + i)].hex) << 8) |
 	ZMASK(e->a[MODA(cursor->index + i + 1)].hex));
 	r2 = (short)r;
-	byte = get_bytes(e, cursor, cursor->index + r2);
+	byte = get_bytes(e, cursor, MODX(cursor->index + r2));
 	return (byte);
 }
 
@@ -47,7 +47,6 @@ int		get_dir_sti(t_env *e, t_cursor *cursor, int i)
 
 	r = (ZMASK(e->a[MODA(cursor->index + i)].hex) << 8) |
 				ZMASK(e->a[MODA(cursor->index + i + 1)].hex);
-
 	r2 = (short)r;
-	return(r);
+	return(MODX(r2));
 }

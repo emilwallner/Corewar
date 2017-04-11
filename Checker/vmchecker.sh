@@ -8,8 +8,8 @@ USER2="./ZAZ/"
 DIFF="./DIFF/"
 DIR="../Players/"
 
-C="../corewar -dump 500 -n -1 ";
-C2="./corewarzaz -d 500 ";
+C="../corewar -dump 200 -n -1";
+C2="./corewarzaz -d 200 ";
 
 FILE="bee_gees.cor";
 FILE2="bigzork.cor";

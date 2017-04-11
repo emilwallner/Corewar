@@ -1,4 +1,4 @@
 2c2
-< * Player -1, weighing 169 bytes, "vm_test_st" ("do something") !
+< * Player -1, weighing 169 bytes, "vm_est_st" ("do something") !
 ---
-> * Player 1, weighing 169 bytes, "vm_test_st" ("do something") !
+> * Player 1, weighing 169 bytes, "vm_est_st" ("do something") !
