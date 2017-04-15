@@ -52,7 +52,8 @@ static int	get_terms(t_env *e, t_cursor *cursor, t_sti *s, char type)
 	ret = 1;
 	if (type == REG_CODE && !is_valid(e, cursor, s->jump))
 		ret = 0;
-	s->where += read_hexa(e, cursor, type, s->jump);
+	else
+		s->where += read_hexa(e, cursor, type, s->jump);
 	s->jump = type == REG_CODE ? s->jump + 1 : s->jump + 2;
 	return (ret);
 }
