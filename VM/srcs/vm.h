@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 13:56:56 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/04/10 18:09:55 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/15 16:50:00 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,22 @@
 # define INT_MAXA 2147483647
 # define INT_MINA (-INT_MAXA - 1)
 
+typedef struct		s_sti
+{
+	char	acb;
+	int		where;
+	int		value;
+	int		jump;
+}					t_sti;
+
 typedef struct		s_var
 {
-	int			r1;
-	int			r2;
-	int			r3;
-	int			ind;
-	char		acb;
-	int			carry;
+	int		r1;
+	int		r2;
+	int		r3;
+	int		ind;
+	char	acb;
+	int		carry;
 }					t_var;
 
 typedef struct		s_arena

@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/27 20:16:15 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/04/02 17:30:42 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/15 16:46:38 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,13 @@ int		get_bytes(t_env *e, t_cursor *cursor, int r)
 	(ZMASK(e->a[MODA((r + 1))].hex) << 16) |
 	(ZMASK(e->a[MODA((r + 2))].hex) << 8) |
 	ZMASK(e->a[MODA((r + 3))].hex);
-//	printf("hex %x %x %x %x \n",ZMASK(e->a[MODA(r)].hex), ZMASK(e->a[MODA(r + 1)].hex), ZMASK(e->a[MODA(r + 2)].hex),ZMASK(e->a[MODA(r + 3)].hex));
 	return ((int)ret);
 }
 
 int		get_dir(t_env *e, t_cursor *cursor, int i, int bytes)
 {
-	unsigned short r;
-	unsigned int r2;
+	unsigned short	r;
+	unsigned int	r2;
 
 	if (bytes == 2)
 		r = (ZMASK(e->a[MODA(cursor->index + i)].hex) << 8) |
@@ -56,35 +55,13 @@ int		get_dir(t_env *e, t_cursor *cursor, int i, int bytes)
 	return ((int)r2);
 }
 
-// int		get_dir(t_env *e, t_cursor *cursor, int i, int bytes)
-// {
-// 	unsigned short r;
-// 	unsigned int r2;
-//
-// // r= 0;
-// 	if (bytes == 2)
-// 		r = (ZMASK(e->a[MODA(cursor->index + i)].hex) << 8) |
-// 				ZMASK(e->a[MODA(cursor->index + i + 1)].hex);
-// 	else if (bytes == 4)
-// 		r2 = (ZMASK(e->a[MODA(cursor->index + i)].hex) << 24) |
-// 				(ZMASK(e->a[MODA(cursor->index + i + 1)].hex) << 16) |
-// 					(ZMASK(e->a[MODA(cursor->index + i + 2)].hex) << 8) |
-// 						ZMASK(e->a[MODA(cursor->index + i + 3)].hex);
-// 	// printf("r dir %x\n", r);
-// 	if (bytes == 2)
-// 		return ((short)r);
-// 	return ((int)r2);
-// }
-
 int		get_ind(t_env *e, t_cursor *cursor, int i)
 {
 	unsigned short	r;
 
 	i += cursor->index;
 	r = ((ZMASK(e->a[MODA(i)].hex) << 8) | ZMASK(e->a[MODA(i + 1)].hex));
-	// printf("r ind %x\n", r);
 	r += cursor->index;
-	// printf("r ind %x\n", r);
 	return (MODA(get_bytes(e, cursor, (short)r)));
 }
 

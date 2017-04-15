@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 18:19:51 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/04/02 22:38:58 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/15 16:46:19 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int			set_t_instruction(t_instruction *line, char **str)
 	int	i;
 	int	j;
 	int	ret;
+
 	i = 0;
 	j = 0;
 	if (!(ret = if_comment_or_label(&i, &j, str)) || ret == 1)

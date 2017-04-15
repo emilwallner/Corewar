@@ -5,118 +5,98 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/10 17:43:04 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/04/11 21:23:11 by mhaziza          ###   ########.fr       */
+/*   Created: 2017/04/15 16:47:46 by mhaziza           #+#    #+#             */
+/*   Updated: 2017/04/15 16:56:29 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../srcs/vm.h"
 
-#define RRD 0x58
-#define RDD 0x68
-#define RID 0x78
-
-int read_hexa(t_cursor *cursor,t_env *e,  char type, int start)
+static int	is_valid(t_env *e, t_cursor *cursor, int jump)
 {
-	unsigned short s_value;
-	unsigned int value;
-	int ret;
-	int adresse;
+	char	read;
 
-	ret = 0;
-	if (type == T_DIR)
+	read = (char)(ZMASK(e->a[MODA(cursor->index + jump)].hex));
+	if (read > 0 && read <= REG_NUMBER)
+		return (1);
+	return (0);
+}
+
+static int	read_hexa(t_env *e, t_cursor *cursor, char type, int jump)
+{
+	char	read1;
+	short	read2;
+	int		read4;
+
+	if (type == REG_CODE)
 	{
-		s_value = (ZMASK(e->a[MODA(start)].hex) << 8) |
-				ZMASK(e->a[MODA(start + 1)].hex);
-		ret = (short)s_value;
-		ret = (int)s_value;
+		read1 = ZMASK(e->a[MODA(cursor->index + jump)].hex);
+		return (cursor->reg[read1 - 1]);
 	}
-	else if (type == T_IND)
-	{
-		s_value = (ZMASK(e->a[MODA(start)].hex) << 8) |
-				ZMASK(e->a[MODA(start + 1)].hex);
-		s_value = (short)s_value;
-		// s_value = MODX(s_value);
-		value =(ZMASK(e->a[MODA(cursor->index + s_value)].hex) << 24) |
-		(ZMASK(e->a[MODA((cursor->index + s_value + 1))].hex) << 16) |
-		(ZMASK(e->a[MODA((cursor->index + s_value + 2))].hex) << 8) |
-		ZMASK(e->a[MODA((cursor->index + s_value + 3))].hex);
-		ret = (int)value;
-	}
-	else if (type == T_REG)
-	{
-		adresse = ZMASK(e->a[MODA(start)].hex);
-		value = cursor->reg[adresse - 1];
-		ret = value;
-	}
-	// return (MODX(ret));
+	read2 = (short)(ZMASK(e->a[MODA(cursor->index + jump)].hex) << 8 |
+			ZMASK(e->a[MODA(cursor->index + jump + 1)].hex));
+	if (type == DIR_CODE)
+		return ((int)read2);
+	read2 = MODX(read2);
+	read4 = (int)(ZMASK(e->a[MODA(cursor->index + read2)].hex) << 24 |
+			ZMASK(e->a[MODA(cursor->index + read2 + 1)].hex) << 16 |
+			ZMASK(e->a[MODA(cursor->index + read2 + 2)].hex) << 8 |
+			ZMASK(e->a[MODA(cursor->index + read2 + 3)].hex));
+	return (read4);
+}
+
+static int	get_terms(t_env *e, t_cursor *cursor, t_sti *s, char type)
+{
+	int		ret;
+
+	ret = 1;
+	if (type == REG_CODE && !is_valid(e, cursor, s->jump))
+		ret = 0;
+	s->where += read_hexa(e, cursor, type, s->jump);
+	s->jump = type == REG_CODE ? s->jump + 1 : s->jump + 2;
 	return (ret);
 }
 
-void	set_arena(t_env *e, t_cursor *cursor, int value)
+static int	get_instruction(t_env *e, t_cursor *cursor, t_sti *s)
 {
-	int	i;
-	int reg_value;
+	char	reg;
+	int		ret;
+	char	type;
 
-	reg_value = cursor->reg[e->a[MODA(cursor->index + 2)].hex - 1];
-	i = -1;
-	while (++i < 4)
-	{
-		e->a[MODA((cursor->index + value + i))].hex =
-		(reg_value >> (8 * (3 - i))) & 0xff;
-		e->a[MODA((cursor->index + value + i))].color = cursor->color - 6;
-		e->a[MODA((cursor->index + value + i))].prevcolor = cursor->color - 6;
-		e->a[MODA((cursor->index + value + i))].new_color_count = 50;
-	}
+	ret = 1;
+	reg = (char)(ZMASK(e->a[MODA(cursor->index + 2)].hex));
+	if (!(reg > 0 && reg <= REG_NUMBER))
+		return (0);
+	s->value = cursor->reg[reg - 1];
+	s->jump = 3;
+	s->where = 0;
+	s->acb = ZMASK(e->a[MODA(cursor->index + 1)].hex);
+	type = (s->acb >> 4) & 3;
+	if (!get_terms(e, cursor, s, type))
+		ret = 0;
+	type = (s->acb >> 2) & 3;
+	if (!get_terms(e, cursor, s, type))
+		ret = 0;
+	s->where = MODX(s->where);
+	return (ret);
 }
 
-void		ft_sti(t_env *e, t_cursor *cursor)
+void		ft_sti(t_env *e, t_cursor *curs)
 {
-	char	acb;
-	int		jump;
-	int		ind;
-	int		cidx;
+	t_sti	s;
+	int		i;
 
-	cidx = cursor->index;
-	ind = 1;
-	acb = e->a[MODA(cidx + 1)].hex;
- 	jump = 0;
-	if (!is_reg_valid(e->a[MODA(cidx + 2)].hex))
-		jump = 1;
-	else if (RRR == ZMASK(acb))
+	if (get_instruction(e, curs, &s))
 	{
-		if (is_reg_valid(e->a[MODA(cidx + 3)].hex) && is_reg_valid(e->a[MODA(cidx + 4)].hex))
-			jump = read_hexa(cursor, e, T_REG, cidx + 3) + read_hexa(cursor, e, T_REG, cidx + 4);
-		ind = 5;
-	}
-	else if (RRD == ZMASK(acb))
-	{
-		if (is_reg_valid(e->a[MODA(cidx + 3)].hex))
-			jump = read_hexa(cursor, e, T_REG, cidx + 3) + read_hexa(cursor, e, T_DIR, cidx + 4);
-		ind = 5;
-	}
-	else if (RDR == ZMASK(acb) || RIR == ZMASK(acb))
-	{
-		if (is_reg_valid(e->a[MODA(cidx + 5)].hex))
+		i = -1;
+		while (++i < 4)
 		{
-			if (RDR == ZMASK(acb))
-				jump = read_hexa(cursor, e, T_DIR, cidx + 3) + read_hexa(cursor, e, T_REG, cidx + 5);
-			else
-				jump = read_hexa(cursor, e, T_IND, cidx + 3) + read_hexa(cursor, e, T_REG, cidx + 5);
-			ind = 5;
+			e->a[MODA((curs->index + s.where + i))].hex =
+				(s.value >> (8 * (3 - i))) & 0xff;
+			e->a[MODA((curs->index + s.where + i))].color = curs->color - 6;
+			e->a[MODA((curs->index + s.where + i))].prevcolor = curs->color - 6;
+			e->a[MODA((curs->index + s.where + i))].new_color_count = 50;
 		}
 	}
-	else if (RDD == ZMASK(acb))
-	{
-		jump = read_hexa(cursor, e, T_DIR, cidx + 3) + read_hexa(cursor, e, T_DIR, cidx + 5);
-		ind = 7;
-	}
-	else if (RID == ZMASK(acb))
-	{
-		jump = read_hexa(cursor, e, T_IND, cidx + 3) + read_hexa(cursor, e, T_DIR, cidx + 5);
-		ind = 7;
-	}
-	jump = MODX(jump);
-	set_arena(e, cursor, jump);
-	ft_update_cursor(e, cursor, ind);
+	ft_update_cursor(e, curs, s.jump);
 }
