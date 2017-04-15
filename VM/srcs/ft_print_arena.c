@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 18:04:53 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/04/03 20:55:06 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/15 17:12:34 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,13 @@ void	ft_print_normal(t_env *e)
 	ft_print_dump_init(e);
 	while (i < MEM_SIZE)
 	{
-		if ((i) % (64) == 0)
+		if ((i) % (32) == 0)
 			ft_printf("0x%04x : ", hex);
 		ft_printf("%02x ", 0xFF & e->a[i].hex);
-		if ((i + 1) % (64) == 0)
+		if ((i + 1) % (32) == 0)
 		{
 			ft_printf("\n");
-			hex += 64;
+			hex += 32;
 		}
 		i++;
 	}

@@ -16,6 +16,6 @@ sti r3,r2,r10
 sti r3,%6,r10
 label:
 sti r3,%:label,r10
-sti r3,:label,r10
+sti r3,%20,r10
 label2:
 sti r3,10,r10
