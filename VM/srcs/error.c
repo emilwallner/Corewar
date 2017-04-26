@@ -64,8 +64,6 @@ void	ft_exit(t_env *e, int i)
 {
 	if (e->head)
 		ft_clean_head(e->head);
-	if (i == -2)
-		exit(1);
 	if (i > 0)
 		ft_error_msg(i);
 }

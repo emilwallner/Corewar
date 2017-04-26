@@ -88,7 +88,7 @@ void	ft_print_normal(t_env *e)
 		}
 		i++;
 	}
-	ft_exit(e, -2);
+	exit(1);
 }
 
 void	ft_print_arena(t_env *e)
