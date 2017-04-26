@@ -48,6 +48,7 @@ void	ft_add_player_w_nbr(t_env *e, char *nbr, int *i, int players)
 {
 	long temp;
 
+	ft_check_number(e, nbr);
 	if (ft_strlen(nbr) > 15)
 		ft_exit(e, 7);
 	temp = ft_atoli(nbr);

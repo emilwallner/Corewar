@@ -41,3 +41,13 @@ int		smallest_number(t_env *e)
 	}
 	return (small);
 }
+
+void	ft_check_number(t_env *e, char *nbr)
+{
+	int		i;
+
+	i = -1;
+	while (nbr[++i])
+		if (!(ft_strchr(LABEL_NUMBERS, nbr[i])))
+			ft_exit(e, 7);
+}

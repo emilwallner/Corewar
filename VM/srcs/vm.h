@@ -46,6 +46,7 @@
 # define INT_MAXA 2147483647
 # define INT_MINA (-INT_MAXA - 1)
 # define TOTAL_SIZE (CHAMP_MAX_SIZE + PROG_NAME_LENGTH + COMMENT_LENGTH + 4)
+# define LABEL_NUMBERS "-0123456789"
 
 typedef struct		s_sti
 {
@@ -128,6 +129,7 @@ typedef struct		s_env
 	t_op		op_tab[17];
 }					t_env;
 
+void				ft_check_number(t_env *e, char *nbr);
 void				ft_error_usage(void);
 void				ft_add_player_comment(t_env *e, int k);
 void				ft_add_player_name(t_env *e, int k);
