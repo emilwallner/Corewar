@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/30 20:04:27 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/26 17:49:33 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int		ft_string_len(t_env *e, int i)
 		if (ret != 0)
 			e->player[i].len += ret;
 	}
+	if (e->player[i].len >= CHAMP_MAX_SIZE)
+		ft_exit(e, 11);
 	if (close(fd) == -1)
 		ft_exit(e, 2);
 	if (ret == -1)
@@ -42,6 +44,10 @@ void	ft_files_to_string(t_env *e)
 	i = 0;
 	while (i < e->player_amount)
 	{
+		if (ft_strlen(e->files[e->player[i].file_pos]) <= 4 ||
+				strcmp(e->files[e->player[i].file_pos] +
+						ft_strlen(e->files[e->player[i].file_pos]) - 4,".cor"))
+			ft_exit(e, 11);
 		len = ft_string_len(e, i);
 		if ((fd = open(e->files[e->player[i].file_pos], O_RDONLY)) == -1)
 			ft_exit(e, 1);
