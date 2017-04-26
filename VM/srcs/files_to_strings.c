@@ -26,7 +26,6 @@ int		ft_string_len(t_env *e, int i)
 		if (ret != 0)
 			e->player[i].len += ret;
 	}
-	ft_printf("Len: %d and champ: %d\n", e->player[i].len, CHAMP_MAX_SIZE);
 	if (e->player[i].len > TOTAL_SIZE)
 		ft_exit(e, 6);
 	if (close(fd) == -1)
@@ -47,7 +46,7 @@ void	ft_files_to_string(t_env *e)
 	{
 		if (ft_strlen(e->files[e->player[i].file_pos]) <= 4 ||
 				strcmp(e->files[e->player[i].file_pos] +
-						ft_strlen(e->files[e->player[i].file_pos]) - 4,".cor"))
+						ft_strlen(e->files[e->player[i].file_pos]) - 4, ".cor"))
 			ft_exit(e, 11);
 		len = ft_string_len(e, i);
 		if ((fd = open(e->files[e->player[i].file_pos], O_RDONLY)) == -1)
