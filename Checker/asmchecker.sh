@@ -57,7 +57,7 @@ FILE31="test_st_instruction";
 FILE32="test_sti_instruction";
 FILE33="test_sub_instruction";
 FILE34="test_xor_instruction";
-FILE35="test2";
+FILE35="emil";
 
 
 rm -dR Result

@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/18 14:45:44 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/23 15:46:01 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/26 16:08:52 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int			set_instruction(t_asm tasm, int fd, int nb_line)
 	char	**tab;
 
 	ft_bzero(&tw, sizeof(t_write));
-	i = 2;
+	i = 1;
 	tw.cursor = -1;
 	while (++i < nb_line)
 	{

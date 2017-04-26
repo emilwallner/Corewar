@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 18:19:51 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/04/26 15:01:53 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/04/26 16:08:23 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ int			check_instructions(t_asm *tasm)
 		}
 		else if (tasm->asm_master[i][0])
 			if (!check_instruction_attribute(i, tasm))
-				return (0);
+				return (0);				
 		i++;
 	}
 	return (1);
