@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/28 13:56:56 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/04/26 14:27:09 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/04/26 16:06:37 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,4 +191,5 @@ void				ft_init_v(t_env *e, t_cursor *cursor, t_var *v);
 int					get_ind_sti(t_env *e, t_cursor *cursor, int i);
 int					get_dir_sti(t_env *e, t_cursor *cursor, int i);
 int					ft_jump_acb(t_env *e, int opcode, int acb);
+void				ft_error_msg(int i);
 #endif

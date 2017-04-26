@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/31 11:50:33 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/26 16:07:22 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ int			main(int ac, char **av)
 {
 	t_env e;
 
+	if (ac == 1) {
+		ft_error_msg(0);
+		return (0);
+	}
 	init_e(&e, av);
 	ft_parse_flags(&e, ac, av);
 	ft_files_to_string(&e);

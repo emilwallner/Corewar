@@ -6,7 +6,7 @@
 /*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/17 14:16:11 by ewallner          #+#    #+#             */
-/*   Updated: 2017/03/30 20:03:52 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/26 16:08:14 by nsabbah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	ft_error_msg(int i)
 		ft_putstr_fd("\x1b[31m[Incorrect comment chars]\x1b[0m ", 2);
 	else
 		ft_putstr_fd("\x1b[31m[ERROR]\x1b[0m ", 2);
+	ft_putstr_fd("\n", 2);
 	exit(1);
 }
 
