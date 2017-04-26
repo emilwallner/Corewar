@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/04/26 15:03:33 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/04/26 16:29:49 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int			set_asm_master(t_asm *tasm, char *file, t_read *tread, char *str)
 
 	tasm->asm_tab = NULL;
 	tasm->asm_master = NULL;
-	if (!(fd = get_counts(str, tread)) || !tread->nb_char || !tread->nb_line)
-		return (0);
+	if ((fd = get_counts(str, tread)) < 0 || !tread->nb_char || !tread->nb_line)
+		return (eol(12));
 	if (!(file = ft_strnew(tread->nb_char + 1)))
 		return (0);
 	if ((get_asm(fd, file, tread)) == -1)

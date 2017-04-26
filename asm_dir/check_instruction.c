@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 18:19:51 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/04/26 16:08:23 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/26 16:36:39 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int			set_t_instruction(t_instruction *line, char **str)
 	if (!str[i])
 		return (1);
 	if (str[i][0] != COMMENT_CHAR || str[i + 1])
-			return (eoll(11, i + 4));
+		return (eoll(11, i + 4));
 	while (str[i][++j])
 		if (ft_strchr(COMMENT_CHARS, str[i][j]) == NULL)
 			return (eoll(6, i + 4));
@@ -115,7 +115,7 @@ int			check_instructions(t_asm *tasm)
 		}
 		else if (tasm->asm_master[i][0])
 			if (!check_instruction_attribute(i, tasm))
-				return (0);				
+				return (0);
 		i++;
 	}
 	return (1);

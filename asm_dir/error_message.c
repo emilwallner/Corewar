@@ -6,13 +6,13 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 12:45:21 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/04/26 15:02:21 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/04/26 16:29:13 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-static char	*g_error_msg[12] =
+static char	*g_error_msg[13] =
 {
 	"\x1b[31mop.h -> forbidden characters in #define.\x1b[0m\n",
 	"\x1b[31mop.h -> COREWAR_EXEC_MAGIC > 0xffffffff\x1b[0m\n",
@@ -25,7 +25,8 @@ static char	*g_error_msg[12] =
 	"\x1b[31mError : registry parameter invalid\x1b[0m\n",
 	"\x1b[31mError : direct parameter invalid\x1b[0m\n",
 	"\x1b[31mError : indirect parameter invalid\x1b[0m\n",
-	"\x1b[31mError : invalid character\x1b[0m\n"
+	"\x1b[31mError : invalid character\x1b[0m\n",
+	"\x1b[31mError : wrong file\x1b[0m\n"
 };
 
 int	error_header(int id)

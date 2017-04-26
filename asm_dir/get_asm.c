@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:31:37 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/22 17:06:54 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/26 16:33:32 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ int			get_counts(char *file_name, t_read *tread)
 		buff[ret] = '\0';
 		counts_char_line(buff, tread);
 	}
-	lseek(fd, 0, SEEK_SET);
+	if (ret > -1)
+		lseek(fd, 0, SEEK_SET);
 	if (!tread->nb_char || tread->nb_line < 4)
 		return (-1);
 	return (fd);

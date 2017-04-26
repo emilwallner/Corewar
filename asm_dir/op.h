@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 18:48:38 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/03/30 20:21:59 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/26 16:15:05 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 # define COMMENT_CHARS		"abcdefghijklmnopqrstuvwxyz_0123456789()=+-*/<> "
 # define CMD_CHARS			" abcdefghijklmnopqrstuvwxyz_0123456789+-*/=.?!<>"
 
-# define NAME_CMD_STRING		".name"
+# define NAME_CMD_STRING	".name"
 # define COMMENT_CMD_STRING	".comment"
 
 # define REG_NUMBER			16
