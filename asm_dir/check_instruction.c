@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 18:19:51 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/04/15 16:46:19 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/26 15:01:53 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int			set_t_instruction(t_instruction *line, char **str)
 	if (!str[i])
 		return (1);
 	if (str[i][0] != COMMENT_CHAR || str[i + 1])
-		return (0);
+			return (eoll(11, i + 4));
 	while (str[i][++j])
 		if (ft_strchr(COMMENT_CHARS, str[i][j]) == NULL)
 			return (eoll(6, i + 4));

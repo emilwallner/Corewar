@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/15 14:27:40 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/04/02 22:39:49 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/26 15:03:33 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int			main(int ac, char **av)
 	while (++i < ac)
 	{
 		ft_putstr(av[i]);
-		ft_putstr("     ");
+		ft_putstr(" ");
 		if (ft_strlen(av[i]) < 3 || av[i][ft_strlen(av[i]) - 1] != 's' ||
 		av[i][ft_strlen(av[i]) - 2] != '.')
 			error_header(2);

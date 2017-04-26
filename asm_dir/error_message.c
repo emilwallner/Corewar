@@ -6,13 +6,13 @@
 /*   By: tlenglin <tlenglin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/24 12:45:21 by tlenglin          #+#    #+#             */
-/*   Updated: 2017/04/02 16:17:36 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/26 15:02:21 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "asm.h"
 
-static char	*g_error_msg[11] =
+static char	*g_error_msg[12] =
 {
 	"\x1b[31mop.h -> forbidden characters in #define.\x1b[0m\n",
 	"\x1b[31mop.h -> COREWAR_EXEC_MAGIC > 0xffffffff\x1b[0m\n",
@@ -24,7 +24,8 @@ static char	*g_error_msg[11] =
 	"\x1b[31mError : number of parameter invalid\x1b[0m\n",
 	"\x1b[31mError : registry parameter invalid\x1b[0m\n",
 	"\x1b[31mError : direct parameter invalid\x1b[0m\n",
-	"\x1b[31mError : indirect parameter invalid\x1b[0m\n"
+	"\x1b[31mError : indirect parameter invalid\x1b[0m\n",
+	"\x1b[31mError : invalid character\x1b[0m\n"
 };
 
 int	error_header(int id)
@@ -43,7 +44,7 @@ int	eoll(int id, int line)
 {
 	ft_putstr_fd("Line ", 2);
 	ft_putnbr_fd(line, 2);
-	ft_putstr_fd(" : ", 2);
+	ft_putstr_fd(" > ", 2);
 	ft_putstr_fd(g_error_msg[id], 2);
 	return (0);
 }
