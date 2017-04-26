@@ -26,8 +26,9 @@ int		ft_string_len(t_env *e, int i)
 		if (ret != 0)
 			e->player[i].len += ret;
 	}
-	if (e->player[i].len >= CHAMP_MAX_SIZE)
-		ft_exit(e, 11);
+	ft_printf("Len: %d and champ: %d\n", e->player[i].len, CHAMP_MAX_SIZE);
+	if (e->player[i].len > TOTAL_SIZE)
+		ft_exit(e, 6);
 	if (close(fd) == -1)
 		ft_exit(e, 2);
 	if (ret == -1)

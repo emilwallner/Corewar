@@ -17,10 +17,7 @@ int			main(int ac, char **av)
 	t_env e;
 
 	if (ac == 1)
-	{
-		ft_error_msg(0);
-		return (0);
-	}
+		ft_error_usage();
 	init_e(&e, av);
 	ft_parse_flags(&e, ac, av);
 	ft_files_to_string(&e);
