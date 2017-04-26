@@ -24,7 +24,6 @@ void	ft_print_game_stats(t_env *e)
 	Checks: %d/9 > Decrease cycle to die with: %d     \
 	Cycles to die: %d/%d\n\n", e->tot_cycle, e->cursors, NBR_LIVE, e->lives, \
 	e->check, CYCLE_DELTA, e->cycles_to_die, e->cycle);
-	ft_print_regs(e);
 	attroff(COLOR_PAIR(14));
 	refresh();
 }

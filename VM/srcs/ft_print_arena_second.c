@@ -26,13 +26,3 @@ void	ft_print_lives(t_env *e, int i)
 		addch(ACS_CKBOARD);
 	attroff(COLOR_PAIR(e->player[i].color));
 }
-
-void	ft_print_regs(t_env *e)
-{
-	int i;
-
-	i = -1;
-	printw("This is regs >>");
-	while (++i < 16)
-		printw("%i->%i   ", i + 1, e->head->reg[i]);
-}

@@ -6,7 +6,7 @@
 /*   By: nsabbah <nsabbah@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/19 18:26:25 by nsabbah           #+#    #+#             */
-/*   Updated: 2017/04/26 14:34:33 by tlenglin         ###   ########.fr       */
+/*   Updated: 2017/04/26 15:48:02 by ewallner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,12 @@ int	ft_check_args(t_env e, t_cursor cursor)
 		return (1);
 	else
 	{
-		// ft_jump_acb(e, cursor, nb_of_args, acb);
 		return (0);
 	}
 }
 
 int	ft_count_jump(int type, int label_size)
 {
-	printf("type = %i\n", type);
 	if (type == REG_CODE)
 		return (1);
 	else if (type == DIR_CODE)
@@ -93,7 +91,6 @@ int	ft_jump_acb(t_env *e, int opcode, int acb)
 	int	count;
 
 	jump = 0;
-	printf("opcode = %i\n", opcode);
 	if (opcode < 1 || opcode > 16)
 		return (1);
 	count = e->op_tab[opcode].nb_params;
