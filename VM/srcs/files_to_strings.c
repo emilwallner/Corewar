@@ -45,7 +45,7 @@ void	ft_files_to_string(t_env *e)
 	while (i < e->player_amount)
 	{
 		if (ft_strlen(e->files[e->player[i].file_pos]) <= 4 ||
-				strcmp(e->files[e->player[i].file_pos] +
+				ft_strcmp(e->files[e->player[i].file_pos] +
 						ft_strlen(e->files[e->player[i].file_pos]) - 4, ".cor"))
 			ft_exit(e, 11);
 		len = ft_string_len(e, i);
