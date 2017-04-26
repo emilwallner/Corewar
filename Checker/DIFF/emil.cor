@@ -1,4 +1,0 @@
-2c2
-< * Player -1, weighing 21 bytes, "emil_test_st" ("do something") !
----
-> * Player 1, weighing 21 bytes, "emil_test_st" ("do something") !

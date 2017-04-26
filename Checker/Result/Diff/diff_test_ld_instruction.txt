@@ -1,1 +1,0 @@
-Files Result/ZaZ/test_ld_instruction and Result/User/test_ld_instruction are identical
