@@ -35,10 +35,10 @@ void	ft_clean_head(t_cursor *head)
 void	ft_error_usage(void)
 {
 	ft_putstr_fd(" Usage:\n \
-	Example: ./corewar -visual -n -1 ./Players/helltrain.cor\n \
+	Example: ./corewar -visual -n -1 filename.cor\n \
 	GUI: ./corewar -visual [Players]\n \
 	Default Player Numbers: 1, 2, 3, 4...\n \
-	Change Player Number: -n -1 ./Players/helltrain.cor\n \
+	Change Player Number: -n -1 filename.cor\n \
 	Dump: ./corewar -dump 300 [Players](prints the memory after 300 cycles)\n \
 	Game on! 👾 🤖 🔫 \n", 2);
 	exit(1);
