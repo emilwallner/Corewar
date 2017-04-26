@@ -6,7 +6,7 @@
 /*   By: mhaziza <mhaziza@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 18:19:51 by mhaziza           #+#    #+#             */
-/*   Updated: 2017/04/26 16:36:39 by mhaziza          ###   ########.fr       */
+/*   Updated: 2017/04/26 16:47:59 by mhaziza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static int	check_instruction_attribute(int i, t_asm *tasm)
 	if (set_t_instruction(&line, tasm->asm_master[i]) == 0)
 		return (0);
 	if (line.name && (id = get_id_by_name(tasm, line.name)) < 1)
-		return (0);
+		return (eoll(13, i));
 	if (line.params && !check_params(line.params, tasm->op_tab[id], tasm, i))
 	{
 		if (line.name)
