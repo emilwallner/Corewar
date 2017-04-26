@@ -28,12 +28,15 @@ int		find_next_value(t_env *e)
 	return (i);
 }
 
-void	ft_capture_number(t_env *e, char *nbr, int *i)
+void	ft_capture_number(t_env *e, char *nbr, int *i, int args)
 {
 	long temp;
 
+	if ((*i + 3) > args)
+		ft_exit(e, 7);
 	*i += 1;
 	e->dump = 1;
+	ft_check_number(e, nbr);
 	if (ft_strlen(nbr) > 15)
 		ft_exit(e, 7);
 	temp = ft_atoli(nbr);
@@ -44,11 +47,13 @@ void	ft_capture_number(t_env *e, char *nbr, int *i)
 	*i += 1;
 }
 
-void	ft_add_player_w_nbr(t_env *e, char *nbr, int args, int *i, int players)
+void	ft_add_player_w_nbr(t_env *e, char *nbr, int args, int *i)
 {
-	long temp;
+	long	temp;
+	int		players;
 
- 	if((*i + 3) > args)
+	players = e->player_amount;
+	if ((*i + 3) > args)
 		ft_exit(e, 12);
 	ft_check_number(e, nbr);
 	if (ft_strlen(nbr) > 15)
@@ -81,17 +86,14 @@ void	ft_parse_flags(t_env *e, int args, char **av)
 
 	i = 1;
 	e->player_amount = 0;
-	if (ft_strequ(av[i], "-dump") && (i + 3) <= args)
-		ft_capture_number(e, av[i + 1], &i);
-	else if (ft_strequ(av[i], "-visual") && (i + 2) <= args)
-	{
-		e->bonus = 1;
-		i++;
-	}
+	if (ft_strequ(av[i], "-dump"))
+		ft_capture_number(e, av[i + 1], &i, args);
+	else if (ft_strequ(av[i], "-visual"))
+		ft_add_bonus(e, args, &i);
 	while (i < args)
 	{
 		if (ft_strequ(av[i], "-n"))
-			ft_add_player_w_nbr(e, av[i + 1], args, &i, e->player_amount);
+			ft_add_player_w_nbr(e, av[i + 1], args, &i);
 		else
 			ft_add_player_empty(e, &i, e->player_amount);
 		e->player_amount += 1;

@@ -129,6 +129,7 @@ typedef struct		s_env
 	t_op		op_tab[17];
 }					t_env;
 
+void				ft_add_bonus(t_env *e, int args, int *i);
 void				ft_check_number(t_env *e, char *nbr);
 void				ft_error_usage(void);
 void				ft_add_player_comment(t_env *e, int k);

@@ -51,3 +51,11 @@ void	ft_check_number(t_env *e, char *nbr)
 		if (!(ft_strchr(LABEL_NUMBERS, nbr[i])))
 			ft_exit(e, 7);
 }
+
+void	ft_add_bonus(t_env *e, int args, int *i)
+{
+	if ((*i + 2) > args)
+		ft_exit(e, 7);
+	e->bonus = 1;
+	*i += 1;
+}
