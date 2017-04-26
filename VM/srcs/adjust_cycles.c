@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   adjust_cycles.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ewallner <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ewallner <ewallner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 19:26:42 by ewallner          #+#    #+#             */
-/*   Updated: 2017/04/11 19:26:48 by ewallner         ###   ########.fr       */
+/*   Updated: 2017/04/26 14:27:11 by tlenglin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,19 @@ void	ft_adjust_cycle_macro(t_env *e, t_cursor *cursor, int *end)
 
 void	ft_cycle_end_and_execute(t_env *e, t_cursor *cursor)
 {
+	int	opcode;
+	int	acb;
+
 	if (cursor->cycle == 0)
 	{
 		if (ft_check_args(*e, *cursor))
 			(*g_func_ptr[(int)e->a[cursor->index].hex])(e, cursor);
 		else
-			ft_update_cursor(e, cursor, 1);
+		{
+			opcode = ZMASK(e->a[cursor->index].hex);
+			acb = e->a[cursor->index + 1].hex;
+			ft_update_cursor(e, cursor, ft_jump_acb(e, opcode, acb));
+		}
 		cursor->running = 0;
 	}
 	else
