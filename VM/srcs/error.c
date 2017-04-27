@@ -72,10 +72,40 @@ void	ft_error_msg(int i)
 	exit(1);
 }
 
+void	ft_error_msg_second(int i)
+{
+	if (i == 11)
+		ft_putstr_fd("\x1b[31m[Too few arguments for -dump]\x1b[0m ", 2);
+	else if (i == 12)
+		ft_putstr_fd("\x1b[31m[-dump value is larger than int max]\x1b[0m ", 2);
+	else if (i == 13)
+		ft_putstr_fd("\x1b[31m[Too few arguments for -n flag]\x1b[0m ", 2);
+	else if (i == 14)
+		ft_putstr_fd("\x1b[31m[Non numerical chars in numb input]\x1b[0m ", 2);
+	else if (i == 15)
+		ft_putstr_fd("\x1b[31m[Wrong int value for -n flag.]\x1b[0m ", 2);
+	else if (i == 16)
+		ft_putstr_fd("\x1b[31m[Wrong file type. Usage: .cor]\x1b[0m ", 2);
+	else if (i == 17)
+		ft_putstr_fd("\x1b[31m[The file size is too large.]\x1b[0m ", 2);
+	else if (i == 18)
+		ft_putstr_fd("\x1b[31m[Too few arguments for -bonus flag]\x1b[0m ", 2);
+	else if (i == 19)
+		ft_putstr_fd("\x1b[31m[Wrong int value for -dump flag]\x1b[0m ", 2);
+	else if (i == 20)
+		ft_putstr_fd("\x1b[31m[Incorrect comment chars]\x1b[0m ", 2);
+	else
+		ft_putstr_fd("\x1b[31m[ERROR]\x1b[0m ", 2);
+	ft_putstr_fd("\n", 2);
+	exit(1);
+}
+
 void	ft_exit(t_env *e, int i)
 {
 	if (e->head)
 		ft_clean_head(e->head);
-	if (i > 0)
+	if (i > 0 && i < 11)
 		ft_error_msg(i);
+	else if (i > 10)
+		ft_error_msg_second(i);
 }

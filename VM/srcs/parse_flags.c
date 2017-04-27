@@ -33,15 +33,15 @@ void	ft_capture_number(t_env *e, char *nbr, int *i, int args)
 	long temp;
 
 	if ((*i + 3) > args)
-		ft_exit(e, 7);
+		ft_exit(e, 11);
 	*i += 1;
 	e->dump = 1;
 	ft_check_number(e, nbr);
 	if (ft_strlen(nbr) > 15)
-		ft_exit(e, 7);
+		ft_exit(e, 12);
 	temp = ft_atoli(nbr);
-	if (temp > INT_MAXA || temp < INT_MINA)
-		ft_exit(e, 7);
+	if (temp > INT_MAXA || temp < 0)
+		ft_exit(e, 19);
 	else
 		e->dump_value = temp;
 	*i += 1;
@@ -54,13 +54,13 @@ void	ft_add_player_w_nbr(t_env *e, char *nbr, int args, int *i)
 
 	players = e->player_amount;
 	if ((*i + 3) > args)
-		ft_exit(e, 12);
+		ft_exit(e, 13);
 	ft_check_number(e, nbr);
 	if (ft_strlen(nbr) > 15)
 		ft_exit(e, 7);
 	temp = ft_atoli(nbr);
 	if (temp > INT_MAXA || temp < INT_MINA)
-		ft_exit(e, 7);
+		ft_exit(e, 15);
 	if (ft_loop_dup(e, temp))
 		ft_exit(e, 9);
 	e->player[players].nbr = temp;
