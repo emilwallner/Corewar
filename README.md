@@ -1,4 +1,4 @@
-![Alt text](https://cdn.rawgit.com/emilwallner/Corewar/master/images/corewarlogo.svg "Optional title")
+<img src="https://cdn.rawgit.com/emilwallner/Corewar/master/images/corewarlogo.svg" width="100%">
 ---
 **Core War was inspired by a malicious software written in the 80’s.** A hacker wrote an assembly virus, Creeper. He then attacked a large corporation with his virus. To deal with it, a smart employee invented Reaper. It was a virus to spread and defeat the Creeper. They fought fire with fire. A clever move. 
 
