@@ -33,8 +33,6 @@ void	ft_print_bonus(t_env *e)
 	int i;
 
 	i = 0;
-	if (e->tot_cycle > 0)
-		getch();
 	erase();
 	while (i < MEM_SIZE)
 	{

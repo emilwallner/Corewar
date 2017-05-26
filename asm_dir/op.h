@@ -32,9 +32,9 @@
 # define DIRECT_CHAR		'%'
 # define SEPARATOR_CHAR		','
 
-# define LABEL_CHARS		"abcdefghijklmnopqrstuvwxyz_0123456789"
-# define COMMENT_CHARS		"abcdefghijklmnopqrstuvwxyz_0123456789()=+-*/<> "
-# define CMD_CHARS			" abcdefghijklmnopqrstuvwxyz_0123456789+-*/=.?!<>"
+# define LABEL_CHARS		"abcdefghijklmnopqrstuvwxyz_0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!'()-+*&<>=/"
+# define COMMENT_CHARS		"abcdefghijklmnopqrstuvwxyz_0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!'()-+*&<>=/ {}[]"
+# define CMD_CHARS			"abcdefghijklmnopqrstuvwxyz_0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!'()-+*&<>=/ ,"
 
 # define NAME_CMD_STRING	".name"
 # define COMMENT_CMD_STRING	".comment"
