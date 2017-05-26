@@ -1,4 +1,4 @@
-![Alt text](/images/corewarlogo.svg "Optional title")
+![Alt text](https://cdn.rawgit.com/emilwallner/Corewar/master/images/corewarlogo.svg "Optional title")
 ---
 
 ![Alt text](http://g.recordit.co/pyyAggYcWm.gif "Optional title")
