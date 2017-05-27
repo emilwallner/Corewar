@@ -22,6 +22,8 @@ The cursors have a couple of features. They can jump in the game board, store an
 
 When the game starts, all players have one cursor at the beginning of their program. The game advances as the cursors read the commands stored in their programs. 
 
+Below, we see how the pink player starts by cloning their cursors. It then starts attacking the blue player.
+
 ![Alt text](http://g.recordit.co/Y9r9E78FVY.gif "Optional title")
 ---
 ![Alt text](http://g.recordit.co/XQdhVmqvrV.gif "Optional title")
