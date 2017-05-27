@@ -12,11 +12,15 @@ This is what is looks like in action:
 
 ![Alt text](http://g.recordit.co/pyyAggYcWm.gif "Optional title")
 
-Let’s ignore the bottom part and focus on the high level game dynamics, which are: 
+Let’s focus on the high level game dynamics: 
 
 - The game board, the memory of our virtual computer. It’s represented in a 64 X 64 grid of bytes.
 - The players, small programs represented in different colors. The white parts are empty memory.
 - Cursors, the moving parts with inverted color. They read from the game board. 
+
+The cursors have a couple of features. They can jump in the game board, store and write values, and clone themselves. The cursors belong to no-one, they just read from the game board. 
+
+When the game starts, all players have one cursor at the beginning of their program. The game advances as the cursors read the commands stored in their programs. 
 
 ![Alt text](http://g.recordit.co/Y9r9E78FVY.gif "Optional title")
 ---
