@@ -56,10 +56,11 @@ Open your terminal and make it full-screen, copy paste the below, and hit enter.
 ```shell
 git clone https://github.com/emilwallner/Core-War.git ; cd Core-War ; make ; ./corewar -visual ./Players/Compiled/helltrain.cor ./Players/Compiled/bee_gees.cor ./Players/Compiled/turtle.cor ./Players/Compiled/bigzork.cor
 ```
+Once the cycle to die reaches 0, it will announce a winner. Then you can press any key to leave the program.
 
 <br>
 <br>
-# Executing Core War
+# Technical Implementation
 
 
 
