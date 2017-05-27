@@ -2,7 +2,7 @@
 
 ---
 
-**Core War was inspired by a malicious virus written in the 80’s.** To deal with the self-replicating virus, a white hat hacker invented Reaper. It was a virus designed to spread and eliminate the malware. They fought fire with fire - clever.
+**Core War was inspired by a malicious virus written in the 80’s.** To deal with the self-replicating virus, a white hat hacker invented Reaper. It was a virus designed to spread and eliminate the malware. They fought fire with fire.
 
 This inspired A. K. Dewdney to coin the idea for Core War.
 
