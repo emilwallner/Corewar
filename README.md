@@ -49,7 +49,7 @@ There are more nuances to the game that I don’t cover. The best way to learn a
 <br>
 <br>
 
-# Executing Core War
+## Executing Core War
 
 Open your terminal and make it full-screen, copy paste the below, and hit enter.
 
@@ -60,7 +60,8 @@ Once the cycle to die reaches 0, it will announce a winner. Then you can press a
 
 <br>
 <br>
-# Technical Implementation
+
+## Technical Implementation
 
 
 
