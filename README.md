@@ -18,9 +18,9 @@ Let’s focus on the high level game dynamics:
 - **The players**, small programs represented in different colors. The white parts are empty memory.
 - **Cursors**, the moving parts with inverted color. They read from the game board. 
 
-The cursors have a couple of features. They can jump in the game board, store and write values, and clone themselves. The cursors belong to no-one, they just read from the game board. 
+The cursors have a couple of features. They can jump in the game board, store and write values, and clone themselves. The cursors belong to no-one, they just read from the game board.
 
-When the game starts, all players have one cursor at the beginning of their program. The game advances as the cursors read the commands stored in their programs. 
+When the game starts, all players have one cursor at the beginning of their program. The game advances as the cursors read the commands stored in their programs. If they end up on a faulty command or a blank memory, it moves to the next byte. 
 
 Below, we see how the pink player starts by cloning their cursors. It then starts attacking the blue player.
 
