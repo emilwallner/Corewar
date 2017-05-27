@@ -61,24 +61,32 @@ Once the cycle to die reaches 0, it will announce a winner. Then you can press a
 <br>
 <br>
 
-## Technical Implementation
+
+## Technical Implementation Overview
+
+I did Core War with three friends: @mhza, @Natansab, and @tlenglin. 
 
 The Core War consists of players that are written in assembly, a compiler to turn them into binary, and the virtual computer to run the programs on. 
 
+I focussed on the main architecture of the virtual machine (VM), the game dynamics, implementing three operations, handling the cursors and implementing the graphical user interface (GUI).  
+
+The program is written using read, open, write, malloc, free and exit from **stdlib.h**. We used the **ncurses** library to create the GUI.  
+
 This is an example of a simple player, a normal player has around 150 lines of assembly code:
+
 
 ```assembly
     .name "zork"
     .comment "I'M ALIIIIVE"
     
-    l2:                sti r1,%:live,%1
-                    and r1,%0,r1
+    l2:          sti r1,%:live,%1
+                 and r1,%0,r1
     
     live:        live %1
-                    zjmp %:live
+                 zjmp %:live
 ```
 
-This is compiled into binary which is later represented in hexadecimal. The above programs looks like this when it’s compiled: 
+This is complied to binary which is later represented in hexadecimal. The above programs looks like this when it’s compiled: 
 
 ```binary
     0000000 00 ea 83 f3 7a 6f 72 6b 00 00 00 00 00 00 00 00
@@ -92,8 +100,76 @@ This is compiled into binary which is later represented in hexadecimal. The abov
     00008a0 00 00 00 01 09 ff fb
 ```
 
-The first section is the name, followed by the comment, and ending with the program which will be stored in the memory of the virtual machine. 
+The first part includes an identification code and the name, followed by the comment, and ending with the program which will be stored in the memory of the virtual machine. 
 
+<br>
+<br>
 
+## My Technical Implementation
 
+As I mentioned earlier, I focussed on the main architecture of the virtual machine, the game dynamics, implementing three hexadecimal operations, handling the cursors and the GUI.  
 
+This is the main I created for the VM:
+
+```C
+    int                        main(int ac, char **av)
+    {
+            t_env e;
+    
+            if (ac == 1)
+                    ft_error_usage();
+            init_e(&e, av);
+            ft_parse_flags(&e, ac, av);
+            ft_files_to_string(&e);
+            init_players(&e);
+            ft_parsing(&e);
+            ft_build_arena(&e);
+            ft_init_cursor(&e);
+            ft_move_cursors(&e);
+            ft_declare_winner(&e);
+            ft_exit(&e, 0);
+            return (0);
+    }
+```
+It should give you a rough understanding of the main logic. We parse the flags entered in the terminal, turn the files into strings, initiate the players; parse the player data, set up the memory for the VM, initiate the cursors, run the game, declare the winners, and free the data.   
+
+Below is the main struct and it gives you a rough idea what’s going on. 
+
+```C
+    typedef struct                s_env
+    {
+            t_player        player[MAX_PLAYERS + 1];
+            t_cursor        *head;
+            t_arena         a[MEM_SIZE];
+            int             cursors;
+            int             dump;
+            int             dump_value;
+            int             cycle;
+            int             tot_cycle;
+            int             lives;
+            int             check;
+            int             bonus;
+            int             winner;
+            int             last_alive;
+            int             cycles_to_die;
+            char            arena[MEM_SIZE];
+            int             player_amount;
+            char            **files;
+            t_op            p_tab[17];
+    }                             t_env;
+```
+The game board, the memory of the virtual machine, is stored in a static struct array, **t_arena**. It could have been an int array, but this enabled more flexibility to mange the GUI.  
+
+The cursor are stored in a doubly linked list, it’s circular, and has an extra node to keep track of the beginning of the list. Every time a cursor reads the coding byte to clone itself, it adds a new cursor in the end of the list. The core structure performed well up to 10M cursors. 
+
+I choose a function pointer to handle the 16 operations mentioned in the first section. This allowed us to easily work on different functions and access them when necessary. 
+
+```C
+    static void (*g_func_ptr[17])(t_env *e, t_cursor *cursor) =
+    {
+            ft_live, ft_live, ft_ld, ft_st, ft_add, ft_sub, ft_and, ft_or,
+            ft_xor, ft_zjmp, ft_ldi, ft_sti, ft_fork, ft_lld, ft_lldi,
+            ft_lfork, ft_aff
+    };
+```
+That’s it for me. If you have any questions or find and issues with the game, ping me an email. 
