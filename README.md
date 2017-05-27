@@ -58,6 +58,23 @@ git clone https://github.com/emilwallner/Core-War.git ; cd Core-War ; make ; ./c
 ```
 Once the cycle to die reaches 0, it will announce a winner. Then you can press any key to leave the program.
 
+The usage for the corewar game: 
+
+```
+Usage:
+ 	Example: ./corewar -visual -n -1 filename.cor
+ 	GUI: ./corewar -visual [Players]
+ 	Default Player Numbers: 1, 2, 3, 4...
+ 	Change Player Number: -n -1 filename.cor
+ 	Dump: ./corewar -dump 300 [Players](prints the memory after 300 cycles)
+ 	Game on! 👾 🤖 🔫
+```
+If you want to create and then compile players, use the asm: 
+
+```
+Usage : ./asm [filename.s]
+```
+
 <br>
 <br>
 
