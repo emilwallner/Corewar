@@ -58,7 +58,7 @@ git clone https://github.com/emilwallner/Core-War.git ; cd Core-War ; make ; ./c
 ```
 Once the cycle to die reaches 0, it will announce a winner. Then you can press any key to leave the program.
 
-The usage for the corewar game: 
+The usage for the Core War game: 
 
 ```
 Usage:
