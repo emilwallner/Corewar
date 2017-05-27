@@ -72,7 +72,8 @@ Usage:
 If you want to create and then compile players, use the asm: 
 
 ```
-Usage : ./asm [filename.s]
+Usage : 
+  ./asm [filename.s]
 ```
 
 <br>
