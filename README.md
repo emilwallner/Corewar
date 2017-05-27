@@ -46,11 +46,9 @@ You win if your program is the last one to receive a life.
 
 There are more nuances to the game that I don’t cover. They best way to learn about them is to execute the game in your terminal.  
 
-
----
-
-
-
+<br>
+<br>
+<br>
 
 # Executing Core War in your terminal 
 
