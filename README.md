@@ -54,10 +54,7 @@ There are more nuances to the game that I don’t cover. The best way to learn a
 Open your terminal and make it full-screen, copy paste the below, and hit enter.
 
 ```shell
-git clone https://github.com/emilwallner/Core-War.git ; 
-cd Core-War ; 
-make ; 
-./corewar -visual ./Players/Compiled/helltrain.cor ./Players/Compiled/bee_gees.cor ./Players/Compiled/turtle.cor ./Players/Compiled/bigzork.cor
+git clone https://github.com/emilwallner/Core-War.git ; cd Core-War ; make ; ./corewar -visual ./Players/Compiled/helltrain.cor ./Players/Compiled/bee_gees.cor ./Players/Compiled/turtle.cor ./Players/Compiled/bigzork.cor
 ```
 
 <br>
