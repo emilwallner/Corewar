@@ -28,11 +28,11 @@ Below, we see how the pink player starts by cloning their cursors. It then start
 
 Let’s get into a little bit more depth. 
 
-Every byte you see, the pairs of numbers or letters, are represented in hexadecimals. If you don’t know what a hexadecimal is, don’t worry about it. The pairs represent a digit from 0 - 255. 
+Every byte you see, the pairs of numbers or letters, are represented in hexadecimals. Each hexadecimal has the value of a digit, from 0 - 255. 
 
 There are different implementations of Core War. We choose to allow 16 operations. The first 16 hexadecimals are **coding bytes**, they all store a different operation. The remaning digits, 17 - 255, are regular numbers. 
 
-The coding byte decides which operation to execute and how many bytes to read. In the image above, the pink player goes to the hexadecimal **0c**, 12 in decimal, telling the cursor to clone itself. The two bytes after, decide where the cloned cursor starts. 
+The coding byte decides which operation to execute and how many bytes to read. In the image above, the pink player goes to the hexadecimal **0c**. It's 12 in decimal, telling the cursor to clone itself. The two bytes after decide where the cloned cursor starts. 
 
 ![Alt text](http://g.recordit.co/XQdhVmqvrV.gif "Optional title")
 
