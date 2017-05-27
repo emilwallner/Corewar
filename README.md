@@ -32,5 +32,9 @@ Every byte you see, the pairs of number and/or letters are represented in hexade
 
 There are different implementations of Core War. We choose to allow 16 operations. So the hexadecimals that represent 1 - 16 store a command interpreted by the cursor, **a coding byte**. The numbers 17 - 255 are regular digits. 
 
+The coding byte decides how many bytes to read and what to do with them. In the image above, the pink player goes to the hexadecimal **0c**, 12 in decimal, telling the cursor to clone itself. The two bytes after, decide where the cloned cursor starts. 
+
+Every coding bytes gives different instructions to the cursor. It also decides how to read the bytes and how many bytes to read. 
+
 ![Alt text](http://g.recordit.co/XQdhVmqvrV.gif "Optional title")
 ---
