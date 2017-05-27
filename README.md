@@ -44,9 +44,8 @@ There are three main components to determine who wins:
 
 You win if your program is the last one to receive a life. 
 
-There are more nuances to the game that I don’t cover. They best way to learn about them is to execute the game in your terminal.  
+There are more nuances to the game that I don’t cover. The best way to learn about them is to run it with the below code.  
 
-<br>
 <br>
 <br>
 
@@ -56,7 +55,9 @@ Open your terminal and make it full-screen, copy paste the below, and hit enter.
 
 ```git clone https://github.com/emilwallner/Core-War.git ; cd Core-War ; make ; ./corewar -visual ./Players/Compiled/helltrain.cor ./Players/Compiled/bee_gees.cor ./Players/Compiled/turtle.cor ./Players/Compiled/bigzork.cor```
 
-
+<br>
+<br>
+# Executing Core War
 
 
 
