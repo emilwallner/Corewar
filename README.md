@@ -48,7 +48,7 @@ There are more nuances to the game that I don’t cover. They best way to learn 
 
 ---
 
-## Executing Core War in your terminal 
+# Executing Core War in your terminal 
 
 Open your terminal and make it full-screen, copy paste the below, and hit enter.
 
