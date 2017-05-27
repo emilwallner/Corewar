@@ -37,4 +37,14 @@ The coding byte decides how many bytes to read and what to do with them. In the 
 Every coding bytes gives different instructions to the cursor. It also decides how to read the bytes and how many bytes to read. 
 
 ![Alt text](http://g.recordit.co/XQdhVmqvrV.gif "Optional title")
+There are three main components to determine who wins: 
+
+- Game rounds: every game round is measured in cycles. It determines how much each cursor can read from the game board. 
+- Lives: if a cursor reads a player life from the game board, they are given a life for that round. These are visualized in the colorful progress bars. 
+- Cycle to die: for every game round, the amount of bytes a cursor can read from the game board is reduced. 
+
+You win if your program is the last one to receive a life. 
+
+There are more nuances to the game that I don’t cover. They best way to learn about them is to execute the game in your terminal.  
+
 ---
