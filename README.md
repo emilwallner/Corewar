@@ -40,9 +40,9 @@ Every coding bytes gives different instructions to the cursor. It also decides h
 
 There are three main components to determine who wins: 
 
-- **Game rounds**: every game round is measured in cycles. It determines how much each cursor can read from the game board. 
-- **Lives**: if a cursor reads a player life from the game board, they are given a life for that round. These are visualized in the colorful progress bars. 
-- **Cycle to die**: for every game round, the amount of bytes a cursor can read from the game board is reduced. 
+- **Game rounds**, every game round is measured in cycles. It determines how much each cursor can read from the game board. 
+- **Lives**, if a cursor reads a player life from the game board, they are given a life for that round. These are visualized in the colorful progress bars. 
+- **Cycle to die**, for every game round, the amount of bytes a cursor can read from the game board is reduced. 
 
 You win if your program is the last one to receive a life. 
 
