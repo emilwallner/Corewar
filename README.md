@@ -25,6 +25,12 @@ When the game starts, all players have one cursor at the beginning of their prog
 Below, we see how the pink player starts by cloning their cursors. It then starts attacking the blue player.
 
 ![Alt text](http://g.recordit.co/Y9r9E78FVY.gif "Optional title")
----
+
+Let’s get into a little bit more depth. 
+
+Every byte you see, the pairs of number and/or letters are represented in hexadecimals. If you don’t know what a hexadecimal is, don’t worry about it. The pairs represent a digit from 0 - 255. 
+
+There are different implementations of Core War. We choose to allow 16 operations. So the hexadecimals that represent 1 - 16 store a command interpreted by the cursor, **a coding byte**. The numbers 17 - 255 are regular digits. 
+
 ![Alt text](http://g.recordit.co/XQdhVmqvrV.gif "Optional title")
 ---
