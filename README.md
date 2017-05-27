@@ -30,7 +30,7 @@ Let’s get into a little bit more depth.
 
 Every byte you see, the pairs of numbers or letters, are represented in hexadecimal. Each hexadecimal has the value of a digit, from 0 - 255. 
 
-There are 16 operations in the game. The operations decide if the cursor should jump to a different address, clone itself and so on. The first 16 hexadecimal are **coding bytes**, they all store a different operation. The remaining digits, 17 - 255, are regular numbers. 
+There are 16 operations in the game. The operations decide if the cursor should jump to a different address, clone itself and so on. The first 16 hexadecimal are [**coding bytes**](https://docs.google.com/spreadsheets/d/1IuQv2yfx7ewS3d6H2KyDu7N9U67u3mhFBy8W1XUhxuM/edit?usp=sharing), they all store a different operation. The remaining digits, 17 - 255, are regular numbers. 
 
 The coding byte decides which operation to execute and how many bytes to read. In the image above, the pink player goes to the hexadecimal **0c**. It's 12 in decimal, telling the cursor to clone itself. The two bytes after decide where the cloned cursor starts. 
 
@@ -103,7 +103,7 @@ This is an example of a simple player, a normal player has around 150 lines of a
                  zjmp %:live
 ```
 
-This is complied to binary which is later represented in hexadecimal. The above programs looks like this when it’s compiled: 
+This complies to binary which is later represented in hexadecimal. The above program looks like this when it’s compiled: 
 
 ```binary
     0000000 00 ea 83 f3 7a 6f 72 6b 00 00 00 00 00 00 00 00
@@ -175,9 +175,9 @@ Below is the main struct and it gives you a rough idea what’s going on.
             t_op            p_tab[17];
     }                             t_env;
 ```
-The game board, the memory of the virtual machine, is stored in a static struct array, **t_arena**. It could have been an int array, but this enabled more flexibility to mange the GUI.  
+The game board, the memory of the virtual machine, is stored in a static struct array, **t_arena**. It could have been an int array, but this enabled more flexibility to manage the GUI.  
 
-The cursor are stored in a doubly linked list, it’s circular, and has an extra node to keep track of the beginning of the list. Every time a cursor reads the coding byte to clone itself, it adds a new cursor in the end of the list. The core structure performed well up to 10M cursors. 
+The cursors are stored in a doubly linked list, it’s circular, and has an extra node to keep track of the beginning of the list. Every time a cursor reads the coding byte to clone itself, it adds a new cursor at the end of the list. The core structure performed well up to 10M cursors. 
 
 I choose a function pointer to handle the 16 operations mentioned in the first section. This allowed us to easily work on different functions and access them when necessary. 
 
