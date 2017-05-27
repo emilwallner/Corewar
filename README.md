@@ -15,7 +15,7 @@ This is what is looks like in action:
 Let’s focus on the high level game dynamics: 
 
 - **The game board**, the memory of our virtual computer. It’s represented in a 64 X 64 grid of bytes.
-- **The players**, small programs represented in different colors. The white parts are empty memory.
+- **The players**, small programs represented in different colors. The white parts are blank memory.
 - **Cursors**, the moving parts with inverted color. They read from the game board. 
 
 The cursors have a couple of features. They can jump in the game board, store and write values, and clone themselves. The cursors belong to no-one, they just read from the game board.
