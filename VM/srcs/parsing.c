@@ -70,7 +70,6 @@ void	ft_parsing(t_env *e)
 {
 	int		i;
 	int		k;
-	int		hex;
 	char	*str;
 	char	*inst;
 
@@ -84,7 +83,6 @@ void	ft_parsing(t_env *e)
 		e->player[i].inst_len = k;
 		while (k < e->player[i].len)
 		{
-			hex = 0xFF & (str[k]);
 			*inst = str[k];
 			k++;
 			inst++;

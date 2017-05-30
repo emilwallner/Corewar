@@ -58,10 +58,8 @@ int		ft_size_of_uintmax(uintmax_t nb, t_vars *e)
 char	*ft_atoi_uintmax(uintmax_t nb, t_vars *e)
 {
 	char		*sixteen;
-	int			i;
 	int			len;
 
-	i = 0;
 	if (nb == 0)
 		return ("0");
 	if (e->type == UHEX || e->type == UOCTAL)
@@ -82,12 +80,10 @@ char	*ft_atoi_uintmax(uintmax_t nb, t_vars *e)
 char	*ft_atoi_intmax(intmax_t nb, t_vars *e)
 {
 	char		*sixteen;
-	int			i;
 	int			len;
 
 	if (nb < -9223372036854775807)
 		return ("9223372036854775808");
-	i = 0;
 	if (nb == 0)
 		return ("0");
 	sixteen = "0123456789";
