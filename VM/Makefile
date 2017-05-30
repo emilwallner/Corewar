@@ -12,7 +12,7 @@
 
 COREWAR =	../corewar
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -Wno-unused-but-set-variable
 RM		=	rm -f
 MKDIR	=	mkdir -p
 LIBFT	=	-L ../libft -lft -lcurses
@@ -69,12 +69,12 @@ all:	$(COREWAR)
 
 # Executables
 $(COREWAR): $(OBJS)
-	@$(CC) -o $@ $^ $(CFLAGS) -I $(INC_COREWAR) $(LIBFT)
+	@$(CC) -o $@ $^ $(CFLAGS) -include $(INC_COREWAR) $(LIBFT)
 	@echo "Compiling [$@]"
 
 # Object files
 $(OBJS): $(SRCS)
-	@$(CC) -c $^ $(CFLAGS) -I $(INC_COREWAR)
+	@$(CC) -c $^ $(CFLAGS) -include $(INC_COREWAR)
 	@$(ECHO)
 
 # Cleaning rules

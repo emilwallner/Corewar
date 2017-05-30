@@ -13,8 +13,8 @@
 NAME = libft.a
 HEAD = libft.h
 HEADPRINTF = ft_print.h
-FLAG =  -Werror -Wextra -Wall
-OPTION = -c -I $(HEAD) -I $(HEADPRINTF)
+FLAG =  -Werror -Wextra -Wall -Wno-unused-but-set-variable
+OPTION = -c -include $(HEAD) -include $(HEADPRINTF)
 SRC = ft_putchar.c ft_putchar_fd.c ft_putstr_fd.c ft_putstr.c ft_strlen.c \
 	  ft_putnbr_fd.c ft_putnbr.c ft_putendl_fd.c ft_putendl.c \
 	  ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
