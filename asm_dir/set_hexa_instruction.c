@@ -27,11 +27,9 @@ void		set_acb(t_op top, char *line, int fd, int *cursor)
 {
 	unsigned char	acb;
 	int				i;
-	int				j;
 
 	i = -1;
 	acb = 0;
-	j = 0;
 	while (++i < top.nb_params)
 	{
 		if (line[0] == 'r')

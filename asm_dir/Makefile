@@ -12,7 +12,7 @@
 
 NAME	=	../asm
 CC		=   gcc
-CFLAGS	= 	-Wall -Wextra -Werror -Wno-unused-but-set-variable
+CFLAGS	= 	-Wall -Wextra -Werror
 RM		=   rm -f
 LIBFT	=	 -L../libft -lft
 SRCS	=	asm.c \

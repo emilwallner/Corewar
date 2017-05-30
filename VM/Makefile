@@ -12,7 +12,7 @@
 
 COREWAR =	../corewar
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -Wno-unused-but-set-variable
+CFLAGS	=	-Wall -Wextra -Werror
 RM		=	rm -f
 MKDIR	=	mkdir -p
 LIBFT	=	-L ../libft -lft -lcurses

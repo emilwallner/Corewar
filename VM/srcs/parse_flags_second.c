@@ -15,9 +15,7 @@
 int		ft_loop_dup(t_env *e, int nbr)
 {
 	int		k;
-	int		c;
 
-	c = 0;
 	k = -1;
 	while (++k < e->player_amount)
 	{

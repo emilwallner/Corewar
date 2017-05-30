@@ -52,19 +52,13 @@ int	ft_check_args_2(t_env e, t_cursor cursor, int nb_of_args)
 
 int	ft_check_args(t_env e, t_cursor cursor)
 {
-	int		nb_of_args;
-	int		i;
 	int		opcode;
-	char	acb;
 
-	i = -1;
 	opcode = ZMASK(e.a[cursor.index].hex);
 	if (opcode < 1 || opcode > 16)
 		return (0);
 	if (e.op_tab[opcode].acb == 0)
 		return (1);
-	acb = e.a[cursor.index + 1].hex;
-	nb_of_args = 0;
 	if (ft_check_args_2(e, cursor, e.op_tab[opcode].nb_params) == 1)
 		return (1);
 	else

@@ -44,13 +44,11 @@ t_cursor	*ft_clone_cursor(t_cursor *cursor, t_cursor *fork_cursor)
 void		ft_fork_both(t_env *e, t_cursor *cursor, int lfork)
 {
 	t_cursor	*fork_cursor;
-	t_cursor	*stack;
 	t_cursor	*temp;
 	t_cursor	*head_temp;
 	int			index_extra;
 
 	temp = e->head;
-	stack = cursor;
 	fork_cursor = NULL;
 	index_extra = get_dir(e, cursor, 1, 2);
 	fork_cursor = ft_clone_cursor(cursor, fork_cursor);
